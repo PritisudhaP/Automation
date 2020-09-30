@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites disabled="0" errors="0" failures="31" tests="33" time="1944.359">
+ <testsuite name="Login: " timestamp="2020-09-16T19:12:55" hostname="localhost" time="15.456" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Login: " name="Login - TC0000" time="15.455" />
+ </testsuite>
+ <testsuite name="Setup  : " timestamp="2020-09-16T19:13:10" hostname="localhost" time="239.632" errors="0" tests="5" skipped="0" disabled="0" failures="0">
+  <testcase classname="Setup  : " name="Create 1 product with multiple SKUs - TC0000" time="70.28" />
+  <testcase classname="Setup  : " name="Inventory Sync - TC0001" time="94.794" />
+  <testcase classname="Setup  : " name="Create a Customer - TC0002" time="24.658" />
+  <testcase classname="Setup  : " name="Create a Customer - TC0002b" time="24.402" />
+  <testcase classname="Setup  : " name="Create a Customer - TC0002c" time="25.498" />
+ </testsuite>
+ <testsuite name="Sales Order Flow  : " timestamp="2020-09-16T19:17:10" hostname="localhost" time="281.793" errors="0" tests="4" skipped="0" disabled="0" failures="3">
+  <testcase classname="Sales Order Flow  : " name="Sales order that release successfully - TC0001" time="74.643">
+   <failure type="toEqual" message="Expected &apos;PARTIAL RELEASE&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrder.spec.js:75:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Sales Order Flow  : " name="Sales order with Ship Alones False - SCL THK now has ship alone true for all - earlier FTA, now release with 2 shipment requests - TC0002" time="73.961">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrder.spec.js:142:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Sales Order Flow  : " name="Sales order with Ship Alones True - Partially Released - TC0003" time="65.746">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;PARTIAL RELEASE&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrder.spec.js:203:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Sales Order Flow  : " name="Sales order with Ship Alones True - Ship Complete - FTA - TC0004" time="67.442" />
+ </testsuite>
+ <testsuite name="Sales Order Flow  : " timestamp="2020-09-16T19:21:52" hostname="localhost" time="0.003" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="Sales Order Flow  : " name="EDI Sales order that release successfully to a forced location - TC0001" time="0.003">
+   <failure type="exception" message="Failed: Cannot find module &apos;string-search&apos;"><![CDATA[Error: Cannot find module 'string-search'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderEdi.spec.js:22:35)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+From: Task: Run it("EDI Sales order that release successfully to a forced location - TC0001") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderEdi.spec.js:20:5)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderEdi.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Shipment confirmation  Flow  : " timestamp="2020-09-16T19:21:52" hostname="localhost" time="541.108" errors="0" tests="8" skipped="0" disabled="0" failures="15">
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - positive flow - TC0001" time="66.819">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:70:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//div[@class=&quot;en-collection-row&quot;]/div[8])[1])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//div[@class="en-collection-row"]/div[8])[1])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestNumber (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:66:47)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:83:41
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - positive flow - TC0001") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:22:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - short ship flow - TC0002" time="74.575">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:299:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//div[@class=&quot;en-collection-row&quot;]/div[8])[1])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//div[@class="en-collection-row"]/div[8])[1])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestNumber (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:66:47)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:309:41
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - short ship flow - TC0002") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:251:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - Reject for reallocation to a diff DC - TC0003" time="74.954">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:527:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//div[@class=&quot;en-collection-row&quot;]/div[8])[1])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//div[@class="en-collection-row"]/div[8])[1])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestNumber (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:66:47)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:540:41
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - Reject for reallocation to a diff DC - TC0003") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:479:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - SKUs with and without shelf life - TC0004" time="65.545">
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, //span/li/button/span[text()=&apos;Release&apos;]/parent::button)"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, //span/li/button/span[text()='Release']/parent::button)
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.salesOrderSelectGear (d:\AutomationSuites\enspire_Auto\src\tests\screens\salesOrder\salesOrder.summary.screen.js:70:41)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:763:35
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - SKUs with and without shelf life - TC0004") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:710:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Check Available Qty after shipment confirmations - TC0005" time="29.202">
+   <failure type="toEqual" message="Expected &apos;300&apos; to equal &apos;290&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:956:59)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toMatch" message="Expected &apos;300&apos; to match &apos;5&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:957:58)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toEqual" message="Expected &apos;99&apos; to equal &apos;98&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:972:59)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - with confirmation coming back with diff lot numbers - TC0006" time="74.633">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1030:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//div[@class=&quot;en-collection-row&quot;]/div[8])[1])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//div[@class="en-collection-row"]/div[8])[1])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestNumber (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:66:47)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1042:41
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - with confirmation coming back with diff lot numbers - TC0006") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:980:7)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Shipment confirmation - multiple SKUs attached to single product - TC0007" time="79.862">
+   <failure type="exception" message="Failed: Cannot find module &apos;string-search&apos;"><![CDATA[Error: Cannot find module 'string-search'
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:636:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:562:25)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1301:38
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment confirmation - multiple SKUs attached to single product - TC0007") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1226:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="Cancel FTA order - TC0008" time="75.518">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1505:70
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//div[@class=&quot;en-collection-row&quot;]/div[8])[1])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//div[@class="en-collection-row"]/div[8])[1])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestNumber (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:66:47)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1518:49
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Cancel FTA order - TC0008") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at runNext (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4257:20)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:1457:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\shipmentConfirmation.spec.js:12:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Inventory Inc/Dec  Flow  : " timestamp="2020-09-16T19:30:53" hostname="localhost" time="141.799" errors="0" tests="1" skipped="0" disabled="0" failures="3">
+  <testcase classname="Inventory Inc/Dec  Flow  : " name="Inventory Inc/Dec - TC0001" time="141.799">
+   <failure type="toEqual" message="Expected &apos;-20&apos; to equal &apos;-40&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\inventoryIncDc.spec.js:82:59)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toEqual" message="Expected &apos;80&apos; to equal &apos;60&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\inventoryIncDc.spec.js:98:59)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toEqual" message="Expected &apos;70&apos; to equal &apos;30&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\inventoryIncDc.spec.js:132:59)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Sales Order Flow  : " timestamp="2020-09-16T19:33:15" hostname="localhost" time="42.65" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Sales Order Flow  : " name="SKU update event generation - TC0001" time="42.65" />
+ </testsuite>
+ <testsuite name="Returns Flow  : " timestamp="2020-09-16T19:33:57" hostname="localhost" time="43.424" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Returns Flow  : " name="Returns that release successfully - TC0001" time="43.422" />
+ </testsuite>
+ <testsuite name="Sales Order Flow - update address on released order : " timestamp="2020-09-16T19:34:41" hostname="localhost" time="86.332" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="Sales Order Flow - update address on released order : " name="Sales order - update address on released order - TC0001" time="86.332">
+   <failure type="toEqual" message="Expected &apos;PARTIAL RELEASE&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderReleaseEditWMS.spec.js:73:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Webservice Server CRUD   : " timestamp="2020-09-16T19:36:07" hostname="localhost" time="46.429" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Webservice Server CRUD   : " name="Webservice Server CRUD - TC0001" time="46.429" />
+ </testsuite>
+ <testsuite name="Webservice Client CRUD   : " timestamp="2020-09-16T19:36:54" hostname="localhost" time="47.185" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Webservice Client CRUD   : " name="Webservice Client CRUD - TC0001" time="47.185" />
+ </testsuite>
+ <testsuite name="Sales Order Flow - get Shipment status from WMS : " timestamp="2020-09-16T19:37:41" hostname="localhost" time="79.509" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="Sales Order Flow - get Shipment status from WMS : " name="Sales order - get Shipment status from WMS - TC0001" time="79.509">
+   <failure type="toEqual" message="Expected &apos;PARTIAL RELEASE&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderStatusWMS.spec.js:73:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Sales Order Flow with address verification : " timestamp="2020-09-16T19:39:00" hostname="localhost" time="57.144" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Sales Order Flow with address verification : " name="Sales order check address verification - TC0001" time="57.142" />
+ </testsuite>
+ <testsuite name="Sales Order FTV scenarios : " timestamp="2020-09-16T19:39:57" hostname="localhost" time="148.747" errors="0" tests="1" skipped="0" disabled="0" failures="0">
+  <testcase classname="Sales Order FTV scenarios : " name="Sales order with SKU not in catalog and then correct the error - TC0001" time="148.747" />
+ </testsuite>
+ <testsuite name="Sales Order Flow with ATS check : " timestamp="2020-09-16T19:42:26" hostname="localhost" time="73.769" errors="0" tests="1" skipped="0" disabled="0" failures="3">
+  <testcase classname="Sales Order Flow with ATS check : " name="Sales order ATS check at sku level - TC0001" time="73.768">
+   <failure type="toMatch" message="Expected &apos;70&apos; to match &apos;50&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderATSCheck.spec.js:45:55)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toMatch" message="Expected &apos;177&apos; to match &apos;176&apos;."><![CDATA[Error: Failed expectation
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderATSCheck.spec.js:53:55)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2974:25)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="toMatch" message="Expected &apos;70 ATS&apos; to match &apos;50&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\salesOrderATSCheck.spec.js:80:67
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Shipment creation with sites having multiple shipping Fedex accounts  : " timestamp="2020-09-16T19:43:40" hostname="localhost" time="71.419" errors="0" tests="1" skipped="0" disabled="0" failures="2">
+  <testcase classname="Shipment creation with sites having multiple shipping Fedex accounts  : " name="Shipment creation with sites having multiple shipping Fedex accounts - TC0001" time="71.419">
+   <failure type="toEqual" message="Expected &apos;OPEN&apos; to equal &apos;RELEASED&apos;."><![CDATA[Error: Failed expectation
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\multiShippingAccount.spec.js:67:62
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7]]>
+   </failure>
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, (//en-actions/button/en-icon)[3])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, (//en-actions/button/en-icon)[3])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.shipmentRequestSelectGear (d:\AutomationSuites\enspire_Auto\src\tests\screens\shipmentRequests\shipmentRequests.summary.screen.js:49:44)
+    at D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\multiShippingAccount.spec.js:81:57
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+From: Task: Run it("Shipment creation with sites having multiple shipping Fedex accounts - TC0001") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\multiShippingAccount.spec.js:18:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\multiShippingAccount.spec.js:11:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Zipfile Extraction flow  : " timestamp="2020-09-16T19:44:51" hostname="localhost" time="5.825" errors="0" tests="1" skipped="0" disabled="0" failures="1">
+  <testcase classname="Zipfile Extraction flow  : " name="zip file extraction and deletion  - TC0001" time="5.825">
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, //div/span[contains(text(), &apos;zipfiles&apos;)]/parent::div)"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, //div/span[contains(text(), 'zipfiles')]/parent::div)
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as click] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.select (d:\AutomationSuites\enspire_Auto\src\tests\screens\files\files.screen.js:121:40)
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\zipFileExtract.spec.js:20:12)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+From: Task: Run it("zip file extraction and deletion  - TC0001") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\zipFileExtract.spec.js:13:5)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\zipFileExtract.spec.js:8:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+ </testsuite>
+ <testsuite name="Tear Down : " timestamp="2020-09-16T19:44:57" hostname="localhost" time="22.135" errors="0" tests="2" skipped="0" disabled="0" failures="1">
+  <testcase classname="Tear Down : " name="Delete customer - TC0001" time="21.883">
+   <failure type="exception" message="Failed: No element found using locator: By(xpath, //div[@class=&apos;en-collection-overlay-empty&apos;])"><![CDATA[NoSuchElementError: No element found using locator: By(xpath, //div[@class='en-collection-overlay-empty'])
+    at elementArrayFinder.getWebElements.then (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:814:27)
+    at ManagedPromise.invokeCallback_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1376:14)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+    at TaskQueue.executeNext_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3067:27)
+    at asyncRun (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2927:27)
+    at d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:668:7
+    at process._tickCallback (internal/process/next_tick.js:68:7)Error
+    at ElementArrayFinder.applyAction_ (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:459:27)
+    at ElementArrayFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:91:29)
+    at ElementFinder.(anonymous function).args [as getText] (d:\AutomationSuites\enspire_Auto\node_modules\protractor\built\element.js:831:22)
+    at module.exports.noResult (d:\AutomationSuites\enspire_Auto\src\tests\screens\commons.js:267:32)
+    at UserContext.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\teardown.spec.js:33:28)
+    at d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:112:25
+    at new ManagedPromise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:1077:7)
+    at ControlFlow.promise (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:2505:12)
+    at schedulerExecute (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:95:18)
+    at TaskQueue.execute_ (d:\AutomationSuites\enspire_Auto\node_modules\selenium-webdriver\lib\promise.js:3084:14)
+From: Task: Run it("Delete customer - TC0001") in control flow
+    at UserContext.<anonymous> (d:\AutomationSuites\enspire_Auto\node_modules\jasminewd2\index.js:94:19)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+    at Spec.queueRunnerFactory (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:909:35)
+    at Spec.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:526:10)
+    at UserContext.fn (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:5340:37)
+    at attempt (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4297:26)
+    at QueueRunner.run (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4217:20)
+    at QueueRunner.execute (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4199:10)
+From asynchronous test: 
+Error
+    at Suite.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\teardown.spec.js:16:9)
+    at addSpecsToSuite (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1107:25)
+    at Env.describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:1074:7)
+    at describe (d:\AutomationSuites\enspire_Auto\node_modules\jasmine-core\lib\jasmine-core\jasmine.js:4399:18)
+    at Object.<anonymous> (D:\AutomationSuites\enspire_Auto\src\tests\specs\SCL\teardown.spec.js:9:1)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)]]>
+   </failure>
+  </testcase>
+  <testcase classname="Tear Down : " name="Logout - TC0001" time="0.25" />
+ </testsuite>
+</testsuites>

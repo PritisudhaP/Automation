@@ -1,0 +1,2 @@
+SequenceNumber,InventoryDateTime,DC,Customer,SKU,LotID,Location,PalletID,UOM,QTY,TransactionType,TransactionDateTime,TransactionNumber,ReferenceType,ReferenceNumber,Expiration_Date,FromBucket,ToBucket,Customer
+1,20170531221530,fitchburg-dc,com.pssc,0-0-1,,1RK-128-C,5016330,Single,5,BucketMove,2017-05-31T10:00:44,132616,ORDER_NO,2276,,AVAILABLE,UNAVAILABLE,204

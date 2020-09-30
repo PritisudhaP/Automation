@@ -1,0 +1,361 @@
+<en-screen class="index-view" ng-controller="AppCtrl" ng-init="fetchSearchConfig();">
+    <style>
+        .list-tight > en-item {min-height: 2.5rem; font-size: 1.4rem;}
+        .menu-option:hover en-title, .menu-option:hover en-icon {cursor: pointer;}
+    </style>
+	
+    <div flex layout="column">
+        <en-content flex layout="column">
+            <en-panel flex class="margin-bottom-collapse">
+                <en-body>
+                    <en-content class="margin-bottom-collapse">
+                        <en-title class="text-primary capitalized">Welcome, {{authUser.data.firstName}}
+                            {{authUser.data.lastName}}
+                        </en-title>
+                        <hr class="margin-bottom-collapse">
+                        <div layout layout-align="space-between" class="margin-top">
+                            <div flex="65">
+                                <en-title class="title-sm text-muted uppercase">Get Started</en-title>
+                                <hr>
+
+                                <div layout="column" layout-gt-sm="row" layout-wrap layout-align="space-between">
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('orders/sales/list')"
+                                         ng-if="$hasPermission('SalesOrder:UI-View')">
+                                        <en-icon icon="cart" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left" >
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Sales Orders
+                                            </en-title>
+                                            <p class="text-muted">Enter, view, and manage sales orders and their state
+                                                whether created internally or received from external systems.</p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('orders/returns/')"
+                                         ng-if="$hasPermission('ReturnMerchandiseAuthorization:UI-View')">
+                                        <en-icon icon="cart-x" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Returns
+                                            </en-title>
+                                            <p class="text-muted">Create and manage RMAs from an order or as a blind return.
+                                                Track status of expected receipts and update status of the return. </p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('fulfillment/requests/')"
+                                         ng-if="$hasPermission('ShipmentRequest:UI-View')">
+                                        <en-icon icon="box-conveyor-moving" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Fulfillment Requests
+                                            </en-title>
+                                            <p class="text-muted">Easily manage and track shipments & store pickup requests and their states.
+                                                Acknowledge or reject request based on inventory availability.</p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('fulfillment/shipments/')"
+                                         ng-if="$hasPermission('Shipment:UI-View')">
+                                        <en-icon icon="truck" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Shipments
+                                            </en-title>
+                                            <p class="text-muted">Easily manage and track and build shipments and manage their states.
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('orders/purchase/list')"
+                                         ng-if="$hasPermission('PurchaseOrder:UI-View')">
+                                        <en-icon icon="box-clipboard" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Purchase Orders
+                                            </en-title>
+                                            <p class="text-muted">Manage internal and externally created purchase orders
+                                                from creation through payment.</p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('orders/transfers/')"
+                                         ng-if="$hasPermission('TransferOrder:UI-View')">
+                                        <en-icon icon="cube-swap" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Transfer Orders
+                                            </en-title>
+                                            <p class="text-muted">Create and manage transfers between stores, DCs, and pools. </p>
+                                        </div>
+                                    </div>
+                                    <div flex="45" layout class="padding-top menu-option"
+                                         en-tap="showScreen('orders/invoices/')"
+                                         ng-if="$hasPermission('Invoice:UI-View')">
+                                        <en-icon icon="cash" class="xl text-primary"></en-icon>
+                                        <div flex class="padding-left">
+                                            <en-title class="text-primary margin-bottom-collapse capitalized">Invoices</en-title>
+                                            <p class="text-muted">Generate invoices and track payments between
+                                                systems. </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div flex="30">
+                                <en-title class="title-sm text-muted uppercase">What's New</en-title>
+                                <hr>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('LabelDesign:Create')">
+                                        <en-icon icon="tags"></en-icon>
+                                        <a
+                                            en-tap="showScreen('labels/')">Custom Label Designer</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('Catalog:UI-View')">
+                                        <en-icon icon="sitemap"></en-icon>
+                                        <a en-tap="showScreen('inventory/catalogs/')">Catalog &amp;
+                                            Categories</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('RemittanceAdvice:UI-View')">
+                                        <en-icon icon="signed-check"></en-icon>
+                                        <a en-tap="showScreen('orders/remittance/')">Remittance Advice</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('Receipt:UI-View')">
+                                        <en-icon icon="currency-usd"></en-icon>
+                                        <a en-tap="showScreen('orders/receipts/')">Payment Receipts</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('ReportLayoutDefinition:UI-View')">
+                                        <en-icon icon="chart-bar-line-stagger-asc"></en-icon>
+                                        <a en-tap="showScreen('reports/reports/')">Reports</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('Dashboard:ViewDevelopmentTile')">
+                                        <en-icon icon="application-gear"></en-icon>
+                                        <a en-tap="showScreen('development/')">Development API</a>
+                                    </en-item>
+                                    <en-item class="padding-left-collapse"
+                                             ng-if="$hasPermission('Notification:UI-View')">
+                                        <en-icon icon="alert-circle"></en-icon>
+                                        <a en-tap="showScreen('tasks/notifications/')">Notifications</a>
+                                    </en-item>
+                                    <!-- <en-item class="padding-left-collapse">
+                                        <en-icon icon="dashboard"></en-icon> <a href="/">Custom Dashboards</a>
+                                    </en-item> -->
+                                </en-list>
+                            </div>
+                        </div>
+                    </en-content>
+                    <en-content>
+                        <en-title class="title-sm text-muted uppercase horizontal-borders padding-vertical">Quick
+                            Links
+                        </en-title>
+
+                        <div layout layout-wrap>
+                            <div flex
+                                 ng-if="$hasPermission('Dashboard:ViewAccountTile')">
+                                <en-title class="title-sm text-muted">Account</en-title>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-collapse ellipsis "
+                                             ng-if="$hasPermission('UserProfile:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/accounts/users/')" class="ellipsis">Users</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse ellipsis"
+                                             ng-if="$hasPermission('UserGroup:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/accounts/user-groups/')" class="ellipsis">Groups</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse ellipsis"
+                                             ng-if="$hasPermission('Role:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/accounts/roles/')" class="ellipsis">Roles</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('AuditEvent:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/accounts/audit-log/')" class="ellipsis">Audit
+                                            Log</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('LogEvent:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/accounts/system-log/')" class="ellipsis">System
+                                            Log</a>
+                                    </en-item>
+                                </en-list>
+                            </div>
+                            <div flex
+                                 ng-if="$hasPermission('Dashboard:ViewIntegration')">
+                                <en-title class="title-sm text-muted">Integration</en-title>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('RouteDef:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('integration/routes/')"
+                                           class="ellipsis">Routes</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse ellipsis"
+                                             ng-if="$hasPermission('Script:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('integration/scripts/')" class="ellipsis">Scripts</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('SFTPServerUser:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/integration/sftp-users/')" class="ellipsis">SFTP Users</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Scheduler:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('integration/triggers/')" class="ellipsis">Triggers</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse ellipsis"
+                                             ng-if="$hasPermission('Webhook:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('integration/webhooks/')" class="ellipsis">Web Hooks</a>
+                                    </en-item>
+                                </en-list>
+                            </div>
+
+                            <div flex
+                                 ng-if="$hasPermission('Dashboard:ViewDataManagementTile')">
+                                <en-title class="title-sm text-muted">Data Management</en-title>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-collapse ellipsis"
+                                             ng-if="$hasPermission('Mailbox:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('data-management/communications/mailboxes/')" class="ellipsis">Mailboxes</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('FileSystemEntry:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('data-management/communications/files/')"
+                                           class="ellipsis">Files</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Transmission:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('data-management/communications/transmissions/')"
+                                           class="ellipsis">Transmissions</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('PurgeRetentionPolicy:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a en-tap="showScreen('settings/data-management/purge/')"
+                                           class="ellipsis">Purge</a>
+                                    </en-item>
+                                </en-list>
+                            </div>
+
+                            <div flex
+                                 ng-if="$hasPermission('Dashboard:ViewInventoryTile')">
+                                <en-title class="title-sm text-muted">Inventory</en-title>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Product:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipse"
+                                           en-tap="showScreen('/inventory/publish/')">
+                                            Inventory Publish</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Product:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipse"
+                                           en-tap="showScreen('/inventory/lookup/')"> Item
+                                            Inventory Lookup</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Product:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipse" en-tap="showScreen('/inventory/products/')">
+                                            Products</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Vendor:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a  class="ellipsis"
+                                            en-tap="showScreen('/trading-partners/vendors/')">
+                                            Vendors</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Catalog:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a  class="ellipsis"
+                                            en-tap="showScreen('/inventory/catalogs/')">
+                                            Catalogs</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('InventoryPoolEntry:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a  class="ellipsis"
+                                            en-tap="showScreen('/inventory/pools/')">
+                                            Inventory Pools</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('ItemMaster:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a  class="ellipsis"
+                                            en-tap="showScreen('/inventory/item-masters/')">
+                                            Item Masters</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('PriceBook:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a  class="ellipsis"
+                                            en-tap="showScreen('/inventory/price-books/')">
+                                            Price Books</a>
+                                    </en-item>
+
+                                </en-list>
+                            </div>
+                            <div flex
+                                 ng-if="$hasPermission('Dashboard:ViewTradingPartnersTile')">
+                                <en-title class="title-sm text-muted">Trading Partners</en-title>
+                                <en-list class="list-borderless list-tight">
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Organization:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipsis"
+                                           en-tap="showScreen('/settings/organizations/organizations/')">Organizations</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Contact:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipsis"
+                                           en-tap="showScreen('/settings/organizations/contacts/')">Contacts</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Customer:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipsis"
+                                           en-tap="showScreen('/trading-partners/customers/')">Customers</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Client:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipsis"
+                                           en-tap="showScreen('/trading-partners/clients/')">Clients</a>
+                                    </en-item>
+                                    <en-item class="padding-collapse"
+                                             ng-if="$hasPermission('Site:UI-View')">
+                                        <en-icon icon="bullet"></en-icon>
+                                        <a class="ellipsis"
+                                           en-tap="showScreen('/sites/')">Sites</a>
+                                    </en-item>
+                                </en-list>
+                            </div>
+
+                        </div>
+                    </en-content>
+                    <!--<en-title class="title-sm highlight-light horizontal-borders margin-bottom-collapse padding"><a href="/">View Help Documentation</a></en-title>
+                    <en-content>
+                        <en-title class="title-sm margin-bottom-collapse">Your Suggestions</en-title>
+                        <p>How can we improve RetailPoint for you? <a href="/">Please let us know</a></p>
+                    </en-content>-->
+                </en-body>
+            </en-panel>
+        </en-content>
+    </div>
+
+
+</en-screen>

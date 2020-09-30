@@ -1,0 +1,43 @@
+{
+  "dependencies": {
+    "Chart.js": "~1.0.2",
+    "angular": "1.4.7",
+    "angular-animate": "^1.4.3",
+    "angular-chart.js": "~0.8.4",
+    "angular-cookies": "~1.4.3",
+    "angular-gravatar": "^0.4.2",
+    "angular-messages": "~1.4.3",
+    "angular-nvd3": "~1.0.2",
+    "angular-object-diff": "^1.0.3",
+    "angular-raven": "~0.5.11",
+    "angular-sanitize": "~1.4.9",
+    "angular-swagger-ui": "^0.3.2",
+    "angular-translate": "~2.7.2",
+    "angular-ui-ace": "bower",
+    "angular-ui-router": "~0.2.13",
+    "angulartics-google-analytics": "~0.1.4",
+    "cfp-angular-hotkeys": "~1.7.0",
+    "d3": "~3.5.6",
+    "enspire.platform": "envistaInteractive/enspire.platform#develop-oms",
+    "enspire.ui": "envistaInteractive/enspire.ui#develop-oms",
+    "google-blockly":"*",
+    "hawk": "envistaInteractive/hawk#master",
+    "ng-csv": "~0.3.6",
+    "ngstorage": "^0.3.11",
+    "nvd3": "~1.8.1",
+    "twilio": "^1.1.0"
+  },
+  "devDependencies": {
+    "angular": "1.4.3",
+    "angular-mocks": "1.4.3"
+  },
+  "name": "enspire-oms",
+  "private": "true",
+  "resolutions": {
+    "angular": "1.4.3",
+    "angular-animate": "1.4.3",
+    "angular-messages": "1.4.3",
+    "angular-sanitize": "1.4.3"
+  },
+  "version": "1.8.6"
+}

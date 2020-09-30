@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<remittanceAdviceCollection xmlns:ns1="MapAdapter" xsi:schemaLocation="http://www.eis.com/core/api/v1/model file:///C:/Users/GIsley/Documents/flowforce-maps/mapArtifacts/Canonical/Internal/core_schema1.xsd" xmlns="http://www.eis.com/core/api/v1/model" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<items xmlns="">
+		<remittanceAdvice>			
+			<payee>tc00000001</payee>
+			<remittanceNumber>PETS1633</remittanceNumber>
+			<amount>99.90</amount>
+			<status>Paid</status>
+			<paymentDate>2016-08-19T00:00:00</paymentDate>
+			<referenceData>
+				<data>
+					<type>Invoice</type>
+					<value>0000000173</value>
+				</data>
+			</referenceData>
+			<fromOrganization>
+				<refName>0000032920</refName>
+				<displayName>0000032920</displayName>
+				<dataDomain>com.petsmart</dataDomain>
+			</fromOrganization>
+		</remittanceAdvice>
+	</items>
+</remittanceAdviceCollection>

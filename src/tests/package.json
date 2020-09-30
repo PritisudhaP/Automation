@@ -1,0 +1,36 @@
+{
+  "name": "protractor-tests",
+  "version": "1.0.0",
+  "description": "Protractor UI based tests",
+  "main": "conf_qa_SCL.js",
+  "scripts": {
+    "webdriver-start": "webdriver-manager update",
+    "protractor": "./node_modules/protractor/bin/protractor",
+    "prerequisites": "./python/prerequisite.py",
+    "pree2e": "npm-run-all webdriver-start prerequisites",
+    "e2e": "protractor",
+    "linux": ". /etc/default/$PROJECT && xvfb-run -l npm run e2e"
+  },
+  "author": "Karthik <skarthik@envistacorp.com>",
+  "license": "ISC",
+  "dependencies": {
+    "fs-extra": "^4.0.1",
+    "jasmine2-protractor-utils": "^1.3.0",
+    "ngx-papaparse": "^3.0.2",
+    "pdfreader": "^0.2.3",
+    "protractor": "^5.1.2",
+    "protractor-html-screenshot-reporter": "0.0.21",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "replace": "^1.2.0",
+    "string-search": "^1.2.0"
+  },
+  "devDependencies": {
+    "jasmine-reporters": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "protractor-html-reporter": "^1.3.2"
+  },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node index.js"
+    }
+}

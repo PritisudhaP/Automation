@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipment xmlns:ns1="MapAdapter" xmlns:tns="http://www.eis.com/b2bmb/api/v1/model" xmlns:ns10="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="file:///C:/Users/GIsley/Documents/flowforce-maps/MapArtifacts/schema2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<shipmentStatus>SHIPPED</shipmentStatus>
+	<orderNumber>000000010846</orderNumber>
+	<senderContactInfo>
+		<companyName>The Honest Kitchen</companyName>
+		<address>
+			<refName>The Honest Kitchen</refName>
+			<address1>WhatShouldThisAddressBe?</address1>
+			<city>City</city>
+			<state>IN</state>
+			<zip5>46032</zip5>
+		</address>
+		<nameId>The Honest Kitchen</nameId>
+	</senderContactInfo>
+	<recipientContactInfo>
+		<refName>AmazonFresh LLC (OAK6)</refName>
+		<name>AmazonFresh LLC (OAK6)</name>
+		<address>
+			<displayName>AmazonFresh LLC (OAK6)</displayName>
+			<address1>1350 N. MacArthur Drive</address1>
+			<address2> </address2>
+			<city>Tracy</city>
+			<state>CA</state>
+			<zip5>95304</zip5>
+		</address>
+		<nameId>AmazonFresh LLC (OAK6)</nameId>
+	</recipientContactInfo>
+	<billToContactInfo>
+		<refName>AmazonFresh LLC (OAK6)</refName>
+		<name>AmazonFresh LLC (OAK6)</name>
+		<address>
+			<address1>1350 N. MacArthur Drive</address1>
+			<address2> </address2>
+			<city>Tracy</city>
+			<state>CA</state>
+			<zip5>95304</zip5>
+		</address>
+	</billToContactInfo>
+	<shipDate>2017-02-08T10:00:00</shipDate>
+	<serviceType>FXFE</serviceType>
+	<labelType>PNG</labelType>
+	<packages>
+		<package>
+			<id>00018341300001022919</id>
+			<lineItems>
+				<lineItem>
+					<systemItemId>DAMAGED-FM</systemItemId>
+					<poItemId>0</poItemId>
+					<itemQty>10</itemQty>
+					<retailerItemSKU>DAMAGED-FM</retailerItemSKU>
+					<upc></upc>
+					<itemUnitOfMeasurement>EA</itemUnitOfMeasurement>
+					<omsLineNumber>1</omsLineNumber>
+					<lotInfos>
+						<lotInfo>
+							<lotIdentifier>2017-06-20</lotIdentifier>
+							<expirationDate>2017-06-20T10:00:00</expirationDate>
+							<qty>10</qty>
+						</lotInfo>
+					</lotInfos>
+				</lineItem>
+			</lineItems>
+			<packageType>Case</packageType>
+			<trackingNumber>789456789123</trackingNumber>
+			<packageStatus>SHIPPED</packageStatus>
+			<labelType>PNG</labelType>
+			<ssccNumber>00018341300001022919</ssccNumber>
+		</package>
+		<package>
+			<id>00018341300001022902</id>
+			<lineItems>
+				<lineItem>
+					<systemItemId>DAMAGED-FM</systemItemId>
+					<poItemId>0</poItemId>
+					<itemQty>10</itemQty>
+					<retailerItemSKU>DAMAGED-FM</retailerItemSKU>
+					<upc></upc>
+					<itemUnitOfMeasurement>EA</itemUnitOfMeasurement>
+					<omsLineNumber>1</omsLineNumber>
+					<lotInfos>
+						<lotInfo>
+							<lotIdentifier>2017-07-20</lotIdentifier>
+							<expirationDate>2017-07-20T10:00:00</expirationDate>
+							<qty>10</qty>
+						</lotInfo>
+					</lotInfos>
+				</lineItem>
+			</lineItems>
+			<packageType>Case</packageType>
+			<trackingNumber>789456789123</trackingNumber>
+			<packageStatus>SHIPPED</packageStatus>
+			<labelType>PNG</labelType>
+			<ssccNumber>00018341300001022902</ssccNumber>
+		</package>
+	</packages>
+	<carrier>FXFE</carrier>
+	<masterTrackingNumber>78945678912317</masterTrackingNumber>
+	<trackingDetails>
+		<packageCount>2</packageCount>
+	</trackingDetails>
+	<salesChannel>B2C</salesChannel>
+	<shipmentNumber>000000010739</shipmentNumber>
+	<originalOrderNumber>000000010846</originalOrderNumber>
+	<lockVersion>4</lockVersion>
+</shipment>

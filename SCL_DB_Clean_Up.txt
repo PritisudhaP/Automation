@@ -1,0 +1,27 @@
+(. /etc/default/project && mongo "mongodb://skarthik:skarthik@$MONGO_HOST/$MONGO_APPS_DBNAME?$MONGO_OPTS")
+
+use app-scl164
+db.inventoryPoolEntry.remove({"productIdentifier":{$in:["B4","BBB5","BJER3","BR","DAMAGED-BR","DAMAGED-FM","sarathSCLProduct0001","sarathSCLProduct0002","CB","DAMAGED-ER","sarathP1"]}});
+db.product.remove({"refName":{$in:["sarathproducttc0001","sarathp1"]}});
+db.sku.remove({"refName":{$in:["sarathp1","sarathp2"]}});
+
+
+==== DB Clean Up Responses =====
+
+MongoDB Enterprise QA36-shard-0:PRIMARY> db.inventoryPoolEntry.remove({"productIdentifier":{$in:["B4","BBB5","BJER3","BR","DAMAGED-BR","DAMAGED-FM","sarathSCLProduct0001","sarathSCLProduct0002","CB","DAMAGED-ER","sarathP1"]}});
+WriteResult({ "nRemoved" : 20 })
+MongoDB Enterprise QA36-shard-0:PRIMARY> db.product.remove({"refName":{$in:["sarathproducttc0001","sarathp1"]}});
+WriteResult({ "nRemoved" : 2 })
+MongoDB Enterprise QA36-shard-0:PRIMARY> db.sku.remove({"refName":{$in:["sarathp1","sarathp2"]}});
+WriteResult({ "nRemoved" : 2 })
+MongoDB Enterprise QA36-shard-0:PRIMARY>
+ 
+
+
+==============================================
+enable releaseSalesOrderNew script on P4
+RELEASESALESORDERSOLVER = DISABLE
+
+Ensure to delete the customers with TC0001, FNAME01, DFNAME01 and Sites with truqa
+
+ 

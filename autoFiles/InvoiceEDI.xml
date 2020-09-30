@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<invoice xmlns:ns2="MapAdapter" xmlns:ns1="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="file:///C:/Users/GIsley/Documents/flowforce-maps/MapArtifacts/Canonical/Internal/schema2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+			<header>
+				<invoiceNumber>SarathNewEDIOrder1085</invoiceNumber>
+				<fromInvoiceContactInfo>
+					<refName>KAY BERRY</refName>
+					<companyName>KAY BERRY</companyName>
+					<address>
+						<address1>63010 N NOAH DR</address1>
+						<city>SAXONBURG</city>
+						<state>PA</state>
+						<zip5>16056</zip5>
+						<country>US</country>
+					</address>
+					<nameId>tc00000002</nameId>
+				</fromInvoiceContactInfo>
+				<toInvoiceContactInfo>
+					<refName>PETSMART</refName>
+					<nameId>PETSMART</nameId>
+				</toInvoiceContactInfo>
+				<invoiceDate>2016-09-27T10:31:32.224-04:00</invoiceDate>
+				<billToContactInfo>
+					<refName>PETSMART</refName>
+					<address>
+						<address1>19601 N 27th Avenue</address1>
+						<city>Phoenix</city>
+						<state>AZ</state>
+						<zip5>85027</zip5>
+						<country>US</country>
+					</address>
+				</billToContactInfo>
+				<totalAmountDue>10.99</totalAmountDue>
+				<purchaseOrderNumber>SarathNewEDIOrder1085</purchaseOrderNumber>
+			</header>
+			<lineItems>
+				<lineItem>
+					<itemReference>SarathTC0001</itemReference>
+					<qty>1</qty>
+					<unitCost>10.99</unitCost>
+					<unitForMeasurement>1</unitForMeasurement>
+					<buyerItemId>SarathTC0001</buyerItemId>
+				</lineItem>
+			</lineItems>
+			<referenceData>
+				<data>
+					<type>documentSource</type>
+					<value>EDI</value>
+				</data>
+			</referenceData>
+		</invoice>
+

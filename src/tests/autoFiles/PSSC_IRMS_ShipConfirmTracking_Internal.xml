@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<shipment xmlns:ns2="MapAdapter" xmlns:ns3="http://www.eis.com/b2bmb/api/v1/model" xmlns:ns1="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="file:///C:/Users/pramnarain/Documents/mapArtifacts/Canonical/Internal/1.5%20schema/schema4.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<senderContactInfo xmlns:ns2="MapAdapter" xmlns:ns3="http://www.eis.com/b2bmb/api/v1/model" xmlns:ns1="http://www.eis.com/core/api/v1/model">
+		<companyName>PSSC</companyName>
+		<address>
+			<address1>660 South Mansfield</address1>
+			<city>Ypsilanti</city>
+			<state>MI</state>
+			<zip5>48197</zip5>
+		</address>
+		<nameId>2</nameId>
+	</senderContactInfo>
+	<labelType>PNG</labelType>
+	<packages>
+		<package>
+                        <weight>675</weight>
+                        <height>4</height>
+                        <width>4</width>
+                        <length>4</length>
+			<lineItems>
+				<lineItem>
+					<poItemId>1</poItemId>
+					<itemQty>4</itemQty>
+					<omsLineNumber>1</omsLineNumber>
+				</lineItem>
+			</lineItems>
+			<packageType>Case</packageType>
+			<trackingNumber>4234567899869</trackingNumber>
+			<packageStatus>SHIPPED</packageStatus>
+			<labelType>PNG</labelType>
+			<ssccNumber>300089517400000075</ssccNumber>
+			<trackingDetails>
+				<packageTrackingNumber>4234567899869</packageTrackingNumber>
+			</trackingDetails>
+                        <shippingCost>11.76</shippingCost>
+		</package>
+	</packages>
+	<carrier>R02</carrier>
+	<trackingDetails/>
+	<salesChannel>FULFILLMENT</salesChannel>
+	<shipmentRequestNumber>000000004065</shipmentRequestNumber>
+        <shipmentNumber>000000004008</shipmentNumber>
+</shipment>

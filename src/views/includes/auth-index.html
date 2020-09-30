@@ -1,0 +1,366 @@
+<style>
+    #conversejs {display:none;}
+</style>
+<div layout="row" layout-align="center center"
+     class="auth-view" ng-controller="RegisterUserCtrl"
+     ng-if="authorized===false">
+    <!-- login logo -->
+    <div class="auth-logo" flex="20">
+        <img src="assets/images/logos/logo.png">
+    </div>
+    <en-api-object method="post"
+                   path="/api/v1/registrationRequest"
+                   on-post="isRegister=false; registerSuccess();"
+                   on-before-post="registrationRequest.data.refName = $uniqueName(); registrationRequest.data.dataDomains = ['app.cantata'];
+                   registrationRequest.data.status = 'PENDING';"
+                   on-error="$enAnchorScroll('#pageErrors')"
+                   name="registrationRequest"></en-api-object>
+    <en-api-object method="put"
+                   trigger="false"
+                   path="/api/v1/security/userProfile/passwordReset/userId/"
+                   on-before-put="answerQuestions.path='/api/v1/security/userProfile/passwordReset/userId/'+forgotLogin.data.email+'/answer';"
+                   on-put="activeScreen='resetPassword'; resetPassword.data = {'securityToken':answerQuestions.data.token,'userId':forgotLogin.data.email};"
+                   name="answerQuestions"></en-api-object>
+    <en-api-object method="get"
+                   trigger="false"
+                   path="/api/v1/createPasswordResetToken/"
+                   on-before-get="sendEmail.path='/api/v1/createPasswordResetToken/'+forgotLogin.data.email"
+                   on-get="activeScreen='emailSent'"
+                   name="sendEmail"></en-api-object>
+
+    <en-api-object method="put"
+                   trigger="false"
+                   path="/api/v1/security/userProfile/passwordReset/userId/"
+                   on-before-put="resetPassword.path='/api/v1/security/userProfile/passwordReset/userId/'+resetPassword.data.userId+'/resetPassword';resetPassword.data.securityToken=(userToken&&!resetPassword.data.securityToken)?userToken:resetPassword.data.securityToken;"
+                   on-put="activeScreen='login'"
+                   name="resetPassword"></en-api-object>
+    <en-api-object path="/api/v1/security/userProfile/passwordReset/securityQuestion"
+                   name="questions"
+                   on-before-get="questions.path='/api/v1/security/userProfile/passwordReset/userId/' + forgotLogin.data.email + '/securityQuestions'"
+                   trigger="false"
+                   on-error=""
+                   method="list"></en-api-object>
+
+
+    <!-- Login form -->
+    <en-panel layout="row" layout-wrap flex class="panel-auth" ng-hide="isRegister">
+        <div class="panel-auth-arrow"></div>
+        <form name="loginForm" ng-show="activeScreen=='login'" id="loginForm" ng-submit="loginForm.$valid && loginOauth2(loginForm)" layout="row" flex="100" novalidate>
+            <div layout="row" layout-wrap flex="100">
+                <en-title class="padding padding-bottom-collapse" flex="100">Login</en-title>
+                <en-content class="margin-top-collapse" ng-if="loginError">
+                    <en-alert class="alert-error" style="padding:1rem">
+                        <en-icon icon="alert-circle"></en-icon>
+                        Invalid login credentials, please try again.
+                    </en-alert>
+                </en-content>
+                <en-control flex="100" class="padding padding-top-collapse">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="man"></en-icon>
+                            <input type="text" name="user" id="userName" ng-model="loginForm.username" placeholder="Username" ng-required="true">
+                            <!--<input type="text" name="user" id="userName" ng-model="login.data.userId"-->
+                            <!--placeholder="Username" ng-required="true">-->
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="loginForm.user.$invalid && (loginForm.user.$touched || loginForm.user.$dirty || loginForm.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle" ng-if="loginForm.user.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <en-control flex="100">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="lock"></en-icon>
+                            <input type="password" name="passwd" id="password" ng-model="loginForm.password" placeholder="Password" ng-required="true">
+                            <!--<input type="password" name="password" id="password" ng-model="login.data.password"-->
+                            <!--placeholder="Password" ng-required="true">-->
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="loginForm.passwd.$invalid && (loginForm.passwd.$touched || loginForm.passwd.$dirty || loginForm.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle" ng-if="loginForm.passwd.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <en-control flex="100" layout="row" layout-align="space-between">
+                    <en-button type="button" ng-disabled="" en-tap="activeScreen='forgot'">Forgot Password?</en-button>
+                    <en-button type="submit" class="button-primary" ng-disabled="loginOauth2.posting">
+                        <en-icon icon="spinner" ng-show="loginOauth2.posting"></en-icon>
+                        {{login.posting ? 'Logging In..' : 'Login'}}
+                    </en-button>
+                </en-control>
+            </div>
+        </form>
+
+        <form name="formForgotPassword" ng-show="activeScreen=='forgot'" layout="column"
+              flex="100" novalidate>
+            <en-title class="padding padding-bottom-collapse">Reset Password</en-title>
+            <en-content class="margin-top-collapse"
+                        ng-if="formForgotPassword.errors.length>0 && !formForgotPassword.posting">
+                <en-alert class="alert-error" style="padding:1rem">
+                    <en-icon icon="alert-circle"></en-icon>
+                    Invalid credentials, please try again.
+                </en-alert>
+            </en-content>
+            <en-content class="margin-top-collapse">
+                <p style="margin-top:0;">Enter your account user name in the box below. We will email instructions to
+                    your email address.</p>
+
+                <en-control flex="100" class="padding-collapse" style="padding-left:0">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="man"></en-icon>
+                            <input type="text" name="email" id="email" ng-model="forgotLogin.data.email"
+                                   placeholder="Username" ng-required="true">
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="formForgotPassword.email.$invalid && (formForgotPassword.email.$touched || formForgotPassword.email.$dirty || formForgotPassword.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle"
+                                     ng-if="formForgotPassword.email.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <!--<en-input data-ng-model="user.userName" data-stretch="true" data-placeholder="User Name"></en-input>-->
+                <en-control flex="100" layout="row" layout-align="space-between"
+                            class="margin-top-collapse" style="padding-left:0">
+                    <en-button type="button"
+                               ng-disabled="formForgotPassword.email.$invalid"
+                               en-tap="formForgotPassword.email.$valid&&(activeScreen='qanda')&&questions.get()">Answer Security Questions
+                    </en-button>
+                    <en-button type="submit" class="button-primary"
+                               en-tap="formForgotPassword.$valid&&sendEmail.get()"
+                               ng-disabled="formForgotPassword.email.$invalid || formForgotPassword.posting">
+                        <en-icon icon="spinner" ng-show="formForgotPassword.posting"></en-icon>
+                        {{formForgotPassword.posting ? 'Submitting..' : 'Send Email'}}
+                    </en-button>
+                </en-control>
+                <div flex="100" class="text-center padding padding-top-collapse padding-bottom-collapse">
+                    <small>Remembered Password? <a href="#" en-tap="activeScreen='login'">Login Now.</a></small>
+                </div>
+            </en-content>
+        </form>
+        <form name="formSecurity" ng-show="activeScreen=='qanda'" layout="column"
+              flex="100" novalidate>
+            <en-title class="padding padding-bottom-collapse">Reset Password</en-title>
+            <en-content class="margin-top-collapse"
+                        ng-if="formSecurity.errors.length>0 && !formSecurity.posting">
+                <en-alert class="alert-error" style="padding:1rem">
+                    <en-icon icon="alert-circle"></en-icon>
+                    Invalid answers, please try again.
+                </en-alert>
+            </en-content>
+            <en-content class="margin-top-collapse" ng-show="questions.data.length > 0">
+                <p style="margin-top:0;">Enter your answers to the security questions below to reset your password.</p>
+
+                <en-control flex="100" class="padding-collapse required" style="padding-left:0" ng-repeat="question in questions.data">
+                    <label><en-icon icon="lock"></en-icon>&nbsp;{{question.question}}</label>
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="key"></en-icon>
+                            <input type="text" name="answer_{{$index}}" required
+                                   ng-model="answerQuestions.data[question.refName]"
+                                   placeholder="Answer" ng-required="true">
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <!--<en-input data-ng-model="user.userName" data-stretch="true" data-placeholder="User Name"></en-input>-->
+                <en-control flex="100" layout="row" layout-align="space-between"
+                            class="margin-top-collapse" style="padding-left:0">
+                    <en-flex></en-flex>
+                    <en-button type="submit" class="button-primary"
+                               en-tap="formSecurity.$valid&&answerQuestions.put()"
+                               ng-disabled="formSecurity.$invalid || formSecurity.putting">
+                        <en-icon icon="spinner" ng-show="formSecurity.putting"></en-icon>
+                        {{formSecurity.posting ? 'Submitting..' : 'Submit'}}
+                    </en-button>
+                </en-control>
+                <div flex="100" class="text-center padding padding-top-collapse padding-bottom-collapse">
+                    <small>Remembered Password? <a href="#" en-tap="activeScreen='login'">Login Now.</a></small>
+                </div>
+            </en-content>
+            <en-content class="margin-top-collapse" ng-show="questions.data.length ==0">
+                <p style="margin-top:0;">Sorry, you do not have security questions to answer.</p>
+                <div flex="100" class="text-center padding padding-top-collapse padding-bottom-collapse">
+                    <small>Remembered Password? <a href="#" en-tap="activeScreen='login'">Login Now.</a></small>
+                </div>
+            </en-content>
+        </form>
+        <!-- Email Sent -->
+        <form ng-show="activeScreen=='emailSent'">
+            <en-title class="padding padding-bottom-collapse" flex="100">Email Sent</en-title>
+            <en-content>
+                <p style="margin-top:0;">Please follow the instructions in the email just sent to reset your
+                    password</p>
+                <en-control flex="100" layout="row" layout-align="space-between"
+                            class="margin-top-collapse" style="padding-left:0">
+                    <en-button type="button" ng-disabled=""
+                               en-tap="activeScreen='login'">Remembered Password?
+                    </en-button>
+                </en-control>
+            </en-content>
+        </form>
+
+        <!-- Reset Password -->
+        <form name="formResetPassword" ng-show="activeScreen=='resetPassword'">
+            <en-title class="padding padding-bottom-collapse">Reset Password</en-title>
+            <en-content class="margin-top-collapse">
+                <en-control flex="100">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="man"></en-icon>
+                            <input type="text" name="username" id="userId" ng-model="resetPassword.data.userId"
+                                   placeholder="Username" ng-required="true">
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="formResetPassword.userId.$invalid && (formResetPassword.userId.$touched || formResetPassword.userId.$dirty || formResetPassword.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle"
+                                     ng-if="formResetPassword.userId.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <en-control flex="100">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="lock"></en-icon>
+                            <input type="password" name="password" id="newPassword" ng-model="resetPassword.data.newPassword"
+                                   placeholder="New Password" ng-required="true">
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="formResetPassword.newPassword.$invalid && (formResetPassword.newPassword.$touched || formResetPassword.newPassword.$dirty || formResetPassword.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle" ng-if="formResetPassword.newPassword.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <en-control flex="100">
+                    <en-field>
+                        <en-input flex>
+                            <en-icon icon="lock"></en-icon>
+                            <input type="password" name="confirmPassword" id="confirmPassword" ng-model="confirmPassword"
+                                   en-password-check="resetPassword.data.newPassword" placeholder="Confirm Password" ng-required="true">
+                            <en-icon class="error" icon="alert-circle"
+                                     ng-if="formResetPassword.confirmPassword.$invalid && (formResetPassword.confirmPassword.$touched || formResetPassword.confirmPassword.$dirty || formResetPassword.$submitted)"></en-icon>
+                            <en-icon class="primary" icon="check-circle" ng-if="formResetPassword.confirmPassword.$valid"></en-icon>
+                        </en-input>
+                    </en-field>
+                </en-control>
+                <en-control flex="100" layout="row" layout-align="space-between"
+                            class="margin-top-collapse" style="padding-left:0">
+                    <en-flex></en-flex>
+                    <en-button type="submit" class="button-primary"
+                               en-tap="formResetPassword.$valid&&resetPassword.put()"
+                               ng-disabled="formResetPassword.email.$invalid || formResetPassword.newPassword.$invalid || formResetPassword.putting">
+                        <en-icon icon="spinner" ng-show="formForgotPassword.posting"></en-icon>
+                        {{formForgotPassword.posting ? 'Submitting..' : 'Submit'}}
+                    </en-button>
+                </en-control>
+                <div flex="100" class="text-center padding padding-top-collapse padding-bottom-collapse">
+                    <small>Remembered Password? <a href="#" en-tap="activeScreen='login'">Login Now.</a></small>
+                </div>
+            </en-content>
+        </form>
+        <div flex="100" class="text-center padding padding-top-collapse">
+            <small>No account? <a href="#" ng-click="isRegister=true">Sign up now.</a></small>
+        </div>
+    </en-panel>
+    <!-- Register form -->
+    <en-panel layout="row" layout-wrap flex="30" class="panel-auth" ng-show="isRegister">
+        <div class="panel-login-arrow"></div>
+        <form name="registerForm" layout="row" flex="100" ng-submit="registerForm.$valid && registrationRequest.post()">
+            <div layout="row" layout-wrap>
+                <en-title class="padding padding-bottom-collapse">Account Sign Up</en-title>
+                <en-error></en-error>
+                <!-- Admin info fields -->
+                <h4 flex="100" class="padding-horizontal margin-top-collapse">Admin Info</h4>
+                <en-control flex="50">
+                    <input type="text" name="firstname" ng-model="registrationRequest.data.firstName"
+                           placeholder="First Name" required/>
+                    <ng-messages for="registerForm.firstname.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50">
+                    <input type="text" name="lastname" ng-model="registrationRequest.data.lastName"
+                           placeholder="Last Name" required/>
+                    <ng-messages for="registerForm.lastname.$error"></ng-messages>
+                </en-control>
+                <en-control flex="40">
+                    <input type="text" name="phone" ng-model="registrationRequest.data.phoneNumber"
+                           placeholder="Phone Number"/>
+                    <ng-messages for="registerForm.phone.$error"></ng-messages>
+                </en-control>
+                <en-control flex="60">
+                    <input type="email" name="user" ng-model="registrationRequest.data.emailAddress"
+                           placeholder="Email Address" required/>
+                    <en-messages for="registerForm.user.$error"></en-messages>
+                </en-control>
+                <en-control flex="50">
+                    <input type="password" name="password" ng-model="registrationRequest.data.password"
+                           placeholder="Password" required/>
+                    <ng-messages for="registerForm.password.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50">
+                    <input type="password" name="passwordConfirm" ng-model="confirmPassword"
+                           placeholder="Confirm Password" en-password-check="registrationRequest.data.password"
+                           required/>
+                    <ng-messages for="registerForm.passwordConfirm.$error"></ng-messages>
+                </en-control>
+                <!-- Organization info fields -->
+                <h4 flex="100" class="padding-horizontal">Organization Info</h4>
+                <en-control flex="60">
+                    <input type="text" name="company" ng-model="registrationRequest.data.companyName"
+                           placeholder="Company" required/>
+                    <ng-messages for="registerForm.company.$error"></ng-messages>
+                </en-control>
+                <en-control flex="40">
+                    <input type="text" name="department" ng-model="registrationRequest.data.department"
+                           placeholder="Department" required/>
+                    <ng-messages for="registerForm.department.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50">
+                    <select name="country" ng-model="registrationRequest.data.country" placeholder="Country" required
+                            ng-options="operation.refName as operation.displayName for operation in [{'refName': 'US', 'displayName': 'United States'}, {'refName': 'CA', 'displayName': 'Canada'}]">
+                        <option value="">Select</option>
+                    </select>
+                    <ng-messages for="registerForm.country.$error"></ng-messages>
+                </en-control>
+                <en-control flex="100">
+                    <input type="text" name="address1" ng-model="registrationRequest.data.address1"
+                           placeholder="Address 1" required/>
+                    <ng-messages for="registerForm.address1.$error"></ng-messages>
+                </en-control>
+                <en-control flex="100">
+                    <input type="text" name="address2" ng-model="registrationRequest.data.address2"
+                           placeholder="Address 2"/>
+                    <ng-messages for="registerForm.address2.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50">
+                    <input type="text" name="city" ng-model="registrationRequest.data.city" placeholder="City" required/>
+                    <ng-messages for="registerForm.city.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50"
+                            ng-if="registrationRequest.data.country === 'US' && registrationRequest.data.country !== undefined">
+                    <input type="text" name="state" ng-model="registrationRequest.data.state" placeholder="State"
+                           required/>
+                </en-control>
+                <en-control flex="50"
+                            ng-if="registrationRequest.data.country !== 'US' && registrationRequest.data.country !== undefined">
+                    <input type="text" name="state" ng-model="registrationRequest.data.state" placeholder="Province"
+                           required/>
+                </en-control>
+                <en-control flex="50"
+                            ng-if="registrationRequest.data.country === 'US' && registrationRequest.data.country !== undefined">
+                    <input type="text" name="zip5" ng-model="registrationRequest.data.zip5" placeholder="Zip code"
+                           required/>
+                    <ng-messages for="registerForm.zip5.$error"></ng-messages>
+                </en-control>
+                <en-control flex="50"
+                            ng-if="registrationRequest.data.country !== 'US' && registrationRequest.data.country !== undefined">
+                    <input type="text" name="postalCode" ng-model="registrationRequest.data.postalCode"
+                           placeholder="Postal code" required/>
+                    <ng-messages for="registerForm.postalCode.$error"></ng-messages>
+                </en-control>
+
+                <en-control flex="100" layout="row" layout-align="space-between">
+                    <div flex layout="row" layout-align="start center">
+                        <small>Have an account? <a href="#" ng-click="isRegister=false">Login now.</a></small>
+                    </div>
+                    <submit-button object="registrationRequest" class="button-primary">Register</submit-button>
+                </en-control>
+            </div>
+        </form>
+    </en-panel>
+
+</div>

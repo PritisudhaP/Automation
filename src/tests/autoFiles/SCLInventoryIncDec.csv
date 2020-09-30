@@ -1,0 +1,5 @@
+SequenceNumber,InventoryDateTime,DC,Customer,SKU,LotID,Location,PalletID,UOM,QTY,TransactionType,TransactionDateTime,TransactionNumber,ReferenceType,ReferenceNumber,Expiration_Date
+1,20170217145324,joliet-dc,com.thk,CB,2019-04-28,,,EA,20,Hold,2019-04-28T10:47:54, , , ,20190428
+2,20170217145324,joliet-dc,com.thk,sarathSCLProduct0001,, ,,EA,20,Hold,2019-04-28T10:47:54, , , ,
+3,20170217145324,joliet-dc,com.thk,sarathSCLProduct0002,, ,,EA,20,Hold,2019-04-28T10:47:54, , , ,
+4,20170217145324,joliet-dc,com.thk,DAMAGED-FM,2017-07-20,,,EA,-20,Adjustment,2019-04-28T10:47:54, , , ,20170720

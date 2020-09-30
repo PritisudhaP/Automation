@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<salesOrderCollection xmlns:ns2="MapAdapter" xmlns:ns1="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="file:///C:/Users/GIsley/Documents/flowforce-maps/MapArtifacts/Canonical/Internal/schema2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<items>
+		<salesOrder>
+			<lineItems>
+				<lineItem>
+					<lineItemNumber>1</lineItemNumber>
+					<retailerReferenceItemSKU>SarathTC0001</retailerReferenceItemSKU>
+					<systemCatalogProductIdentifier>SarathTC0001</systemCatalogProductIdentifier>
+					<itemTitle>Kay Berry Personalized Pet Headstone</itemTitle>
+					<itemDescription>Kay Berry Personalized Pet Headstone</itemDescription>
+					<itemMSRP>76.99</itemMSRP>
+					<itemUnitPrice>76.99</itemUnitPrice>
+					<itemQty>2</itemQty>
+					<shippingCarrier>FEDEX</shippingCarrier>
+					<carrierServiceType>GRND</carrierServiceType>
+					<shipToAddressName>19601 N 27th Avenue</shipToAddressName>
+					<tax>
+						<lineTax>11.18</lineTax>
+					</tax>
+				</lineItem>
+			</lineItems>
+			<referenceData>
+				<data>
+					<type>customerOrderNumber</type>
+					<value>20001873</value>
+					<systemInd>N</systemInd>
+				</data>
+				<data>
+					<type>documentSource</type>
+					<value>EDI</value>
+				</data>
+				<data>
+					<type>internalFromAddress</type>
+					<value>edi@petsmart.com</value>
+				</data>
+				<data>
+					<type>internalToAddress</type>
+					<value>kayberry@petsmart.com</value>
+				</data>
+			</referenceData>
+			<payments>
+				<payment>
+					<lastFour>1111</lastFour>
+				</payment>
+			</payments>
+			<header>
+				<orderNumber>SarathNewEDIOrder1086</orderNumber>
+				<status>OPEN</status>
+				<salesChannel>DropShip</salesChannel>
+				<buyerContactInfo>
+					<companyName></companyName>
+					<name>Pradeep Kothamachu</name>
+					<address>
+						<address1>19601 N 27th Avenue</address1>
+						<address2></address2>
+						<city>Phoenix</city>
+						<state>AZ</state>
+						<zip5>85027</zip5>
+						<country>US</country>
+					</address>
+				</buyerContactInfo>
+				<billToContactInfo>
+					<companyName></companyName>
+					<name>Pradeep Kothamachu</name>
+					<address>
+						<address1>19601 N 27th Avenue</address1>
+						<address2></address2>
+						<city>Phoenix</city>
+						<state>AZ</state>
+						<zip5>85027</zip5>
+						<country>US</country>
+					</address>
+				</billToContactInfo>
+				<shipFromContactInfo>
+					<refName>KAY BERRY</refName>
+					<companyName>KAY BERRY</companyName>
+					<address>
+						<id>0000030364</id>
+						<address1>63010 N NOAH DR</address1>
+						<address2></address2>
+						<city>SAXONBURG</city>
+						<state>PA</state>
+						<zip5>16056</zip5>
+						<country>US</country>
+					</address>
+					<nameId>tc00000002</nameId>
+				</shipFromContactInfo>
+				<currency>USD</currency>
+				<purchaseOrderNumber>SarathNewEDIOrder1086</purchaseOrderNumber>
+				<dueDate>2016-09-24T00:00:00</dueDate>
+				<shippingCarrier>FEDEX</shippingCarrier>
+				<carrierServiceType>GRND</carrierServiceType>
+				<shipToContacts>
+					<shipToContact>
+						<name>Pradeep Kothamachu</name>
+						<primaryEmail>pkothamachu@petsmart.com</primaryEmail>
+						<primaryPhone>8798493950</primaryPhone>
+						<address>
+							<address1>19601 N 27th Avenue</address1>
+							<address2></address2>
+							<city>Phoenix</city>
+							<state>AZ</state>
+							<zip5>85027</zip5>
+							<country>US</country>
+						</address>
+						<nameId>19601 N 27th Avenue</nameId>
+					</shipToContact>
+				</shipToContacts>
+				<shipDate>2016-09-22T00:00:00</shipDate>
+				<timeDateReferences>
+					<timeDateReference>
+						<timeDateType>Do Not Deliver Before</timeDateType>
+						<strDateValue>2016-09-22T00:00:00</strDateValue>
+					</timeDateReference>
+					<timeDateReference>
+						<timeDateType>Deliver Before</timeDateType>
+						<strDateValue>2016-09-24T00:00:00</strDateValue>
+					</timeDateReference>
+				</timeDateReferences>
+				<purchaseDate>2016-09-23T00:00:00</purchaseDate>
+			</header>
+		</salesOrder>
+	</items>
+</salesOrderCollection>

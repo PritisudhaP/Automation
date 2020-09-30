@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<orderStatusReport xmlns:ns1="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="C:/Users/gisley/Documents/mapArtifacts/schema2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <hierarchicalOrderNumber>1</hierarchicalOrderNumber>
+  <purchaseOrderNumber>SarathNewEDIOrder1085</purchaseOrderNumber>
+  <statusReportCode/>
+  <date>2016-09-27T09:00:00</date>
+  <orderStatusLines>
+    <orderStatusLine>
+      <parentHierarchicalOrderNumber>1</parentHierarchicalOrderNumber>
+      <lineNumber>1</lineNumber>
+      <hierarchicalLineNumber>1</hierarchicalLineNumber>
+      <quantityCancelled>1</quantityCancelled>
+      <unitOfMeasurement>EA</unitOfMeasurement>
+      <orderStatusCode>IC</orderStatusCode>
+      <productServiceIds>
+        <productServiceId>
+          <productServiceIdQualifier>SKU</productServiceIdQualifier>
+          <productServiceId>SarathTC0001</productServiceId>
+        </productServiceId>
+      </productServiceIds>
+    </orderStatusLine>
+    </orderStatusLines>
+  <refName/>
+  <refKey/>
+  <dataDomain/>
+  <schemaVersion/>
+  <version/>
+  <current>true</current>
+  <txId/>
+  <auditInfo/>
+	<referenceData>
+				<data>
+					<type>IA</type>
+					<value>tc00000002</value>
+					<systemInd>N</systemInd>
+				</data>
+	</referenceData>
+</orderStatusReport>

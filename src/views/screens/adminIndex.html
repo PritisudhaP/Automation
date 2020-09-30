@@ -1,0 +1,665 @@
+<en-screen class="index-view">
+    <section layout layout-margin layout-wrap>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewAccountTile"
+                  ng-if="$hasPermission('AuditEvent:UI-View')||$hasPermission('Capability:UI-View')||$hasPermission('DataDomainPolicy:UI-View')||$hasPermission('FunctionalDomain:UI-View')||$hasPermission('RegistrationRequest:UI-View')||$hasPermission('Role:UI-View')||$hasPermission('LogEvent:UI-View')||$hasPermission('UserGroup:UI-View')||$hasPermission('UserProfile:UI-View')">
+            <en-header>
+                <en-icon icon="chevron-right-circle"></en-icon>
+                <en-title>Account Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Users"
+                                  data-location="settings/accounts/users/"
+                                  icon="chevron-right-circle"
+                                  has-permission="UserProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="User Groups"
+                                  data-location="settings/accounts/user-groups/"
+                                  icon="chevron-right-circle"
+                                  has-permission="UserProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Roles"
+                                  data-location="settings/accounts/roles/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Role:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Audit Log"
+                                  data-location="settings/accounts/audit-log/"
+                                  icon="chevron-right-circle"
+                                  has-permission="AuditEvent:UI-View"></en-menu-item>
+                    <en-menu-item data-name="System Log"
+                                  data-location="settings/accounts/system-log/"
+                                  icon="chevron-right-circle"
+                                  has-permission="LogEvent:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Functional Domains"
+                                  data-location="settings/accounts/functional-domains/"
+                                  icon="chevron-right-circle"
+                                  has-permission="FunctionalDomain:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Capabilities"
+                                  data-location="settings/accounts/capabilities/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Capability:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Data Domain Policies"
+                                  data-location="settings/accounts/domain-policies/"
+                                  icon="chevron-right-circle"
+                                  has-permission="DataDomainPolicy:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewInventoryTile">
+            <en-header>
+                <en-icon icon="box-clipboard"></en-icon>
+                <en-title>Inventory</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Inventory Search"
+                                  data-location="inventory/lookup/"
+                                  icon="chevron-right-circle"
+                                  has-permission="InventoryLookup:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Inventory Pools"
+                                  data-location="inventory/pools/"
+                                  icon="chevron-right-circle"
+                                  has-permission="InventoryPool:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Products"
+                                  data-location="inventory/products/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Product:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Skus"
+                                  data-location="inventory/skus/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Sku:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Reservations"
+                                  data-location="inventory/reservations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Reservation:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Catalogs"
+                                  data-location="inventory/catalogs/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Catalog:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Item Masters"
+                                  data-location="inventory/item-masters/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ItemMaster:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Item"
+                                  data-location="inventory/items/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Item:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Price Books"
+                                  data-location="inventory/price-books/"
+                                  icon="chevron-right-circle"
+                                  has-permission="PriceBook:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Inventory Publish"
+                                  data-location="inventory/publish/"
+                                  icon="chevron-right-circle"
+                                  has-permission="InventoryPublish:UI-View"></en-menu-item>
+
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewOrdersTile">
+            <en-header>
+                <en-icon icon="invoice"></en-icon>
+                <en-title>Orders</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Sales Orders"
+                                  data-location="orders/sales/list"
+                                  icon="chevron-right-circle"
+                                  has-permission="SalesOrder:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Transfer Orders"
+                                  data-location="orders/transfers/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TransferOrder:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Purchase Orders"
+                                  data-location="orders/purchase/list"
+                                  icon="chevron-right-circle"
+                                  has-permission="PurchaseOrder:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Work Orders"
+                                  data-location="orders/work/"
+                                  icon="chevron-right-circle"
+                                  has-permission="WorkOrder:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Returns"
+                                  data-location="orders/returns/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ReturnMerchandiseAuthorization:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Invoices"
+                                  data-location="orders/invoices/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Invoice:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Remittance Advice"
+                                  data-location="orders/remittance/"
+                                  icon="chevron-right-circle"
+                                  has-permission="RemittanceAdvice:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Payment Receipts"
+                                  data-location="orders/receipts/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Receipt:UI-View"></en-menu-item>
+
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewFulfillmentTile">
+            <en-header>
+                <en-icon icon="truck"></en-icon>
+                <en-title>Fulfillment</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Fulfillment Requests"
+                                  data-location="fulfillment/requests/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ShipmentRequest:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Shipments"
+                                  data-location="fulfillment/shipments/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Shipment:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Expected Receipts"
+                                  data-location="fulfillment/expected-receipts/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ExpectedReceipt:UI-View"></en-menu-item>
+                    <!--<en-menu-item data-name="Shipment Tracking"-->
+                    <!--data-location="workflows/inventory/shipment-tracking/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="ShipmentTrack:UI-View"></en-menu-item>-->
+
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewFulfillmentTile">
+            <en-header>
+                <en-icon icon="clipboard-checklist"></en-icon>
+                <en-title>Tasks</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Tasks"
+                                  data-location="tasks/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Task:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Expectations"
+                                  data-location="tasks/expectations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Expectation:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Notifications"
+                                  data-location="/tasks/notifications/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Notification:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Registration Requests"
+                                  data-location="tasks/registrations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="RegistrationRequest:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Activities"
+                                  data-location="/tasks/activities/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Activity:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewTradingPartnersTile">
+            <en-header>
+                <en-icon icon="earth"></en-icon>
+                <en-title>Trading Partners</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Customers"
+                                  data-location="trading-partners/customers/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Customer:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Clients"
+                                  data-location="trading-partners/clients/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Client:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Vendors"
+                                  data-location="trading-partners/vendors/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Vendor:UI-View"></en-menu-item>
+                    <!--<en-menu-item data-name="Organizations"-->
+                    <!--data-location="settings/organizations/organizations/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="Organization:UI-View"></en-menu-item>-->
+
+                    <!--<en-menu-item data-name="Communities"
+                                  data-location="settings/organizations/communities/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Community:UI-View"></en-menu-item>-->
+                    <!--<en-menu-item data-name="Communication"-->
+                    <!--data-location="settings/organizations/communication-configurations/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="CommunicationConfiguration:UI-View"></en-menu-item>-->
+                    <!--<en-menu-item data-name="Contacts"-->
+                    <!--data-location="settings/organizations/contacts/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="Contact:UI-View"></en-menu-item>-->
+                    <!--<en-menu-item data-name="Invites"-->
+                    <!--data-location="settings/organizations/invites/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="Invite:UI-View"></en-menu-item>-->
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewIntegrationTile">
+            <en-header>
+                <en-icon icon="puzzle"></en-icon>
+                <en-title>Integration</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+
+                    <en-menu-item data-name="Webhooks"
+                                  data-location="integration/webhooks/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Webhook:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Routes"
+                                  data-location="integration/routes/"
+                                  icon="chevron-right-circle"
+                                  has-permission="RouteDef:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Jobs"
+                                  data-location="integration/jobs/"
+                                  icon="chevron-right-circle"
+                                  has-permission="BatchJobDef:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Scripts"
+                                  data-location="integration/scripts/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Script:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Triggers"
+                                  data-location="integration/triggers/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Scheduler:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Version Control"
+                                  data-location="integration/git/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Git:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewSitesTile">
+            <en-header>
+                <en-icon icon="store"></en-icon>
+                <en-title>Sites</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Sites"
+                                  data-location="sites/sites/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Site:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Site Groups"
+                                  data-location="sites/groups/"
+                                  icon="chevron-right-circle"
+                                  has-permission="SiteGroup:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Site Clusters"
+                                  data-location="sites/clusters/"
+                                  icon="chevron-right-circle"
+                                  has-permission="SiteCluster:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Site Calendars"
+                                  data-location="sites/calendars/"
+                                  icon="chevron-right-circle"
+                                  has-permission="SiteCalendar:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Physical Addresses"
+                                  data-location="sites/physical-addresses/"
+                                  icon="chevron-right-circle"
+                                  has-permission="PhysicalAddress:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Map"
+                                  data-location="sites/map/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Map:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewIntegrationTile"
+                  ng-if="$hasPermission('AS2ClientConnectionConfig:UI-View')||$hasPermission('AS2ServerConnectionConfig:UI-View')||$hasPermission('PublicCertificate:UI-View')||$hasPermission('EmailMEssageConfig:UI-View')||$hasPermission('KeyPair:UI-View')||$hasPermission('Password:UI-View')||$hasPermission('SFTPServerUser:UI-View')">
+            <en-header>
+                <en-icon icon="gears"></en-icon>
+                <en-title>Integration Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="AS2 Client Configuration"
+                                  data-location="settings/integration/as2-client-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="AS2ClientConnectionConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="AS2 Server Configuration"
+                                  data-location="settings/integration/as2-server-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="AS2ServerConnectionConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Communication Configurations"
+                                  data-location="settings/integration/communication-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="CommunicationConfiguration:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Public Certificates"
+                                  data-location="settings/integration/certificates/"
+                                  icon="chevron-right-circle"
+                                  has-permission="PublicCertificate:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Email Message Templates"
+                                  data-location="settings/integration/email-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="EmailMessageConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Key Pair View"
+                                  data-location="settings/integration/key-pairs/"
+                                  icon="chevron-right-circle"
+                                  has-permission="KeyPair:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Passwords"
+                                  data-location="settings/integration/passwords/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Password:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Integration Credentials"
+                                  data-location="settings/integration/integration-credentials/"
+                                  icon="chevron-right-circle"
+                                  has-permission="IntegrationCredential:UI-View"></en-menu-item>
+                    <en-menu-item data-name="SFTP Users"
+                                  data-location="settings/integration/sftp-users/"
+                                  icon="chevron-right-circle"
+                                  has-permission="SFTPServerUser:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Web Service Client Configuration"
+                                  data-location="settings/integration/web-service-client-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="WebServiceClientConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Web Service Server Configuration"
+                                  data-location="settings/integration/web-service-server-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="WebServiceServerConfig:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewDashboardsTile">
+            <en-header>
+                <en-icon icon="palette"></en-icon>
+                <en-title>Dashboards</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Vendor Dashboard"
+                                  data-location="workflows/dashboards/vendor-dashboard/"
+                                  icon="chevron-right-circle">
+                    </en-menu-item>
+                    <en-menu-item data-name="Custom Dashboard"
+                                  data-location="dashboards/"
+                                  icon="chevron-right-circle">
+                    </en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewDataManagementTile">
+            <en-header>
+                <en-icon icon="inbox-outgoing"></en-icon>
+                <en-title>Data Management</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+
+                    <en-menu-item data-name="Mailboxes"
+                                  data-location="data-management/communications/mailboxes/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Mailbox:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Files"
+                                  data-location="data-management/communications/files/"
+                                  icon="chevron-right-circle"
+                                  has-permission="FileSystemEntry:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Transmissions"
+                                  data-location="data-management/communications/transmissions/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Transmission:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Exchange Documents"
+                                  data-location="data-management/communications/document/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ExchangedDocument:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Transmission Search"
+                                  data-location="data-management/search/transmission-search/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Transmission:UI-View"></en-menu-item>
+
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewIntegrationTile"
+                  ng-if="$hasPermission('Import:UI-View')||$hasPermission('BlobStoreAccessor:UI-View')||$hasPermission('Correlation:UI-View')||$hasPermission('PurgeRetentionPolicy:UI-View')||$hasPermission('EmailMessageConfig:UI-View')||$hasPermission('MailboxRouter:UI-View')">
+            <en-header>
+                <en-icon icon="inbox-outgoing"></en-icon>
+                <en-title>Data Management Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Correlations"
+                                  data-location="settings/data-management/correlations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Correlation:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Email Message Configs"
+                                  data-location="settings/data-management/email-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="EmailMessageConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Datastore"
+                                  data-location="settings/data-management/datastore/"
+                                  icon="chevron-right-circle"
+                                  has-permission="BlobStoreAccessor:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Mailbox Routers"
+                                  data-location="settings/data-management/mailbox-routers/"
+                                  icon="chevron-right-circle"
+                                  has-permission="MailboxRouter:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Purge"
+                                  data-location="settings/data-management/purge/"
+                                  icon="chevron-right-circle"
+                                  has-permission="PurgeRetentionPolicy:UI-View"></en-menu-item>
+                    <en-menu-item data-name="File Import"
+                                  data-location="settings/data-management/import/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Import:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewReportsTile">
+            <en-header>
+                <en-icon icon="search"></en-icon>
+                <en-title>Reports</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Reports"
+                                  data-location="reports/reports/"
+                                  has-permission="ReportLayoutDefinition:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                    <en-menu-item data-name="Ad Hoc Reports"
+                                  data-location="apps/enspire-analytics/report-tool/"
+                                  has-permission="ReportToolAccessor:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                    <en-menu-item data-name="Demand Reports"
+                                  data-location="reports/demand/"
+                                  has-permission="SalesOrder:DemandReport:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                    <en-menu-item data-name="Report Layouts"
+                                  data-location="settings/reports/layout/"
+                                  has-permission="ReportLayoutDefinition:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                    <en-menu-item data-name="Report Schedules"
+                                  data-location="settings/reports/schedule/"
+                                  has-permission="ReportScheduleConfig:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                    <en-menu-item data-name="Report Data Policies"
+                                  data-location="workflows/apps/report-tool/report-data-policy/"
+                                  has-permission="ReportDataPushPolicy:UI-View"
+                                  icon="chevron-right-circle"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewSettingsTile"
+                  ng-if="$hasPermission('Channel:UI-View')||$hasPermission('EDIProfile:UI-View')||$hasPermission('CommunicationConfiguration:UI-View')||$hasPermission('Organization:UI-View')||$hasPermission('ShippingProfile:UI-View')||$hasPermission('ReturnPolicyProfile:UI-View')||$hasPermission('ShippingRateConfiguration:UI-View')||$hasPermission('TradeAgreement:UI-View')">
+            <en-header>
+                <en-icon icon="gear"></en-icon>
+                <en-title>Company Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+
+                    <en-menu-item data-name="Company"
+                                  data-location="settings/company/information/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Organization:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Shipping Profiles"
+                                  data-location="settings/company/shipping-profiles/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ShippingProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Return Policy Profiles"
+                                  data-location="settings/company/return-policies/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ReturnPolicyProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Channels"
+                                  data-location="settings/company/channels/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Channel:UI-View"></en-menu-item>
+                    <en-menu-item data-name="EDI Profiles"
+                                  data-location="settings/company/edi-configurations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="EDIProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Shipping Rates"
+                                  data-location="settings/company/shipping-rate/"
+                                  icon="chevron-right-circle"
+                                  has-permission="ShippingRateConfiguration:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Trade Agreements"
+                                  data-location="settings/company/trade-agreements/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TradeAgreement:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Customer Profiles"
+                                  data-location="settings/company/customer-profiles/"
+                                  icon="chevron-right-circle"
+                                  has-permission="CustomerProfile:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Payment Processing Rules"
+                                  data-location="settings/company/payment-processing-rules/"
+                                  icon="chevron-right-circle"
+                                  has-permission="PaymentProcessingRule:UI-View"></en-menu-item>
+                    <!--<en-menu-item data-name="Customer Profiles"-->
+                    <!--data-location="settings/company/customer-profiles/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="ShippingRateConfiguration:UI-View"></en-menu-item>-->
+                    <!--<en-menu-item data-name="Inventory Source Policies"-->
+                    <!--data-location="settings/company/inventory-source-policies/"-->
+                    <!--icon="chevron-right-circle"-->
+                    <!--has-permission="InventorySourcePolicy:UI-View"></en-menu-item>-->
+                    <en-menu-item data-name="Package Builder"
+                                  data-location="settings/packages/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Correlation:BuildCustomPackages"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewSettingsTile"
+                  ng-if="$hasPermission('UnitOfMeasure:UI-View')">
+            <en-header>
+                <en-icon icon="box"></en-icon>
+                <en-title>Product Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+
+                    <en-menu-item data-name="Units of Measure"
+                                  data-location="settings/products/uom/"
+                                  icon="chevron-right-circle"
+                                  has-permission="UnitOfMeasure:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary" has-permission="Dashboard:ViewSettingsTile"
+                  ng-if="$hasPermission('Organization:UI-View')||$hasPermission('Contact:UI-View')||$hasPermission('AddressBook:UI-View')">
+            <en-header>
+                <en-icon icon="store"></en-icon>
+                <en-title>Organization Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+
+                    <en-menu-item data-name="Organizations"
+                                  data-location="settings/organizations/organizations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Organization:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Contacts"
+                                  data-location="settings/organizations/contacts/"
+                                  icon="chevron-right-circle"
+                                  has-permission="Contact:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Address Books"
+                                  data-location="settings/organizations/address-books/"
+                                  icon="chevron-right-circle"
+                                  has-permission="AddressBook:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary"
+                  ng-if="$hasPermission('TaxAgency:UI-View')||$hasPermission('TaxRate:UI-View')||$hasPermission('TaxCode:UI-View')||$hasPermission('TaxArea:UI-View')||$hasPermission('AvalaraConfig:UI-View')"
+                  has-permission="Dashboard:ViewSettingsTile">
+            <en-header>
+                <en-icon icon="gear"></en-icon>
+                <en-title>Tax Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Agencies"
+                                  data-location="settings/tax/agencies/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TaxAgency:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Rates"
+                                  data-location="settings/tax/rates/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TaxRate:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Locations"
+                                  data-location="settings/tax/locations/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TaxLocation:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Codes"
+                                  data-location="settings/tax/codes/"
+                                  icon="chevron-right-circle"
+                                  has-permission="TaxCode:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary"
+                  ng-if="$hasPermission('OptimizedFulfillmentPlanConfig:UI-View')||$hasPermission('OrderSourcingRuleBook:UI-View')||$hasPermission('OrderReleaseSchedulingJob:UI-View')"
+                  has-permission="Dashboard:ViewSettingsTile">
+            <en-header>
+                <en-icon icon="gear"></en-icon>
+                <en-title>Fulfillment Settings</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Optimized Fulfillment Plan"
+                                  data-location="settings/fulfillment/optimized-fulfillment-plan/"
+                                  icon="chevron-right-circle"
+                                  has-permission="OptimizedFulfillmentPlanConfig:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Order Sourcing Rule Book"
+                                  data-location="settings/fulfillment/order-sourcing-rulebook/"
+                                  icon="chevron-right-circle"
+                                  has-permission="OrderSourcingRuleBook:UI-View"></en-menu-item>
+                    <en-menu-item data-name="Order Release Scheduling Job"
+                                  data-location="settings/fulfillment/order-release-scheduling-job/"
+                                  icon="chevron-right-circle"
+                                  has-permission="OrderReleaseSchedulingJob:UI-View"></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <en-panel flex="30" class="panel-primary"
+                  has-permission="Dashboard:ViewAppsTile">
+            <en-header>
+                <en-icon icon="{{::'OMS.MENU.APPS.ICON' | translate}}"></en-icon>
+                <en-title>{{::'OMS.MENU.APPS.LABEL' | translate}}</en-title>
+            </en-header>
+            <en-content>
+                <en-menu orientation="vertical">
+                    <en-menu-item data-name="Enspire Analytics"
+                                  data-location="/apps/enspire-analytics/report-tool/"
+                                  icon="chevron-right-circle">
+                    </en-menu-item>
+                    <en-menu-item data-name="IP Messaging"
+                                  data-location="/apps/ip-messaging/"
+                                  icon="chevron-right-circle"
+                                  has-permission="IP-Messaging:UI-View"
+                    ></en-menu-item>
+                </en-menu>
+            </en-content>
+        </en-panel>
+        <div flex></div>
+    </section>
+</en-screen>
