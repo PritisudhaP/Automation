@@ -13,6 +13,7 @@ module.exports = function () {
     var acceptOrderButton = element(by.xpath("//span[text()='ACCEPT ORDER']"));
     var acceptOrder2Button = element(by.xpath("//span[text()='Accept Order']"));
     var rejectButton = element(by.xpath("//span[text()='REJECT ORDER']"));
+    var acceptPartialButton = element(by.xpath("//span[text()='ACCEPT PARTIAL']"));
     var reasonCodeDropdown = element(by.model("modalObject.reasonCode"));
     var reasonCodeOption = element(by.xpath("//select/option[@label='No Stock']"));
     var rejectComments = element(by.xpath("//input[@type='text']"));
@@ -67,8 +68,22 @@ module.exports = function () {
     var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
     var channelDropDown = element(by.xpath("//select[contains(@ng-show,'filteredChannels.data.value')]"));
     var salesChannelSelectButton = element(by.xpath('//button/en-icon[@icon="check"]'));
+    var itemPickedQtyButton = element(by.xpath("(//button[contains(@ng-disabled,'AcceptPartial')])[1]"));
+    var qtyPick = element(by.xpath("(//button[contains(@ng-disabled,'itemQtyPicked')])[1]"));
+    var rejRemButtonStatus = element(by.xpath("//button[contains(@ng-disabled,'enableDisableRejectRemaining')]"));
+    var finalShipButtonStatus = element(by.xpath("//button[contains(@ng-disabled,'disableFinalize')]"));
+    var shipmentsPane = element(by.xpath("//en-tab[text()='Shipments']"));
+    var shipmentID = element(by.xpath("//en-panel//en-title[text()='Shipment #: ']"));
+//en-panel[contains(@ng-repeat, 'shipmentPackages')]//child::en-title
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var shipmentGear = element(by.xpath("//en-icon[@icon='more-vertical']/parent::button"));
+    var valueDropDown = element(by.xpath(" //select[@name='filter-content'and @ng-model='apiSearchFilter.value']"));
+
+    var itemQtyInPackageEntryTextBox = element(by.xpath('//input[@ng-model="item.qtyInPackageDefault"]'));
+    var searchTextbox = element(by.xpath("//input[@ng-model='apiSearchText.value']"));
+
+
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 
@@ -105,6 +120,11 @@ module.exports = function () {
         browser.sleep(3000);
     }
 
+    this.clickMultipleGear = function (index) {
+        temp = "(//div[contains(@class,'en-collection-row')]/div[2]//en-actions/button)[" + index + "]";
+        element(by.xpath(temp)).click();
+        browser.sleep(3000);
+    }
 //*********t\<< To select an option from 3 (...) dots >>>>>************
     this.FRSelectGear = function (selectOption) {
         // FRSelectGearIcon.click();
@@ -256,6 +276,19 @@ module.exports = function () {
         browser.sleep(500);
     }
 
+    //Below method is without go button
+    this.searchShipment = function (criteria, content, searchValue) {
+        searchOption.click();
+        browser.sleep(100);
+        filterCriteriaDropdown.sendKeys(criteria);
+        browser.sleep(100);
+        filterContentDropdown.sendKeys(content);
+        browser.sleep(100);
+        inputTextBox.sendKeys(searchValue);
+        inputTextBox.sendKeys(protractor.Key.ENTER);
+        browser.sleep(500);
+    }
+
     this.multipleOrderSelect = function () {
         multiselectButton.click();
         browser.sleep(500);
@@ -369,6 +402,89 @@ module.exports = function () {
     }
 
 
+    this.isAcceptPartialPresent = function () {
+        return acceptPartialButton.isEnabled();
+    }
+
+    this.acceptPartialOption = function () {
+        browser.sleep(3000);
+        return element(by.xpath("//span/li/button/span[text()='Accept Partial']/parent::button")).isEnabled();
+
+    }
+    this.itemPickerButtonStatus = function () {
+        return itemPickedQtyButton.getAttribute("disabled");
+
+    }
+
+    this.clickOrder = function (orderNo) {
+        browser.driver.sleep(2000);
+        temp = "//div[@class='en-collection-row']//div/span[contains(text()," + orderNo + ")]";
+        console.log(orderNo);
+        return element(by.xpath(temp)).click();
+        browser.driver.sleep(3000);
+    }
+
+    this.qtyPickedStatus = function () {
+        return qtyPick.getAttribute("disabled");
+
+    }
+
+    this.rejectRemainingDisabled = function () {
+        multiselectButton.click();
+        browser.sleep(2000);
+        return rejRemButtonStatus.getAttribute("disabled");
+    }
+
+    this.completeFulfillDisabled = function () {
+        return finalShipButtonStatus.getAttribute("disabled");
+    }
+
+    this.navigateToShipmentsPane = function () {
+        shipmentsPane.click();
+    }
+
+    this.lineFRStatus = function (line) {
+        // temp ="(//div[contains(@ng-repeat,'lineItemsCollection')])[" + line + "]";
+        temp = "(//div[contains(@ng-repeat,'lineItemsCollection')])[" + line + "]//div[5]/en-label";
+        return element(by.xpath(temp)).getText();
+    }
+
+    this.enterItemQty = function (line, qtyValue) {
+        temp = "(//input[@ng-model='item.qtyInPackageDefault'])[" + line + "]";
+        return element(by.xpath(temp)).sendKeys(qtyValue);
+    }
+
+    this.getShipment = function () {
+        return shipmentID.getText();
+    }
+    this.naviagteToShipments = function () {
+        shipmentID.click();
+    }
+
+    this.shipmentGearButton = function () {
+        shipmentGear.click();
+        //span[text()='PRINT PICKLIST BY ORDER']
+    }
+
+    this.shipmentGearSelect = function (selectOption) {
+        browser.sleep(3000);
+        temp = "//span[text()='" + selectOption + "']";
+        if (selectOption == "Generate Packing Slips")
+
+            return element(by.xpath(temp)).click();
+        else {
+            //element(by.xpath(temp)).click();
+            temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
+            console.log(temp);
+            return element(by.xpath(temp)).click();
+        }
+    }
+
+    this.enterItemQty = function (index,qtyValue) {
+
+        temp = "(//input[@ng-model='item.qtyInPackageDefault'])[" + index + "]";
+        return element(by.xpath(temp)).sendKeys(qtyValue);
+    }
 }
 
 

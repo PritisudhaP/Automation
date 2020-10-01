@@ -9,7 +9,7 @@ this.dailyRecurringTextBox = element(by.xpath("//input[@name='onday']"));
 this.addScheduleButton = element(by.xpath("//button/span[contains(text(),'Add Schedule Rule')]/parent::button"));
 this.applyRuleButton = element(by.xpath("//button/span[contains(text(),'Apply Rules')]/parent::button"));
 this.confirmButton = element(by.xpath("//button/span[contains(text(),'Confirm')]/parent::button"));
- var common = require(process.cwd() + '/src/tests/screens/commons.js');
+ var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.enterMaxOrder = function(qty)

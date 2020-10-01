@@ -1,8 +1,8 @@
-var inventorypublishcreateScreen = require(process.cwd() + '/src/tests/screens/inventoryPublish/inventorypublish.create.screen.js');
-var inventorypublishsummaryscren = require(process.cwd() + '/src/tests/screens/inventoryPublish/inventorypublish.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
-var inventoryLookUp = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
+var inventorypublishcreateScreen = require(process.cwd() + '/screens/inventoryPublish/inventorypublish.create.screen.js');
+var inventorypublishsummaryscren = require(process.cwd() + '/screens/inventoryPublish/inventorypublish.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
+var inventoryLookUp = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
 
   global.NumberOfRecords="";
   global.NumberOfRecordsFromInventory="";

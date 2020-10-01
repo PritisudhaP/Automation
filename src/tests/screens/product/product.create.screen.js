@@ -18,6 +18,7 @@ module.exports =function(){
     this.productAttachCatalogButton = element(by.xpath('//button/span[contains(text(),"Attach to Catalog")]/parent::button'));
 
     this.productCatalogIdDropDown = element(by.xpath('//select[@name="catalogId"]'));
+    this.editProductButton = element(by.xpath("//button/span[text() = 'Edit']/parent::button"));
     this.productCategoryNameDropDown = element(by.xpath('//select[@name="catalogName"]'));
     this.productBasePriceEntryTextBox= element(by.xpath('//input[@name="price"]'));
     this.productMSRPEntryTextBox= element(by.xpath('//input[@name="comparePrice"]'));
@@ -26,8 +27,23 @@ module.exports =function(){
     this.saveButton = element(by.xpath('//button[contains(text(),"Save")]'));
 
     this.autoCreateSkuCheckbox = element(by.xpath('//input[@name="createSKUFromProduct"]'));
+    this.activeProductCheckBox = element(by.xpath("//input[@name = 'active']"));
+    this.isPurchaseItemCheckBox = element(by.xpath("(//en-control/label/input[@name = 'noninventory'])[2]"));
+    this.isSellableItemCheckBox = element(by.xpath("(//en-control/label/input[@name = 'noninventory'])[3]"));
+    this.editScreenSaveButton = element(by.xpath("//button[@type = 'submit']"));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    this.productSelectGearIcon = element(by.xpath("//en-actions/button/en-icon"));
+    this.editOption = element(by.xpath("//span[contains(text(),'Edit')]/parent::button"));
+    this.addVariantButton = element(by.xpath("//button/span[text() = 'Add Variant Attribute']/parent::button"));
+    this.variantName = element(by.xpath("//div/en-section/en-header/span/input[@ng-model = 'variantAttribute.variantName']"));
+    this.addVariantValueButton = element(by.xpath("(//div/button/span[text() = 'Add Value'])[1]//parent::Button"));
+    this.variantDisplayName = element(by.xpath("//en-modal-body/en-content/en-control/input[@name='displayName']"));
+    this.variantAbbrevation = element(by.xpath("//en-modal-body/en-content/en-control/input[@name='abbreviation']"));
+    this.defaultValueCheckBox = element(by.xpath("//en-modal-body/en-content/en-control/label[text()=' Default Value?']/input"));
+    this.variantSaveButton = element(by.xpath("//en-modal-footer/button[@type ='submit']"));
+
+
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 
@@ -37,6 +53,11 @@ module.exports =function(){
 
     this.enterRefName = function(refName) {
         return this.productRefNameEntryTextBox.sendKeys(refName);
+    }
+    this.chooseProductSelectGear = function(){
+        this.productSelectGearIcon.click();
+        browser.sleep(1000);
+        return this.editOption.click();
     }
 
     this.enterDisplayName = function(displayName) {
@@ -110,6 +131,48 @@ module.exports =function(){
 
     this.uncheckAutocreateSku = function() {
         return this.autoCreateSkuCheckbox.click();
+    }
+
+    this.checkActiveProductCheckBox = function () {
+        return this.activeProductCheckBox.click();
+        browser.sleep(2000);
+    }
+    this.checkIsPurchaseItemCheckBox = function(){
+        return this.isPurchaseItemCheckBox.click();
+    }
+    this.checkIsSellableItemCheckBox = function () {
+        return this.isSellableItemCheckBox.click();
+    }
+    this.clickOnAddVariantButton = function () {
+        return this.addVariantButton.click();
+    }
+    this.enterVariantName = function (variantName) {
+        //this.variantName.click();
+        return this.variantName.sendKeys(variantName);
+    }
+    this.clickOnVariant = function(variantName){
+        this.variantName.click();
+    }
+    this.clickaddValueToVariantButton = function () {
+        return this.addVariantValueButton.click();
+    }
+    this.EnterVariantValue = function (displayname , abbrevation) {
+        this.variantDisplayName.sendKeys(displayname);
+        return this.variantAbbrevation.sendKeys(abbrevation);
+    }
+    this.markAsDefaultValue = function () {
+        return this.defaultValueCheckBox.click();
+    }
+    this.saveVariantValue = function () {
+        return this.variantSaveButton .click();
+    }
+    this.clickOnSaveButton = function() {
+        return this.editScreenSaveButton.click();
+
+    }
+
+    this.clickOnEditProduct = function() {
+        return this.editProductButton.click();
     }
 
 

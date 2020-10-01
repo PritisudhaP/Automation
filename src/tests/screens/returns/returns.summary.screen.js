@@ -21,6 +21,7 @@ module.exports =function(){
     this.generateShippingLabelCheckbox = element(by.xpath('//input[@name="generateShippingLabel"]'));
 
 
+    //var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 

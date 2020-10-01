@@ -1,5 +1,5 @@
-var customersSummaryScreen = require(process.cwd() + '/src/tests/screens/customers/customers.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var customersSummaryScreen = require(process.cwd() + '/screens/customers/customers.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 
 

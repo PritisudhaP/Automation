@@ -1,5 +1,5 @@
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Mailbox Bulk move of entries  : ', function(){
     var mailbox = new mailboxScreen();

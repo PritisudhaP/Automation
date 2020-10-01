@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites>
+ <testsuite name="test" timestamp="2020-07-30T12:49:23" hostname="localhost" time="2.788" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="test" name="token generation" time="2.786">
+  </testcase>
+ </testsuite>
+ <testsuite name="order creation" timestamp="2020-07-30T12:49:25" hostname="localhost" time="2.058" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="order creation" name="create SO" time="2.058">
+  </testcase>
+ </testsuite>
+ <testsuite name="release the order" timestamp="2020-07-30T12:49:28" hostname="localhost" time="4.95" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="release the order" name="release the order" time="4.95">
+  </testcase>
+ </testsuite>
+ <testsuite name="get the Fr details" timestamp="2020-07-30T12:49:32" hostname="localhost" time="3.754" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="get the Fr details" name="get the FR details" time="3.754">
+  </testcase>
+ </testsuite>
+ <testsuite name="Login: " timestamp="2020-07-30T12:49:36" hostname="localhost" time="17.577" errors="0" tests="1" skipped="0" failures="0">
+  <testcase classname="Login: " name="Login - TC0000" time="17.577">
+  </testcase>
+ </testsuite>
+ <testsuite name="Shipment confirmation  Flow  : " timestamp="2020-07-30T12:49:54" hostname="localhost" time="94.844" errors="0" tests="2" skipped="0" failures="0">
+  <testcase classname="Shipment confirmation  Flow  : " name="shipment creation" time="64.868">
+  </testcase>
+  <testcase classname="Shipment confirmation  Flow  : " name="create invoice" time="29.976">
+  </testcase>
+ </testsuite>
+</testsuites>

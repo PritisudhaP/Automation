@@ -1,6 +1,6 @@
-var functionaldomainsCreateScreen = require(process.cwd() + '/src/tests/screens/functionaldomains/functionaldomains.create.screen.js');
-var functionaldomainsSummaryScreen = require(process.cwd() + '/src/tests/screens/functionaldomains/functionaldomains.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var functionaldomainsCreateScreen = require(process.cwd() + '/screens/functionaldomains/functionaldomains.create.screen.js');
+var functionaldomainsSummaryScreen = require(process.cwd() + '/screens/functionaldomains/functionaldomains.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Functional Domains creation Flow  : ', function(){
     var functionaldomainsCreate = new functionaldomainsCreateScreen();

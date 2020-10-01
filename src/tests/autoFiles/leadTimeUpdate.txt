@@ -1,3 +1,0 @@
-Vendor,Host SKU,Vendor SKU,Lead Time,Lead Time UOM
-tc00000001,SarathTC0001,SarathTC0001_SarathTC0001,305,HOURS
-tc00000002,SarathTC0001,SarathTC0002_SarathTC0001,305,DAYS

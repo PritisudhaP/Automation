@@ -2,11 +2,12 @@ module.exports = function () {
 
     this.clearSearchButton = element(by.xpath('//button[@en-tap="clearSearch();"]'));
     this.selectSKUInInventory = element(by.model("skusCollection.checkAllModel"));
+	this.selectSKUInInventory = element(by.xpath("//div/div/div/div/input[@id = 'skusCollection_checkbox_0_0']"));
     this.selectSKUInResults = element(by.model("inventoryCollection.checkAllModel"));
     this.addToOrderButton = element(by.xpath("//button[@en-tap='goToSalesOrder()']/span"));
     this.attachCustomerButton = element(by.xpath('//button[@class="en-button button-primary"]'));
-    this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[2]"));
-    this.searchSKUTextBox = element(by.model("apiSearchText.value"));
+    //this.searchCustomerTextbox = element(by.xpath("(//input[(@name = 'simplified-text-value')])[2]"));
+	this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[2]"));
     this.deleteCustomerSearchBox = element(by.model("apiSearchText.value"));
     //this.searchProductTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));
     this.plusIcon = element(by.xpath("//en-icon[@icon='plus-block']"));
@@ -25,6 +26,7 @@ module.exports = function () {
     this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[2]"));
     this.reservationDetailsClose = element(by.xpath("//button[@class='en-button']/span[text()='Close']"));
     this.skuLink = element(by.xpath("//a[@class='ellipsis']"));
+	this.trackingNumber = element(by.xpath("//en-control/input[@name = 'trackingNumber']"));			
     this.editSKUQty = element(by.model("product.item.itemQty"));
     this.lineAllocatedCount = element(by.xpath("//div[@class='line-qty']//div[2]/small"));
     this.lineShippedCount = element(by.xpath("//div[@class='line-qty']//div[4]/small"));
@@ -44,8 +46,9 @@ module.exports = function () {
     this.unitPriceTextBox = element(by.model("item.itemUnitPrice"));
     this.priceSaveBtn = element(by.xpath("//button/span[contains(text(),'Save')]"));
     this.editlinePopup = element(by.xpath("//div[@class='line-qty is-clickable']"));
-
-    this.discountButton = element(by.xpath("//button/en-icon[@icon='discount']"));
+	this.editLineGear = element(by.xpath("(//button/en-icon[@icon ='more-vertical'])[3]"));
+	this.discountButton = element(by.xpath("//button/en-icon[@icon='discount']//parent::button"));
+    //this.discountButton = element(by.xpath("//button/en-icon[@icon='discount']"));
     this.discountPercentageTextBox = element(by.model("discount.discountPercent"));
     this.discountAmtTextBox = element(by.model("discount.discountAmount"));
     this.discountReason = element(by.model("discount.discountName"));
@@ -75,7 +78,8 @@ module.exports = function () {
     this.advancedSettingsBtn = element(by.xpath("//en-tab[@pane='advanced-settings']"));
     this.selectCustomerState = element(by.model("customer.data.state"));
     this.selectCustomerPriority = element(by.model("customer.data.priority"));
-    this.submitBtn = element(by.xpath("//button[@type='submit'][@object='customer']"));
+	this.submitBtn = element(by.xpath("//button[@type='submit']"));
+    //this.submitBtn = element(by.xpath("//button[@type='submit'][@object='customer']"));
     //this.lineDiscountAmount = element(by.xpath("//small[contains(text(),'Discount:')]/following-sibling::small"));
 
     this.orderlvlappeasementText = element(by.xpath("(//div[@class='en-collection-row'])[1]/div[2]"));
@@ -114,6 +118,16 @@ module.exports = function () {
     this.takeOverBtn = element(by.xpath("//button//span[contains(text(),'Take Over')]"));
     this.cartTakeOverErrMsg = element(by.xpath("//en-msgs[@for='lookupForm.lookupCartId']/en-msg"));
     this.packageUnselect = element(by.model("skipLabelGeneration"));
+	//this.payButton = element(by.xpath("//button/span[@contains(@ng-show , '!salesOrder.putting && !salesOrder.getting']/parent::button"));
+    this.payButton = element(by.xpath("//button/span[contains(@ng-show,'salesOrder.putting')]/parent::button"));
+    this.paymentMethod = element(by.model("payment.method"));
+    this.creditCardNumber = element(by.model("payment.cardNumber"));
+    this.creditCardCVVNumber = element(by.model("payment.cvv"));
+    this.nameOnCreditCard = element(by.model("payment.nameOnCard"));
+    this.creditCardExpMonth = element(by.model("payment.expMonth"));
+    this.creditCardExpYear = element(by.model("payment.expYear"));
+    this.paymentAmount = element(by.model("payment.amount"));
+    this.submitPayment = element(by.xpath("//button/span[@contains(text(),'Submit')]"))					
 
     var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
     var channelDropDown = element(by.xpath("//select[contains(@ng-show,'filteredChannels.data.value')]"));
@@ -122,57 +136,191 @@ module.exports = function () {
     var cancelButtonInInvDetails = element(by.xpath("//button[@class='en-button']/span[text()='Cancel']"));
     var availableQty = element(by.xpath('//div[contains(@ng-repeat,"item in inventoryCollection.data")]/div/div[7]'));
     var reservedQty = element(by.xpath('//div[contains(@ng-repeat,"item in inventoryCollection.data")]/div/div[8]'));
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price')]"));
+    this.unitPriceTextBox = element(by.model("item.itemUnitPrice"));
+    this.priceSaveButton=element(by.xpath("(//button/span[@class = 'ng-scope'])[2]"));
+
+    this.paymentMethod = element(by.name("method_0"));
+    this.creditCardNumber = element(by.model("payment.cardNumber"));
+    this.creditCardCVVNumber = element(by.model("payment.cvv"));
+    this.nameOnCreditCard = element(by.model("payment.nameOnCard"));
+    this.creditCardExpMonth = element(by.model("payment.expMonth"));
+    this.creditCardExpYear = element(by.model("payment.expYear"));
+    this.paymentAmount = element(by.model("payment.amount"));
+    this.submitPayment = element(by.xpath("//button/span[text()='Submit']"));
+    this.searchForSkuAvailability =  element(by.xpath("//div/button[text()='Search']"));
+    this.orderStatus = element(by.xpath("(//div/en-label[@ng-if = 'salesOrder.data.header.status'])"));
+    this.searchButton = element(by.xpath("//div/button[text()='Search']"));
+
+
+
+    this.cancelPayButton = element(by.xpath("//button/span[text()='Cancel']"));
+    this.itemQty2InPackageEntryTextBox = element(by.xpath('(//input[@ng-model="item.qtyInPackageDefault"])[3]'));
+    this.addMethodButton = element(by.xpath("//button/span[text()='Add method']"));
+    this.alternativePaymentMethod = element(by.name("method_1"));
+    this.alternativeCreditCardNumber = element(by.name("cardNumber_1"));
+    this.alternativeCreditCardCVV = element(by.name("cvv_1"));
+    this.alternativeCreditCardName = element(by.name("nameOnCard1"));
+    this.alternativeCreditCardExpMonth = element(by.name("expMonth_1"));
+    this.alternativeCreditCardExpYear  = element(by.name("expYear_1"));
+    this.alternativePaymentAmount = element(by.name("paymentAmount_1"));
+    this.giftCardPinNumber = element(by.model("payment.giftCardPin"));
+    this.dueAmount = element(by.xpath("//en-title[contains(text(),'Amount Due')]"));
+    this.confirmCustomerAddressButton = element(by.xpath('//button/span[contains(text(),"Ok")]/parent::button'));
+    this.channelName = element(by.xpath("//strong[@ng-if =\"!$root.editChannel\"]"));
+    this.verifyAddress = element(by.xpath("(//div/div/div[@class = 'en-collection-row']/div[@class = 'ng-binding'])[1]"));
+
+    this.unitPrice = element(by.xpath("//div/div/div/small[text()= 'Unit Price:']/following-sibling::small"));
+    this.linePrice = element(by.xpath("//div/div/div/small[text()= 'Line Price:']/following-sibling::small"));
+    this.discountamount =  element(by.xpath("//div/small[text()= 'Discount:']/following-sibling::small"));
+    this.taxamount =  element(by.xpath("//div/small[text()= 'Sales Tax:']/following-sibling::small"));
+    this.shippingcharges = element(by.xpath("//div/small[text()= 'Shipping Tax:']/following-sibling::small"));
+    this.appeasementAmount = element(by.xpath("//en-item/small[contains(text(),'Appeasement:')]/following-sibling::strong"));
+
+
+    this.orderSelectGear = element(by.xpath("(//en-actions/button)[1]"));
+    this.manualAlloactionButton = element(by.xpath("//li/button/span[text() = 'Manual Allocation']//parent::button"));
+    //this.siteCheckBox = element(by.xpath("//div/div/span[text() = 'Joliet-DC']/parent::div/parent::div/preceding-sibling::div"));
+    this.saveAndReleaseSalesOrderButton = element(by.xpath("//button/div[text() = 'Save and Release']//parent::button"));
+    this.cancelAllocation = element(by.xpath("//button/span[text() = 'Cancel']//parent::button"));
+    this.orderStatusText = element(by.xpath("//en-label[@ng-if = 'salesOrder.data.header.status']/small"));
+    this.allocatedSiteName = element(by.xpath("//section/div/b[text() = 'Site:']/parent::div"));
+    this.markAsShippedButton = element(by.xpath("//li/button/span[contains(text(),'Mark As Shipped')]/parent::button"));
+    this.confirmMarkAsShipped = element(by.xpath("//button/span[text() = 'Yes']/parent::button"));
+    this.editChannelButton = element(by.xpath("//li/button/span[contains(text(),'Edit Channel')]/parent::button"));
+    this.chooseselection = element(by.xpath("//en-control/span/input[@name = 'avoidReallocationToSameSite']"));
+    this.saveChannelButton = element(by.xpath("//en-modal-footer/button[contains(text(),'Save')]"));
+    this.searchBox = element(by.xpath("//form/en-field/en-input/input"));
+    this.shipementRequestCount = element(by.xpath("//en-body/en-tabs/en-tab[@pane = 'shipReqPane']/en-label"));	
+	var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.unselectPkg = function(){
        this.packageUnselect.click();
-       browser.sleep(1000);
     }
+	this.clickOnManualAllocationButton = function () {
+
+        this.orderSelectGear.click();
+        browser.sleep(2000);
+        this.manualAlloactionButton.click();
+    }
+    this.chooseSite = function (siteName) {
+        temp = "//div/div/span[text() = '"+siteName+"']/parent::div/parent::div/preceding-sibling::div";
+        return element(by.xpath(temp)).click();
+
+    }
+    this.clickOnSaveAndReleaseButton = function() {
+        this.saveAndReleaseSalesOrderButton.click();
+        browser.sleep(5000);
+    }
+
+    this.clickOnCancelAllocationButton = function () {
+        this.cancelAllocation.click();
+    }
+    this.getorderStatusText = function () {
+
+        return this.orderStatusText.getText();
+    }
+    this.getAllocatedSiteName = function () {
+        return this.allocatedSiteName.getText();
+    }
+    this.clickMarkAsShippedButton = function () {
+         this.salesOrderSelectGearIcon.click();
+         browser.sleep(2000);
+         this.markAsShippedButton.click();
+         browser.sleep(2000);
+         return this.confirmMarkAsShipped.click();
+    }
+    this.clickOnEditChannelSettings = function () {
+        this.salesOrderSelectGearIcon.click();
+        browser.sleep(2000);
+        return this.editChannelButton.click();
+
+    }
+    this.selectOptionInChannelScreen = function(){
+        this.chooseselection.click();
+    }
+    this.saveChannel = function() {
+        return this.saveChannelButton.click();
+    }
+    this.searchForSku = function (skuname) {
+        this.searchBox.clear();
+        for (var i = 0, len = skuname.length; i < len; i++) {
+            this.searchBox.sendKeys(skuname[i]);
+            browser.sleep(100);
+        }
+        this.searchBox.sendKeys(protractor.Key.ENTER);
+    }
+    this.getShipementRequestCount = function () {
+          return this.shipementRequestCount.getText();
+    }
+
+    this.verifyShippingAddress = function()
+    {
+        return this.verifyAddress.getText();
+    }
+
+    this.editLine = function () {
+        this.editlinePopup.click();
+        browser.sleep(1000);
+        this.discountButton.click();
+    }
+    this.clickOnDiscountButton = function(){
+        this.editLineGear.click();
+        browser.sleep(1000);
+        return this.discountButton.click();
+    }
+
+    this.getChannelName = function()
+    {
+        return this.channelName.getText();
+    }
+	
     this.selectSKUFromSearch = function () {
         return this.selectSKUInInventory.click();
-        browser.sleep(1000);
 
     }
     this.selectSKUFromResults = function () {
         return this.selectSKUInResults.click();
-        browser.sleep(1000);
 
     }
+	this.searchForSelectedSku = function () {
+        return this.searchForSkuAvailability.click();
+    }									   
     this.clearSearch = function () {
         this.clearSearchButton.click();
-        browser.sleep(1000);
     }
     this.addToOrder = function () {
         this.addToOrderButton.click();
-        browser.sleep(1000);
     }
     this.attachCustomer = function () {
         this.attachCustomerButton.click();
-        browser.sleep(1000);
     }
     this.filterText = function () {
         browser.driver.sleep(5000);
         return this.closeFilter.getText();
     }
+	    this.searchForSelectedSku = function () {
+        return this.searchForSkuAvailability.click();
+    }						 
     this.reservationDetailsPopupClose = function () {
         this.reservationDetailsClose.click();
-        browser.sleep(1000);
     }
+	this.increaseLineQty = function (linenumber , qty) {
+        temp = "(//div/div/en-icon[@icon = 'arrow-up'])["+linenumber+"]";
+        for(i =1;i< qty;i++){
+            element(by.xpath(temp)).click();
+        }
+
+    }
+
+    this.clickSearch = function () {
+        return this.searchButton.click();
+    }
+	
     this.cancelFilter = function () {
         browser.driver.sleep(5000);
         this.closeFilter.click();
-        browser.sleep(1000);
-    }
-    this.searchSKU = function (skuCriteria, skuSearchValue) {
-        this.searchSKUTextBox.clear();
-
-        for (var i = 0, len = skuSearchValue.length; i < len; i++) {
-            this.searchSKUTextBox.sendKeys(skuSearchValue[i]);
-            browser.sleep(100);
-        }
-
-        this.searchSKUTextBox.sendKeys(protractor.Key.ENTER);
     }
     this.searchCustomer = function (customerCriteria, customerSearchValue) {
         this.searchCustomerTextbox.clear();
@@ -184,7 +332,6 @@ module.exports = function () {
 
         this.searchCustomerTextbox.sendKeys(protractor.Key.ENTER);
     }
-
     this.deleteCustomerSearch = function (customerCriteria, customerSearchValue) {
         this.deleteCustomerSearchBox.clear();
 
@@ -195,36 +342,35 @@ module.exports = function () {
 
         this.deleteCustomerSearchBox.sendKeys(protractor.Key.ENTER);
     }
+	this.setItemTrackingNumber = function(trackingNumber)
+    {
+        return  this.trackingNumber.sendKeys(trackingNumber);
+    }									  
     this.addToOrderFromSalesOrder = function () {
         this.addToOrderFromSO.click();
-        browser.sleep(1000);
     }
     this.plusIconClick = function () {
         this.plusIcon.click();
-        browser.sleep(1000);
     }
     this.inventoryDetailsPopUp = function () {
         this.inventoryDetailsButton.click();
-        browser.sleep(1000);
     }
     this.reservationDetails = function () {
         this.reservationDetailsLink.click();
-        browser.sleep(1000);
     }
     this.inventoryDetailsSelectGear = function () {
         this.inventoryDetailsSelectGearIcon.click();
-        browser.sleep(1000);
     }
     this.getChannelText = function (channel) {
         return this.channelText.getText();
     }
     this.searchWithCriteria = function (criteria, content, searchValue) {
         this.InventorydtlsFilterSearchOption.click();
-        browser.sleep(1000);
+        browser.sleep(100);
         this.InventorydtlsFilterCriteriaDropdown.sendKeys(criteria);
-        browser.sleep(1000);
+        browser.sleep(100);
         this.InventorydtlsFilterContentDropdown.sendKeys(content);
-        browser.sleep(1000);
+        browser.sleep(100);
         this.InventorydtlsSearchValueTextbox.sendKeys(searchValue);
 
         element(by.xpath('//input[contains(@class, "adv-search-input") and @name="filter-value"]')).sendKeys(protractor.Key.ENTER);
@@ -254,24 +400,19 @@ module.exports = function () {
     }
     this.cancelInvDetailsPopUp = function () {
         return cancelButtonInInvDetails.click();
-        browser.sleep(1000);
     }
     this.callCenterSKUsGearIcon = function (selectOption) {
         this.callCenterSkuGearIcon.click();
-        browser.sleep(1000);
         temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
         if (selectOption == "Edit")
-            return element(by.xpath(temp)).click();            
+            return element(by.xpath(temp)).click();
         else if (selectOption == "Delete") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else {
             element(by.xpath(temp)).click();
-            browser.sleep(1000);
             temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
             //return element.all(by.xpath(temp)).get(1).click();
             return element.all(by.xpath(temp)).get(1).click();
-            browser.sleep(1000);
         }
 
     }
@@ -284,13 +425,10 @@ module.exports = function () {
             return element(by.xpath(temp)).click();
         else if (editLineOptions == "Discounts") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else if (editLineOptions == "Edit Line") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else if (editLineOptions == "Appeasement") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
 
         }
 
@@ -298,15 +436,12 @@ module.exports = function () {
     this.lineLevelAppeasement = function () {
         browser.sleep(2000);
         this.lineAppeasement.click();
-        browser.sleep(1000);
     }
     this.orderLevelAppeasement = function () {
         this.orderAppeasement.click();
-        browser.sleep(1000);
     }
     this.appeasementsHeader = function () {
         this.appeasementTab.click();
-        browser.sleep(1000);
         /* browser.sleep(1000);
          temp ="//div[@class='ng-binding'][contains(text(),'" + appeasementLevel +"')]";
          if(appeasementLevel == "Order"){
@@ -316,15 +451,15 @@ module.exports = function () {
     }
     this.salesChannel = function (value) {
         salesChannelEditIcon.click();
-        browser.sleep(1000);
+        browser.sleep(100);
         channelDropDown.sendKeys(value);
-        browser.sleep(1000);
+        browser.sleep(100);
         salesChannelSelectButton.click();
     }
 
     this.promisedDate = function (Date) {
         this.editPromisedDate.click();
-        browser.sleep(1000);
+        browser.sleep(2000);
         this.promisedDateTextBox.sendKeys(Date);
     }
     this.createCustomer = function (displayName, firstName, lastName, address1, city, state, zipcode5) {
@@ -345,7 +480,6 @@ module.exports = function () {
         this.stateDropDown.sendKeys(state);
         this.addressZipCode5.sendKeys(zipcode5);
         this.addressSaveBtn.click();
-        browser.sleep(1000);
 
     }
     this.customerAdvancedSettings = function (customerState, customerPriority) {
@@ -356,21 +490,17 @@ module.exports = function () {
         this.selectCustomerPriority.sendKeys(customerPriority);
         browser.sleep(3000);
         this.submitBtn.click();
-        browser.sleep(1000);
     }
     this.incrementQty = function () {
         this.incrementQtyArrowUp.click();
-        browser.sleep(1000);
     }
     this.decrementQty = function () {
         this.decrementQtyArrowDown.click();
-        browser.sleep(1000);
     }
     this.editLine = function () {
         this.editlinePopup.click();
         browser.sleep(1000);
         this.discountButton.click();
-        browser.sleep(1000);
     }
     this.applyDiscount = function (discountType, discountAmtNumber, reason, description, notes) {
         browser.sleep(1000);
@@ -393,6 +523,10 @@ module.exports = function () {
         this.discountNotes.clear();
         this.discountNotes.sendKeys(notes);
     }
+	this.getDiscountAmount =function()
+    {
+        return this.discountamount.getText();
+    }						
     this.applyAppeasement = function (appeasementType, appeasementAmt, reason, description, notes) {
         browser.sleep(1000);
         temp = "//button/span[contains(text(),'" + appeasementType + "')]";
@@ -418,7 +552,6 @@ module.exports = function () {
     this.applyButton = function () {
         browser.sleep(1000);
         this.applyBtn.click();
-        browser.sleep(1000);
     }
 
 
@@ -427,7 +560,7 @@ module.exports = function () {
         chk.each(function (elem) {
             elem.click();
 
-            browser.sleep(1000);
+            browser.sleep(500);
 
         });
     }
@@ -436,11 +569,9 @@ module.exports = function () {
         this.unitPriceTextBox.sendKeys(unitPrice);
         browser.sleep(500);
         this.priceSaveBtn.click();
-        browser.sleep(1000);
     }
     this.editLinePopUpSaveBtn = function () {
         this.editSKUApplyBtn.click();
-        browser.sleep(1000);
     }
     this.discountOptions = function (lineDiscountOptions) {
         this.discountOptionsGearIcon.click();
@@ -448,10 +579,8 @@ module.exports = function () {
         browser.sleep(3000);
         if (lineDiscountOptions == "Edit") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else if (lineDiscountOptions == "Delete") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         }
     }
     this.appeasementOptions = function (headerOptions) {
@@ -460,44 +589,35 @@ module.exports = function () {
         browser.sleep(3000);
         if (headerOptions == "Edit") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else if (headerOptions == "Delete") {
             return element(by.xpath(temp)).click();
-            browser.sleep(1000);
         }
     }
     this.discountViewNotes = function () {
         //this.discountViewPlusIcon.click();
         browser.sleep(3000);
         this.discountViewButton.click();
-        browser.sleep(1000);
     }
     this.appeasementViewNotes = function () {
         browser.sleep(3000);
         this.appeasementViewButton.click();
-        browser.sleep(1000);
     }
     this.viewPlusIcon = function (lineViewDetails) {
-        temp = "(//section[contains(@ng-if,'salesOrder.data.lineItems.length')]//en-section//small[text()='" + lineViewDetails + "'])";
+        temp = "//div[contains(@ng-if,'item.shipToAddressName')]//en-section//small[text()='" + lineViewDetails + "']";
         if (lineViewDetails == "Discounts") {
             element(by.xpath(temp)).click();
-            browser.sleep(1000);
         } else if (lineViewDetails == "Appeasements") {
             element(by.xpath(temp)).click();
-            browser.sleep(1000);
         }
     }
     this.ViewNotesClose = function () {
         this.CloseBtn.click();
-        browser.sleep(1000);
     }
     this.delete = function () {
         this.deleteBtn.click();
-        browser.sleep(1000);
     }
     this.discountAmountValue = function () {
         return this.amountViewPopup.getText();
-        browser.sleep(1000);
     }
 
     this.viewNotesDetails = function (viewDetails) {
@@ -524,16 +644,13 @@ module.exports = function () {
     }
     this.fulfillmentOrderSelectGear = function (selectOption) {
         this.salesOrderSelectGearIcon.click();
-        browser.sleep(1000);
         temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
         if (selectOption == "Create Shipment")
             return element(by.xpath(temp)).click();
         else {
             element(by.xpath(temp)).click();
-            browser.sleep(1000);
             temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
             return element.all(by.xpath(temp)).get(1).click();
-            browser.sleep(1000);
         }
     }
     this.packageSelection = function (packageValue) {
@@ -546,29 +663,29 @@ module.exports = function () {
         browser.sleep(1000);
         return this.itemQtyInPackageEntryTextBox.sendKeys(qtyValue);
     }
-
-    this.addPackageToShipment = function () {
-        return this.addPackageToShipmentButton.click();
+	this.enterItemQty2 = function (qtyValue) {
+        this.itemQty2InPackageEntryTextBox.clear();
         browser.sleep(1000);
+        return this.itemQty2InPackageEntryTextBox.sendKeys(qtyValue);
+    }
+    
+	this.addPackageToShipment = function () {
+        return this.addPackageToShipmentButton.click();
     }
 
 
     this.finalizeShipment = function () {
         return this.finalizeShipmentButton.click();
-        browser.sleep(1000);
     }
     this.callCenterSalesOrderSelectGear = function (selectOption) {
         this.salesOrderSelectGearIcon.click();
-        browser.sleep(1000);
         temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
         if (selectOption == "View")
             return element(by.xpath(temp)).click();
         else {
             element(by.xpath(temp)).click();
-            browser.sleep(1000);
             temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
             return element.all(by.xpath(temp)).get(1).click();
-            browser.sleep(1000);
         }
     }
     this.lineStatus = function () {
@@ -586,7 +703,6 @@ module.exports = function () {
         this.refValueTextBox.sendKeys(cartIDValue);
         browser.sleep(1000);
         this.saveRefBtn.click();
-        browser.sleep(1000);
     }
     this.cartTakeOver = function (cartIDValue) {
         this.cartTakeoverTextBox.clear();
@@ -595,9 +711,7 @@ module.exports = function () {
         this.cartTakeoverGOBtn.click();
         browser.sleep(3000);
         this.salesOrderSelectGearIcon.click();
-        browser.sleep(1000);
         this.takeOverBtn.click();
-        browser.sleep(1000);
     }
     this.cartTakeOverErrorMsg = function (incorrectCartId){
         this.cartTakeoverTextBox.clear();
@@ -611,7 +725,6 @@ module.exports = function () {
         this.promoCodeTextBox.sendKeys(promoCodeValue);
         browser.sleep(2000);
         this.promoCodeApplyBtn.click();
-        browser.sleep(1000);
     }
     this.checkPromoCode = function () {
         //this.discountViewPlusIcon.click();
@@ -662,7 +775,6 @@ module.exports = function () {
     }
     this.skuLinkAtInventory = function () {
         this.skuLink.click();
-        browser.sleep(1000);
     }
     this.editSKUQuantity = function (skuQty) {
         this.editSKUQty.clear();
@@ -675,9 +787,8 @@ module.exports = function () {
         return this.lineShippedCount.getText();
     }
     this.editLineGear = function (lineItemNumber) {
-        temp = "(//section[contains(@ng-if,'salesOrder.data.lineItems.length')]//en-actions/button/en-icon)[" + lineItemNumber + "]";
+        temp = "(//div[contains(@ng-if,'item.shipToAddressName')]//en-actions/button/en-icon)[" + lineItemNumber + "]";
         return element(by.xpath(temp)).click();
-        browser.sleep(1000);
 
     }
     this.addNotes = function (textNote, textNoteType) {
@@ -687,7 +798,6 @@ module.exports = function () {
         this.noteType.sendKeys(textNoteType);
         browser.sleep(2000);
         this.notesCreateBtn.click();
-        browser.sleep(1000);
     }
     this.notesView = function () {
         this.notesPane.click();
@@ -696,7 +806,6 @@ module.exports = function () {
     }
     this.lineItemsPane = function () {
         this.itemsPane.click();
-        browser.sleep(1000);
     }
     /*this.inventoryCount = function(){
         temp="//div[contains(@ng-repeat,'item in inventoryCollection.data')]/div/div[@class='ng-binding']["+ inventoryValue +"]";
@@ -710,5 +819,188 @@ module.exports = function () {
         })
     }
 
+	this.editLineGear = function (lineItemNumber) {
+        temp = "(//div[contains(@ng-if,'item.shipToAddressName')]//en-actions/button/en-icon)[" + lineItemNumber + "]";
+        return element(by.xpath(temp)).click();
+    }											   
+																		this.lineItemselectOptions = function (editLineOptions) {
 
+        //this.editLineGearIcon.click();
+        browser.sleep(3000);
+        temp = "//button/span[contains(text(),'" + editLineOptions + "')]";
+        if (editLineOptions == "Change Price")
+            return element(by.xpath(temp)).click();
+        else if (editLineOptions == "Discounts") {
+            return element(by.xpath(temp)).click();
+        } else if (editLineOptions == "Edit Line") {
+            return element(by.xpath(temp)).click();
+        } else if (editLineOptions == "Appeasement") {
+            return element(by.xpath(temp)).click();
+
+        }
+	}
+	
+    this.clickOnPayButton = function () {
+        return this.payButton.click();
+        browser.sleep(2000);
+    }
+
+    this.choosePaymentMethod = function (paymentMethod) {
+        temp = "//select/option[@label = '" + paymentMethod + "']";
+
+        if (paymentMethod == "Credit Card") {
+            element(by.xpath(temp)).click();
+            // return console.log(element(by.xpath(temp)).getText());
+            console.log("temp>>",+temp);
+        } else if (paymentMethod == "Gift Card") {
+            element(by.xpath(temp)).click();
+
+        }
+
+    }
+
+    this.enterCreditCardNumber = function (creditCardNumber) {
+        this.creditCardNumber.clear();
+        this.creditCardNumber.sendKeys(creditCardNumber);
+        browser.sleep(2000);
+
+    }
+
+    this.enterCreditCardCVV = function (creditCardCvv) {
+        this.creditCardCVVNumber.clear();
+        this.creditCardCVVNumber.sendKeys(creditCardCvv);
+        browser.sleep(2000);
+
+    }
+
+    this.enterNameOnCreditCard = function (nameOnCreditCard) {
+        this.nameOnCreditCard.clear();
+        this.nameOnCreditCard.sendKeys(nameOnCreditCard);
+        browser.sleep(2000);
+
+    }
+
+    this.selectExpiryMonthOfCreditCard = function (expiryMonth) {
+        temp = "//select/option[@value ='string:" + expiryMonth + "']";
+        element(by.xpath(temp)).click();
+        browser.sleep(2000);
+    }
+
+    this.selectCreditCardExpYear = function (expiryYear) {
+        temp = "//select/option[@label ='" + expiryYear + "']";
+        element(by.xpath(temp)).click();
+        browser.sleep(2000);
+    }
+
+    this.getPaymentAmount = function() {
+        return this.dueAmount.getText();
+//        console.log("no value is being returned" + temp);
+    }
+    this.enterPaymentAmount = function(paymentAmount) {
+        this.paymentAmount.clear();
+        this.paymentAmount.sendKeys(paymentAmount);
+        browser.sleep(2000);
+    }
+
+
+
+    this.clickSubmitButton = function() {
+        this.submitPayment.click();
+    }
+
+    this.verifyOrderTypeHeader = function () {
+        browser.driver.sleep(3000);
+        return this.orderStatus.getText();
+    }
+
+    this.clickOnAddMethodButton = function()
+    {
+        this.addMethodButton.click();
+    }
+    this.chooseAlternativePaymentMethod = function (alternativePaymentMethod) {
+        //temp = "//select[@name = 'method_1']/option[@label = ' "+ AlternativePaymentMethod + " ']";
+        temp = "(//select/option[@label = '" + alternativePaymentMethod +"'])[2]";
+
+        if (alternativePaymentMethod == "Credit Card") {
+            element(by.xpath(temp)).click();
+            console.log("temp>>",+temp);
+        } else if (alternativePaymentMethod == "Gift Card") {
+            element(by.xpath(temp)).click();
+
+        }
+
+    }
+
+    this.enterAlternativeCreditCardNumber = function (alternativeCreditcardNumber) {
+        this.alternativeCreditCardNumber.clear();
+        this.alternativeCreditCardNumber.sendKeys(alternativeCreditcardNumber);
+        browser.sleep(2000);
+
+    }
+
+    this.enterAlternativeCreditCardCVV = function (alternativeCreditcardCvv) {
+        this.alternativeCreditCardCVV.clear();
+        this.alternativeCreditCardCVV.sendKeys(alternativeCreditcardCvv);
+        browser.sleep(2000);
+
+    }
+
+    this.nameOnAlternativeCreditCard = function (alternativeNameOnCreditcard) {
+        this.alternativeCreditCardName.clear();
+        this.alternativeCreditCardName.sendKeys(alternativeNameOnCreditcard);
+        browser.sleep(2000);
+
+    }
+
+    this.selectExpiryMonthOfAlternativeCreditCard = function (alternativeExpiryMonth) {
+        temp = "//select[@name = 'expMonth_1']/option[@value ='string:" + alternativeExpiryMonth + "']";
+        element(by.xpath(temp)).click();
+        browser.sleep(2000);
+    }
+
+    this.selectAlternativeCreditCardExpYear = function (alternativeExpiryYear) {
+        temp = "//select[@name = 'expYear_1']/option[@label ='" + alternativeExpiryYear + "']";
+        element(by.xpath(temp)).click();
+        browser.sleep(2000);
+    }
+
+    this.enterRemainingPaymentAmount = function(remainingPaymentAmount) {
+        this.alternativePaymentAmount.clear();
+        this.alternativePaymentAmount.sendKeys(remainingPaymentAmount);
+        browser.sleep(2000);
+    }
+
+    this.clickOnCancelButton = function () {
+        this.cancelPayButton.click();
+    }
+
+    this.enterGiftCardPinNumber = function(giftCardPin)
+    {
+        this.giftCardPinNumber.sendKeys(giftCardPin);
+    }
+
+    this.clickOnconfirmCustomerAddressButton = function()
+    {
+        this.confirmCustomerAddressButton.click();
+    }
+
+    this.getAppeasementAmount = function () {
+        return this.appeasementAmount.gettext();
+    }
+    this.getUnitPrice  = function()
+    {
+        return this.unitPrice.getText();
+    }
+    this.getLinePrice = function()
+    {
+        return this.linePrice.getText();
+    }
+    this.getDiscountamount  = function()
+    {
+        return this.discountamount.getText();
+    }
+    this.getTaxamount = function()
+    {
+        return this.taxamount.getText();
+    }
 }

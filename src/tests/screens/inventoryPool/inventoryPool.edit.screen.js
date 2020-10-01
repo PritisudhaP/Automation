@@ -3,7 +3,8 @@ module.exports =function(){
     this.newProductButton= element(by.xpath('//button/span[contains(text(),"New")]/parent::button'));
     this.selectProductDropDown= element(by.xpath('//select[@name="productDisplayName"]'));
 
-    this.availableQtyEntryTextBox= element(by.xpath('//input[@name="availableQty"]'));
+    //this.availableQtyEntryTextBox= element(by.xpath('//input[@name="availableQty"]'));
+    this.availableQtyEntryTextBox= element(by.xpath("//input[@ng-model ='item.availableQty']"));
     this.reservedQtyEntryTextBox= element(by.xpath('//input[@name="reservedQty"]'));
     this.unavailableQtyEntryTextBox= element(by.xpath('//input[@name="unavailableQty"]'));
     this.thresholdQtyEntryTextBox= element(by.xpath('//input[@name="thresholdQty"]'));
@@ -13,23 +14,25 @@ module.exports =function(){
 
     this.saveInventoryPoolButton = element(by.xpath('//button[contains(text(),"Inventory Pool")]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    this.attachSkusButton = element(by.xpath("//button/span[text() = 'Attach Skus']/parent::button"));
+
+    this.addSKUButton = element(by.xpath("//button/span[text() = 'Add Skus']/parent::button"));
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
-    //modified by Priti for Presale
-    this.attachskuButton = element(by.xpath("//span[contains(text(),'Attach Skus')]"));
-    this.searchProductTextBox = element(by.xpath("//input[@name='simplified-text-value']"));
-    this.selectProductCheckBox = element(by.xpath("//input[@type='checkbox'][@en-checklist-value='item']"));
-    this.addskuButton = element(by.xpath("//span[contains(text(),'Add Skus')]"));
-    this.searchskuTextBox = element(by.xpath("//input[@placeholder='Search Sku']"));
-    this.searchskuButton = element(by.xpath("//en-icon[@icon='search']"));
-    this.skuCheckBox= element(by.xpath("//input[@id='inventoryCollection_checkbox_0_0']"));
-    this.deleteOption = element(by.xpath("//div[@id='inventoryCollection_column_1']/div/en-actions/button"));
 
 
 
     this.newProduct = function() {
         return this.newProductButton.click();
+    }
+
+    this.addSKU = function() {
+        this.addSKUButton.click();
+    }
+    this.clickOnAttachSkusButton = function() {
+        return this.attachSkusButton.click();
+
     }
 
     this.selectProduct = function(productName) {

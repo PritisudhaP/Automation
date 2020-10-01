@@ -31,7 +31,7 @@ module.exports =function(){
 
     this.buyerOrgDropdown = element(by.xpath('//select[@ng-options="item as item.displayName for item in buyerOrgs.data"]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

@@ -11,6 +11,7 @@ module.exports =function(){
     this.customersDeleteFromGearIcon = element(by.xpath('//span/li/button/span[text()="Delete"]/parent::button'));
     this.resetPasswordText = element(by.xpath('//en-content/h2[@class="ng-binding"]'));
 
+  //var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 

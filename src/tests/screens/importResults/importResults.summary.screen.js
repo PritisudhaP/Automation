@@ -15,7 +15,7 @@ module.exports =function(){
     this.importResultsStatusText = element(by.xpath('(//div[@class="en-collection-row"]/div[8])[1]'));
     this.importResultsNumberText = element(by.xpath('(//div[@class="en-collection-row"]/div[6])[1]/div/small/strong'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

@@ -4,7 +4,7 @@ module.exports =function(){
     this.inventoryPoolDropdown = element(by.xpath('//select[@name="pool"]'));
     this.inventoryReceiveButton = element(by.xpath('//button[contains(text(),"Receive")]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.expectedReceiptSelectOption = function(selectOption,pool) {

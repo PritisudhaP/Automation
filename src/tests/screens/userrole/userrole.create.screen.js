@@ -10,7 +10,7 @@ module.exports =function(){
 
     this.createUserRoleButton = element(by.xpath('(//button[contains(text(),"Save")])[1]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

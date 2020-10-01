@@ -18,7 +18,7 @@ module.exports =function(){
 
     this.workOrderNumberText = element(by.xpath('//div/label[contains(text(),"Order Number")]/../strong'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.newworkOrder = function() {

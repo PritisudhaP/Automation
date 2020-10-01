@@ -3,6 +3,7 @@ module.exports =function(){
     var temp = "";
     var count = "";
 
+   // var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
@@ -109,6 +110,16 @@ module.exports =function(){
          this.ATScount= function(){
             return this.atsCountText.getText();
          }
+
+
+    this.countInbound = function()
+    {
+     return  this.inboundcountText.getText();
+    }
+     this.ATScount= function(){
+        return this.atsCountText.getText();
+     }
+
 
 }
 

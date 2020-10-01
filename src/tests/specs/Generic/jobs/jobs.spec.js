@@ -1,6 +1,6 @@
-var jobsCreateScreen = require(process.cwd() + '/src/tests/screens/jobs/jobs.create.screen.js');
-var jobsSummaryScreen = require(process.cwd() + '/src/tests/screens/jobs/jobs.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var jobsCreateScreen = require(process.cwd() + '/screens/jobs/jobs.create.screen.js');
+var jobsSummaryScreen = require(process.cwd() + '/screens/jobs/jobs.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Jobs functional Flow  : ', function(){
     var jobsCreate = new jobsCreateScreen();

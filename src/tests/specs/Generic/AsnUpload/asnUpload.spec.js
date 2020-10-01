@@ -1,7 +1,7 @@
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
 var jobsSummaryScreen = require(process.cwd()+'/screens/jobs/jobs.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 const papa = require('papaparse');
 	const fs = require('fs');
 global.count="";
@@ -99,7 +99,7 @@ it('ASN upload -TC0001', function(){
                               console.log("value after replace "+count);
                               count= count.trim();
                               console.log("value after trim "+count);
-                              expect(count).toEqual('2');
+                              expect(count).toEqual('87');
                          });
 
 

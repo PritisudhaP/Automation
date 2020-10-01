@@ -25,7 +25,7 @@ module.exports =function(){
 
     this.purchaseOrderSavePDFButton = element(by.xpath('//button/a[@title="Download pdf"]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.purchaseOrderSearch = function(criteria, purchaseOrderSearchValue){

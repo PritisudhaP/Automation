@@ -18,7 +18,7 @@ module.exports =function() {
     this.selectschedule =element(by.xpath("//select[@name='trigger']"));
     this.saveButton = element(by.xpath("//div[@class='panel-secondary panel-borderless-header']//button[@type='submit'][contains(text(),'Save')]"));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

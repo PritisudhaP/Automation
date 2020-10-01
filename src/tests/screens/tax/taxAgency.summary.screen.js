@@ -11,7 +11,7 @@ module.exports =function(){
     this.agencySelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[1]/en-actions/button'));
     this.agencyDeleteFromGearIcon = element(by.xpath('//button/span[text()="Remove Agency"]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

@@ -5,6 +5,7 @@ module.exports =function(){
     this.inventoryPublishSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
     this.publishButton = element(by.xpath("//a[@en-tap='publishNow(item)']"));
     this.plusButton = element(by.xpath("//en-icon[@icon='plus-block']"));
+//    this.StatusCheck = element(by.xpath("//small[@class='ng-binding']"));
     this.StatusCheck = element(by.xpath("(//small[@class='ng-binding'])[1]"));
     var status ='';
     var filename = '';

@@ -35,7 +35,7 @@ module.exports =function(){
     this.saveAddressButton= element(by.xpath('//button/span[contains(text(),"Save")]/parent::button'));
     
     this.createcustomerButton = element(by.xpath('(//button/span[contains(text(),"Create Customer")]/parent::button)[2]'));
-
+    //var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 

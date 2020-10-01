@@ -112,7 +112,7 @@ module.exports = function () {
     var pendingFulfillmentCount = element(by.xpath("(//en-subheader/div/div/h3[2])[1]"));
     var filtericon= element(by.xpath("//button/div/en-icon[@icon=\"caret-down\"]"))
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.filerIconclick  = function () {

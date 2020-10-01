@@ -1,6 +1,6 @@
-var userroleCreateScreen = require(process.cwd() + '/src/tests/screens/userrole/userrole.create.screen.js');
-var userroleSummaryScreen = require(process.cwd() + '/src/tests/screens/userrole/userrole.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var userroleCreateScreen = require(process.cwd() + '/screens/userrole/userrole.create.screen.js');
+var userroleSummaryScreen = require(process.cwd() + '/screens/userrole/userrole.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('User Role creation Flow  : ', function(){
     var userroleCreate = new userroleCreateScreen();

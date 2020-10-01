@@ -17,7 +17,7 @@ module.exports =function(){
     this.attributesSearchTextbox = element(by.xpath('//input[@placeholder="Search attributes"]'));
     this.attributesSearchButton = element(by.xpath('//button/en-icon[@icon="search"]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 /*

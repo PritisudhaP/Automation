@@ -1,5 +1,5 @@
-var importUploadScreen = require(process.cwd() + '/src/tests/screens/import/import.upload.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var importUploadScreen = require(process.cwd() + '/screens/import/import.upload.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Import Flow  : ', function(){
     var importUpload = new importUploadScreen();

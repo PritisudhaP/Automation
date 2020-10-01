@@ -7,7 +7,7 @@ this.quantityTextBox = element(by.xpath("//input[@name='onHandQty']"));
 this.skuinfoexecuteButton = element(by.xpath("//button[@class='text-center button-primary en-button']//span[@class='ng-scope'][contains(text(),'Execute')]"));
 
 
- var common = require(process.cwd() + '/src/tests/screens/commons.js');
+ var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.clickOnExecute = function()

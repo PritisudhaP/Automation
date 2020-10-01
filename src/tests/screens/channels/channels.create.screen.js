@@ -12,7 +12,7 @@ module.exports =function(){
     
     this.saveButton = element(by.xpath('//button[contains(text(),"Create Channel")]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

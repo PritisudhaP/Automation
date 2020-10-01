@@ -1,0 +1,226 @@
+var jasmineReporters = require('jasmine-reporters');
+var HTMLReport = require('protractor-html-reporter');
+
+exports.config = {
+   directConnect: true,
+   framework: 'jasmine',
+
+
+
+
+
+   //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/*.js'],
+    specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS001-createReshipOrderSpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS002-reshipAOrderWithMultipleLinesspec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS003-reshipOnlySingleLineForMLOriginalOrd.spec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS004-verifyParentChildLinkOnOriginalOrderspec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS005-IncreaseOrDecreaseReshipLineQtySpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS006-UpdateReshipCustomerDetailsSpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS007-UpdateShippingAddressDetailsSpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS008-updateSkuDetailsOnReshipOrderSpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS009-verifyCancellationOfOrdersSpec.js'],
+    //specs:['./specs/productWithSkuSet/login.spec.js','./specs/reShip/RS010-verifyDiscountsFunctionalitySpec.js'],
+
+
+
+
+    //specs:['./specs/productWithSkuSet/apitest.spec.js','./specs/productWithSkuSet/runapi.spec.js'],
+
+      baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
+       //baseUrl: 'https://release1-qa.enspirecommerce.com/oms/dist/#/',
+       // baseUrl: 'https://pssc165-qa.enspirecommerce.com/oms/dist/#/',
+       // baseUrl: 'https://scl164-qa.enspirecommerce.com/oms/dist/#/',
+    getPageTimeout: 1280000,
+
+    //--
+	  params: {
+
+        login: {
+                 loginUser: 'niveditha@thk.com',
+                 password: 'Mypassword!@',
+               },
+
+
+
+
+        customerCriteria:'Name',
+        customerSearchValue:'WENDY',
+        channel1:'B2C' ,
+        channel2:'B2B',
+        orgName: 'TheHonestKitchen-Organization-',
+        catalog: 'THKCatalog',
+        catalogCategoryName: 'General',
+        newProductName:'SKUKITTC001',
+        reshipSku:'NiveeSku1',
+        reshipSku1:'NiveeSku2',
+        skuWithVariant1:'Automation_SKUWITHVARIANTTC001',
+        skuWithVariant2:'Automation_SKUWITHVARIANTTC002',
+        valueOfSku1:'SKUKITPRODUCTTC001',
+        valueOfSku2:'SKUKITPRODUCTTC002',
+        productWithVariant:'AUTOMATION_PRODUCTWITHVARIANT01',
+        skuWith0ATS:'TESTSKUWITHZEROATSTC0001',
+        valueOfsku3:'AutomationTestSkuTC0001',
+        valueOfsku4:'AutomationTestSkuTC0002',
+        orginalSku:'OriginalSKUTC0001',
+        replacementSku:'replacemaneSKUTC002',
+        inventoryPool:'Joliet-DC',
+        shipmentAccountNumber:'247981470',
+        shipmentPackageSelection:'tst',
+        firstVariantName:'Colour',
+        firstVariantValue1:'Blue',
+        firstVariantValue2:'Orange',
+        secondVariantName:'Size',
+        secondVariantValue1:'Large',
+        secondVariantValue2:'Small',
+        skuWithPrice:'testNivedithaTC001',
+
+         },
+
+
+
+    onPrepare: function(){
+        browser.driver.manage().window().setPosition(0,0);
+        browser.driver.manage().window().setSize(1600,1000);
+
+        browser.driver.getCapabilities().then(function (cap) {
+            browser.browserName = cap.get('browserName');
+        });
+
+        jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
+            consolidateAll: true,
+            savePath: './reports/',
+            filePrefix: 'xmlresults'
+        }));
+
+
+        global.callCenterSalesOrdersListUrl = browser.baseUrl + 'call-center/sales/list';
+        global.callCenterSkusUrl = browser.baseUrl + 'call-center/inventory/skus/';
+        global.callCenterCartTakeoverUrl = browser.baseUrl + 'call-center/cart-takeover/lookup';
+        global.callCenterInventoryUrl = browser.baseUrl + 'call-center/inventory/lookup/';
+        global.fulfillmentRequestsUrl = browser.baseUrl + 'fulfillment/requests/';
+        global.blobstoreUrl = browser.baseUrl + 'settings/data-management/datastore/';
+        global.storeportalFulfilUrl = browser.baseUrl +'fulfillment/store-portal/';
+        global.mailboxUrl = browser.baseUrl + 'data-management/communications/mailboxes/';
+        global.capabilitiesUrl = browser.baseUrl + 'settings/accounts/capabilities/';
+        global.catalogUrl = browser.baseUrl + 'inventory/catalogs/';
+        global.channelsUrl = browser.baseUrl + 'settings/company/channels/';
+        global.contactsUrl = browser.baseUrl + 'settings/organizations/contacts/';
+        global.orgUrl = browser.baseUrl + 'settings/organizations/organizations/';
+        global.productUrl = browser.baseUrl + 'inventory/products/';
+        global.inventoryPoolUrl = browser.baseUrl + 'inventory/pools/';
+        global.inventoryLookUpUrl = browser.baseUrl + 'inventory/lookup/';
+        global.siteUrl = browser.baseUrl + 'sites/';
+        global.sitegroupUrl = browser.baseUrl + 'sites/groups/';
+        global.shipmentRequestsUrl = browser.baseUrl + 'fulfillment/requests/';
+        global.shipmentsUrl = browser.baseUrl + 'fulfillment/shipments/';
+        global.filesUrl = browser.baseUrl + 'data-management/communications/files/';
+        global.functionaldomainsUrl = browser.baseUrl + 'settings/accounts/functional-domains/';
+        global.importUrl = browser.baseUrl + 'settings/data-management/import/';
+        global.purchaseOrderUrl = browser.baseUrl + 'orders/purchase/list';
+        global.triggerUrl = browser.baseUrl + 'integration/triggers/';
+        global.purgeUrl = browser.baseUrl + 'settings/data-management/purge/';
+        global.salesOrderUrl = browser.baseUrl + 'orders/sales/list';
+        global.salesOrderNewUrl = browser.baseUrl + 'orders/sales/new-1';
+        global.sftpUrl = browser.baseUrl + 'settings/integration/sftp-users/';
+        global.taskUrl = browser.baseUrl + 'tasks/tasks/';
+        global.transferOrderUrl = browser.baseUrl + 'orders/transfers/';
+        global.transferOrderNewUrl = browser.baseUrl + 'orders/transfers/new';
+        global.usergroupUrl = browser.baseUrl + 'settings/accounts/user-groups/';
+        global.userroleUrl = browser.baseUrl + 'settings/accounts/roles/';
+        global.usersUrl = browser.baseUrl + 'settings/accounts/users/';
+        global.domainPolicyUrl= browser.baseUrl + 'settings/accounts/domain-policies/';
+        global.webhooksUrl = browser.baseUrl + 'integration/webhooks/';
+        global.returnsUrl = browser.baseUrl + 'orders/returns/';
+        global.communicationsUrl = browser.baseUrl + 'settings/integration/communication-configurations/';
+        global.taxAgencySettingsUrl = browser.baseUrl + 'settings/tax/agencies/';
+        global.taxRateSettingsUrl = browser.baseUrl + 'settings/tax/rates/';
+        global.taxLocationSettingsUrl = browser.baseUrl + 'settings/tax/locations/';
+        global.taxCodeSettingsUrl = browser.baseUrl + 'settings/tax/codes/';
+        global.reportsUrl = browser.baseUrl + 'reports/reports/';
+        global.invoiceUrl = browser.baseUrl + 'orders/invoices/';
+        global.priceBookUrl = browser.baseUrl + 'inventory/price-books/';
+        global.itemMasterUrl = browser.baseUrl + 'inventory/item-masters/';
+        global.vendorManagementUrl = browser.baseUrl + 'trading-partners/vendors/';
+        global.jobsDefinitionUrl = browser.baseUrl + 'integration/jobs/definitions/';
+        global.jobsExecutionUrl = browser.baseUrl + 'integration/jobs/';
+        global.customersUrl = browser.baseUrl + 'trading-partners/customers/';
+        global.customersUrl = browser.baseUrl + 'orders/customers/';
+        global.inventorySearchUrl = browser.baseUrl + 'inventory/lookup/';
+        global.routeUrl = browser.baseUrl + 'integration/routes/';
+        global.importResultsUrl = browser.baseUrl + 'settings/data-management/import-results/';
+        global.workOrderUrl = browser.baseUrl + 'orders/work/';
+        global.expectedReceiptsUrl = browser.baseUrl + 'fulfillment/expected-receipts/';
+        global.addressVerificationConfig = browser.baseUrl + 'settings/company/address-verifications/';
+        global.skuUrl = browser.baseUrl + 'inventory/skus/';
+        global.vendorPortalReturnsUrl = browser.baseUrl + 'fulfillment/returns/';
+        global.paymentDispositionUrl = browser.baseUrl + 'call-center/payment-disposition/index';
+
+
+    },
+
+    onComplete: function() {
+
+     var browserName, browserVersion;
+     var capsPromise = browser.getCapabilities();
+
+     capsPromise.then(function (caps) {
+        browserName = caps.get('browserName');
+        browserVersion = caps.get('version');
+
+        var HTMLReport = require('protractor-html-reporter');
+
+        testConfig = {
+            reportTitle: 'Test Execution Report',
+            outputPath: './reports',
+            screenshotPath: './reports/screenshots',
+            testBrowser: browserName,
+            browserVersion: browserVersion,
+            modifiedSuiteName: false,
+            screenshotsOnlyOnFailure: true
+        };
+        new HTMLReport().from('./reports/xmlresults.xml', testConfig);
+
+      });
+    },
+
+    onCleanUp: function(exitCode){
+      var exec = require('child_process').exec, child;
+          child = exec('node somescript.js',function(error,stdout,stderr){
+          console.log('stdout: ' + stdout);
+          console.log('stderr: ' + stderr);
+          if (error !== null) {
+            console.log('exec error: ' + error);
+          }
+       });
+    },
+
+    //--suite=purge
+    suites: {
+        full: 'specs/*.js',
+        screens:'screens/commons.js',
+        purge:'specs/purge/*.js'
+    },
+
+    allScriptsTimeout: 100000,
+
+    capabilities: {
+        'browserName': 'chrome',
+        'chromeOptions': {
+            prefs: {
+                'download': {
+                    'prompt_for_download': false,
+                     directory_upgrade: true,
+                    'default_directory': __dirname + '/tempFiles/',
+                },
+            },
+        },
+    },
+
+
+
+    jasmineNodeOpts: {
+        defaultTimeoutInterval: 1280000,
+        showColors: true
+    }
+}
+

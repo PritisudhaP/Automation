@@ -10,7 +10,7 @@ this.nextButton = element(by.xpath("//span[contains(text(),'Next')]"));
 this.noneRadioButton= element(by.xpath("//input[@value='None']"));
 this.confirmAndSubmitButton= element(by.xpath("//span[@class='ng-scope'][contains(text(),'Confirm & Submit')]"));
 this.confirmButton=element(by.xpath("(//button/span[contains(text(),'Confirm')])[2]"));
- var common = require(process.cwd() + '/src/tests/screens/commons.js');
+ var common = require(process.cwd() + '/screens/commons.js');
 
     var commons = new common();
 

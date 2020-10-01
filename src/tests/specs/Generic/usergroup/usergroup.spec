@@ -1,6 +1,6 @@
-var usergroupCreateScreen = require(process.cwd() + '/src/tests/screens/usergroup/usergroup.create.screen.js');
-var usergroupSummaryScreen = require(process.cwd() + '/src/tests/screens/usergroup/usergroup.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var usergroupCreateScreen = require(process.cwd() + '/screens/usergroup/usergroup.create.screen.js');
+var usergroupSummaryScreen = require(process.cwd() + '/screens/usergroup/usergroup.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('User Group creation Flow  : ', function(){
     var usergroupCreate = new usergroupCreateScreen();

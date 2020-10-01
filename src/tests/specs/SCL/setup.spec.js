@@ -119,7 +119,7 @@ describe('Setup  : ', function(){
             mailbox.enterSubject("TC0001 Inventory sync upload");
             mailbox.addAttachment();
             var cwd = process.cwd();
-            var fullPath = cwd + "/autoFiles/SCLInventorySync.csv";
+            var fullPath = cwd + "/src/tests/autoFiles/SCLInventorySync.csv";
             mailbox.clickSelectFile(fullPath);
             browser.sleep(2000);
             mailbox.uploadFile();

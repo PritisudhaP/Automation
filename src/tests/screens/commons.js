@@ -1,4 +1,5 @@
-var pdfReader = require(process.cwd() + '/node_modules/pdfreader/PdfReader.js');
+//var pdfReader = require(process.cwd() + '/node_modules/pdfreader/PdfReader.js');
+var pdfReader = require(process.cwd() + '/src/tests/node_modules/pdfreader/PdfReader.js');
 
 
 module.exports =function(){
@@ -21,6 +22,7 @@ module.exports =function(){
     this.importResultsErrorCountText = element(by.xpath('(//div[text()="ERRORS"]/parent::div)/div[2]'));
 
     this.multiselectButton = element(by.xpath('//button/en-icon[@icon="check-block"]/parent::button'));
+    this.goButton = element(by.xpath("//div/en-field/button/span/parent::button"));
 
     this.panelTitle = element(by.css('en-panel.panel-primary en-title'));
 
@@ -38,8 +40,14 @@ module.exports =function(){
     this.filterCriteriaDropdown = element(by.xpath('//select[@name="filter-criteria"]'));
     this.filterContentDropdown = element(by.xpath('//select[@name="filter-content"]'));
     this.searchValueTextbox = element(by.xpath('//input[@name="filter-value"]'));
+    this.fulfilmentEditLineGear = element(by.xpath("(//en-actions/button/en-icon/parent::button)[3]"));
+    this.secondFulfilmentEditLineGear = element(by.xpath("(//en-actions/button/en-icon/parent::button)[4]"));
+
+    this.createShipmentButton = element(by.xpath("//li/button/span[contains(text() , 'Create Shipment')]/parent::button"));
+
 
     this.removeSearchFilterButton = element(by.xpath('//button/en-icon[@icon="x-circle"]/parent::button'));
+    this.clearSearchResults = element(by.xpath("(//button/en-icon[@icon = 'x-circle'])[1]"));
     this.noResultMessage= element(by.xpath("//div[@class='en-collection-overlay-empty']"));
 
     this.getText  =  function(element, callback) {
@@ -48,21 +56,38 @@ module.exports =function(){
             callback(trim(text));
          });
     }
+    this.clickOnGoButton = function () {
+        return this.goButton.clik();
+    }
+    this.createShipment = function()
+    {
+        this.fulfilmentEditLineGear.click();
+        return this.createShipmentButton.click();
+
+    }
+    this.createSecondShipmentRequest = function () {
+        this.secondFulfilmentEditLineGear.click();
+        return this.createShipmentButton.click();
+    }
 
     this.searchWithCriteria = function(criteria,content, searchValue){
         this.searchOption.click();
         browser.sleep(100);
         this.filterCriteriaDropdown.sendKeys(criteria);
+
         browser.sleep(300);
-       this.filterContentDropdown.sendKeys(content);
-        //change by priti
-      // element(by.xpath("//select[@name='filter-content']/option[@label='" + content + "']"));
+      this.filterContentDropdown.sendKeys(content);
+
         browser.sleep(100);
         this.searchValueTextbox.sendKeys(searchValue);
 
         element(by.xpath('//input[contains(@class, "adv-search-input") and @name="filter-value"]')).sendKeys(protractor.Key.ENTER);
 
 
+    }
+
+    this.clearSearch = function(){
+        return this.clearSearchResults.click();
     }
 
 

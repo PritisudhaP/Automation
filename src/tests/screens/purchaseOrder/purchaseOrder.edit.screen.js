@@ -68,7 +68,7 @@ module.exports =function(){
     this.updateLineItemButton = element(by.xpath('//button/span[text()="Update Line Item"]/parent::button'));
 
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

@@ -1,10 +1,10 @@
-var triggerCreateScreen = require(process.cwd() + '/src/tests/screens/trigger/trigger.create.screen.js');
-var triggerSummaryScreen = require(process.cwd() + '/src/tests/screens/trigger/trigger.summary.screen.js');
-var purgeCreateScreen = require(process.cwd() + '/src/tests/screens/purge/purge.create.screen.js');
-var purgeSummaryScreen = require(process.cwd() + '/src/tests/screens/purge/purge.summary.screen.js');
-var filesScreen = require(process.cwd() + '/src/tests/screens/files/files.screen.js');
+var triggerCreateScreen = require(process.cwd() + '/screens/trigger/trigger.create.screen.js');
+var triggerSummaryScreen = require(process.cwd() + '/screens/trigger/trigger.summary.screen.js');
+var purgeCreateScreen = require(process.cwd() + '/screens/purge/purge.create.screen.js');
+var purgeSummaryScreen = require(process.cwd() + '/screens/purge/purge.summary.screen.js');
+var filesScreen = require(process.cwd() + '/screens/files/files.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Purge functional flow : ', function(){
     var files = new filesScreen();
@@ -22,12 +22,14 @@ describe('Purge functional flow : ', function(){
         files.enterDirectoryName("SarathPurgeSource");
         files.createDirectory();
         browser.sleep(2000);
-        files.refreshScreen(); 
+        //files.refreshScreen();
+        browser.sleep(5000);
         files.addDirectory();
         files.enterDirectoryName("SarathPurgeDest");
         files.createDirectory();
         browser.sleep(2000);
-        files.refreshScreen(); 
+        //files.refreshScreen();
+        browser.sleep(5000);
         files.select("SarathPurgeSource");
         files.addFile();
         var cwd = process.cwd();
@@ -35,10 +37,10 @@ describe('Purge functional flow : ', function(){
         files.clickSelectFile(fullPath);
         files.uploadFile();
         files.close();
-    
-     
+
+
         browser.get(triggerUrl);
-            
+
  	commons.new();
  	triggerCreate.setDisplayName("Sarath_TC0001_RunEvery21Sec");
  	triggerCreate.step1Nxt();
@@ -76,21 +78,21 @@ describe('Purge functional flow : ', function(){
         browser.get(filesUrl);
         browser.sleep(60000);
         files.select("SarathPurgeDest");
-        files.select("GhurkaSampleSFTP.csv"); 
+        files.select("GhurkaSampleSFTP.csv");
 
         browser.sleep(5000);
-   	browser.get(purgeUrl);          
+   	browser.get(purgeUrl);
         commons.multiselect();
         purgeSummary.purgeSearch("Name","Sarath_TC0001_MainPolicy");
         browser.sleep(2000);
         purgeSummary.purgeSelectGear("Delete");
 
-        browser.get(triggerUrl);            
+        browser.get(triggerUrl);
         commons.multiselect();
         triggerSummary.triggerSearch("Name","Sarath_TC0001_RunEvery21Sec");
         browser.sleep(2000);
         triggerSummary.triggerSelectGear("Delete");
-            
+
         browser.get(filesUrl);
         files.filesSelect("SarathPurgeSource");
         files.filesSelect("SarathPurgeDest");
@@ -99,8 +101,8 @@ describe('Purge functional flow : ', function(){
         browser.sleep(10000);
         expect(files.alertValue()).toEqual('The file(s) have been successfully deleted!');
         browser.ignoreSynchronization = false;
-        browser.get(filesUrl); 
- 
+        browser.get(filesUrl);
+
     });
 
 });

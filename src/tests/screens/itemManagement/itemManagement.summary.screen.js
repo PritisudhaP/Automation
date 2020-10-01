@@ -14,7 +14,7 @@ module.exports =function(){
     this.itemLeadTimeText = element(by.xpath('(//div[@class="en-collection-row"]/div[11])[1]'));
 
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.itemManagementSearch = function(criteria, itemManagementSearchValue){

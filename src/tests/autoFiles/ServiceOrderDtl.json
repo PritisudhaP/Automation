@@ -1,0 +1,48 @@
+{
+    "URL":{
+        "serviceOrderDtl":"https://project0-qa.enspirecommerce.com/api/v1/order/detail"
+    },
+
+    "Scenario 1":{
+        "Input":{
+       "orderOrganization": "TheHonestKitchen-Organization-",
+       "orderTransactionType": "SALES",
+       "orderNumber": "Priti130"
+}
+    },
+    "Scenario 2":{
+        "Input":{
+       "orderOrganization": "TheHonestKitchen-Organization-",
+       "orderTransactionType": "TEST",
+       "orderNumber": "Priti130"
+}
+
+    },
+    "Scenario 3":{
+        "Input":{
+       "orderOrganization": "TheHonestKitchen-Organization-",
+       "orderTransactionType": "SALES",
+       "orderNumber": "Priti130121sad"
+}
+    },
+    "Scenario 4":{
+        "Input":{
+       "orderOrganization": "TheHonestKitchen-Organization-1",
+       "orderTransactionType": "SALES",
+       "orderNumber": "Priti130"
+}
+    },
+    "Scenario 5":{
+        "Input":{
+       "orderOrganization": "TheHonestKitchen-Organization",
+       "orderNumber": "Priti130"
+}
+    },
+    "Scenario 6":{
+        "Input":{
+       "orderOrganization": "",
+       "orderTransactionType": "SALES",
+       "orderNumber": "Priti130"
+}
+    }
+}

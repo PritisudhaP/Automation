@@ -1,4 +1,0 @@
-DC,Customer,SKU,LotNumber,UOM,QTY,QTY_ALLOCATED,QTY_AVAILABLE,QTY_HOLD,QTY_UNAVAILABLE,Expiration_Date,Customer
-fitchburg-dc,com.pssc,0-0-1,,EA,,,1000,0,0,,204
-fitchburg-dc,com.pssc,0-2,,EA,,,1000,0,0,,665
-fitchburg-dc,com.pssc,06304BBP,,EA,,,1000,0,0,,404

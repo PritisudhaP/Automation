@@ -1,6 +1,6 @@
-var sftpUserCreateScreen = require(process.cwd() + '/src/tests/screens/sftp/sftp.create.screen.js');
-var sftpUserSummaryScreen = require(process.cwd() + '/src/tests/screens/sftp/sftp.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var sftpUserCreateScreen = require(process.cwd() + '/screens/sftp/sftp.create.screen.js');
+var sftpUserSummaryScreen = require(process.cwd() + '/screens/sftp/sftp.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('SFTP User creation Flow  : ', function(){
     var sftpUserCreate = new sftpUserCreateScreen();

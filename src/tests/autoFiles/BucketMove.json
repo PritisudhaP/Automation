@@ -1,0 +1,280 @@
+{
+    "URL":{
+        "InventoryAdjusment":"https://project0-qa.enspirecommerce.com/api/v1/inventory/adjust",
+        "InventoryPoolEntry":"https://project0-qa.enspirecommerce.com/api/v1/inventoryPoolEntry?constrain=parentInventoryPoolId:557d2128-1ec4-41e6-adc0-8e28840e8790&filter=displayName:%25SKU611%25%7C%7CskuId:%25SKU611%25&length=50"
+    },
+
+    "Scenario 1":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": null,
+                    "toBucket": "availableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 2":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+
+    },
+    "Scenario 3":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "availableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 4":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "AVAIL",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 5":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "UnavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 6":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 7":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "unavailableQty",
+                    "toBucket": "",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 8":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "bucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 9":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 10":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "unavailableQty",
+                    "toBucket": "availableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 11":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "holdQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 12":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "holdQty",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 13":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "unavailableQty",
+                    "toBucket": "holdQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 14":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 2,
+                    "action": "BucketMove",
+                    "fromBucket": "holdQty",
+                    "toBucket": "availableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 15":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": " ",
+                    "toBucket": "unavailableQty",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "Scenario 16":{
+        "Input":{
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "lotIdentifier": "2020-10-06",
+                    "expirationDate": "2020-10-10",
+                    "qty": 5,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": " ",
+                    "sku": "SKU611",
+                    "description": "test"
+                }
+            ]
+        }
+    }
+}

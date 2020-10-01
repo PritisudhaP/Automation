@@ -17,7 +17,7 @@ module.exports =function(){
 
     this.refreshButton = element(by.xpath('//button/en-icon[@icon="refresh"]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

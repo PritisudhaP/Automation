@@ -3,11 +3,11 @@ var HTMLReport = require('protractor-html-reporter');
 
 exports.config = {
 
-   directConnect: true,
+   directConnect: false,
    framework: 'jasmine',
 
 //specs:['./src/tests/specs/SCL/login.spec.js'],
-specs:['./specs/SCL/login.spec.js','./specs/SCL/setup.spec.js','./specs/SCL/salesOrder.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/shipmentConfirmation.spec.js','./specs/SCL/inventoryIncDc.spec.js','./specs/SCL/skuUpdate.spec.js','./specs/SCL/returns.spec.js','./specs/SCL/salesOrderReleaseEditWMS.spec.js','./specs/SCL/webserviceServer.spec.js','./specs/SCL/webserviceClient.spec.js','./specs/SCL/salesOrderStatusWMS.spec.js','./specs/SCL/salesOrderAddressverification.spec.js','./specs/SCL/salesOrderFTV.spec.js','./specs/SCL/salesOrderATSCheck.spec.js','./specs/SCL/multiShippingAccount.spec.js','./specs/SCL/zipFileExtract.spec.js','./specs/SCL/teardown.spec.js'],
+//specs:['./specs/SCL/login.spec.js','./specs/SCL/setup.spec.js','./specs/SCL/salesOrder.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/shipmentConfirmation.spec.js','./specs/SCL/inventoryIncDc.spec.js','./specs/SCL/skuUpdate.spec.js','./specs/SCL/returns.spec.js','./specs/SCL/salesOrderReleaseEditWMS.spec.js','./specs/SCL/webserviceServer.spec.js','./specs/SCL/webserviceClient.spec.js','./specs/SCL/salesOrderStatusWMS.spec.js','./specs/SCL/salesOrderAddressverification.spec.js','./specs/SCL/salesOrderFTV.spec.js','./specs/SCL/salesOrderATSCheck.spec.js','./specs/SCL/multiShippingAccount.spec.js','./specs/SCL/zipFileExtract.spec.js','./specs/SCL/teardown.spec.js'],
 
 // specs:['./specs/SCL/login.spec.js','./specs/SCL/setup.spec.js','./specs/SCL/salesOrder.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/salesOrderEdi.spec.js','./specs/SCL/shipmentConfirmation.spec.js', './spec/Invoice/new.spec.js'],
 
@@ -23,11 +23,11 @@ specs:['./specs/SCL/login.spec.js','./specs/SCL/setup.spec.js','./specs/SCL/sale
 // specs:['./specs/SCL/login.spec.js'],
 
  //specs:['./specs/SCL/login.spec.js','./specs/Store/SP00102*.js'],
+   specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/getATP.js'],
+ //  specs:['./specs/SCL/mixedOrder/loginPage_spec.js','./specs/SCL/mixedOrder/mo_spec.js'],
 
 
-
-
-       baseUrl: 'https://project4-qa.enspirecommerce.com/oms/dist/#/',
+       baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
    //  baseUrl: 'https://release1-qa.enspirecommerce.com/oms/dist/#/',
     getPageTimeout: 1280000,
 

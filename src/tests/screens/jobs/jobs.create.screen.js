@@ -13,7 +13,7 @@ module.exports =function(){
     this.nextScreenStep2Button = element(by.xpath('//button[contains(@ng-disabled, "step2")]/span[contains(text(),"Next") ]/parent::button'));
     this.nextScreenStep4Button = element(by.xpath('//button[contains(@ng-disabled, "step4")]/span[contains(text(),"Next") ]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

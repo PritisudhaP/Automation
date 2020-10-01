@@ -41,8 +41,9 @@ module.exports =function(){
     this.fullcontent = element(by.xpath("//span[@class='leaf-value ng-binding ng-scope']"));
 
 
+    //var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
-    //var global = require(process.cwd() + '/src/tests/screens/global.js');
+    //var global = require(process.cwd() + '/screens/global.js');
     var commons = new common();
     //var waitUtil = new global();
 

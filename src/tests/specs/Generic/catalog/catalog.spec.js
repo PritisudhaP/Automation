@@ -1,6 +1,6 @@
-var catalogCreateScreen = require(process.cwd() + '/src/tests/screens/catalog/catalog.create.screen.js');
-var catalogSummaryScreen = require(process.cwd() + '/src/tests/screens/catalog/catalog.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var catalogCreateScreen = require(process.cwd() + '/screens/catalog/catalog.create.screen.js');
+var catalogSummaryScreen = require(process.cwd() + '/screens/catalog/catalog.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Catalog creation Flow  : ', function(){
     var catalogCreate = new catalogCreateScreen();

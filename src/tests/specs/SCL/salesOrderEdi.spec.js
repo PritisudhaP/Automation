@@ -21,7 +21,7 @@ describe('Sales Order Flow  : ', function(){
 
             var stringSearcher1 = require('string-search');
             var fs1 = require('fs');
-            var filename1 = './autoFiles/SCL_ForcedAllocation.xml';
+            var filename1 = process.cwd()+'/src/tests/autoFiles/SCL_ForcedAllocation.xml';
 
             var content1="";
 
@@ -49,7 +49,7 @@ describe('Sales Order Flow  : ', function(){
                     replace1({
                         regex: currentSONumber,
                         replacement: replaceString1,
-                        paths: ['./autoFiles/SCL_ForcedAllocation.xml'],
+                        paths: [process.cwd()+'/src/tests/autoFiles/SCL_ForcedAllocation.xml'],
                         recursive: true,
                         silent: true,
 
@@ -78,7 +78,7 @@ describe('Sales Order Flow  : ', function(){
             mailbox.enterSubject("TC0001 EDI order upload");
             mailbox.addAttachment();
             var cwd = process.cwd();
-            var fullPath = cwd + "/autoFiles/SCL_ForcedAllocation.xml";
+            var fullPath = cwd + "/src/tests/autoFiles/SCL_ForcedAllocation.xml";
             mailbox.clickSelectFile(fullPath);
             mailbox.uploadFile();
             browser.sleep(2000);

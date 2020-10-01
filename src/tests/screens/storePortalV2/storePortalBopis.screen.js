@@ -109,7 +109,7 @@ module.exports = function () {
     var pendingFulfillmentCount = element(by.xpath("(//en-subheader/div/div/h3[2])[1]"));
 
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.selectFulfillmentType = function(typesOfFulfillment){

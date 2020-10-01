@@ -1,6 +1,6 @@
-var channelsCreateScreen = require(process.cwd() + '/src/tests/screens/channels/channels.create.screen.js');
-var channelsSummaryScreen = require(process.cwd() + '/src/tests/screens/channels/channels.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var channelsCreateScreen = require(process.cwd() + '/screens/channels/channels.create.screen.js');
+var channelsSummaryScreen = require(process.cwd() + '/screens/channels/channels.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Channels creation Flow  : ', function(){
     var channelsCreate = new channelsCreateScreen();

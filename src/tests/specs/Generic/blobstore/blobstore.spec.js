@@ -1,7 +1,7 @@
-var blobstoreCreateScreen = require(process.cwd() + '/src/tests/screens/blobstore/blobstore.create.screen.js');
-var blobstoreSummaryScreen = require(process.cwd() + '/src/tests/screens/blobstore/blobstore.summary.screen.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var blobstoreCreateScreen = require(process.cwd() + '/screens/blobstore/blobstore.create.screen.js');
+var blobstoreSummaryScreen = require(process.cwd() + '/screens/blobstore/blobstore.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Blobstore functional Flow  : ', function(){
     var blobstoreCreate = new blobstoreCreateScreen();
@@ -60,7 +60,7 @@ describe('Blobstore functional Flow  : ', function(){
 
         browser.get(mailboxUrl);
         mailbox.newmailbox();
-        mailbox.enterMailboxName("SarathMailboxTC0003");
+            mailbox.enterMailboxName("SarathMailboxTC0003");
         mailbox.enterMailboxRefName("sarathmailboxtc0003");
         mailbox.enterMailboxType("INTERMEDIATE");
         mailbox.pinMailbox();

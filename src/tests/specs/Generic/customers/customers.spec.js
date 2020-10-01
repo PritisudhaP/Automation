@@ -1,6 +1,6 @@
-var customersCreateScreen = require(process.cwd() + '/src/tests/screens/customers/customers.create.screen.js');
-var customersSummaryScreen = require(process.cwd() + '/src/tests/screens/customers/customers.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var customersCreateScreen = require(process.cwd() + '/screens/customers/customers.create.screen.js');
+var customersSummaryScreen = require(process.cwd() + '/screens/customers/customers.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Customers creation Flow  : ', function(){
     var customersCreate = new customersCreateScreen();
@@ -37,15 +37,18 @@ describe('Customers creation Flow  : ', function(){
             browser.sleep(2000);
             customersCreate.createcustomer();
             browser.sleep(2000);
-
+            browser.get(customersUrl);
+            customersSummary.customersSearch("First Name","SarathTC0001");
+            browser.sleep(2000);
+            customersSummary.customersSelectGear("Delete");
 
         });
-
+/*
       it('Search and Delete Customers successfully - TC0002', function(){
             browser.get(customersUrl);
             customersSummary.customersSearch("First Name","SarathTC0001");
             browser.sleep(2000);
             customersSummary.customersSelectGear("Delete");
         });
-
+*/
 })

@@ -1,6 +1,6 @@
-var capabilitiesCreateScreen = require(process.cwd() + '/src/tests/screens/capabilities/capabilities.create.screen.js');
-var capabilitiesSummaryScreen = require(process.cwd() + '/src/tests/screens/capabilities/capabilities.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var capabilitiesCreateScreen = require(process.cwd() + '/screens/capabilities/capabilities.create.screen.js');
+var capabilitiesSummaryScreen = require(process.cwd() + '/screens/capabilities/capabilities.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('capabilities creation Flow  : ', function(){
     var capabilitiesCreate = new capabilitiesCreateScreen();

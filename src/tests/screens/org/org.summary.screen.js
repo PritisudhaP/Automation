@@ -10,7 +10,7 @@ module.exports =function(){
     this.orgSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
     this.orgDeleteFromGearIcon = element(by.xpath('//span/li/button/span[text()="Delete"]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

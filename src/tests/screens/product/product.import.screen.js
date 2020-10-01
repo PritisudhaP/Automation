@@ -8,7 +8,7 @@ module.exports =function(){
     this.productImportEnterATSTextbox = element(by.xpath('//input[@name="availableQty"]'));
     this.productImportConfirmDialogButton = element(by.xpath('(//button/span[text()="Import Products"]/parent::button)[2]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

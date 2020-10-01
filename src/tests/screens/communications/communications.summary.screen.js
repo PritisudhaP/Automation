@@ -13,7 +13,7 @@ module.exports =function(){
     this.communicationsSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
     this.communicationsDeleteFromGearIcon = element(by.xpath('//button/span[contains(text(),"Delete")]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

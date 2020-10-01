@@ -18,7 +18,7 @@ module.exports =function(){
     this.taskMoreButton = element(by.xpath('//button/en-icon[contains(@icon,"more-vertical")]/parent::button'));
     this.taskMarkascompletedButton = element(by.xpath('//button/span[contains(text(),"Mark as Completed")]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

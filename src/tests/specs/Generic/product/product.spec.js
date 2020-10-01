@@ -1,9 +1,9 @@
-var productCreateScreen = require(process.cwd() + '/src/tests/screens/product/product.create.screen.js');
-var productSummaryScreen = require(process.cwd() + '/src/tests/screens/product/product.summary.screen.js');
-var skuCreateScreen = require(process.cwd() + '/src/tests/screens/sku/sku.create.screen.js');
-var skuSummaryScreen = require(process.cwd() + '/src/tests/screens/sku/sku.summary.screen.js');
+var productCreateScreen = require(process.cwd() + '/screens/product/product.create.screen.js');
+var productSummaryScreen = require(process.cwd() + '/screens/product/product.summary.screen.js');
+var skuCreateScreen = require(process.cwd() + '/screens/sku/sku.create.screen.js');
+var skuSummaryScreen = require(process.cwd() + '/screens/sku/sku.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Product creation Flow  with SKUs: ', function(){
     var productCreate = new productCreateScreen();

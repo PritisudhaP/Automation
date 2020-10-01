@@ -1,6 +1,6 @@
-var usersCreateScreen = require(process.cwd() + '/src/tests/screens/users/users.create.screen.js');
-var usersSummaryScreen = require(process.cwd() + '/src/tests/screens/users/users.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var usersCreateScreen = require(process.cwd() + '/screens/users/users.create.screen.js');
+var usersSummaryScreen = require(process.cwd() + '/screens/users/users.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Users creation Flow  : ', function(){
     var usersCreate = new usersCreateScreen();

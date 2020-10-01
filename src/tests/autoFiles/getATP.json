@@ -1,0 +1,1346 @@
+[{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["sandiego-dc"],
+			"siteIds": ["sandiego-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["sandiego-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 500,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP001"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "000000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP002"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "IN"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP003"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc123"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP004"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2018-11-30T00:00:00-05:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP005"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-30-11T00:00:00-05:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP006"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "B2C1",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP007"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-11-30T00:00:00-05:00",
+			"requestedDeliveryDate": "2020-12-01T18:30:00+01:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP008"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"channelIds": ["B2B2"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP009"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"invOrganization": "TheHonestKitchen-Organization-12",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP010"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP012"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"inventoryPools": ["joliet-dc"],
+			"shipToAddress": {
+				"zipcode": "123456",
+				"state": "",
+				"city": "",
+				"country": "US",
+				"address1": "",
+				"address2": ""
+			},
+			"items": [{
+				"itemId": "PritiSkuAutomation3",
+				"uom": "each",
+				"qtyRequested": 20
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP013"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc12"],
+			"items": [{
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP014"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "pickupAtSite",
+			"items": [{
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP015"}
+	},
+
+
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["sandiego-dc"],
+			"siteIds": ["sandiego-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["sandiego-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"siteIds": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 500,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP001"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "000000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP002"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "IN"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP003"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc123"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP004"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2018-11-30T00:00:00-05:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP005"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-30-11T00:00:00-05:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP006"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "B2C1",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP007"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-11-30T00:00:00-05:00",
+			"requestedDeliveryDate": "2020-12-01T18:30:00+01:00",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP008"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"channelIds": ["B2B2"],
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP009"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"invOrganization": "TheHonestKitchen-Organization-12",
+			"items": [{
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP010"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP012"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"inventoryPools": ["joliet-dc"],
+			"shipToAddress": {
+				"zipcode": "123456",
+				"state": "",
+				"city": "",
+				"country": "US",
+				"address1": "",
+				"address2": ""
+			},
+			"items": [{
+				"itemId": "PritiSkuAutomation3",
+				"uom": "each",
+				"qtyRequested": 20
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP013"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc12"],
+			"items": [{
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP014"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "item,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "pickupAtSite",
+			"items": [{
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP015"}
+	},
+
+
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["sandiego-dc"],
+			"siteIds": ["sandiego-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["sandiego-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 500,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP001"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "000000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP002"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "IN"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP003"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc123"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP004"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2018-11-30T00:00:00-05:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP005"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-30-11T00:00:00-05:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP006"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "B2C1",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP007"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-11-30T00:00:00-05:00",
+			"requestedDeliveryDate": "2020-12-01T18:30:00+01:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP008"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"channelIds": ["B2B2"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP009"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"invOrganization": "TheHonestKitchen-Organization-12",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP010"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP012"}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"shipToAddress": {
+				"zipcode": "123456",
+				"state": "",
+				"city": "",
+				"country": "US",
+				"address1": "",
+				"address2": ""
+			},
+			"item": {
+				"itemId": "PritiSkuAutomation3",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200,
+			"expectedData": {"errorCode": "ATP013"}
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200,
+			"expectedData": {"errorCode": "ATP014"}
+		}
+	},
+
+	{
+		"body": {
+			"version": 2,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "pickupAtSite",
+			"item": {
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {
+			"responseStatusCode": 200,
+			"expectedData": {"errorCode": "ATP015"}
+		}
+	},
+
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["sandiego-dc"],
+			"siteIds": ["sandiego-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"siteIds": ["sandiego-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"siteIds": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 1,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["test2878"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 500,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP001"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "000000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP002"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "IN"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP003"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"siteIds": ["joliet-dc123"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP004"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2018-11-30T00:00:00-05:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP005"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-30-11T00:00:00-05:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP006"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "B2C1",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP007"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"requestedShipDate": "2020-11-30T00:00:00-05:00",
+			"requestedDeliveryDate": "2020-12-01T18:30:00+01:00",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP008"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"channelIds": ["B2B2"],
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP009"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"invOrganization": "TheHonestKitchen-Organization-12",
+			"item": {
+				"itemId": "0000000027",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP010"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"]
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP012"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"shipToAddress": {
+				"zipcode": "123456",
+				"state": "",
+				"city": "",
+				"country": "US",
+				"address1": "",
+				"address2": ""
+			},
+			"item": {
+				"itemId": "PritiSkuAutomation3",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+			"expectedData": {"errorCode": "ATP013"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"item": {
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP014"}
+	},
+
+	{
+		"body": {
+			"version": 3,
+			"groupBy": "site,channel",
+			"offset": "0",
+			"inventoryPools": ["joliet-dc"],
+			"fulfillmentMethod": "pickupAtSite",
+			"item": {
+				"itemId": "PritiSkuAutomation4",
+				"qtyRequested": 5,
+				"uom": "EACH"
+			}
+		},
+		"expectedCode": {"responseStatusCode": 200},
+		"expectedData": {"errorCode": "ATP015"}
+	}
+]

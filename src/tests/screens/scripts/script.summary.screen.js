@@ -4,10 +4,18 @@ this.searchscriptTextBox = element(by.xpath("//input[@name='simplified-text-valu
 this.scriptSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
 
 
+    this.searchscriptTextBox = element(by.xpath("//input[@name='simplified-text-value']"));
+    this.scriptSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
 
- var common = require(process.cwd() + '/src/tests/screens/commons.js');
+ var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
+//Added by Shyam 
+    this.findmissingZipLabel = element(by.xpath('//span[text()="findMissingZip"]'));
+    this.activeBtn = element(by.model('script.data.active'));
+    this.saveBtn = element(by.buttonText('Save'));
+    this.checkscript = element(by.xpath('(//div[@class="ng-binding"])[2]'));
+    //					 
 
 
  this.searchScript = function(name)
@@ -35,7 +43,26 @@ this.scriptSelectGear = function(selectOption){
         }
     }
 
+	//Added by shyam 
 
+    this.zipLabel = function () {
+        return this.findmissingZipLabel.click();
+    }
 
+    this.scriptactiveBtn = function () {
+        return this.activeBtn.click();
+    }
 
+    this.clickonSave = function () {
+        return this.saveBtn.click();
+    }
+
+    this.zipscriptStatus = function () {
+        return this.checkscript.getText().then(function (text) {
+            console.log("Find Missing Script: ", text);
+        })
+    }
 }
+				 
+
+

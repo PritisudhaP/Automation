@@ -16,7 +16,7 @@ module.exports =function(){
     this.jobsStopButton = element(by.xpath('//button/en-icon[@icon="media-stop"]/parent::button'));
 
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     //added by priti

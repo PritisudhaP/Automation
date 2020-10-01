@@ -19,6 +19,7 @@ module.exports =function(){
     this.skuWidthEntryTextBox= element(by.xpath('//input[@name="width"]'));
 
     this.skuCatalogLink = element(by.xpath('//en-tab[contains(text(),"Catalogs")]'));
+    this.skuCrossReferences = element(by.xpath("//en-tab[text() = 'Cross References']"));
     this.skuAttachCatalogButton = element(by.xpath('//button/span[contains(text(),"Attach to Catalog")]/parent::button'));
 
     this.skuCatalogIdDropDown = element(by.xpath('//select[@name="catalogId"]'));
@@ -28,6 +29,18 @@ module.exports =function(){
 
     this.savePopupButton = element(by.xpath('//button/span[contains(text(),"Save")]/parent::button'));
     this.saveButton = element(by.xpath('(//button[contains(text(),"Save")])[2]'));
+	  this.activeProductCheckBox = element(by.xpath("//input[@name = \"active\"]"));
+    this.addButton = element(by.xpath("(//button/span[text() = 'Add']/parent::button)[2]"));
+    this.searchReplacementSkuIcon = element(by.xpath("(//en-field/button/en-icon[@icon = 'search']/parent::button)[2]"));
+    this.skuSearchOption = element(by.xpath("(//button/div/span[contains(text(),'Filters')]/parent::div/parent::button)[2]"));
+    this.searchReplacementSkuTextBox = element(by.xpath("(//en-input/input)[4]/parent::en-input"));
+    this.selectSkuValue = element(by.xpath("//div/div[@class = 'en-collection-row']/div/input"));
+    this.addSkuButton = element(by.xpath("//button/span[text() = 'Add Sku']/parent::button"));
+    this.createSkuCrossReferenceButton = element(by.xpath("//button[@object = 'skuCrossReference']"));
+    this.skuCatalogGearIcon = element(by.xpath("//en-actions/button/en-icon"));
+    this.removeCatalogButton = element(by.xpath("//span/li/button/span[text() = 'Remove']/parent::button"));
+
+    this.errorMsgForSkuWithSameVariants =  element(by.xpath("(//en-content/en-alert[@class = 'alert-error']/span)[1]"));
 
     //modified by Priti for Presale
     this.skuPresaleLink = element(by.xpath("//en-tab[contains(text(),'Pre Sales')]"));
@@ -42,11 +55,73 @@ module.exports =function(){
     this.DeleteButton = element(by.xpath("//span[contains(text(),'Delete')]"));
 
 
+//    var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
+    this.searchWithCriteria = function(criteria,content, searchValue){
+
+        this.skuSearchOption.click();
+        browser.sleep(100);
+        this.filterCriteriaDropdown.sendKeys(criteria);
+        browser.sleep(100);
+        this.filterContentDropdown.sendKeys(content);
+        browser.sleep(100);
+        this.searchValueTextbox.sendKeys(searchValue);
+        element(by.xpath('//input[contains(@class, "adv-search-input") and @name="filter-value"]')).sendKeys(protractor.Key.ENTER);
+
+
+    }
+    this.clickOnAddSkuButton = function () {
+        return this.addSkuButton.click();
+
+    }
+    this.clickOnCreateSkuCrossReferenceButton  = function () {
+        return this.createSkuCrossReferenceButton.click();
+    }
+
+    this.clickOnResultSku = function () {
+        return this.selectSkuValue.click();
+
+    }
+
+    this.enterReplacementSkuName = function (skuName) {
+        browser.sleep(2000);
+
+        element(by.xpath('(//input[contains(@class, "adv-search-input")])[2]')).clear();
+        for (var i = 0, len = skuName.length; i < len; i++) {
+            element(by.xpath('(//input[contains(@class, "adv-search-input")])[2]')).sendKeys(skuName[i]);
+            browser.sleep(100);
+        }
+        element(by.xpath('(//input[contains(@class, "adv-search-input")])[2]')).sendKeys(protractor.Key.ENTER);
+        browser.sleep(1000);
+
+        //this.searchReplacementSkuTextBox.sendKeys(browser.params.referenceSku1);
+        //browser.sleep(1000);
+        //this.searchReplacementSkuTextBox.sendKeys(protractor.Key.ENTER);
+
+    }
+
+    this.clickOnAddButton = function()
+    {
+        return this.addButton.click();
+    }
+
+    this.clickOnsearchReplacementSkuIcon = function() {
+        return this.searchReplacementSkuIcon.click();
+    }
+    this.selectCrossRefreneceType = function (referenceType) {
+        temp = "//select/option[@value ='" + referenceType + "']";
+        element(by.xpath(temp)).click();
+        browser.sleep(2000);
+    }
+
     this.newSku = function() {
         return this.newSkuButton.click();
+    }
+    this.clickOnSkuCrossReferenceTab = function()
+    {
+        return this.skuCrossReferences.click();
     }
 
     this.enterDisplayName = function(displayName) {
@@ -98,6 +173,13 @@ module.exports =function(){
         return this.skuCatalogLink.click();
     }
 
+    this.clickOnDeleteCatalogButton = function () {
+
+        this.skuCatalogGearIcon.click();
+        browser.sleep(1000);
+        return this.removeCatalogButton.click();
+    }
+
     this.attachCatalog = function() {
         return this.skuAttachCatalogButton.click();
     }
@@ -126,6 +208,26 @@ module.exports =function(){
     this.saveSku = function() {
         return this.saveButton.click();
     }
+	this.checkActiveProductCheckBox = function () {
+        return this.activeProductCheckBox.click();
+    }
+    this.errorMsgForSkuWithSameVariant = function () {
+        return this.errorMsgForSkuWithSameVariants.getText();
+								   
+    }
+    this.editVariant = function(){
+      //temp = "//div/en-section/en-header/en-title[text() = "+variantName+"]/parent::en-header";
+        temp = "(//div/en-section/en-header/en-title/parent::en-header)[1]"
+      return element(by.xpath(temp)).click();
+
+    }
+    this.chooseAnotherVariantValue = function(VariantValue)
+    {
+       //temp = "//div/en-control-group/en-control/label[contains(text() , "+VariantValue+")]/input[@type = 'radio']";
+       temp = "(//div/en-control-group/en-control/label/input[@type = 'radio'])[2]";
+        return element(by.xpath(temp)).click();
+    }
+
 
     //modified by Priti for Presale
 

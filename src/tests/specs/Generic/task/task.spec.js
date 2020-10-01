@@ -1,6 +1,6 @@
-var taskCreateScreen = require(process.cwd() + '/src/tests/screens/task/task.create.screen.js');
-var taskSummaryScreen = require(process.cwd() + '/src/tests/screens/task/task.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var taskCreateScreen = require(process.cwd() + '/screens/task/task.create.screen.js');
+var taskSummaryScreen = require(process.cwd() + '/screens/task/task.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Task creation Flow and Bulk operations : ', function(){
     var taskCreate = new taskCreateScreen();
@@ -37,7 +37,7 @@ describe('Task creation Flow and Bulk operations : ', function(){
         });
 
 
-        it('Create and Bulk task operations - TC0002', function(){
+      /*  it('Create and Bulk task operations - TC0002', function(){
             browser.get(taskUrl);
             console.log("navigating to task screen");
             browser.sleep(5000);
@@ -101,7 +101,7 @@ describe('Task creation Flow and Bulk operations : ', function(){
 
             taskSummary.taskMainGearSelect("Delete","");
         });
-
+*/
 
 
 })

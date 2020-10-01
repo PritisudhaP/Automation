@@ -1,6 +1,6 @@
-var attributesCreateScreen = require(process.cwd() + '/src/tests/screens/attributes/attributes.create.screen.js');
-var attributesSummaryScreen = require(process.cwd() + '/src/tests/screens/attributes/attributes.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var attributesCreateScreen = require(process.cwd() + '/screens/attributes/attributes.create.screen.js');
+var attributesSummaryScreen = require(process.cwd() + '/screens/attributes/attributes.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Attribute creation Flow  : ', function(){
     var attributesCreate = new attributesCreateScreen();

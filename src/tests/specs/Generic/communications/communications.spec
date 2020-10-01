@@ -1,6 +1,6 @@
-var communicationsCreateScreen = require(process.cwd() + '/src/tests/screens/communications/communications.create.screen.js');
-var communicationsSummaryScreen = require(process.cwd() + '/src/tests/screens/communications/communications.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var communicationsCreateScreen = require(process.cwd() + '/screens/communications/communications.create.screen.js');
+var communicationsSummaryScreen = require(process.cwd() + '/screens/communications/communications.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Communications Config CRUD operations  : ', function(){
     var communicationsCreate = new communicationsCreateScreen();

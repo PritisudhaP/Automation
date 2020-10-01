@@ -9,10 +9,11 @@ module.exports =function(){
     this.inventoryPoolSearchButton = element(by.xpath('//button/en-icon[@icon="search-plus"]'));
 
     
-    this.inventoryPoolSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
+    //this.inventoryPoolSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div[2]/en-actions/button'));
+    this.inventoryPoolSelectGearIcon = element(by.xpath('//div[@class="en-collection-row"]/div/en-actions'));
     this.inventoryPoolEditFromGearIcon = element(by.xpath('//span[contains(text(),"Edit")]/parent::button'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

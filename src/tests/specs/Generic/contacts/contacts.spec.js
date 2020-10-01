@@ -1,6 +1,6 @@
-var contactsCreateScreen = require(process.cwd() + '/src/tests/screens/contacts/contacts.create.screen.js');
-var contactsSummaryScreen = require(process.cwd() + '/src/tests/screens/contacts/contacts.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var contactsCreateScreen = require(process.cwd() + '/screens/contacts/contacts.create.screen.js');
+var contactsSummaryScreen = require(process.cwd() + '/screens/contacts/contacts.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Contacts creation Flow  : ', function(){
     var contactsCreate = new contactsCreateScreen();
@@ -30,7 +30,7 @@ describe('Contacts creation Flow  : ', function(){
       
         it('Search and Delete Contacts successfully - TC0002', function(){
             browser.get(contactsUrl);
-            contactsSummary.contactsSearch("First Name","SarathTC0001");
+                contactsSummary.contactsSearch("First Name","SarathTC0001");
             browser.sleep(2000);
             contactsSummary.contactsSelectGear("Delete");
         });      

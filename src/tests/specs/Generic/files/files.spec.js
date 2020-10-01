@@ -1,5 +1,5 @@
-var filesScreen = require(process.cwd() + '/src/tests/screens/files/files.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var filesScreen = require(process.cwd() + '/screens/files/files.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Create directory, Upload file, Copy, Move, rename - Flows  : ', function(){
     var files = new filesScreen();
@@ -321,8 +321,9 @@ describe('Create directory, Upload file, Copy, Move, rename - Flows  : ', functi
            files.select("GhurkaSampleSFTP.csv");
 
             files.fileShare();
+            browser.sleep(2000);
             files.limitDownload();
-            //  files.remainingDownloads("1");
+          //  files.remainingDownloads("1");
             browser.sleep(2000);
             files.createSharedLink();
             browser.sleep(2000);
@@ -334,7 +335,8 @@ describe('Create directory, Upload file, Copy, Move, rename - Flows  : ', functi
             browser.ignoreSynchronization = true;
             browser.sleep(2000);
             browser.get(link);
-            browser.sleep(2000);
+            files.refreshScreen();
+            browser.sleep(5000);
        	    browser.get(link);
             expect(element(by.xpath('//body')).getText()).toMatch('This link may have been valid sometime ago');
             browser.ignoreSynchronization = false;

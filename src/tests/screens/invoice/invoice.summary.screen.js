@@ -17,7 +17,7 @@ module.exports =function(){
 
     this.invoiceNumberText = element(by.xpath('(//div[@class="en-collection-row"]/div[5])[1]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

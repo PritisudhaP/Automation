@@ -6,7 +6,7 @@ module.exports =function(){
 
     this.runAsDropDown = element(by.xpath('//select[@name="runAsId"]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

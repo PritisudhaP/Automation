@@ -1,0 +1,234 @@
+{
+    "URL":{
+        "ServiceListOrder":"https://project0-qa.enspirecommerce.com/api/v1/order/list"
+    },
+
+    "Scenario 1":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000734"
+          }
+    },
+    "Scenario 2":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2C",
+          "orderType": "salesOrder",
+          "status": "RELEASED",
+          "fromOrderDate": "2019-04-04T11:24:15-08:00",
+          "toOrderDate": "2020-02-15T11:24:15-08:00",
+          "displayOrder": "asc"
+         }
+    },
+    "Scenario 3":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2B",
+          "orderType": "salesOrder",
+          "status": "SHIPPED",
+          "fromOrderDate": "2019-04-04T11:24:15-08:00",
+          "toOrderDate": "2019-08-15T11:24:15-08:00",
+          "displayOrder": "asc"
+        }
+    },
+    "Scenario 4":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "return",
+            "customerId": "000000000734"
+          }
+    },
+    "Scenario 5":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000734",
+            "fromOrderDate": "2020-03-22T11:24:15-08:00",
+            "toOrderDate": "2020-04-23T11:24:15-08:00"
+          }
+    },
+    "Scenario 6":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2B",
+          "orderType": "salesOrder",
+          "status": "RELEASED",
+          "fromOrderDate": "2020-04-04T11:24:15-08:00",
+          "displayOrder": "desc"
+        }
+    },
+    "Scenario 7":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2B",
+          "orderType": "salesOrder",
+          "status": "RELEASED",
+          "toOrderDate": "2019-03-06T11:24:15-08:00",
+          "displayOrder": "asc"
+        }
+    },
+    "Scenario 8":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2017-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 9":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15+08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 10":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "04-12-2018T11:24:15+08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 11":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2C",
+          "orderType": "salesOrder",
+          "status": "SHIPPED",
+          "toOrderDate": "2020-04-04T11:24:15-08:00",
+          "displayOrder": "desc"
+        }
+    },
+    "Scenario 12":{
+        "Input":{
+          "orderOrganization": "TheHonestKitchen-Organization-",
+          "orderTransactionType": "sales",
+          "customerId": "000000000166",
+            "channel": "B2B",
+          "orderType": "salesOrder",
+          "status": "RELEASED",
+          "toOrderDate": "2019-08-01T11:24:15-08:00",
+          "displayOrder": "asc"
+        }
+    },
+    "Scenario 13":{
+        "Input":{
+            "orderOrganization": "",
+            "orderTransactionType": "sales",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 14":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 15":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 16":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "salesd",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+           
+          }
+    },
+    "Scenario 17":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "return",
+            "customerId": "000000000492",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 18":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000493",
+              "channel": "B2B",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    },
+    "Scenario 19":{
+        "Input":{
+            "orderOrganization": "TheHonestKitchen-Organization-",
+            "orderTransactionType": "sales",
+            "customerId": "000000000493",
+              "channel": "B2Z",
+            "orderType": "salesOrder",
+            "status": "OPEN",
+            "fromOrderDate": "2018-12-04T11:24:15-08:00",
+            "toOrderDate": "2019-02-15T11:24:15-08:00",
+            "displayOrder": "asc"
+          }
+    }
+}
