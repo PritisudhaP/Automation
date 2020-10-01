@@ -22,6 +22,7 @@ MongoDB Enterprise QA36-shard-0:PRIMARY>
 enable releaseSalesOrderNew script on P4
 RELEASESALESORDERSOLVER = DISABLE
 
+test
 Ensure to delete the customers with TC0001, FNAME01, DFNAME01 and Sites with truqa
 
  
