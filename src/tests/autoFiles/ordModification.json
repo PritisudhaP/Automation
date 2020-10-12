@@ -1,0 +1,673 @@
+[	
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018495",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"priority": "3",
+					"shippingCarrier": "FEDEX1",
+					"carrierServiceType": "FedExGround1",
+					"billToContactInfo": {
+						"primaryEmail": "billto@thk.com",
+						"primaryPhone": "1234567890"
+					},
+					"buyerContactInfo": {
+						"primaryEmail": "buyer@thk.com"
+					},
+					"notes": [
+						{
+							"index":1,
+							"noteType": "PACKAGING_INSTRUCTIONS",
+							"noteText": "Test Notes1 from Business API"
+						},
+						{
+							"index":2,
+							"noteType": "SHIPPING_INSTRUCTIONS",
+							"noteText": "Test Notes2 from Business API"
+						}
+					 ]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018495",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+						"lineNumber": 1,
+						"fulfillmentType": "pickupAtStore",
+						"fulfillmentSite": "sandiego-dc",
+						"lineItemQty": 2,
+						"originalOrderedQty": 2,
+						"lineDiscounts":[ 
+						  { 
+							"index":1,
+							"discountName":"ITEM_DISCOUNT",
+							"discountAmount":2.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":7
+						  },
+						  { 
+							"index":2,
+							"discountName":"ORDER_DISCOUNT",
+							"discountAmount":3.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":8
+						  }
+					   ],
+					   "lineCharges": [
+						{
+							"index":1,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "SHIPPING",
+							"chargeAmount": 15,
+							"originalChargeAmount": 10
+						},
+						{
+							"index":2,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "OVERSIZE_SHIPPING",
+							"chargeAmount": 2,
+							"originalChargeAmount": 20
+						}]
+					}]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018495",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+					"lineNumber": 1,
+					"lineDiscounts":[ 
+					  { 
+						"index":1,
+						"discountName":"ITEM_DISCOUNT",
+						"discountAmount":2.99,
+						"originalDiscountAmount":2.99
+					  },
+					  { 
+						"index":2,
+						"discountName":"ORDER_DISCOUNT",
+						"discountAmount":3.99,
+						"originalDiscountAmount":2.99
+					  }]
+					}]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": { 
+	    	"includeCompleteOrderInResponse": false,
+			 "order": {
+			    "orderNumber": "000000018495",
+			    "orderOrganization": "TheHonestKitchen-Organization-",
+				"orderCharges": [
+				{
+					"index":1,
+					"chargeCategory": "050",
+					"chargeName": "Freight",
+					"chargeAmount": 20,
+					"originalChargeAmount": 30
+				}],
+				"orderDiscounts":[ 
+				{ 
+		     	   "index":1,
+			       "discountName":"50%",
+			       "discountAmount":20,
+			       "originalDiscountAmount":25
+			    }],
+				"orderTaxes": [
+			    {
+					"index":1,
+			        "taxName": "VAT",
+			        "taxAmount": 5,
+			        "taxRate": 5
+			    }]
+			  }
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018495",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"channel": "B2C"
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			  "includeCompleteOrderInResponse": false,
+			  "order": {
+				"orderNumber": "000000018495",
+				"orderOrganization": "TheHonestKitchen-Organization-",
+				 "lineItems": [
+				  {
+						"lineNumber": 2,
+						"status": "CLOSED"
+				  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018495",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					 {
+						"lineNumber": 1,
+						"lineItemQty": 2,
+						"cancelledQty": 2,
+						"status": "CANCELLED"
+					  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+						"orderNumber": "000000018495",
+						"orderOrganization": "TheHonestKitchen-Organization-",
+						"status": "CANCELED"
+					}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+	
+	
+
+
+
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018496",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"priority": "3",
+					"shippingCarrier": "FEDEX1",
+					"carrierServiceType": "FedExGround1",
+					"billToContactInfo": {
+						"primaryEmail": "billto@thk.com",
+						"primaryPhone": "1234567890"
+					},
+					"buyerContactInfo": {
+						"primaryEmail": "buyer@thk.com"
+					},
+					"notes": [
+						{
+							"index":1,
+							"noteType": "PACKAGING_INSTRUCTIONS",
+							"noteText": "Test Notes1 from Business API"
+						},
+						{
+							"index":2,
+							"noteType": "SHIPPING_INSTRUCTIONS",
+							"noteText": "Test Notes2 from Business API"
+						}
+					 ]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018496",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+						"lineNumber": 1,
+						"fulfillmentType": "pickupAtStore",
+						"fulfillmentSite": "sandiego-dc",
+						"lineItemQty": 2,
+						"originalOrderedQty": 2,
+						"lineDiscounts":[ 
+						  { 
+							"index":1,
+							"discountName":"ITEM_DISCOUNT",
+							"discountAmount":2.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":7
+						  },
+						  { 
+							"index":2,
+							"discountName":"ORDER_DISCOUNT",
+							"discountAmount":3.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":8
+						  }
+					   ],
+					   "lineCharges": [
+						{
+							"index":1,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "SHIPPING",
+							"chargeAmount": 15,
+							"originalChargeAmount": 10
+						},
+						{
+							"index":2,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "OVERSIZE_SHIPPING",
+							"chargeAmount": 2,
+							"originalChargeAmount": 20
+						}]
+					}]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018496",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+					"lineNumber": 1,
+					"lineDiscounts":[ 
+					  { 
+						"index":1,
+						"discountName":"ITEM_DISCOUNT",
+						"discountAmount":2.99,
+						"originalDiscountAmount":2.99
+					  },
+					  { 
+						"index":2,
+						"discountName":"ORDER_DISCOUNT",
+						"discountAmount":3.99,
+						"originalDiscountAmount":2.99
+					  }]
+					}]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": { 
+	    	"includeCompleteOrderInResponse": false,
+			 "order": {
+			    "orderNumber": "000000018496",
+			    "orderOrganization": "TheHonestKitchen-Organization-",
+				"orderCharges": [
+				{
+					"index":1,
+					"chargeCategory": "050",
+					"chargeName": "Freight",
+					"chargeAmount": 20,
+					"originalChargeAmount": 30
+				}],
+				"orderDiscounts":[ 
+				{ 
+		     	   "index":1,
+			       "discountName":"50%",
+			       "discountAmount":20,
+			       "originalDiscountAmount":25
+			    }],
+				"orderTaxes": [
+			    {
+					"index":1,
+			        "taxName": "VAT",
+			        "taxAmount": 5,
+			        "taxRate": 5
+			    }]
+			  }
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018496",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"channel": "B2C"
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			  "includeCompleteOrderInResponse": false,
+			  "order": {
+				"orderNumber": "000000018496",
+				"orderOrganization": "TheHonestKitchen-Organization-",
+				 "lineItems": [
+				  {
+						"lineNumber": 2,
+						"status": "CLOSED"
+				  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018496",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					 {
+						"lineNumber": 1,
+						"lineItemQty": 2,
+						"cancelledQty": 2,
+						"status": "CANCELLED"
+					  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+						"orderNumber": "000000018496",
+						"orderOrganization": "TheHonestKitchen-Organization-",
+						"status": "CANCELED"
+					}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+	
+	
+	
+
+
+
+
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018498",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"priority": "3",
+					"shippingCarrier": "FEDEX1",
+					"carrierServiceType": "FedExGround1",
+					"billToContactInfo": {
+						"primaryEmail": "billto@thk.com",
+						"primaryPhone": "1234567890"
+					},
+					"buyerContactInfo": {
+						"primaryEmail": "buyer@thk.com"
+					},
+					"notes": [
+						{
+							"index":1,
+							"noteType": "PACKAGING_INSTRUCTIONS",
+							"noteText": "Test Notes1 from Business API"
+						},
+						{
+							"index":2,
+							"noteType": "SHIPPING_INSTRUCTIONS",
+							"noteText": "Test Notes2 from Business API"
+						}
+					 ]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018498",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+						"lineNumber": 1,
+						"fulfillmentType": "pickupAtStore",
+						"fulfillmentSite": "sandiego-dc",
+						"lineItemQty": 2,
+						"originalOrderedQty": 2,
+						"lineDiscounts":[ 
+						  { 
+							"index":1,
+							"discountName":"ITEM_DISCOUNT",
+							"discountAmount":2.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":7
+						  },
+						  { 
+							"index":2,
+							"discountName":"ORDER_DISCOUNT",
+							"discountAmount":3.99,
+							"originalDiscountAmount":2.99,
+							"discountPercent":8
+						  }
+					   ],
+					   "lineCharges": [
+						{
+							"index":1,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "SHIPPING",
+							"chargeAmount": 15,
+							"originalChargeAmount": 10
+						},
+						{
+							"index":2,
+							"chargeCategory": "SHIPPING",
+							"chargeName": "OVERSIZE_SHIPPING",
+							"chargeAmount": 2,
+							"originalChargeAmount": 20
+						}]
+					}]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				"includeCompleteOrderInResponse": false,
+				"order": {
+					"orderNumber": "000000018498",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					{
+					"lineNumber": 1,
+					"lineDiscounts":[ 
+					  { 
+						"index":1,
+						"discountName":"ITEM_DISCOUNT",
+						"discountAmount":2.99,
+						"originalDiscountAmount":2.99
+					  },
+					  { 
+						"index":2,
+						"discountName":"ORDER_DISCOUNT",
+						"discountAmount":3.99,
+						"originalDiscountAmount":2.99
+					  }]
+					}]
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": { 
+	    	"includeCompleteOrderInResponse": false,
+			 "order": {
+			    "orderNumber": "000000018498",
+			    "orderOrganization": "TheHonestKitchen-Organization-",
+				"orderCharges": [
+				{
+					"index":1,
+					"chargeCategory": "050",
+					"chargeName": "Freight",
+					"chargeAmount": 20,
+					"originalChargeAmount": 30
+				}],
+				"orderDiscounts":[ 
+				{ 
+		     	   "index":1,
+			       "discountName":"50%",
+			       "discountAmount":20,
+			       "originalDiscountAmount":25
+			    }],
+				"orderTaxes": [
+			    {
+					"index":1,
+			        "taxName": "VAT",
+			        "taxAmount": 5,
+			        "taxRate": 5
+			    }]
+			  }
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018498",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"channel": "B2C"
+					}
+				},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+			  "includeCompleteOrderInResponse": false,
+			  "order": {
+				"orderNumber": "000000018498",
+				"orderOrganization": "TheHonestKitchen-Organization-",
+				 "lineItems": [
+				  {
+						"lineNumber": 2,
+						"status": "CLOSED"
+				  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+					"orderNumber": "000000018498",
+					"orderOrganization": "TheHonestKitchen-Organization-",
+					"lineItems": [
+					 {
+						"lineNumber": 1,
+						"lineItemQty": 2,
+						"cancelledQty": 2,
+						"status": "CANCELLED"
+					  }]
+				}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	},
+
+	{
+		"body": {
+				  "includeCompleteOrderInResponse": false,
+				  "order": {
+						"orderNumber": "000000018498",
+						"orderOrganization": "TheHonestKitchen-Organization-",
+						"status": "CANCELED"
+					}
+			},
+		"expectedCode": {
+			"responseStatusCode": 200
+		}
+	}
+]
