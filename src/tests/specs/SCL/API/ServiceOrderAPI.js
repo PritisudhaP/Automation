@@ -8921,7 +8921,7 @@ describe( "Service Order API", function () {
                      		console.log('statusCode:', response && response.statusCode);
                      		console.log('body:', body);
                      		expect(response.statusCode).toBe(500);
-                     		expect(response.body.message).toContain("E11000 duplicate key error collection");
+                     		expect(response.body.message).toContain("Write failed with error code 11000 and error message \'E11000 duplicate key error collection");
                      		done();
 
                              });
@@ -10198,8 +10198,8 @@ describe( "Service Order API", function () {
                         		               "lineNumber":1,
                         		               "status":"OPEN",
                         		               "retailerReferenceItemSKU":"aaa",
-                        		               "lineItemId":"xyzabc123",
-                        		               "itemTitle":"AcuSKU1",
+                        		               "lineItemId":"AcuSKU1",
+                        		               "itemTitle":"abcxyz123",
                         		               "itemDescription":"Computers",
                         		               "itemUnitOfMeasure":"EA",
                         		               "itemUnitPrice":"10",
@@ -10493,7 +10493,7 @@ describe( "Service Order API", function () {
                   		      {
                   		         "priority":"1",
                   		         "orderDate":"2019-12-27T13:24:15-08:00",
-                  		         "orderNumber":order+42,
+                  		         "orderNumber":order+44,
                   		         "orderType":"salesOrder",
                   		         "purchaseOrderNumber":"PUR-205",
                   		         "channel":"B2B",
