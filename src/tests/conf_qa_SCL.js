@@ -27,7 +27,10 @@ exports.config = {
  //  specs:['./specs/SCL/mixedOrder/loginPage_spec.js','./specs/SCL/mixedOrder/mo_spec.js'],
 
 // specs:['./specs/SCL/login.spec.js','./specs/SCL/misc/Misc_spec.js'],
-// specs:['./specs/SCL/login.spec.js','./specs/SCL/storePortalPackageRecommendation/PackageRecommendation_spec'],
+// specs:['./specs/SCL/login.spec.js','./specs/SCL/storePortalPackageRecommendation/PackageRecommendation_spec.js'],
+
+// specs:['./specs/SCL/login.spec.js','./specs/SCL/transmissionTrace/TransmissionTrace_spec.js'],
+
        baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
    //  baseUrl: 'https://release1-qa.enspirecommerce.com/oms/dist/#/',
     getPageTimeout: 1280000,
