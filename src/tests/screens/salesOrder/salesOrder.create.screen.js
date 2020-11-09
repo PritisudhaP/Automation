@@ -132,8 +132,74 @@ module.exports =function(){
     this.presaleLabelAtProductSearch = element(by.xpath("//en-label[@ng-if='item.presale']/small"));
     this.presaleLabelAtskuresults = element(by.xpath("//en-label[@class='label-xs bold label-warn ng-scope']/small"));
 
-	//var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+	var common = require(process.cwd() + '/screens/commons.js');
+    // var common = require(process.cwd() + '/src/tests/screens/commons.js');
+
+    // Added by shyam
+
+    this.selectItemCheckbox = element(by.xpath('(//input[@type="checkbox"])[2]'));
+    this.shipFullOrderEdit = element(by.xpath('(//en-icon[@icon="edit"])[4]'));
+    this.shipfullOrderCheckbox = element(by.model('salesOrder.data.header.shipComplete'));
+    this.chk = element(by.xpath('//en-icon[@icon="check"]'));
+    this.createCustomer = element(by.xpath('//span[text()="Create Customer"]'));
+    this.addaddressIcon = element(by.xpath('(//en-icon[@icon="plus-circle"])[2]'));
+    this.advanceSettings = element(by.xpath('//en-tab[@pane="advanced-settings"]'));
+    this.createbtn = element(by.xpath('//en-icon[@icon="doc-edit"]'));
+    this.atsColumn = element(by.xpath('(//div[text()="ATS"])[1]'));
+    this.searchOrder = element(by.model('apiSearchText.value'));
+    this.arrowUp = element(by.xpath('//en-icon[@icon="arrow-up"]'));
+
+    this.clickonCreatebtn = function(){
+        return this.createbtn.click();
+    }
+
+    this.clickonAdvancesettings = function(){
+        return this.advanceSettings.click();
+    }
+
+    this.customerSearch = function(value){
+       return this.customerSearchTextbox.sendKeys(value);
+
+    }
+
+    this.ClickonSKUcheckbox = function(){
+       return this.selectItemCheckbox.click();
+
+    }
+
+    this.clickonShipfullOrder = function(){
+       this.shipFullOrderEdit.click();
+       this.shipfullOrderCheckbox.click();
+       this.chk.click();
+    }
+       
+    this.clickonCreateCustomer = function(){
+     return this.createCustomer.click();
+    }
+
+    this.clickonaddAddressplus = function(){
+        return this.addaddressIcon.click();
+    }
+
+    this.verifyATScolumn = function(){
+        this.atsColumn.isPresent().then(function(value){
+            console.log("ATS column:",value);
+           })
+    }
+
+    this.orderSearch = function(value){
+       this.searchOrder.sendKeys(value);
+    }
+
+    this.increaseQty = function(){
+       this.arrowUp.click();
+    }
+    
+
+   //
+
+
+
     var commons = new common();
 	    this.setSalesChannel = function(salesChannelName){
          this.salesChannelEditIcon.click();

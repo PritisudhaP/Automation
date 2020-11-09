@@ -27,7 +27,8 @@ module.exports =function(){
 
     this.shipmentCreateErrorAlert = element(by.xpath('//en-content[@id="finalShipmentErrors"]//en-alert/span'));
     this.donotgenerateLabelCheckBox = element(by.xpath("(//input[@ng-model='skipLabelGeneration'])[1]"));
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+   // var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 
@@ -145,5 +146,39 @@ module.exports =function(){
             });
 
      }
+
+     //Added by shyam 
+      this.trackingNbr = element(by.model('package.trackingNumber'));
+      this.orderNbr = element(by.xpath('(//a/strong)[1]'));
+
+     this.clickonAccept = function(){
+        return this.acknowledgeButton.click();
+      }
+
+      this.enterTrackingNbr = function(tracking){
+        return this.trackingNbr.sendKeys(tracking);
+      }
+
+      this.clickOnOrder = function(){
+        return this.orderNbr.click();
+      }
+
+     // Added by shyam for returns this has to be moved to Fulfillment/Returns screen 
+
+      var RMA = element(by.xpath('(//div[contains(text(),"RMA")])[5]'));
+      var edit = element(by.xpath('//en-icon[@icon="doc-edit"]'));
+      var other = element(by.xpath('//select[@type="text"]')).element(by.cssContainingText('option', "OTHER"));
+      var save = element(by.xpath('//span[text()="Save"]'));
+      var submit = element(by.xpath('//span[text()="Submit"]'));
+      var inspected = element(by.xpath('//small[text()="INSPECTED"]'));
+
+      this.clickOnRMA = function(disposition){
+          RMA.click();
+          edit.click();
+         element(by.cssContainingText('option', disposition)).click();
+          save.click();
+          submit.click();
+          browser.sleep(500);
+      }
 }
 

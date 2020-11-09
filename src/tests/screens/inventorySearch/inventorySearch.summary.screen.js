@@ -3,8 +3,8 @@ module.exports =function(){
     var temp = "";
     var count = "";
 
-   // var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
+   // var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     this.siteDropdown = element(by.xpath('//select[@name="siteId"]'));
@@ -27,7 +27,33 @@ module.exports =function(){
      this.inboundcountText = element(by.xpath("//div[@class='en-collection-row']/div[8]"));
         this.atsCountText= element(by.xpath("//div[@class='en-collection-row']/div[5]"));
 
+    // Added by Shyam
 
+    this.itemSearchFilter = element(by.xpath('//input[@ng-model="apiSearchText.value"]'));
+    this.inventorypool = element(by.xpath('//div[@class="ellipsis"]'));
+    this.inventoryBySite = element(by.xpath('//en-tab[text()="Inventory by Site"]'));
+    this.plusIcon = element(by.xpath('//en-icon[@icon="plus-block"]'));
+    this.expiryDate = element(by.xpath('//small/strong'));
+
+    this.searchtext = function(value){
+        this.itemSearchFilter.clear();
+        return this.itemSearchFilter.sendKeys(value);
+     }
+
+    this.clickOnSku = function(){
+        this.inventorypool.click();
+        this.inventoryBySite.click();
+    }
+
+    this.validateExpirydate = function(value){
+        this.plusIcon.click();
+        this.expiryDate.getText().then(function(date){
+            console.log("",date)
+         expect(date).toBe(value);   
+        })
+    } 
+
+    //
 
 
     this.enterSite = function(site) {

@@ -46,6 +46,24 @@ module.exports =function(){
     var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
+    // Added by Shyam 
+    this.productWeightEntryTextBox = element(by.model('product.data.weight'));
+    this.productName = element(by.xpath('(//span[@class="oms-product-title ng-binding"])[1]'));
+
+    this.enterweight = function(wt){
+        return this.productWeightEntryTextBox.sendKeys(wt);
+    }
+
+    this.clickonTab = function(tabName){
+      tab = '//en-tab[contains(text(),"'+tabName+'")]';
+      return element(by.xpath(tab)).click();
+    }
+
+    this.clickonproduct = function(){
+        return this.productName.click();
+    }
+
+    //
 
     this.newProduct = function() {
         return this.newProductButton.click();

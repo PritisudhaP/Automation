@@ -40,8 +40,8 @@ module.exports =function(){
     this.reservationText = element(by.xpath("//en-title[@class='title-sm ng-binding']"));
     
 
-    //var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
+   // var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     // Added by shyam for zipcodes 
@@ -67,7 +67,35 @@ module.exports =function(){
     this.validZipcode = element(by.xpath('//small[contains(text(),"37.15833480000001,-79.233837")]'));
     this.customeredit = element(by.xpath('(//en-icon[@class="xs"])[2]'));
     this.geardots = element(by.xpath('(//en-icon[@icon="more-vertical"])[3]'));
-    this.error = element(by.xpath('(//div[@ng-class="alertClasses(message)"])[1]'));								   
+    this.error = element(by.xpath('(//div[@ng-class="alertClasses(message)"])[1]'));	
+    
+    // Added by Shyam
+    
+    this.channelEditBtn = element(by.xpath('(//en-icon[@icon="edit"])[2]'));
+    this.tick = element(by.xpath('//en-icon[@icon="check"]'));
+    this.callIn = element(by.xpath('//strong[contains(text(),"Call-In")]'));
+
+    this.cancelbtn = element(by.xpath('//span[text()="Cancel"]'));
+    this.ShipmentTab = element(by.xpath('//en-tab[text()="Shipping Requests"]'));
+    this.clickonFR = element(by.xpath('//section/div/a'));
+
+    this.selectChannel = function(channel){
+        this.channelEditBtn.click();
+        element(by.cssContainingText('option',channel)).click();
+        this.tick.click();
+    }
+
+    this.attachCustomer = function(){
+        return this.callIn.click();
+    }
+
+    this.clickOnShipmentTab = function(){
+        this.ShipmentTab.click();
+        this.chevronIcon.click();
+        this.clickonFR.click();
+    }
+    
+    //
     this.salesOrderSearch = function(criteria, salesOrderSearchValue){
 /*        commons.selectOption(this.salesOrderSearchCriteriaDropdown,criteria);
         this.salesOrderSearchTextbox.clear();
@@ -288,4 +316,35 @@ module.exports =function(){
     this.verifypopupError = function(){
         return this.error.click();
     }
+    this.clickonCancelbtn = function(){
+        return this.cancelbtn.click();
+    }
+
+   this.capture = function(){
+         ONbr = this.orderNbr.getText().then(console.log);
+       return ONbr;
+   }
+
+   this.salesOrderNbr = function() {
+    return this.orderNbr.getText();
+}
+
+this.clickOnStatustext = function(){
+    salesOrderStatustext.click();
+}
+
+
+ this.clickOnStab = function(){
+    this.ShipmentTab.click();
+    this.chevronIcon.click();
+ }
+
+ this.clickOnitemtab = function(){
+    element(by.xpath('//en-tab[@pane="itemsPane"]')).click();
+ }
+
+ this.getShipmentReqNbr = function(){
+     return this.shipmentNbr.getText();
+ }
+    //
 }

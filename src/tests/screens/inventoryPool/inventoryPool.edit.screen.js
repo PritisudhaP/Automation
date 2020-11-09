@@ -67,7 +67,17 @@ module.exports =function(){
     this.saveInventoryPool = function() {
         return this.saveInventoryPoolButton.click();
     }
-    // modified by priti for presale
+
+    //modified by Priti for Presale
+    this.attachskuButton = element(by.xpath("//span[contains(text(),'Attach Skus')]"));
+    this.searchProductTextBox = element(by.xpath("//input[@name='simplified-text-value']"));
+    this.selectProductCheckBox = element(by.xpath("//input[@type='checkbox'][@en-checklist-value='item']"));
+    this.addskuButton = element(by.xpath("//span[contains(text(),'Add Skus')]"));
+    this.searchskuTextBox = element(by.xpath("//input[@placeholder='Search Sku']"));
+    this.searchskuButton = element(by.xpath("//en-icon[@icon='search']"));
+    this.skuCheckBox= element(by.xpath("//input[@id='inventoryCollection_checkbox_0_0']"));
+    this.deleteOption = element(by.xpath("//div[@id='inventoryCollection_column_1']/div/en-actions/button"));
+
     this.clickOnAttachsku = function()
     {
      return this.attachskuButton.click();
@@ -111,7 +121,19 @@ module.exports =function(){
      return element(by.xpath("(//span[contains(text(),'Delete')])[2]")).click();
     }
 
+// Added by Shyam 
 
+this.availQty = element(by.model('item.availableQty'));
+this.searchProductTextBox = element(by.xpath("//input[@name='simplified-text-value']"));
+
+this.filter = function(sku){
+    return this.searchProductTextBox.sendKeys(sku);
+}
+
+this.enterQty = function(qty){
+    this.availQty.clear();
+    return this.availQty.sendKeys(qty);
+}
 
 
 

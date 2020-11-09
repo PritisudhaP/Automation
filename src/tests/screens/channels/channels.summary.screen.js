@@ -13,6 +13,33 @@ module.exports =function(){
     var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
+     // Added by shyam
+
+     this.channeltextsearch = element(by.model('apiSearchText.value'));
+     this.limitSalesOrderqty= element(by.model('channel.data.limitEntryToAvailableQuantity'));
+     this.popupSave = element(by.xpath('//en-icon[@icon="doc-edit"]'));
+
+     this.searchChannel = function(value){
+        return this.channeltextsearch.sendKeys(value);
+    }
+
+   this.clickOnChannel = function(value){
+       temp = "//span[text()='" + value + "']";
+      return element(by.xpath(temp)).click();
+   }
+
+   this.clickOnlimitOrderqty = function(){
+       return this.limitSalesOrderqty.click();
+   }
+
+   this.save = function(){
+       return this.popupSave.click();
+   }  
+   
+   //
+
+    
+
     this.channelsSearch = function(criteria, channelsSearchValue){
 /*        commons.selectOption(this.channelsSearchCriteriaDropdown,criteria);
         this.channelsSearchTextbox.clear();
