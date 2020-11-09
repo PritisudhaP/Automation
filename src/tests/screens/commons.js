@@ -50,6 +50,13 @@ module.exports =function(){
     this.clearSearchResults = element(by.xpath("(//button/en-icon[@icon = 'x-circle'])[1]"));
     this.noResultMessage= element(by.xpath("//div[@class='en-collection-overlay-empty']"));
 
+
+    // Added by shyam
+
+    this.chevronBackBtn = element(by.xpath('(//en-icon[@icon="chevron-left-double"])[1]'));
+
+    //
+
     this.getText  =  function(element, callback) {
         element.getText().then (function(text){
             console.log(text);
@@ -292,4 +299,9 @@ module.exports =function(){
    return this.noResultMessage.getText();
  }
 
+ // Added by Shyam 
+
+   this.back = function(){
+       return this.chevronBackBtn.click();
+   }
 }

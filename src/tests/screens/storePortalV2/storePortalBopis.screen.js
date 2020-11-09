@@ -1,3 +1,5 @@
+const { element } = require("protractor");
+
 module.exports = function () {
 
     var fulfillmentHeader = element(by.xpath("//en-title[text()='Fulfillment']"));
@@ -680,6 +682,73 @@ module.exports = function () {
         temp = "(//input[@ng-model='item.qtyInPackageDefault'])[" + index + "]";
         return element(by.xpath(temp)).sendKeys(qtyValue);
     }
+
+    //Added by Shyam
+
+
+    var confirmButton = element(by.xpath("//button/span[text()='Confirm']"));
+    var packnShipButton = element(by.xpath("//button/span[text()='Pack & Ship']"));
+
+    this.clickOnStatustext = function(){
+        salesOrderStatusText.click();
+    }
+
+    this.acceptOrderConfirm = function () {
+        verticalEllipsisButton.click();
+        browser.sleep(2000);
+        acceptOrder2Button.click();
+        browser.sleep(2000);
+        confirmButton.click();
+        browser.sleep(2000);
+    }
+    
+    this.clickOnPacknShip = function(){
+        packnShipButton.click();
+    }
+
+    this.validatePackageRecommended = function(pkg){
+        var temp = "//*[@label='"+pkg+"']";
+        //console.log(temp);
+        expect(element(by.xpath(temp)).isPresent()).toBe(true);
+    }
+
+    this.OrderNumberSearch = function (criteria, salesOrderSearchValue) {
+        element(by.xpath('//input[contains(@class, "adv-search-input")]')).clear();
+        for (var i = 0, len = salesOrderSearchValue.length; i < len; i++) {
+            element(by.xpath('//input[contains(@class, "adv-search-input")]')).sendKeys(salesOrderSearchValue[i]);
+            browser.sleep(100);
+        }
+        element(by.xpath('//input[contains(@class, "adv-search-input")]')).sendKeys(protractor.Key.ENTER);
+    }
+    this.pickAllQty = function () {
+        browser.sleep(1000);
+        multiselectButton.click();
+        element(by.xpath("(//input[@ng-model='checked'])[2]")).click();
+        browser.sleep(1000);
+        incrementPickQty.click();
+        element(by.xpath("(//en-icon[@icon='plus'])[2]")).click();
+        browser.sleep(1000);
+        includeInPackageButton.click();
+    }
+
+        this.pickAgain = function () {
+            multiselectButton.click();
+            browser.sleep(1000);
+            incrementPickQty.click();
+            includeInPackageButton.click();
+        }
+
+        this.validateWarningMsg = function(){
+            expect(element(by.xpath("//div[contains(text(),'Largest-package-type-suggested.')]")).isDisplayed()).toBe(true);
+        }
+
+        this.clickOnPackage = function(pkg){
+            var temp = "//*[@label='"+pkg+"']";
+            //console.log(temp);
+            
+            //expect(element(by.xpath(temp))
+           // addPkgButton.click();
+        }
 }
 
 

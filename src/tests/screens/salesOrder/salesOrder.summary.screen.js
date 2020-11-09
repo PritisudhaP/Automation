@@ -1,8 +1,16 @@
 module.exports =function(){
 
+    //Added by shyam
+    var ONbr = " ";
+     
     var salesOrderDefaultGearIconOption = "Release";
     var temp = "";
 
+    var salesOrderStatustext = element(by.xpath("//*[contains(@ng-repeat,'data track by $index')]/div/div[5]"));
+   
+    var shipmentNbr = element(by.xpath('(//b[text()="Fulfillment Request #"])/following-sibling::a'));
+
+    //
     this.salesOrderSearchCriteriaDropdown = element(by.xpath('//select[@name="filter-criteria"]'));
     this.salesOrderSearchTextbox = element(by.xpath('//input[@ng-model="apiSearchFilter.value"]'));
     this.salesOrderSearchButton = element(by.xpath('//button/en-icon[@icon="search-plus"]'));
@@ -44,7 +52,8 @@ module.exports =function(){
    // var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
-    // Added by shyam for zipcodes 
+    // Added by shyam for zipcodes   
+    this.filterText = element(by.model("apiSearchText.value"));
     this.statusEditGear = element(by.xpath('(//en-icon[@icon="more-vertical"])[1]'));
     this.updateOrderStatus = element(by.xpath('//span[text()="Update Status"]'));
     this.delivered = element(by.model('modalObject.status')).element(by.css('option[value="DELIVERED"]'));
@@ -94,7 +103,14 @@ module.exports =function(){
         this.chevronIcon.click();
         this.clickonFR.click();
     }
-    
+   
+    this.filter = function(){
+        var value = ONbr;
+        console.log("filter value:",value)
+        this.filterText.sendKeys(value);
+    }
+
+
     //
     this.salesOrderSearch = function(criteria, salesOrderSearchValue){
 /*        commons.selectOption(this.salesOrderSearchCriteriaDropdown,criteria);
@@ -232,10 +248,11 @@ module.exports =function(){
         return this.orderStatusComments.sendKeys("Automation scripts");
     }
     this.printOrderNbr = function(){
-        return this.orderNbr.getText().then(function(orderNbr){
-            console.log("Order NBR: ",orderNbr) 
-        });
-    }
+        this.orderNbr.getText().then(function(nbr){
+            console.log("OrderNbr:",nbr)
+        }); 
+        }
+    
     this.verifyorderStatus = function(value) {
         return  this.orderStatus.getText().then(function (orderStatus) {
             console.log("Order Status: ",orderStatus)
@@ -311,6 +328,10 @@ module.exports =function(){
 
     this.soGeardots = function(){
         return this.geardots.click();
+    }
+
+    this.sogeardots2 = function(){
+        element(by.xpath('(//en-icon[@icon="more-vertical"])[4]')).click();
     }
 
     this.verifypopupError = function(){
