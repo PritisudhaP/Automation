@@ -15,6 +15,9 @@ module.exports =function(){
     var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
+    // Added by shyam
+    this.filterText = element(by.model("apiSearchText.value"));
+    //
 
     this.routeSearch = function(criteria, routeSearchValue){
 /*        commons.selectOption(this.routeSearchCriteriaDropdown,criteria);
@@ -90,6 +93,13 @@ module.exports =function(){
 
         }
     }
+
+    // Added by shyam
+
+     this.filter = function(routeName){
+         this.filterText.sendKeys(routeName);
+     }
+
 
 }
 
