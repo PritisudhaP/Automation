@@ -3,7 +3,7 @@ var HTMLReport = require('protractor-html-reporter');
 
 exports.config = {
 
-   directConnect: false,
+   directConnect: true,
    framework: 'jasmine',
 
 //specs:['./src/tests/specs/SCL/login.spec.js'],
@@ -26,7 +26,8 @@ exports.config = {
    specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/getATP.js'],
  //  specs:['./specs/SCL/mixedOrder/loginPage_spec.js','./specs/SCL/mixedOrder/mo_spec.js'],
 
-
+// specs:['./specs/SCL/login.spec.js','./specs/SCL/misc/Misc_spec.js'],
+// specs:['./specs/SCL/login.spec.js','./specs/SCL/storePortalPackageRecommendation/PackageRecommendation_spec'],
        baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
    //  baseUrl: 'https://release1-qa.enspirecommerce.com/oms/dist/#/',
     getPageTimeout: 1280000,
@@ -149,6 +150,11 @@ exports.config = {
         global.callcenterskuUrl= browser.baseUrl + 'call-center/inventory/skus/';
         global.callcentersalesorderUrl= browser.baseUrl +'call-center/sales/list';
         global.scriptUrl = browser.baseUrl+'integration/scripts/';
+
+        // Added by Shyam 
+        global.storePortalV2Url = browser.baseUrl +'fulfillment/bopus-store-portal/';
+        global.exchangeDocumentURL = browser.baseUrl +'data-management/communications/document/';
+        global.fulfillmentRmaReturnsURL = browser.baseUrl +'fulfillment/inspect-returns/index';
     },
 
     onComplete: function() {
