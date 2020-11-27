@@ -1,0 +1,2878 @@
+{
+    "URL": {
+        "orderCreation": "https://project0-qa.enspirecommerce.com/api/v1/order"
+    },
+    "Scenario 01": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "0",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2019-03-07T11:30:15-08:00",
+                            "expectedDeliveryDate": "2019-03-08T11:30:15-08:00",
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [],
+                    "orderDiscounts": [],
+                    "orderTaxes": [],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 02": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                    "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-18T15:30:15-05:00[America/Chicago]",
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 03": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "pickupWindowStartTime": "",
+                    "pickupWindowEndTime": "",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "shipToHome",
+                            "fulfillmentType": "shipToHome",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 20,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 20,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 04": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "pickupWindowStartTime": "",
+                    "pickupWindowEndTime": "",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "shipToHome",
+                            "fulfillmentType": "shipToHome",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 20,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 20,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        },
+                        {
+                            "lineNumber": 2,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "testpriti1",
+                            "itemTitle": "testpriti1",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "shipToHome",
+                            "fulfillmentType": "shipToHome",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "sandiego-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 05": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "test1711",
+                            "itemTitle": "test1711",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "shiptoHome",
+                            "fulfillmentType": "shiptoHome",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2019-03-07T11:30:15-08:00",
+                            "expectedDeliveryDate": "2019-03-08T11:30:15-08:00",
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 06": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "test_SKU",
+                            "itemTitle": "test_SKU",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "shiptoHome",
+                            "fulfillmentType": "shiptoHome",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2019-03-07T11:30:15-08:00",
+                            "expectedDeliveryDate": "2019-03-08T11:30:15-08:00",
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 07": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        },
+                        {
+                            "lineNumber": 2,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                            "expectedShipDate": "2020-11-21T11:30:15-08:00",
+                            "expectedDeliveryDate": "2020-11-23T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 08": {
+        "Input": {
+            "version": "v2",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2019-03-07T11:30:15-08:00",
+                            "expectedDeliveryDate": "2019-03-08T11:30:15-08:00",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    },
+    "Scenario 09": {
+        "Input": {
+            "version": "v1",
+            "orders": [
+                {
+                    "priority": "1",
+                    "orderDate": "2020-11-16T11:30:15-08:00",
+                    "orderNumber": "SONumber",
+                    "orderType": "salesOrder",
+                    "purchaseOrderNumber": "PUR-205",
+                    "channel": "B2B",
+                    "status": "Open",
+                    "orderOrganization": "TheHonestKitchen-Organization-",
+                    "orderTransactionType": "Sales",
+                    "enteredBy": "admin",
+                    "enspireCreateDate": "2020-11-16T11:30:15-08:00",
+                    "consolidationType": "NO_CONSOLIDATION_RELEASE_IMMEDIATE",
+                    "inventoryPoolRefName": "joliet-dc",
+                    "consolidationId ": "CON123",
+                    "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                    "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                    "customer": {
+                        "customerId": "000000000776"
+                    },
+                    "lineItems": [
+                        {
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "retailerReferenceItemSKU": "aaa",
+                            "lineItemId": "BC_TESTQA001",
+                            "itemTitle": "BC_TESTQA001",
+                            "itemDescription": "General",
+                            "itemUnitOfMeasure": "EACH",
+                            "itemUnitPrice": "10",
+                            "lineItemQty": 1,
+                            "originalOrderedQty": 1,
+                            "deliveryMethod": "pickupAtStore",
+                            "fulfillmentType": "pickupAtStore",
+                            "orderLineTypes": "Replacement",
+                            "inventoryPoolRefName": "joliet-dc",
+                            "consolidationId ": "CON123",
+                            "reasonCode": "ABC",
+                            "bundleParent": true,
+                            "presell": false,
+                            "gift": true,
+                            "giftWrap": true,
+                            "shipFromSingleNode": true,
+                            "expectedShipDate": "2019-03-07T11:30:15-08:00",
+                            "expectedDeliveryDate": "2019-03-08T11:30:15-08:00",
+                            "pickupWindowStartTime": "2020-11-16T15:30:15-05:00[America/Chicago]",
+                            "pickupWindowEndTime": "2020-11-10T15:30:15-05:00[America/Chicago]",
+                            "shippingCarrier": "FEDEX",
+                            "carrierServiceType": "FedExGround",
+                            "shipAlone": true,
+                            "shipComplete": true,
+                            "shipToContact": {
+                                "firstName": "WENDY",
+                                "lastName": "ZIESEMANN",
+                                "address": {
+                                    "address1": "24 Green St",
+                                    "city": "Hudson",
+                                    "state": "MA",
+                                    "zip5": "01749",
+                                    "country": "US"
+                                },
+                                "primaryEmail": "wendyziesemann01749@thk.com",
+                                "primaryPhone": "(000) 000-0423"
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0.00,
+                                "retailPrice": 0.00,
+                                "listPrice": 0.00
+                            },
+                            "lineCharges": [
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                },
+                                {
+                                    "chargeCategory": "SHIPPING",
+                                    "chargeName": "OVERSIZE_SHIPPING",
+                                    "chargeAmount": 0.00,
+                                    "originalChargeAmount": 0.00
+                                }
+                            ],
+                            "lineDiscounts": [
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ITEM_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                },
+                                {
+                                    "discountAmount": 0,
+                                    "discountName": "ORDER_DISCOUNT",
+                                    "originalDiscountAmount": 0
+                                }
+                            ],
+                            "lineTaxes": [
+                                {
+                                    "taxName": "SALES_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                },
+                                {
+                                    "taxName": "SHIPPING_TAX",
+                                    "taxAmount": 0.00,
+                                    "taxRate": 0.00
+                                }
+                            ],
+                            "lineTotals": {
+                                "lineSubTotalBeforeTax": 0.00,
+                                "lineExtendedPrice": 0.00,
+                                "lineTax": 0.00,
+                                "lineDiscount": 0,
+                                "lineCharges": 0.00,
+                                "lineTotal": 0.00
+                            },
+                            "promos": [
+                                {
+                                    "promoId": "BUY1GET1Free",
+                                    "promoGroup": "BOGOF",
+                                    "promoType": "SELL"
+                                },
+                                {
+                                    "promoId": "BUY2GET1Free",
+                                    "promoGroup": "B2G1F",
+                                    "promoType": "SELLS"
+                                }
+                            ],
+                            "messages": [
+                                {
+                                    "messageType": "GiftMessage",
+                                    "messageText": "Hope You Enjoy This Gift!"
+                                }
+                            ],
+                            "references": [
+                                {
+                                    "type": "String",
+                                    "data": "pritilineref",
+                                    "value": "12",
+                                    "systemInd": "N",
+                                    "requiredInd": "Y"
+                                },
+                                {
+                                    "type": "Boolean",
+                                    "data": "pritilinerefBoolean",
+                                    "value": true,
+                                    "systemInd": "Y",
+                                    "requiredInd": "Y"
+                                }
+                            ],
+                            "notes": [
+                                {
+                                    "noteType": "aaa",
+                                    "noteText": "bbb note texxte"
+                                }
+                            ],
+                            "holds": [
+                                {
+                                    "holdType": "dss",
+                                    "holdStatus": "open",
+                                    "holdReason": "fff"
+                                }
+                            ]
+                        }
+                    ],
+                    "referenceData": [
+                        {
+                            "type": "String",
+                            "data": "pritirefOrder",
+                            "value": "12"
+                        }
+                    ],
+                    "orderCharges": [
+                        {
+                            "chargeCategory": "050",
+                            "chargeName": "Freight",
+                            "chargeAmount": 0.00,
+                            "originalChargeAmount": 0.00
+                        }
+                    ],
+                    "orderDiscounts": [
+                        {
+                            "discountName": "50%",
+                            "discountAmount": 0,
+                            "originalDiscountAmount": 0
+                        }
+                    ],
+                    "orderTaxes": [
+                        {
+                            "taxName": "VAT",
+                            "taxAmount": 0,
+                            "taxRate": 0
+                        }
+                    ],
+                    "orderTotals": {
+                        "orderSubTotalBeforeTax": 0.00,
+                        "orderTax": 0,
+                        "orderDiscount": 0,
+                        "orderCharges": 0,
+                        "orderTotal": 0.00
+                    },
+                    "promos": [
+                        {
+                            "promoId": "BUY1GET150%",
+                            "promoGroup": "BOGOF",
+                            "promoType": "priti"
+                        }
+                    ],
+                    "buyerContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "billToContactInfo": {
+                        "firstName": "WENDY",
+                        "lastName": "ZIESEMANN",
+                        "address": {
+                            "address1": "24 Green St",
+                            "city": "Hudson",
+                            "state": "MA",
+                            "zip5": "01749",
+                            "country": "US"
+                        },
+                        "primaryEmail": "wendyziesemann01749@thk.com",
+                        "primaryPhone": "(000) 000-0423"
+                    },
+                    "shipToContacts": [
+                        {
+                            "firstName": "WENDY",
+                            "lastName": "ZIESEMANN",
+                            "address": {
+                                "address1": "24 Green St",
+                                "city": "Hudson",
+                                "state": "MA",
+                                "zip5": "01749",
+                                "country": "US"
+                            },
+                            "primaryEmail": "wendyziesemann01749@thk.com",
+                            "primaryPhone": "(000) 000-0423"
+                        }
+                    ],
+                    "holds": [
+                        {
+                            "holdType": "dss",
+                            "holdStatus": "open",
+                            "holdReason": "fff"
+                        }
+                    ],
+                    "timeDateReferences": [
+                        {
+                            "timeDateType": "eee",
+                            "strDateValue": "2019-04-03T11:30:15-08:00"
+                        }
+                    ],
+                    "messages": [
+                        {
+                            "messageType": "GiftMessage",
+                            "messageText": "Hope You Enjoy This Gift!"
+                        }
+                    ],
+                    "notes": [
+                        {
+                            "noteType": "aaa",
+                            "noteText": "bbb"
+                        }
+                    ],
+                    "expectedShipDate": "2019-12-30T11:30:15-08:00",
+                    "expectedDeliveryDate": "2019-12-30T11:30:15-08:00",
+                    "shippingCarrier": "FEDEX",
+                    "carrierServiceType": "FedExGround",
+                    "paymentTerms": "payterm",
+                    "orderLookUpKey": "22226",
+                    "shipFromSingleNode": true,
+                    "taxExempt": true,
+                    "taxExemptCertificate": "CERT",
+                    "taxPayerId": "123456",
+                    "orderSessionId": "session123"
+                }
+            ]
+        }
+    }
+}
