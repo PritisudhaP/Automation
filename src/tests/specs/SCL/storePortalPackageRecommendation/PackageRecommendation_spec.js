@@ -51,7 +51,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
@@ -93,7 +93,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
@@ -137,7 +137,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
@@ -174,7 +174,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
@@ -212,7 +212,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
@@ -248,7 +248,7 @@ describe('Package Recommendation scenarios', function () {
         browser.wait(function () {
             return SONumber != '';
         }).then(function () {
-            storePortalV2.OrderNumberSearch("Original Order #", SONumber);
+            storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
         storePortalV2.clickOnStatustext();
         storePortalV2.acceptOrderConfirm();
