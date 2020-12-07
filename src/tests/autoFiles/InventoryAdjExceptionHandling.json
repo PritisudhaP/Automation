@@ -1,0 +1,1104 @@
+{
+    "URL": {
+        "InventoryAdjusment": "https://project0-qa.enspirecommerce.com/api/v1/inventory/adjust"
+    },
+    "SC 01": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "lotIdentifier": "2020-10-10",
+                    "expirationDate": "2021-10-10",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "101",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "AUTOEXH04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 02": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "lotIdentifier": "2020-10-10",
+                    "expirationDate": "2021-10-10",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "101",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": -10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "AUTOEXH04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 03": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "lotIdentifier": "2020-10-10",
+                    "expirationDate": "2021-10-10",
+                    "qty": 0,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "TestAUTOEXH02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-d",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "AUTOEXH03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "101",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "AUTOEXH04",
+                    "description": ""
+                }
+            ]
+        }
+    },
+    "SC 04": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 05": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 06": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "site": " ",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "site": " ",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 07": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "site": "testSite",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "site": "testSite",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 08": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 0,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": " ",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 0,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": " ",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 09": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": ""
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": null,
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": ""
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": null,
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 10": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test",
+                    "organization": "Test-Organization-"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test",
+                    "uom": "EA"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test",
+                    "organization": "Test-Organization-"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU03",
+                    "description": "test",
+                    "uom": "EA"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 11": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "Test3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "testaction",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "Test3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": -10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "testaction",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 12": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "site": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": null,
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14-:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "site": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": null,
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14-:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 13": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "site": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "site": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 14": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "Avail",
+                    "toBucket": "unavailableQty",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": " ",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": " "
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "Avail",
+                    "toBucket": "unavailableQty",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": " ",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": " "
+                }
+            ]
+        }
+    },
+    "SC 15": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": " ",
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": ">2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "unavailableQty",
+                    "toBucket": "unavailableQty",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": " ",
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": ">2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "unavailableQty",
+                    "toBucket": "unavailableQty",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 16": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": null
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": null,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "UNAVAIL",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": null
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": null,
+                    "action": "Adjustment",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": -10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "3088Future",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": "BucketMove",
+                    "fromBucket": "availableQty",
+                    "toBucket": "UNAVAIL",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                }
+            ]
+        }
+    },
+    "SC 17": {
+        "Input": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": "",
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": " ",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": 10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        },
+        "Reset": {
+            "adjustInventory": [
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": "",
+                    "action": "Adjustment",
+                    "sku": "3088SKU01",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "joliet-dc",
+                    "qty": 10,
+                    "action": " ",
+                    "sku": "3088SKU02",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "shipmentIdentifier": "123",
+                    "expectedArrivalDate": "2020-09-19T14:30:00",
+                    "expectedShipDate": "2020-09-19T14:30:00",
+                    "qty": 10,
+                    "action": "OnOrderAdjustment",
+                    "sku": "",
+                    "description": "test"
+                },
+                {
+                    "inventoryPool": "sandiego-dc",
+                    "qty": -10,
+                    "action": "Adjustment",
+                    "sku": "3088SKU04",
+                    "description": "test"
+                }
+            ]
+        }
+    }
+}
