@@ -25,8 +25,8 @@ describe("Service Order list", function () {
                 console.log("Scenario 1:", response.body)
                 console.log("order nbr1:",body.orderList[0].orderNumber);
                 console.log("order nbr2:",body.orderList[1].orderNumber);
-                expect(body.orderList[0].orderNumber).toBe("OMS1741-01");
-                expect(body.orderList[1].orderNumber).toBe("OMS1741-02");
+                expect(body.orderList[0].orderNumber).toBe("000000021281");
+                expect(body.orderList[1].orderNumber).toBe("000000021282");
                 done();
             });
     });
@@ -147,8 +147,8 @@ describe("Service Order list", function () {
                 console.log('statusCode:', response && response.statusCode);
                 expect(response.statusCode).toBe(200)
                 console.log("Scenario 6: ", response.body)
-                expect(body.orderList[0].orderNumber).toBe("m20052020TC01");
-                expect(body.orderList[1].orderNumber).toBe("TestQAbc1");
+                expect(body.orderList[0].orderNumber).toBe("000000021072");
+                expect(body.orderList[1].orderNumber).toBe("000000020967");
                 done();
             });
     });

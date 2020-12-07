@@ -7,7 +7,7 @@
         "Input":{
             "orderOrganization": "TheHonestKitchen-Organization-",
             "orderTransactionType": "sales",
-            "customerId": "000000000734"
+          "customerId": "0000000506"
           }
     },
     "Scenario 2":{
@@ -59,8 +59,8 @@
           "customerId": "000000000166",
             "channel": "B2B",
           "orderType": "salesOrder",
-          "status": "RELEASED",
-          "fromOrderDate": "2020-04-04T11:24:15-08:00",
+          "status": "INVOICED",
+          "fromOrderDate": "2020-12-01T11:24:15-08:00",
           "displayOrder": "desc"
         }
     },
