@@ -43,6 +43,7 @@ exports.config = {
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/ServiceListOrder_spec.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/ServiceOrderDtl_spec.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/InventoryAdjExceptionHandling_spec.js'],
+ //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/MultiOrderCreationV3_spec.js']
  
 
 
