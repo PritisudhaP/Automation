@@ -941,9 +941,10 @@ describe('Mixed_Order_Scenario6', function() {
     	util.scrollDownByPixel();
 		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
 //		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+		cancelSOLineLoc.cancelLine.click();
+		cancelSOLineLoc.cancelQty.click();
 		cancelSOLineLoc.cancelQty.click();
 		cancelSOLineLoc.cancelReason.sendKeys('NotNeeded');
-		cancelSOLineLoc.cancelLine.click();
 		cancelSOLineLoc.confirmCancelBtn.click();
 		
 		validateStat.soLineStatusVal6();
