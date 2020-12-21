@@ -30,9 +30,9 @@ describe('Mixed_Order_Scenario1', function() {
 	    	//Customer Selection
 	    	moOrderLoc.attachCustomerBtn.click();
 	    	moOrderLoc.custSelectFilter.click();
-	    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
+	    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
 	    	moOrderLoc.custSelectSearchFilter.sendKeys("contains");
-	    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+	    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
 	    	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
 	    	browser.sleep(2000);
 	    	moOrderLoc.selectCustCheckBox.click();
@@ -63,19 +63,19 @@ describe('Mixed_Order_Scenario1', function() {
 		    	//Change Price
 		    	if(i == 1)
 		    	{
-//		    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Version
-		    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+		    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Version
+//		    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 			    	util.scrollDownByPixel();
-//		    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Version
-		    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+		    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Version
+//		    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
 	    		}
 		    	else
 	    		{
-//		    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Version
-		    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+		    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Version
+//		    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 			    	util.scrollDownByPixel();
-//		    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Version
-		    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+		    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Version
+//		    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
 	    		}
 		    	
 		    	moOrderLoc.changePrice.click();
@@ -156,9 +156,9 @@ describe('Mixed_Order_Scenario2', function() {
     	moOrderLoc.attachCustomerBtn.click();
     	moOrderLoc.savedCustSearchFilter.click();
     	moOrderLoc.custSelectFilter.click();
-    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
+    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
     	//moOrderLoc.custSelectSearchFilter.sendKeys("is");
-    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
     	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
     	browser.sleep(2000);
     	moOrderLoc.selectCustCheckBox.click();
@@ -190,19 +190,19 @@ describe('Mixed_Order_Scenario2', function() {
 	    	//Change Price
 	    	if(i == 1)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
     		}
 	    	else
     		{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
     		}
 	    	
 	    	moOrderLoc.changePrice.click();
@@ -289,9 +289,9 @@ describe('Mixed_Order_Scenario3', function() {
     	moOrderLoc.attachCustomerBtn.click();
     	moOrderLoc.savedCustSearchFilter.click();
     	moOrderLoc.custSelectFilter.click();
-    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
+    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
     	moOrderLoc.custSelectSearchFilter.sendKeys("contains");
-    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
     	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
     	browser.sleep(2000);
     	moOrderLoc.selectCustCheckBox.click();
@@ -327,27 +327,27 @@ describe('Mixed_Order_Scenario3', function() {
 	    	//Change Price
 	    	if(i == 2)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[3]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[3]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[3]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[3]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]')).click();			//Older Version
     		}
 	    	else if(i == 1)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
     		}
 	    	else
     		{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
     		}
 	    	
 	    	moOrderLoc.changePrice.click();
@@ -396,13 +396,16 @@ describe('Mixed_Order_Scenario3', function() {
     	
 		var cancelSOLineLoc = moPageObj.cancelSOLineLocators;
 		
-//		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')));	//Older Version
+		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')));	//Older Version
     	util.scrollDownByPixel();
-//		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click(); 			//Older Version
+		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click(); 			//Older Version
 		cancelSOLineLoc.cancelLine.click();
+		cancelSOLineLoc.cancelQty.click();
+		cancelSOLineLoc.cancelReason.sendKeys('NotNeeded');
 		cancelSOLineLoc.confirmCancelBtn.click();
+		
 		
 		validateStat.soLineStatusVal3();
 
@@ -446,9 +449,9 @@ describe('Mixed_Order_Scenario4', function() {
     	moOrderLoc.attachCustomerBtn.click();
     	moOrderLoc.savedCustSearchFilter.click();
     	moOrderLoc.custSelectFilter.click();
-    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
+    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
     	moOrderLoc.custSelectSearchFilter.sendKeys("contains");
-    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
     	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
     	browser.sleep(2000);
     	moOrderLoc.selectCustCheckBox.click();
@@ -484,27 +487,27 @@ describe('Mixed_Order_Scenario4', function() {
 	    	//Change Price
 	    	if(i == 2)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[3]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[3]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[3]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[3]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[3]')).click();			//Older Version
     		}
 	    	else if(i == 1)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
     		}
 	    	else
     		{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
     		}
 	    	
 	    	moOrderLoc.changePrice.click();
@@ -585,12 +588,14 @@ describe('Mixed_Order_Scenario4', function() {
 	it('Cancel_ACP_SO_Line', function() {  
 		
 		var cancelSOLineLoc = moPageObj.cancelSOLineLocators;
-//		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[6])')));	//Older Version
+		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[9])')));		//New Vesrion
+//		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[6])')));	//Older Version
     	util.scrollDownByPixel();
-//		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-		element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[6])')).click();			//Older Version
+		element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[9])')).click();					//New Vesrion
+//		element(by.xpath('(//*[text()[contains(.,"AWAITING CUSTOMER PICKUP")]]/following::en-icon[6])')).click();			//Older Version
 		cancelSOLineLoc.cancelLine.click();
+		cancelSOLineLoc.cancelQty.click();
+		cancelSOLineLoc.cancelReason.sendKeys('NotNeeded');
 		cancelSOLineLoc.confirmCancelBtn.click();
 		
 		var s2 = 1;
@@ -628,9 +633,9 @@ describe('Mixed_Order_Scenario5', function() {
     	moOrderLoc.attachCustomerBtn.click();
     	moOrderLoc.savedCustSearchFilter.click();
     	moOrderLoc.custSelectFilter.click();
-    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
+    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
     	moOrderLoc.custSelectSearchFilter.sendKeys("contains");
-    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
     	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
     	browser.sleep(2000);
     	moOrderLoc.selectCustCheckBox.click();
@@ -662,19 +667,19 @@ describe('Mixed_Order_Scenario5', function() {
 	    	//Change Price
 	    	if(i == 1)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
     		}
 	    	else
     		{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
     		}
 	    	
 	    	moOrderLoc.changePrice.click();
@@ -785,6 +790,30 @@ describe('Mixed_Order_Scenario6', function() {
 	var lineCount = 2;
 	var moScenario6 = 6;
 	
+	it('Update_Inventory_For_PartialRelease', function() {
+		console.log("I am here");
+		var invLookupLoc = moPageObj.invLookupLocators;	
+		invLookupLoc.menuInventory.click();
+		invLookupLoc.tileInvLookup.click();
+		invLookupLoc.addSkusBtn.click();
+//		invLookupLoc.skuSelectFilter.click();
+//		invLookupLoc.skuSelectSearchCriteria.sendKeys("Name");
+//		invLookupLoc.skuSelectSearchFilter.sendKeys("contains");
+//		invLookupLoc.skuSearchTextBox.sendKeys(dataFile.ItemPartial);
+		invLookupLoc.skuDirectSearchTextBox.sendKeys(dataFile.ItemPartial);
+		invLookupLoc.skuDirectSearchTextBox.sendKeys(protractor.Key.RETURN);
+		invLookupLoc.selectSku.click();
+		invLookupLoc.skuSearchQty.clear().sendKeys("0");
+		invLookupLoc.addSkuBtn.click();
+		invLookupLoc.searchBtn.click();
+		invLookupLoc.skuHamburgerBtn.click();
+		invLookupLoc.skuDetails.click();
+		invLookupLoc.entryAdjTab.click();
+		invLookupLoc.adjQtyBy.sendKeys("1");
+		invLookupLoc.adjReason.sendKeys("QA Automation");
+		invLookupLoc.saveBtn.click();
+	});
+	
 	it('Partial_Released_L1=STC_&_L2=BOPIS', function() {
 		
 		var moOrderLoc = moPageObj.moOrderLocators;	
@@ -797,8 +826,8 @@ describe('Mixed_Order_Scenario6', function() {
     	moOrderLoc.attachCustomerBtn.click();
     	moOrderLoc.savedCustSearchFilter.click();
     	moOrderLoc.custSelectFilter.click();
-    	moOrderLoc.custSelectSearchCriteria.sendKeys("Name");
-    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custName);
+    	moOrderLoc.custSelectSearchCriteria.sendKeys("Customer Number")
+    	moOrderLoc.custSearchTextBox.sendKeys(dataFile.custNumber);
     	moOrderLoc.custSearchTextBox.sendKeys(protractor.Key.RETURN);
     	browser.sleep(2000);
     	moOrderLoc.selectCustCheckBox.click();
@@ -831,19 +860,19 @@ describe('Mixed_Order_Scenario6', function() {
 	    	//Change Price
 	    	if(i == 1)
 	    	{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
     		}
 	    	else
     		{
-//	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
-	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
+	    		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[1]')));		//New Vesrion
+//	    		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]'))); //Older Version
 		    	util.scrollDownByPixel();
-//	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
-	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
+	    		element(by.xpath('(//*[text()[contains(.,"More")]])[1]')).click();					//New Vesrion
+//	    		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[1]')).click();			//Older Version
     		}
 	    	
 	    	moOrderLoc.changePrice.click();
@@ -907,11 +936,13 @@ describe('Mixed_Order_Scenario6', function() {
 		moOrderLoc.filterSOTextBox.sendKeys(protractor.Key.RETURN);
 		element(by.xpath("//*[text()[contains(.,'"+dataFile.SONumber+"')]]")).click();
 		
-//		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
-		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')));	//Older Version
+		util.scrollToView(element(by.xpath('(//*[text()[contains(.,"More")]])[2]')));		//New Vesrion
+//		util.scrollToView(element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')));	//Older Version
     	util.scrollDownByPixel();
-//		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
-		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+		element(by.xpath('(//*[text()[contains(.,"More")]])[2]')).click();					//New Vesrion
+//		element(by.xpath('(//*[@class="text-right trim"]/en-icon)[2]')).click();			//Older Version
+		cancelSOLineLoc.cancelQty.click();
+		cancelSOLineLoc.cancelReason.sendKeys('NotNeeded');
 		cancelSOLineLoc.cancelLine.click();
 		cancelSOLineLoc.confirmCancelBtn.click();
 		
