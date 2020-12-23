@@ -6,8 +6,11 @@ module.exports = function(){
     var expandbtn = element(by.xpath('//a[text()="EXPAND ALL"]'));
     var collapsebtn= element(by.xpath('//a[text()="COLLAPSE ALL"]'));
     var doctypeLink = element(by.xpath('(//span[text()="997"])[1]'));
-    var transmissionidlink = element(by.xpath('(//a[@en-tap="timeLineController.openTransmissionActivity(attribute.value);"])[1]'));
-    var mailboxIdlink = element(by.xpath('(//a[@en-tap="timeLineController.openMailbox(attribute.value);"])[1]'));
+   // var transmissionidlink = element(by.xpath('(//a[@en-tap="timeLineController.openTransmissionActivity(attribute.value);"])[1]'));
+	var transmissionidlink = element(by.xpath('(//a[@en-tap="openTransmissionActivity(attribute.value);"])[1]'));
+  //  var mailboxIdlink = element(by.xpath('(//a[@en-tap="timeLineController.openMailbox(attribute.value);"])[1]'));
+	var mailboxIdlink = element(by.xpath('(//a[@en-tap="openMailbox(attribute.value);"])[1]'));
+	
     var rightIcon = element(by.xpath('(//en-icon[@icon="chevron-right"])[1]'));
     var downIcon = element(by.xpath('(//en-icon[@icon="chevron-down"])[1]'));
     var rightIcon2 = element(by.xpath('(//en-icon[@icon="chevron-right"])[2]'));
