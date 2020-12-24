@@ -26,6 +26,9 @@ module.exports = function(){
     var unHide2events = element(by.xpath('//div[text()="Unhide 2 events"]'));
     var unHide4events = element(by.xpath('//div[text()="Unhide 4 events"]'));
 
+    var errorRow = element(by.xpath('//en-icon[@class="md" and @icon="chevron-down"]'));
+    var errorOnHeaderview = element(by.xpath('(//en-icon[@style="color: red"])[1]'));
+    var errorOndetailsview = element(by.xpath('(//en-icon[@style="color: red"])[2]'));
 
     /*validate Functional Acknowledgment Status*/
     this.validateAckStatus = function(status){
@@ -87,5 +90,15 @@ module.exports = function(){
 
       this.validateAlertOff = function(){
           expect(alertOff.isPresent()).toBe(true);
+      }
+      this.validateError = function(){ 
+        slider.click();
+        browser.sleep(2000);
+        expect(errorOnHeaderview.isPresent()).toBe(true);
+        expect(errorRow.isPresent()).toBe(true);
+        expect(errorOndetailsview.isPresent()).toBe(true);
+        slideron.click();
+        browser.sleep(10000);
+        expect(errorRow.isPresent()).toBe(false);
       }
 }

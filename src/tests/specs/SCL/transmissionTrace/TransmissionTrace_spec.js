@@ -62,7 +62,7 @@ describe("Transmission Trace", function () {
         mailboxes.enterSubject("810 Document");
         files.uploadFile("810");
         browser.get(RouteUrl);
-        routeSummary.filter("EDI-Out");
+        routeSummary.filter("EDI-Out-AUTO");
         browser.sleep(2000);
         routeSummary.routeSelectButton("Start");
     })
@@ -166,5 +166,14 @@ describe("Transmission Trace", function () {
         exchangeDocument.clickOnDocument("850");
         exchangeDocument.clickOnTrace();
         trace.validateAlertOff();
+    })
+    it('SC 10:Validate Alert on timeline and view ', function () {
+        browser.get(ExchangeDocumentURL);
+        browser.sleep(2000);
+        exchangeDocument.selectDocType("810");
+        exchangeDocument.search();
+        exchangeDocument.clickOnDocument("810");
+        exchangeDocument.clickOnTrace();
+        trace.validateError();
     })
 })
