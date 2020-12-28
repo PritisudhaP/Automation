@@ -688,6 +688,7 @@ module.exports = function () {
 
     var confirmButton = element(by.xpath("//button/span[text()='Confirm']"));
     var packnShipButton = element(by.xpath("//button/span[text()='Pack & Ship']"));
+    var truckIcon = element(by.xpath("//li//button//en-icon[@icon='truck']"));
 
     this.clickOnStatustext = function(){
         salesOrderStatusText.click();
@@ -748,6 +749,9 @@ module.exports = function () {
             
             //expect(element(by.xpath(temp))
            // addPkgButton.click();
+        }
+        this.clickOnTruck = function(){
+            truckIcon.click();
         }
 }
 

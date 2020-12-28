@@ -53,9 +53,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.qtyPick();
         storePortalV2.validatePackageRecommended("bigPack");  
     })
@@ -95,9 +96,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.pickAllQty();
         browser.sleep(2000);
         storePortalV2.validateWarningMsg();
@@ -139,9 +141,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.pickAllQty();
         storePortalV2.validatePackageRecommended("BOPIS");
     })
@@ -176,9 +179,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.qtyPick();
         storePortalV2.validatePackageRecommended("5cm");
         storePortalV2.pickAgain();
@@ -214,9 +218,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.qtyPick();
         storePortalV2.validatePackageRecommended("BOPIS");
     })
@@ -250,9 +255,10 @@ describe('Package Recommendation scenarios', function () {
         }).then(function () {
             storePortalV2.searchOrderCriteria("Order #","contains",SONumber);
         });
-        storePortalV2.clickOnStatustext();
-        storePortalV2.acceptOrderConfirm();
-        storePortalV2.clickOnPacknShip();
+        storePortalV2.clickOnTruck();
+        //storePortalV2.clickOnStatustext();
+        //storePortalV2.acceptOrderConfirm();
+        //storePortalV2.clickOnPacknShip();
         storePortalV2.qtyPick();
         storePortalV2.validatePackageRecommended("Pack2");
     })
