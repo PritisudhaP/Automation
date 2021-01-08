@@ -779,6 +779,100 @@
                     }
                 ]
             }
+        },
+        "Scenario 7": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "lotIdentifier": "2021-01-10",
+                        "expirationDate": "2022-10-10",
+                        "qty": 10,
+                        "action": "Adjustment",
+                        "sku": "AUTOFTR01",
+                        "description": "test"
+                    }
+                ]
+            }
+        },
+        "Scenario 8": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "lotIdentifier": "2021-01-10",
+                        "expirationDate": "2022-10-10",
+                        "qty": -10,
+                        "action": "Adjustment",
+                        "sku": "AUTOFTR01",
+                        "description": "test"
+                    }
+                ]
+            }
+        },
+        "Scenario 9": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "shipmentIdentifier": "101",
+                        "expectedArrivalDate": "2021-09-19T14:30:00",
+                        "expectedShipDate": "2021-09-19T14:30:00",
+                        "qty": 5,
+                        "action": "Adjustment",
+                        "sku": "AUTOSHSKU02",
+                        "description": "test"
+                    }
+                ]
+            }
+        },
+        "Scenario 10": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "shipmentIdentifier": "101",
+                        "expectedArrivalDate": "2021-09-19T14:30:00",
+                        "expectedShipDate": "2021-09-19T14:30:00",
+                        "qty": -5,
+                        "action": "Adjustment",
+                        "sku": "AUTOSHSKU02",
+                        "description": "test"
+                    }
+                ]
+            }
+        },
+        "Scenario 11": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "shipmentIdentifier": null,
+                        "expectedArrivalDate": "2021-09-19T14:30:00",
+                        "expectedShipDate": "2021-09-19T14:30:00",
+                        "qty": 5,
+                        "action": "OnOrderAdjustment",
+                        "sku": "AUTOSHSKU01",
+                        "description": "test"
+                    }
+                ]
+            }
+        },
+        "Scenario 12": {
+            "Input": {
+                "adjustInventory": [
+                    {
+                        "inventoryPool": "sandiego-dc",
+                        "shipmentIdentifier": null,
+                        "expectedArrivalDate": "2021-09-19T14:30:00",
+                        "expectedShipDate": "2021-09-19T14:30:00",
+                        "qty": -5,
+                        "action": "OnOrderAdjustment",
+                        "sku": "AUTOSHSKU01",
+                        "description": "test"
+                    }
+                ]
+            }
         }
     },
     "Optional": {

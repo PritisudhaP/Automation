@@ -1086,6 +1086,127 @@ describe("Inventory Adjustment Functionality:", function () {
             done();
         });
     });
+
+    it("Scenario 7:shelf life sku with lotsetup (lot already exist)-Increment", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 7"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 7"]', body);
+            var actualavailableQty = body.adjustInventory[0].availableQty;
+            expect(actualavailableQty).toBe(20)
+            done();
+        });
+    });
+    it("Scenario 8:shelf life sku with lotsetup (lot already exist)- decrement", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 8"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 8"]', body);
+            var actualavailableQty = body.adjustInventory[0].availableQty;
+            expect(actualavailableQty).toBe(10)
+            done();
+        });
+    });
+    it("Scenario 9:Inventory adjustment for the existing SKU (Pre Sale) with Futute Inventory Adjustment request with ActionType:Adjustment", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 9"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 9"]', body);
+            var actualfutureQty = body.adjustInventory[0].futureQty;
+            expect(actualfutureQty).toBe(10)
+            done();
+        });
+    });
+    it("Scenario 10:Inventory adjustment for the existing SKU (Pre Sale) with Futute Inventory Adjustment request with ActionType:Adjustment-decrement", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 10"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 10"]', body);
+            var actualfutureQty = body.adjustInventory[0].futureQty;
+            expect(actualfutureQty).toBe(5)
+            done();
+        });
+    });
+    it("Scenario 11:ShipmentIdentifier empty or null then Adjustment will happen on available qty(it will consider as normal Adjustment)", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 11"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 11"]', body);
+            var actualavailableQty = body.adjustInventory[0].availableQty;
+            expect(actualavailableQty).toBe(10)
+            done();
+        });
+    });
+    it("Scenario 12:ShipmentIdentifier empty or null then Adjustment will happen on available qty(it will consider as normal Adjustment)- decrement", done => {
+        var options = {
+            method: 'POST',
+            url: data.URL.InventoryAdjusment,
+            headers: {
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            },
+            body: data.InventoryAdjustment["Scenario 12"].Input,
+        };
+        options.json = true;
+        request(options, function (error, response, body) {
+            console.log('statusCode:', response && response.statusCode);
+            expect(response.statusCode).toBe(200)
+            console.log('InventoryAdjustment["Scenario 12"]', body);
+            var actualavailableQty = body.adjustInventory[0].availableQty;
+            expect(actualavailableQty).toBe(5)
+            done();
+        });
+    });
 })
 
 describe("optional fields(location & preferences)", function () {
