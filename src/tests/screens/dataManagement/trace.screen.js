@@ -91,14 +91,16 @@ module.exports = function(){
       this.validateAlertOff = function(){
           expect(alertOff.isPresent()).toBe(true);
       }
-      this.validateError = function(){ 
+      this.validateErrornview = function(){ 
         slider.click();
         browser.sleep(2000);
-        expect(errorOnHeaderview.isPresent()).toBe(true);
-        expect(errorRow.isPresent()).toBe(true);
-        expect(errorOndetailsview.isPresent()).toBe(true);
+        expect(element(by.xpath("//div[contains(text(),'Unhide')]")).isDisplayed()).toBe(true);
+        expect(errorOnHeaderview.isDisplayed()).toBe(true);
+        expect(errorRow.isDisplayed()).toBe(true);
+        expect(errorOndetailsview.isDisplayed()).toBe(true);
         slideron.click();
-        browser.sleep(10000);
+        browser.sleep(1000);
         expect(errorRow.isPresent()).toBe(false);
+        expect(element(by.xpath("//div[contains(text(),'Unhide')]")).isDisplayed()).toBe(false);
       }
 }

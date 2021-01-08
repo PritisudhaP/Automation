@@ -167,13 +167,14 @@ describe("Transmission Trace", function () {
         exchangeDocument.clickOnTrace();
         trace.validateAlertOff();
     })
-    it('SC 10:Validate Alert on timeline and view ', function () {
+     // Below scenario covers OMS-2564_2 & 5
+     it('SC 10:Validate error timeline and records go back view summary level when Alert off ', function () {
         browser.get(ExchangeDocumentURL);
         browser.sleep(2000);
         exchangeDocument.selectDocType("810");
         exchangeDocument.search();
         exchangeDocument.clickOnDocument("810");
         exchangeDocument.clickOnTrace();
-        trace.validateError();
+        trace.validateErrornview();
     })
 })
