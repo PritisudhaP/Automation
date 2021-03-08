@@ -25,7 +25,8 @@ var  shipmentRequestsSummary  = new shipmentRequestsSummaryScreen();
 var shipmentRequestcreate = new shipmentRequestcreatescreen();
 var inventoryPoolsummary = new inventoryPoolsummaryScreen();
 
-var data = require('../specs/SCL/API/testData_json/ReturnAdjustment.json');
+//var data = require('../specs/SCL/API/testData_json/ReturnAdjustment.json');
+var data = require(process.cwd() + '/src/tests/autoFiles/ReturnAdjustment.json')
 
 /*OrderNbr*/
 global.SONumber = "";
