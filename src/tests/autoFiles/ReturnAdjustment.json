@@ -1,0 +1,518 @@
+{
+    "URL": {
+        "RMA": "https://project0-qa.enspirecommerce.com/api/v1/order"
+    },
+    "Scenario": {
+        "Input": {
+            "orders": [
+                {
+                    "orderDate": "2021-10-01T12:18:22.681Z",
+                    "channel": "B2B",
+                    "status": "OPEN",
+                    "noReceiptRMA": false,
+                    "orderOrganization": "defaultorgrefname",
+                    "orderTransactionType": "Return",
+                    "returnSite": "rmasite",
+                    "lineItems": [
+                        {
+                            "inventoryPoolRefName": "RMAPool",
+                            "returnSite": "rmasite",
+                            "itemUnitPrice": 0,
+                            "lineItemNumber": "1",
+                            "lineItemQty": 1,
+                            "qty": 1,
+                            "returnReason": "OTHER",
+                            "originalLine": {
+                                "orderNo": "SONumber",
+                                "orderOrganization": "defaultorgrefname",
+                                "lineNumber": 1,
+                                "lineItemNumber": "1",
+                                "shipmentRequestNo": "",
+                                "lineUID": "f547380843b348fbaf8ea3c6a8d51db8"
+                            },
+                            "returnFrom": {
+                                "name": "RMA TEST",
+                                "firstName": "RMA",
+                                "lastName": "Test",
+                                "primaryEmail": "returnAdjustment@gmail.com",
+                                "altEmails": [
+                                    ""
+                                ],
+                                "altPhones": [
+                                    ""
+                                ],
+                                "primaryPhone": "",
+                                "address": {
+                                    "address1": "test",
+                                    "city": "Atlanta",
+                                    "state": "GA",
+                                    "zip5": "30303",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 0,
+                                        "longitude": 0
+                                    },
+                                    "validated": false,
+                                    "roles": [
+                                        "shipto",
+                                        "billto",
+                                        "contact"
+                                    ],
+                                    "residentialStatus": "RESIDENTIAL"
+                                },
+                                "nameId": "tLvZ2y1odfZgX4wbndlyGoXIx5gFMPHz",
+                                "altEmail": "",
+                                "altPhone": ""
+                            },
+                            "returnTo": {
+                                "companyName": "TheHonestKitchen",
+                                "name": "ADMIN THE HONEST KITCHEN",
+                                "firstName": "Admin",
+                                "lastName": "The Honest Kitchen",
+                                "altEmails": [],
+                                "altPhones": [],
+                                "primaryPhone": "(815) 423-4041",
+                                "address": {
+                                    "address1": "2550 Logistics Drive",
+                                    "city": "Joliet",
+                                    "state": "IL",
+                                    "zip5": "60436",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 41.4442049,
+                                        "longitude": -88.1367489
+                                    },
+                                    "validated": false,
+                                    "lastValidationAttempt": "2018-11-22T03:55:17.413+0000",
+                                    "roles": [
+                                        "contact"
+                                    ]
+                                },
+                                "nameId": "2550 Logistics Drive",
+                                "altEmail": "",
+                                "altPhone": ""
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0,
+                                "retailPrice": 0,
+                                "listPrice": 0
+                            },
+                            "dataDomain": "com.thk",
+                            "originalOrderedQty": 1,
+                            "customerID": "0000000495",
+                            "channel": "B2B",
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "lineItemId": "RMASKU02",
+                            "billToContactInfo": {
+                                "name": "RMA TEST",
+                                "firstName": "RMA",
+                                "lastName": "Test",
+                                "primaryEmail": "returnAdjustment@gmail.com",
+                                "altEmails": [
+                                    ""
+                                ],
+                                "altPhones": [
+                                    ""
+                                ],
+                                "primaryPhone": "",
+                                "address": {
+                                    "address1": "test",
+                                    "city": "Atlanta",
+                                    "state": "GA",
+                                    "zip5": "30303",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 0,
+                                        "longitude": 0
+                                    },
+                                    "validated": false,
+                                    "roles": [
+                                        "shipto",
+                                        "billto",
+                                        "contact"
+                                    ],
+                                    "residentialStatus": "RESIDENTIAL"
+                                },
+                                "nameId": "24 Green St_Atlanta_MA_US",
+                                "altEmail": "",
+                                "altPhone": ""
+                            }
+                        }
+                    ],
+                    "customerNumber": "0000000495",
+                    "returnFrom": {
+                        "name": "RMA TEST",
+                        "firstName": "RMA",
+                        "lastName": "Test",
+                        "primaryEmail": "returnAdjustment@gmail.com",
+                        "altEmails": [
+                            ""
+                        ],
+                        "altPhones": [
+                            ""
+                        ],
+                        "primaryPhone": "",
+                        "address": {
+                            "address1": "test",
+                            "city": "Atlanta",
+                            "state": "GA",
+                            "zip5": "30303",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "validated": false,
+                            "roles": [
+                                "shipto",
+                                "billto",
+                                "contact"
+                            ],
+                            "residentialStatus": "RESIDENTIAL"
+                        },
+                        "nameId": "tLvZ2y1odfZgX4wbndlyGoXIx5gFMPHz",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "returnTo": {
+                        "companyName": "TheHonestKitchen",
+                        "name": "ADMIN THE HONEST KITCHEN",
+                        "firstName": "Admin",
+                        "lastName": "The Honest Kitchen",
+                        "altEmails": [],
+                        "altPhones": [],
+                        "primaryPhone": "(815) 423-4041",
+                        "address": {
+                            "address1": "2550 Logistics Drive",
+                            "city": "Joliet",
+                            "state": "IL",
+                            "zip5": "60436",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 41.4442049,
+                                "longitude": -88.1367489
+                            },
+                            "validated": false,
+                            "lastValidationAttempt": "2018-11-22T03:55:17.413+0000",
+                            "roles": [
+                                "contact"
+                            ]
+                        },
+                        "nameId": "2550 Logistics Drive",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "billToContactInfo": {
+                        "name": "RMA TEST",
+                        "firstName": "RMA",
+                        "lastName": "Test",
+                        "primaryEmail": "returnAdjustment@gmail.com",
+                        "altEmails": [
+                            ""
+                        ],
+                        "altPhones": [
+                            ""
+                        ],
+                        "primaryPhone": "(000) 000-0423",
+                        "address": {
+                            "address1": "test",
+                            "city": "Atlanta",
+                            "state": "GA",
+                            "zip5": "30303",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "validated": false,
+                            "roles": [
+                                "shipto",
+                                "billto",
+                                "contact"
+                            ],
+                            "residentialStatus": "RESIDENTIAL"
+                        },
+                        "nameId": "Test_Atlanta_MA_US",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "dataDomain": "com.thk",
+                    "referenceData": [
+                        {
+                            "name": "prorateFromSource",
+                            "type": "prorateFromSource",
+                            "value": "Y"
+                        },
+                        {
+                            "type": "RETURN_DISPOSITION",
+                            "value": "Y"
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "No Inventory pool":{
+        "Input":{
+            "orders": [
+                {
+                    "orderDate": "2021-10-01T12:18:22.681Z",
+                    "channel": "B2B",
+                    "status": "OPEN",
+                    "noReceiptRMA": false,
+                    "orderOrganization": "defaultorgrefname",
+                    "orderTransactionType": "Return",
+                    "returnSite": "rmasite",
+                    "lineItems": [
+                        {
+                            "returnSite": "rmasite",
+                            "itemUnitPrice": 0,
+                            "lineItemNumber": "1",
+                            "lineItemQty": 1,
+                            "qty": 1,
+                            "returnReason": "OTHER",
+                            "originalLine": {
+                                "orderNo": "SONumber",
+                                "orderOrganization": "defaultorgrefname",
+                                "lineNumber": 1,
+                                "lineItemNumber": "1",
+                                "shipmentRequestNo": "",
+                                "lineUID": "f547380843b348fbaf8ea3c6a8d51db8"
+                            },
+                            "returnFrom": {
+                                "name": "RMA TEST",
+                                "firstName": "RMA",
+                                "lastName": "Test",
+                                "primaryEmail": "returnAdjustment@gmail.com",
+                                "altEmails": [
+                                    ""
+                                ],
+                                "altPhones": [
+                                    ""
+                                ],
+                                "primaryPhone": "",
+                                "address": {
+                                    "address1": "test",
+                                    "city": "Atlanta",
+                                    "state": "GA",
+                                    "zip5": "30303",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 0,
+                                        "longitude": 0
+                                    },
+                                    "validated": false,
+                                    "roles": [
+                                        "shipto",
+                                        "billto",
+                                        "contact"
+                                    ],
+                                    "residentialStatus": "RESIDENTIAL"
+                                },
+                                "nameId": "tLvZ2y1odfZgX4wbndlyGoXIx5gFMPHz",
+                                "altEmail": "",
+                                "altPhone": ""
+                            },
+                            "returnTo": {
+                                "companyName": "TheHonestKitchen",
+                                "name": "ADMIN THE HONEST KITCHEN",
+                                "firstName": "Admin",
+                                "lastName": "The Honest Kitchen",
+                                "altEmails": [],
+                                "altPhones": [],
+                                "primaryPhone": "(815) 423-4041",
+                                "address": {
+                                    "address1": "2550 Logistics Drive",
+                                    "city": "Joliet",
+                                    "state": "IL",
+                                    "zip5": "60436",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 41.4442049,
+                                        "longitude": -88.1367489
+                                    },
+                                    "validated": false,
+                                    "lastValidationAttempt": "2018-11-22T03:55:17.413+0000",
+                                    "roles": [
+                                        "contact"
+                                    ]
+                                },
+                                "nameId": "2550 Logistics Drive",
+                                "altEmail": "",
+                                "altPhone": ""
+                            },
+                            "priceInfo": {
+                                "unitPrice": 0,
+                                "retailPrice": 0,
+                                "listPrice": 0
+                            },
+                            "dataDomain": "com.thk",
+                            "originalOrderedQty": 1,
+                            "customerID": "0000000495",
+                            "channel": "B2B",
+                            "lineNumber": 1,
+                            "status": "OPEN",
+                            "lineItemId": "RMASKU02",
+                            "billToContactInfo": {
+                                "name": "RMA TEST",
+                                "firstName": "RMA",
+                                "lastName": "Test",
+                                "primaryEmail": "returnAdjustment@gmail.com",
+                                "altEmails": [
+                                    ""
+                                ],
+                                "altPhones": [
+                                    ""
+                                ],
+                                "primaryPhone": "",
+                                "address": {
+                                    "address1": "test",
+                                    "city": "Atlanta",
+                                    "state": "GA",
+                                    "zip5": "30303",
+                                    "country": "US",
+                                    "coordinates": {
+                                        "exact": false,
+                                        "latitude": 0,
+                                        "longitude": 0
+                                    },
+                                    "validated": false,
+                                    "roles": [
+                                        "shipto",
+                                        "billto",
+                                        "contact"
+                                    ],
+                                    "residentialStatus": "RESIDENTIAL"
+                                },
+                                "nameId": "24 Green St_Atlanta_MA_US",
+                                "altEmail": "",
+                                "altPhone": ""
+                            }
+                        }
+                    ],
+                    "customerNumber": "0000000495",
+                    "returnFrom": {
+                        "name": "RMA TEST",
+                        "firstName": "RMA",
+                        "lastName": "Test",
+                        "primaryEmail": "returnAdjustment@gmail.com",
+                        "altEmails": [
+                            ""
+                        ],
+                        "altPhones": [
+                            ""
+                        ],
+                        "primaryPhone": "",
+                        "address": {
+                            "address1": "test",
+                            "city": "Atlanta",
+                            "state": "GA",
+                            "zip5": "30303",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "validated": false,
+                            "roles": [
+                                "shipto",
+                                "billto",
+                                "contact"
+                            ],
+                            "residentialStatus": "RESIDENTIAL"
+                        },
+                        "nameId": "tLvZ2y1odfZgX4wbndlyGoXIx5gFMPHz",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "returnTo": {
+                        "companyName": "TheHonestKitchen",
+                        "name": "ADMIN THE HONEST KITCHEN",
+                        "firstName": "Admin",
+                        "lastName": "The Honest Kitchen",
+                        "altEmails": [],
+                        "altPhones": [],
+                        "primaryPhone": "(815) 423-4041",
+                        "address": {
+                            "address1": "2550 Logistics Drive",
+                            "city": "Joliet",
+                            "state": "IL",
+                            "zip5": "60436",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 41.4442049,
+                                "longitude": -88.1367489
+                            },
+                            "validated": false,
+                            "lastValidationAttempt": "2018-11-22T03:55:17.413+0000",
+                            "roles": [
+                                "contact"
+                            ]
+                        },
+                        "nameId": "2550 Logistics Drive",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "billToContactInfo": {
+                        "name": "RMA TEST",
+                        "firstName": "RMA",
+                        "lastName": "Test",
+                        "primaryEmail": "returnAdjustment@gmail.com",
+                        "altEmails": [
+                            ""
+                        ],
+                        "altPhones": [
+                            ""
+                        ],
+                        "primaryPhone": "(000) 000-0423",
+                        "address": {
+                            "address1": "test",
+                            "city": "Atlanta",
+                            "state": "GA",
+                            "zip5": "30303",
+                            "country": "US",
+                            "coordinates": {
+                                "exact": false,
+                                "latitude": 0,
+                                "longitude": 0
+                            },
+                            "validated": false,
+                            "roles": [
+                                "shipto",
+                                "billto",
+                                "contact"
+                            ],
+                            "residentialStatus": "RESIDENTIAL"
+                        },
+                        "nameId": "Test_Atlanta_MA_US",
+                        "altEmail": "",
+                        "altPhone": ""
+                    },
+                    "dataDomain": "com.thk",
+                    "referenceData": [
+                        {
+                            "name": "prorateFromSource",
+                            "type": "prorateFromSource",
+                            "value": "Y"
+                        },
+                        {
+                            "type": "RETURN_DISPOSITION",
+                            "value": "Y"
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+}
