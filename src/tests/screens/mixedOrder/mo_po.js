@@ -1,11 +1,14 @@
-'use strict'; 
+'use strict';
+var dataFile = require(process.cwd()+'/src/tests/autoFiles/mixedOrderData.json');
 
 module.exports = {  
 		
 	moOrderLocators: { 
 		menuCallCenter : element(by.xpath('(//*[text()[contains(.,"Call Center")]])[1]')),
 		tileSalesOrders : element(by.xpath('(//div[@class="card card-bordered card-split card-lifted is-clickable"])[3]')),
+		soFilterTextBox : element(by.model('apiSearchText.value')),
 		newOrderButton : element(by.xpath('//button[@class="button-primary en-button"]')),
+		soType : element(by.model('salesOrder.data.header.orderType')),
 		channelEditIcon : element(by.xpath('//*[text()[contains(.,"B2B")]]/en-icon')),
 		channelValue : element(by.model('salesOrder.data.header.salesChannel')),
 		confirmChannel : element(by.xpath('(//button[@class="default en-button ng-scope"])[2]')),
@@ -46,17 +49,72 @@ module.exports = {
     	fulfillmentStore : element(by.model('product.item.fulfillmentSite')),
     	applyBtn : element(by.xpath('(//button[@class="button-primary en-button"])')), 	
     	saveSalesOrder : element(by.xpath('(//button[@class="en-button padding-left-sm button-md trim"])[1]')),
+    	saveEditedSO : element(by.xpath('//button[@class="gradient-light en-button button-md ng-scope"]')),
+    	saveAsDraft : element(by.xpath('//*[@class="ng-binding ng-scope" and text()[contains(.,"Save as Draft")]]')),
     	confirmSalesOrder : element(by.xpath('(//button[@class="button-popover-dark trim en-button"])[2]')),
     	SONo : element(by.xpath('//*[text()[contains(.,"OMS Order #:")]]/following-sibling::strong')),
 		filterSOTextBox : element(by.model('apiSearchText.value')),
 		SOTotal : element(by.xpath('//*[text()[contains(.,"Balance Due")]]/following-sibling::strong')),
+		editSubEndDate : element(by.xpath('//*[text()[contains(.,"Subscription End Date:")]]/following-sibling::strong/en-icon')),
+		editSubStartDate : element(by.xpath('//*[text()[contains(.,"Subscription Start Date:")]]/following-sibling::strong/en-icon')),
+		subStartDate : element(by.xpath('//*[text()[contains(.,"Subscription Start Date:")]]/following-sibling::strong')),
+		subEndDate : element(by.xpath('//*[text()[contains(.,"Subscription End Date:")]]/following-sibling::strong')),
+		subStartDateField : element(by.model('subscriptionInfo.startDate')),
+		subEndDateField : element(by.model('subscriptionInfo.endDate')),
+		nextMonthSelector : element(by.xpath('(//*[@class="cal-header-btn"])[2]')),
+		previousMonthSelector : element(by.xpath('(//*[@class="cal-header-btn"])[1]')),
+		dateSelector : element(by.xpath('(//*[@class="cal-day ng-binding ng-scope"])[27]')),
+		editSubFrequency : element(by.xpath('//*[text()[contains(.,"Subscription Frequency:")]]/following-sibling::strong/en-icon')),
+		subFrequency : element(by.model('subscriptionInfo.frequency')),
+		subFrequencyType : element(by.xpath('//*[text()[contains(.,"Subscription Frequency:")]]/following-sibling::strong')),
+		editSubDays : element(by.xpath('//*[text()[contains(.,"Subscription days")]]/following-sibling::strong/en-icon')),
+		selectDatesFrom1 : element(by.xpath('(//*[@class="select-box ng-pristine ng-untouched ng-valid"]/option)'+'['+dataFile.SubDate1+']')),
+		selectDatesFrom2 : element(by.xpath('(//*[@class="select-box ng-valid ng-dirty ng-touched"]/option)'+'['+dataFile.SubDate2+']')),
+		selectDatesFrom3 : element(by.xpath('(//*[@class="select-box ng-valid ng-dirty ng-touched"]/option)'+'['+dataFile.SubDate3+']')),
+		selectDaysFrom1 : element(by.xpath('(//*[@class="select-box ng-pristine ng-untouched ng-valid"]/option)'+'['+dataFile.SubDay1+']')),
+		selectDaysFrom2 : element(by.xpath('(//*[@class="select-box ng-valid ng-dirty ng-touched"]/option)'+'['+dataFile.SubDay2+']')),
+		selectDaysFrom3 : element(by.xpath('(//*[@class="select-box ng-valid ng-dirty ng-touched"]/option)'+'['+dataFile.SubDay3+']')),
+		addToChosen : element(by.xpath('//button[@class="en-button"]/en-icon[@icon="chevron-right-double"]')),
+		submitChosenDaysDates : element(by.xpath('//button[@type="submit"]')),
+		saveSOChanges : element(by.xpath('//en-actions[@class="padding-left-sm button-md en-actions ng-scope"]')),
+		holdAndSkipTab : element(by.xpath('//*[text()[contains(.,"Hold & Skip")]]')),
+		addHoldBtn : element(by.xpath('//*[text()[contains(.,"Add Hold")]]')),
+		addSkipBtn : element(by.xpath('//*[text()[contains(.,"Add Skip")]]')),
+		editHoldEndDate1 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[6]')),
+		editHoldStartDate1 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[5]')),
+		editHoldEndDate2 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[8]')),
+		editHoldStartDate2 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[6]')),
+		editSkipEndDate1 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[10]')),
+		editSkipStartDate1 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[9]')),
+		editSkipEndDate2 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[12]')),
+		editSkipStartDate2 : element(by.xpath('(//*[@class="ng-binding"]/en-icon)[10]')),
+		holdStartEndField : element(by.xpath('(//*[@class="ng-pristine ng-untouched ng-valid ng-isolate-scope"])[1]')),
+		selectHighlightedDate : element(by.css('body > div.datepicker-calendar.ng-scope.datepicker-open > div.cal-body > a.cal-day.ng-binding.ng-scope.datepicker-active')),
+		soHeaderStatus : element(by.xpath('(//en-label)[1]')),
+		line1Status: element(by.xpath('(//*[@class="line-wrapper"]/div[4]/div/en-label)[1]')),
+		line2Status: element(by.xpath('(//*[@class="line-wrapper"]/div[4]/div/en-label)[2]')),
+		
+	},
+	
+	payment: {
+		
+		payBtn : element(by.xpath('//button[@class="button-primary button-md en-button ng-scope"]')),
+		paymentMethod : element(by.model('payment.method')),
+		cardNumber : element(by.model('payment.cardNumber')),
+		nameOnCard : element(by.model('payment.nameOnCard')),
+		expirationMonth : element(by.model('payment.expMonth')),
+		expirationYear : element(by.model('payment.expYear')),
+		cvv : element(by.model('payment.cvv')),
+		Submit : element(by.xpath('//button[@class="button-primary en-button ng-scope"]')),
+		
 	},
 	
 	releaseSOLocators: {
     	//Release starts here
     	statusHamburgerBtn : element(by.xpath('(//button[@class="padding-left-sm trim"])[1]')),
     	releaseOrder : element(by.xpath('//*[@class="ng-binding ng-scope" and text()[contains(.,"Release")]]')),
-    	confirmRelease : element(by.xpath('(//*[text()[contains(.,"Release")]])[4]')) 
+    	confirmRelease : element(by.xpath('(//*[text()[contains(.,"Release")]])[4]')),
+    	cancelReleasePopup : element(by.xpath('//*[@class="ng-scope" and text()[contains(.,"Cancel")]]')),
 	},
 	
 	cancelSOLineLocators: {
@@ -114,7 +172,7 @@ module.exports = {
 		skuSearchQty : element(by.model('item.orderQty')),
 		addSkuBtn : element(by.xpath('//*[text()[contains(.,"Add Skus")]]')),
 		searchBtn : element(by.xpath('//*[@class="button-primary en-button button-primary ng-binding" and text()[contains(.,"Search")]]')),
-		skuHamburgerBtn : element(by.xpath('//*[text()[contains(.,"AcuPartialSKU")]]/preceding::div[1]')),
+		skuHamburgerBtn : element(by.xpath('//*[text()[contains(.,"AcuPartial")]]/preceding::div[1]')),
 		skuDetails : element(by.xpath('//*[@class="ng-scope" and text()[contains(.,"Details")]]')),
 		entryAdjTab : element(by.xpath('//*[@class="en-tab" and text()[contains(.,"Entry Adjustment")]]')),
 		adjQtyBy : element(by.model('entry.data.amountToAdjust')),
