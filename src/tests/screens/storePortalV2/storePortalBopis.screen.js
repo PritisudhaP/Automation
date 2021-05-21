@@ -3,6 +3,7 @@ const { element } = require("protractor");
 module.exports = function () {
 
     var fulfillmentHeader = element(by.xpath("//en-title[text()='Fulfillment']"));
+	//test
     var storePortalHeader = element(by.xpath("//h2[text()='Store Portal']"));
     var screenHeading = element(by.xpath("(//en-title[@class='ng-binding'])[2]"));
     var picklistButton = element(by.xpath("//span[text()='PRINT PICKLIST BY ORDER']"));
