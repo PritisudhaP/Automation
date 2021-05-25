@@ -7,7 +7,10 @@ module.exports = function () {
     this.addToOrderButton = element(by.xpath("//button[@en-tap='goToSalesOrder()']/span"));
     this.attachCustomerButton = element(by.xpath('//button[@class="en-button button-primary"]'));
     //this.searchCustomerTextbox = element(by.xpath("(//input[(@name = 'simplified-text-value')])[2]"));
+//this is for P0				
 	this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[2]"));
+//this is for P2
+    //this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));																										  
     this.deleteCustomerSearchBox = element(by.model("apiSearchText.value"));
     //this.searchProductTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));
     this.plusIcon = element(by.xpath("//en-icon[@icon='plus-block']"));
@@ -23,7 +26,8 @@ module.exports = function () {
     this.InventorydtlsSearchValueTextbox = element(by.xpath('//input[@name="filter-value"]'));
     this.inventoryDetailsTotalCount = element(by.xpath("//en-tab-pane[@name='lineOptionPane_Inventory']/div/div/div[1]/strong"));
     this.inventoryDetailsSelectGearIcon = element(by.xpath("//button/span[contains(text(),'Inventory Details')]/parent::button"));
-    this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[2]"));
+    //this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[2]"));
+    this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[1]"));//modified by vishak  
     this.reservationDetailsClose = element(by.xpath("//button[@class='en-button']/span[text()='Close']"));
     this.skuLink = element(by.xpath("//a[@class='ellipsis']"));
 	this.trackingNumber = element(by.xpath("//en-control/input[@name = 'trackingNumber']"));			
@@ -33,12 +37,12 @@ module.exports = function () {
     this.notesButton = element(by.xpath("//button/en-icon[@icon='note']"));
     this.noteText = element(by.model("note.text"));
     this.noteType = element(by.model("note.type"));
-    this.notesCreateBtn = element(by.xpath("//span[contains(text(),'Create')]"));
+    //this.notesCreateBtn = element(by.xpath("//span[contains(text(),'Create')]"));
+	this.notesCreateBtn = element(by.xpath("//en-icon[@icon='check-circle' and @class='ng-scope' ]"));
     this.notesPane = element(by.xpath("//en-tab[@pane='notesPane']"));
     this.notesContent = element(by.xpath("//en-tab-pane[@name='notesPane']//en-content//p"));
     this.itemsPane = element(by.xpath("//en-tab[@pane='itemsPane']"));
     //this.inventoryATSCount = element(by.xpath("//div[contains(@ng-repeat,'item in inventoryCollection.data')]/div/div[@class='ng-binding'][1]"));
-
     this.editPromisedDate = element(by.xpath("//en-icon[@en-tap='promiseDateEditable=true']"));
     this.promisedDateTextBox = element(by.xpath("//input[@name='promiseDate']"));
     this.incrementQtyArrowUp = element(by.xpath("//div[@layout='row']/en-icon[@icon='arrow-up']"));
@@ -61,7 +65,6 @@ module.exports = function () {
     this.appeasementNotes = element(by.model("appeasement.notes[0].text"));
     this.applyBtn = element(by.xpath("//en-modal-footer/div//button/span[contains(text(),'Apply')]"));
     this.appeasementsGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button"));
-
     this.editSKUApplyBtn = element(by.xpath("//en-modal//en-footer//button/span[contains(text(),'Apply')]"));
     this.createCustomerBtn = element(by.xpath("//button/span[contains(text(),'Create Customer')]"));
     this.customerDisplayName = element(by.model("customer.data.displayName"));
@@ -81,7 +84,6 @@ module.exports = function () {
 	this.submitBtn = element(by.xpath("//button[@type='submit']"));
     //this.submitBtn = element(by.xpath("//button[@type='submit'][@object='customer']"));
     //this.lineDiscountAmount = element(by.xpath("//small[contains(text(),'Discount:')]/following-sibling::small"));
-
     this.orderlvlappeasementText = element(by.xpath("(//div[@class='en-collection-row'])[1]/div[2]"));
     this.orderlvlappeasementValue = element(by.xpath("(//div[@class='en-collection-row'])[1]/div[9]"));
     this.discountViewButton = element(by.xpath("(//button[contains(text(),'View')])[1]"));
@@ -94,7 +96,6 @@ module.exports = function () {
     //this.discountViewPlusIcon = element(by.xpath("//div[contains(@ng-if,'item.shipToAddressName')]//en-section//small[text()='Discounts']"));
     this.deleteBtn = element(by.xpath("//en-modal-footer//button/span[contains(text(),'Delete')]"));
     //this.errorTextMsg = element(by.xpath("//en-alert[@ng-if='discountError']"));
-
     this.promoCodeTextBox = element(by.model("promoCode"));
     this.promoCodeApplyBtn = element(by.xpath("//button/span[contains(text(),'Apply')]"));
     this.promoCodeText = element(by.xpath("//span[contains(@ng-if,'item.promo')]"));
@@ -128,8 +129,9 @@ module.exports = function () {
     this.creditCardExpYear = element(by.model("payment.expYear"));
     this.paymentAmount = element(by.model("payment.amount"));
     this.submitPayment = element(by.xpath("//button/span[@contains(text(),'Submit')]"))					
-
-    var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
+    
+	
+	var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
     var channelDropDown = element(by.xpath("//select[contains(@ng-show,'filteredChannels.data.value')]"));
     //var channelDropDown = element(by.xpath("(//select[@name='channel'])[1]"));
     var salesChannelSelectButton = element(by.xpath('//button/en-icon[@icon="check"]'));
@@ -139,8 +141,8 @@ module.exports = function () {
 this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price')]"));
     this.unitPriceTextBox = element(by.model("item.itemUnitPrice"));
     this.priceSaveButton=element(by.xpath("(//button/span[@class = 'ng-scope'])[2]"));
-
-    this.paymentMethod = element(by.name("method_0"));
+    
+	this.paymentMethod = element(by.name("method_0"));
     this.creditCardNumber = element(by.model("payment.cardNumber"));
     this.creditCardCVVNumber = element(by.model("payment.cvv"));
     this.nameOnCreditCard = element(by.model("payment.nameOnCard"));
@@ -151,9 +153,6 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     this.searchForSkuAvailability =  element(by.xpath("//div/button[text()='Search']"));
     this.orderStatus = element(by.xpath("(//div/en-label[@ng-if = 'salesOrder.data.header.status'])"));
     this.searchButton = element(by.xpath("//div/button[text()='Search']"));
-
-
-
     this.cancelPayButton = element(by.xpath("//button/span[text()='Cancel']"));
     this.itemQty2InPackageEntryTextBox = element(by.xpath('(//input[@ng-model="item.qtyInPackageDefault"])[3]'));
     this.addMethodButton = element(by.xpath("//button/span[text()='Add method']"));
