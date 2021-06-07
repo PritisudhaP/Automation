@@ -48,8 +48,8 @@ module.exports =function(){
     this.reservationText = element(by.xpath("//en-title[@class='title-sm ng-binding']"));
     
 
-    var common = require(process.cwd() + '/screens/commons.js');
-   // var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    //var common = require(process.cwd() + '/screens/commons.js');
+    var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     // Added by shyam for zipcodes   
@@ -87,7 +87,34 @@ module.exports =function(){
     this.cancelbtn = element(by.xpath('//span[text()="Cancel"]'));
     this.ShipmentTab = element(by.xpath('//en-tab[text()="Shipping Requests"]'));
     this.clickonFR = element(by.xpath('//section/div/a'));
-
+//Added By Vishak
+    
+    this.canclQTYBox = element(by.model("$parent.cancelledQty"));
+    this.canclReasonDropdown = element(by.model("$parent.cancelReason"));
+    this.cnfButtonClick = element(by.xpath("//Button/span[contains(text(),'Confirm')]"));
+    this.cancelNote = element(by.xpath("//span[contains(text(),'Add Cancellation Notes')]/parent::Button"));
+    this.cancelNoteContent = element(by.model("$root.notes"));
+    this.inventoryOptionPaneButton = element(by.xpath('//en-tab[@pane="lineOptionPane_Inventory"]'));
+    this.doneButton = element(by.xpath('//button[@en-tap="closeModal()"]'));
+    this.cancelAllLineCheckBox = element(by.model("isCancelAllLine"));
+    this.CancelReasonAllLine = element(by.model("OrdercancelReason"));
+    this.rejectReasonCodeDropdown = element(by.model("modalObject.reasonCode"));
+    this.rejectComments = element(by.model("modalObject.reason"));
+    this.reasondropdowndisabled = element(by.xpath('//select[@disabled="disabled"]'));
+    this.payButton = element(by.xpath("//button/span[contains(text(),'Pay')]"));
+    this.paymentMethodDropdown = element(by.model("payment.method"));
+    this.cardNumber = element(by.model("payment.cardNumber"));
+    this.PaymentCVV = element(by.model("payment.cvv"));
+    this.nameOnCard = element(by.model("payment.nameOnCard"));
+    this.cardExpMonth = element(by.model("payment.expMonth"));
+    this.cardExpYear = element(by.model("payment.expYear"));
+    this.paymentSubmitButton = element(by.xpath("//button/span[contains(text(),'Submit')]"));
+    
+    
+    
+//////////*******************END OF LOCATORS****************************************//////
+    
+   
     this.selectChannel = function(channel){
         this.channelEditBtn.click();
         element(by.cssContainingText('option',channel)).click();
@@ -178,6 +205,10 @@ module.exports =function(){
         temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
         if (selectOption == "View")
             return element(by.xpath(temp)).click();
+        
+        else if(selectOption == "Cancel")
+            return element(by.xpath(temp)).click();
+        
         else {
                 element(by.xpath(temp)).click();
                 temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
@@ -367,5 +398,197 @@ this.clickOnStatustext = function(){
  this.getShipmentReqNbr = function(){
      return this.shipmentNbr.getText();
  }
-    //
+
+ //Added by Vishak
+ 
+ this.cancelLineConfirmDisabled = function(line){
+	 temp = element(by.xpath('(//Button[@disabled="disabled"])['+line+']'));
+	 return temp.isPresent();
+	 
+ }
+ this.CanclQTY = function(value){
+	 
+	 this.canclQTYBox.clear();
+	 this.canclQTYBox.sendKeys(value);
+ }
+ 
+ this.QTYClear = function(){
+	 
+	 this.canclQTYBox.clear();
+
+ }
+ 
+ this.CanclReason = function(value){
+	 
+	 this.canclReasonDropdown.sendKeys(value);
+
+ }
+ 
+ this.CNFButton = function(){
+	 
+	 return this.cnfButtonClick.click();
+ }
+ 
+ this.OrderStatusDetails = function(line){
+	orderStatusLabel = element(by.xpath('(//small[@class="ng-binding"]/parent::en-label)['+line+']'));
+	return orderStatusLabel.getText();
+ }
+ 
+ this.avaialbleTocancelQTY = function(line){
+	 
+	 temp = element(by.xpath("(//tbody/tr/td[@class='ng-binding'])["+line+"]"));
+	 
+	 return temp.getText();
+	 
+ }
+ 
+ this.CancelNotes = function(value){
+	 
+	 this.cancelNote.click();
+	 browser.sleep(500);
+	 this.cancelNoteContent.sendKeys(value);
+ }
+ 
+ this.inventoryDetailsCountInSO = function (inventoryCount){
+     temp = "(//div[@ng-if='pools.data ']/div/strong)["+ inventoryCount +"]";
+     return element(by.xpath(temp)).getText().then(function(count){
+         browser.driver.sleep(3000);
+         return parseInt(count);
+     })
+ }
+ 
+ this.lineDetails = function(line){
+	 
+	 temp = element(by.xpath('(//div[@class="line-details"])['+line+']'))
+	 return temp.click();
+ }
+ 
+ this.inventoryOptionPane = function(){
+	 
+	 this.inventoryOptionPaneButton.click();
+ }
+ 
+ this.Done = function(){
+	 
+	 return this.doneButton.click();
+ }
+ 
+this.CanclQTYHeaderLevel = function(line,value){
+	 
+	 temp=element(by.xpath('(//input[@name="cancelledQty[index]"])['+line+']'));
+	 temp.clear();
+	 temp.sendKeys(value);
+ }
+
+this.CanclReasonHeaderLevel = function(line,value){
+	 
+	 temp=element(by.xpath('(//select[@name="reasonCode[index]"])['+line+']'));
+	 temp.sendKeys(value);
+	}
+
+this.CancellAllLine = function(){
+	
+	return this.cancelAllLineCheckBox.click();
+	
+	}
+this.CancelAllLineReason = function(value){
+	
+	return  this.CancelReasonAllLine.sendKeys(value);
+}
+
+/*this.LinceCancelCheck = function(qty,reason) {
+
+	   temp = '//en-label/small[@class="ng-binding"]';	  
+	   var totallines = element.all(by.xpath(temp));
+	   totallines.count().then(function (total){
+		   var totalcount = total;
+		   console.log("the total lines in the sales order : "+(totalcount-1));
+		   for(i=2;i<=totalcount;i++){
+			   data=element(by.xpath('(//small[@class="ng-binding"]/parent::en-label)['+i+']')).getText();
+			   if(data=="FAILED TO ALLOCATE"){
+				  console.log("failed line item");
+			   }
+			   else{
+				   
+				   element(by.xpath("(//button/en-icon[@icon ='more-vertical'])["+(i+1)+"]")).click();
+				   element(by.xpath("//button/span[contains(text(),'Cancel Line')]")).click(); 
+				   browser.sleep(3000);
+				   element(by.model("$parent.cancelledQty")).clear();
+				   element(by.model("$parent.cancelledQty")).sendKeys(qty);
+				   element(by.model("$parent.cancelReason")).sendKeys(reason);
+				   element(by.xpath("//Button/span[contains(text(),'Confirm')]")).click();
+				   browser.sleep(1000);
+				   return data;
+				   break;
+			   }
+		   }
+	   });   
+  }*/
+ 
+this.cancelAllLines= function(){
+	
+		temp='//tbody[@ng-repeat="lineItem in getLineitem(enquiry.data.lineItems)"]';
+		var totallines = element.all(by.xpath(temp));
+		   totallines.count().then(function (total){
+			   var totalcount = total;
+			   posititon=5;
+			   console.log("the total lines in the header level cancel : "+totalcount);
+			   for(i=1;i<=totalcount;i++){
+				   browser.sleep(1000);
+				   qty = element(by.xpath("(//tbody/tr/td[@class='ng-binding'])["+posititon+"]")).getText();
+				   browser.sleep(2000);
+				   element(by.xpath("(//input[@name='cancelledQty[index]'])["+i+"]")).clear();
+				   element(by.xpath("(//input[@name='cancelledQty[index]'])["+i+"]")).sendKeys(qty);
+				   element(by.xpath("(//select[@name='reasonCode[index]'])["+i+"]")).sendKeys("NotNeeded"); 		
+				   posititon=posititon+3;
+			   }
+		   });
+	
+	}
+
+	this.shipmentRejectPopup = function(reason,msg){
+		
+		this.rejectReasonCodeDropdown.sendKeys(reason);
+		this.rejectComments.sendKeys(msg);
+	} 
+	this.cancelQTYHeaderLevelCheck = function(line){
+		
+		 temp=element(by.xpath('(//en-field/button[@disabled="disabled"])['+line+']'));
+		 return temp.isPresent();
+	}
+	this.reasonDropdownAvailability = function(){
+		
+		return this.reasondropdowndisabled.isPresent();
+	}
+	
+	this.SavedOrderStatusForPayment = function(status){
+		
+		if(status =="PAYMENT HOLD"){
+			
+			 this.payButton.click();
+			 browser.sleep(500);
+			 this.paymentMethodDropdown.sendKeys(browser.params.paymentMethod);
+			 browser.sleep(500);
+			 this.cardNumber.sendKeys(browser.params.cardNumber);
+			 this.PaymentCVV.sendKeys(browser.params.cvv);
+			 this.nameOnCard.sendKeys(browser.params.custDisplayName);			 
+			 this.cardExpMonth.sendKeys(browser.params.expMonth);
+			 browser.sleep(500);			 
+			 this.cardExpYear.sendKeys(browser.params.expYear);
+			 browser.sleep(500);			 
+			 this.paymentSubmitButton.click();
+		 
+		}
+		else{
+			
+			console.log("the status is "+status);
+		}
+		
+	}
+	
+	this.totalRfundtoTenderAmount = function(){
+		
+		temp=element(by.xpath('//table/tbody/tr/td/span[@class="ng-binding ng-scope"]'));
+		return temp.getText();
+	}
 }

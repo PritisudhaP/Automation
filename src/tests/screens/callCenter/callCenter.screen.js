@@ -7,10 +7,10 @@ module.exports = function () {
     this.addToOrderButton = element(by.xpath("//button[@en-tap='goToSalesOrder()']/span"));
     this.attachCustomerButton = element(by.xpath('//button[@class="en-button button-primary"]'));
     //this.searchCustomerTextbox = element(by.xpath("(//input[(@name = 'simplified-text-value')])[2]"));
-//this is for P0				
-	this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[2]"));
-//this is for P2
-    //this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));																										  
+//this is for P0
+    this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[2]"));
+ //this is for P2
+    //this.searchCustomerTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));
     this.deleteCustomerSearchBox = element(by.model("apiSearchText.value"));
     //this.searchProductTextbox = element(by.xpath("(//input[contains(@name,'simplified-text-value')])[1]"));
     this.plusIcon = element(by.xpath("//en-icon[@icon='plus-block']"));
@@ -26,8 +26,8 @@ module.exports = function () {
     this.InventorydtlsSearchValueTextbox = element(by.xpath('//input[@name="filter-value"]'));
     this.inventoryDetailsTotalCount = element(by.xpath("//en-tab-pane[@name='lineOptionPane_Inventory']/div/div/div[1]/strong"));
     this.inventoryDetailsSelectGearIcon = element(by.xpath("//button/span[contains(text(),'Inventory Details')]/parent::button"));
-    //this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[2]"));
-    this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[1]"));//modified by vishak  
+  //this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[2]"));
+	this.channelText = element(by.xpath("(//div[contains(@id,'collectionBody')]//div[contains(@class,'en-collection-row')])[3]/div[1]"));//modified by vishak
     this.reservationDetailsClose = element(by.xpath("//button[@class='en-button']/span[text()='Close']"));
     this.skuLink = element(by.xpath("//a[@class='ellipsis']"));
 	this.trackingNumber = element(by.xpath("//en-control/input[@name = 'trackingNumber']"));			
@@ -42,7 +42,7 @@ module.exports = function () {
     this.notesPane = element(by.xpath("//en-tab[@pane='notesPane']"));
     this.notesContent = element(by.xpath("//en-tab-pane[@name='notesPane']//en-content//p"));
     this.itemsPane = element(by.xpath("//en-tab[@pane='itemsPane']"));
-    //this.inventoryATSCount = element(by.xpath("//div[contains(@ng-repeat,'item in inventoryCollection.data')]/div/div[@class='ng-binding'][1]"));
+    //this.inventoryATSCount = element(by.xpath("//div[contains(@ng-repeat,'item in inventoryCollection.data')]/div/div[@class='ng-binding'][1]"));																							   
     this.editPromisedDate = element(by.xpath("//en-icon[@en-tap='promiseDateEditable=true']"));
     this.promisedDateTextBox = element(by.xpath("//input[@name='promiseDate']"));
     this.incrementQtyArrowUp = element(by.xpath("//div[@layout='row']/en-icon[@icon='arrow-up']"));
@@ -64,7 +64,7 @@ module.exports = function () {
     this.appeasementDesc = element(by.model("appeasement.description"));
     this.appeasementNotes = element(by.model("appeasement.notes[0].text"));
     this.applyBtn = element(by.xpath("//en-modal-footer/div//button/span[contains(text(),'Apply')]"));
-    this.appeasementsGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button"));
+    this.appeasementsGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button"));																								
     this.editSKUApplyBtn = element(by.xpath("//en-modal//en-footer//button/span[contains(text(),'Apply')]"));
     this.createCustomerBtn = element(by.xpath("//button/span[contains(text(),'Create Customer')]"));
     this.customerDisplayName = element(by.model("customer.data.displayName"));
@@ -83,7 +83,7 @@ module.exports = function () {
     this.selectCustomerPriority = element(by.model("customer.data.priority"));
 	this.submitBtn = element(by.xpath("//button[@type='submit']"));
     //this.submitBtn = element(by.xpath("//button[@type='submit'][@object='customer']"));
-    //this.lineDiscountAmount = element(by.xpath("//small[contains(text(),'Discount:')]/following-sibling::small"));
+    //this.lineDiscountAmount = element(by.xpath("//small[contains(text(),'Discount:')]/following-sibling::small"));																						  
     this.orderlvlappeasementText = element(by.xpath("(//div[@class='en-collection-row'])[1]/div[2]"));
     this.orderlvlappeasementValue = element(by.xpath("(//div[@class='en-collection-row'])[1]/div[9]"));
     this.discountViewButton = element(by.xpath("(//button[contains(text(),'View')])[1]"));
@@ -94,31 +94,38 @@ module.exports = function () {
     this.discountOptionsGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button/en-icon"));
     this.appeasementOptionsGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button/en-icon"));
     //this.discountViewPlusIcon = element(by.xpath("//div[contains(@ng-if,'item.shipToAddressName')]//en-section//small[text()='Discounts']"));
+    //added by vishak//
+    this.discountViewPlusIcon = element(by.xpath("//small[@class='text-muted uppercase semibold']"));
     this.deleteBtn = element(by.xpath("//en-modal-footer//button/span[contains(text(),'Delete')]"));
-    //this.errorTextMsg = element(by.xpath("//en-alert[@ng-if='discountError']"));
+    //this.errorTextMsg = element(by.xpath("//en-alert[@ng-if='discountError']"));																					
     this.promoCodeTextBox = element(by.model("promoCode"));
     this.promoCodeApplyBtn = element(by.xpath("//button/span[contains(text(),'Apply')]"));
-    this.promoCodeText = element(by.xpath("//span[contains(@ng-if,'item.promo')]"));
-
+	//this.promoCodeText = element(by.xpath("//span[contains(@ng-if,'item.promo')]"));
+    this.promoCodeText = element(by.xpath("(//span[contains(@ng-if,'item.promo')])[1]"));//updated by vishak
     this.salesOrderSelectGearIcon = element(by.xpath("//div[@class='en-collection-row']//en-actions/button"));
     this.packageSelectionDropdown = element(by.xpath('(//select[@name="carrier"])[2]'));
     this.itemQtyInPackageEntryTextBox = element(by.xpath('//input[@ng-model="item.qtyInPackageDefault"]'));
     this.addPackageToShipmentButton = element(by.xpath('//button/span[contains(text(), "Add Package to Shipment")]/parent::button'));
-    this.finalizeShipmentButton = element(by.xpath('//button/span[contains(text(), "Finalize Shipment")]/parent::button'));
+    this.finalizeShipmentButton = element(by.xpath('(//button/span[contains(text(), "Finalize Shipment")]/parent::button)[2]'));
     this.shipmentRequestSelectGearIcon = element(by.xpath('(//div[@class="en-collection-row"]/div[2])[1]/en-actions/button'));
     //this.lineItemStatus = element(by.xpath("//section[@ng-if='salesOrder.data.lineItems.length']//div[@layout='row']/en-label"));
-    this.lineAppeasement = element(by.xpath("//li[@icon='discount']/button//span[contains(text(),'Appeasement')]"));
-    this.orderAppeasement = element(by.xpath("//en-field/button/span[text()='Add Appeasement']"));
+    //this.lineAppeasement = element(by.xpath("//li[@icon='discount']/button//span[contains(text(),'Appeasement')]"));//updated by vishak
+    this.lineAppeasement = element(by.xpath("//button//span[contains(text(),'Add Line Appeasement')]"));//for P2 Env
+    //    this.orderAppeasement = element(by.xpath("//en-field/button/span[text()='Add Appeasement']"));
+	this.orderAppeasement = element(by.xpath("//en-field/button/span[text()='Add Header Appeasement']"));
     this.appeasementTab = element(by.xpath("//en-tab[@pane='appeasementsPane']"));
     this.cartTakeoverGOBtn = element(by.xpath("//button/span[text()='GO']"));
     this.cartTakeoverTextBox = element(by.model("lookupCartId"));
     this.addReferenceBtn = element(by.xpath("(//en-header[@class='underline']/en-icon[@icon='plus'])[2]"));
     this.refNameTextBox = element(by.model("ref.name"));
     this.refValueTextBox = element(by.model("ref.value"));
+    this.reftrashbutton=element(by.xpath("//en-icon[@icon='trash']"));
+    this.addnewreferencesbutton=element(by.xpath("//button[@class='button-xs margin-left-sm en-button ng-scope']"));
     this.saveRefBtn = element(by.xpath("//button//span[contains(text(),' Save References')]"));
     this.takeOverBtn = element(by.xpath("//button//span[contains(text(),'Take Over')]"));
     this.cartTakeOverErrMsg = element(by.xpath("//en-msgs[@for='lookupForm.lookupCartId']/en-msg"));
     this.packageUnselect = element(by.model("skipLabelGeneration"));
+    this.trackingnumber = element(by.model("package.trackingNumber"));//added by vishak
 	//this.payButton = element(by.xpath("//button/span[@contains(@ng-show , '!salesOrder.putting && !salesOrder.getting']/parent::button"));
     this.payButton = element(by.xpath("//button/span[contains(@ng-show,'salesOrder.putting')]/parent::button"));
     this.paymentMethod = element(by.model("payment.method"));
@@ -128,21 +135,18 @@ module.exports = function () {
     this.creditCardExpMonth = element(by.model("payment.expMonth"));
     this.creditCardExpYear = element(by.model("payment.expYear"));
     this.paymentAmount = element(by.model("payment.amount"));
-    this.submitPayment = element(by.xpath("//button/span[@contains(text(),'Submit')]"))					
-    
-	
-	var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
+    this.submitPayment = element(by.xpath("//button/span[@contains(text(),'Submit')]"))																									
+    var salesChannelEditIcon = element(by.xpath('//en-icon[@en-tap="$root.editChannel=true"]'));
     var channelDropDown = element(by.xpath("//select[contains(@ng-show,'filteredChannels.data.value')]"));
     //var channelDropDown = element(by.xpath("(//select[@name='channel'])[1]"));
     var salesChannelSelectButton = element(by.xpath('//button/en-icon[@icon="check"]'));
     var cancelButtonInInvDetails = element(by.xpath("//button[@class='en-button']/span[text()='Cancel']"));
     var availableQty = element(by.xpath('//div[contains(@ng-repeat,"item in inventoryCollection.data")]/div/div[7]'));
     var reservedQty = element(by.xpath('//div[contains(@ng-repeat,"item in inventoryCollection.data")]/div/div[8]'));
-this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price')]"));
+    this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price')]"));
     this.unitPriceTextBox = element(by.model("item.itemUnitPrice"));
     this.priceSaveButton=element(by.xpath("(//button/span[@class = 'ng-scope'])[2]"));
-    
-	this.paymentMethod = element(by.name("method_0"));
+    this.paymentMethod = element(by.name("method_0"));
     this.creditCardNumber = element(by.model("payment.cardNumber"));
     this.creditCardCVVNumber = element(by.model("payment.cvv"));
     this.nameOnCreditCard = element(by.model("payment.nameOnCard"));
@@ -152,7 +156,7 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     this.submitPayment = element(by.xpath("//button/span[text()='Submit']"));
     this.searchForSkuAvailability =  element(by.xpath("//div/button[text()='Search']"));
     this.orderStatus = element(by.xpath("(//div/en-label[@ng-if = 'salesOrder.data.header.status'])"));
-    this.searchButton = element(by.xpath("//div/button[text()='Search']"));
+    this.searchButton = element(by.xpath("//div/button[text()='Search']"));																			   
     this.cancelPayButton = element(by.xpath("//button/span[text()='Cancel']"));
     this.itemQty2InPackageEntryTextBox = element(by.xpath('(//input[@ng-model="item.qtyInPackageDefault"])[3]'));
     this.addMethodButton = element(by.xpath("//button/span[text()='Add method']"));
@@ -168,20 +172,17 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     this.confirmCustomerAddressButton = element(by.xpath('//button/span[contains(text(),"Ok")]/parent::button'));
     this.channelName = element(by.xpath("//strong[@ng-if =\"!$root.editChannel\"]"));
     this.verifyAddress = element(by.xpath("(//div/div/div[@class = 'en-collection-row']/div[@class = 'ng-binding'])[1]"));
-
     this.unitPrice = element(by.xpath("//div/div/div/small[text()= 'Unit Price:']/following-sibling::small"));
     this.linePrice = element(by.xpath("//div/div/div/small[text()= 'Line Price:']/following-sibling::small"));
     this.discountamount =  element(by.xpath("//div/small[text()= 'Discount:']/following-sibling::small"));
     this.taxamount =  element(by.xpath("//div/small[text()= 'Sales Tax:']/following-sibling::small"));
     this.shippingcharges = element(by.xpath("//div/small[text()= 'Shipping Tax:']/following-sibling::small"));
     this.appeasementAmount = element(by.xpath("//en-item/small[contains(text(),'Appeasement:')]/following-sibling::strong"));
-
-
     this.orderSelectGear = element(by.xpath("(//en-actions/button)[1]"));
     this.manualAlloactionButton = element(by.xpath("//li/button/span[text() = 'Manual Allocation']//parent::button"));
     //this.siteCheckBox = element(by.xpath("//div/div/span[text() = 'Joliet-DC']/parent::div/parent::div/preceding-sibling::div"));
     this.saveAndReleaseSalesOrderButton = element(by.xpath("//button/div[text() = 'Save and Release']//parent::button"));
-    this.cancelAllocation = element(by.xpath("//button/span[text() = 'Cancel']//parent::button"));
+	this.cancelAllocation = element(by.xpath("//button/span[text() = 'Cancel']//parent::button"));																							  
     this.orderStatusText = element(by.xpath("//en-label[@ng-if = 'salesOrder.data.header.status']/small"));
     this.allocatedSiteName = element(by.xpath("//section/div/b[text() = 'Site:']/parent::div"));
     this.markAsShippedButton = element(by.xpath("//li/button/span[contains(text(),'Mark As Shipped')]/parent::button"));
@@ -191,7 +192,23 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     this.saveChannelButton = element(by.xpath("//en-modal-footer/button[contains(text(),'Save')]"));
     this.searchBox = element(by.xpath("//form/en-field/en-input/input"));
     this.shipementRequestCount = element(by.xpath("//en-body/en-tabs/en-tab[@pane = 'shipReqPane']/en-label"));	
-	var common = require(process.cwd() + '/screens/commons.js');
+  //added by vishak
+    this.discountButtonInEditLine=element(by.xpath("//button[@class='trim button-md gradient-light block en-button']"));
+    this.shipmentStatusEditButton=element(by.xpath("//button[@class='en-button margin-right-sm trim']"))
+    this.shipmentStatusChangeConfirmation=element(by.xpath("//button[@class='text-center button-primary en-button']"));
+    this.shipmentstatus=element(by.xpath("//en-label[@class='margin-right ng-binding label-success']"));
+    this.shipaccount = element(by.model("shipAccount"));
+    this.cartTakeovereType = element(by.model("ref.type"));
+    this.selectINVfromSOscreen = element(by.model("inventoryCollection.checkAllModel"));
+    this.qtytoReject = element(by.xpath('//input[@name="itemQty"]'));
+    this.qtyRejectReasonCode = element(by.xpath('//select[@name="reasonCode"]'));
+    this.qtyRejectReason = element(by.xpath('//textarea[@name="reason"]'));
+    this.rejectButton = element(by.xpath('//button[@class="button text-center button-error en-button ng-scope"]'));
+    this.itemsPerPageDropdown = element(by.model("object.limit"));
+        
+    
+    
+	var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     this.unselectPkg = function(){
@@ -322,6 +339,7 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         this.closeFilter.click();
     }
     this.searchCustomer = function (customerCriteria, customerSearchValue) {
+        browser.driver.sleep(5000);
         this.searchCustomerTextbox.clear();
 
         for (var i = 0, len = customerSearchValue.length; i < len; i++) {
@@ -417,8 +435,12 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     }
 
     this.lineItemselectOptions = function (editLineOptions) {
+    	
+   
 
-        //this.editLineGearIcon.click();
+   //  this.editLineGearIcon.click();//till here
+        
+    	
         temp = "//button/span[contains(text(),'" + editLineOptions + "')]";
         if (editLineOptions == "Change Price")
             return element(by.xpath(temp)).click();
@@ -428,8 +450,9 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
             return element(by.xpath(temp)).click();
         } else if (editLineOptions == "Appeasement") {
             return element(by.xpath(temp)).click();
-
         }
+        else
+        	return element(by.xpath(temp)).click();
 
     }
     this.lineLevelAppeasement = function () {
@@ -501,6 +524,14 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         browser.sleep(1000);
         this.discountButton.click();
     }
+ 
+    this.discountButtonEditLine= function() {
+    	//this.editlinePopup.click();
+        browser.sleep(1000);
+    	this.discountButtonInEditLine.click();
+	}
+    
+    
     this.applyDiscount = function (discountType, discountAmtNumber, reason, description, notes) {
         browser.sleep(1000);
         temp = "//button/span[contains(text(),'" + discountType + "')]";
@@ -593,8 +624,8 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         }
     }
     this.discountViewNotes = function () {
-        //this.discountViewPlusIcon.click();
-        browser.sleep(3000);
+       // this.discountViewPlusIcon.click();// updated by vishak
+        browser.sleep(6000);
         this.discountViewButton.click();
     }
     this.appeasementViewNotes = function () {
@@ -602,11 +633,19 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         this.appeasementViewButton.click();
     }
     this.viewPlusIcon = function (lineViewDetails) {
-        temp = "//div[contains(@ng-if,'item.shipToAddressName')]//en-section//small[text()='" + lineViewDetails + "']";
-        if (lineViewDetails == "Discounts") {
+       //updated by Vishak // temp = "//div[contains(@ng-if,'item.shipToAddressName')]//en-section//small[text()='" + lineViewDetails + "']";
+
+    	if (lineViewDetails == "Discounts") {
+    		temp="(//en-icon[@icon='chevron-right'])[5]";
+            element(by.xpath(temp)).click(); 
+    		
+        } 
+   //need to check the code 	
+    	else if (lineViewDetails == "Appeasements") {
+        	
+        	temp="//en-section[@ng-if= 'item.lineAppeasements.length > 0']";
             element(by.xpath(temp)).click();
-        } else if (lineViewDetails == "Appeasements") {
-            element(by.xpath(temp)).click();
+            
         }
     }
     this.ViewNotesClose = function () {
@@ -638,7 +677,6 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
             browser.sleep(100);
 
         }
-
         element(by.xpath('//input[contains(@class, "adv-search-input")]')).sendKeys(protractor.Key.ENTER);
     }
     this.fulfillmentOrderSelectGear = function (selectOption) {
@@ -646,6 +684,8 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
         if (selectOption == "Create Shipment")
             return element(by.xpath(temp)).click();
+        else if(selectOption == "Mark As Shipped")
+        	return element(by.xpath(temp)).click();
         else {
             element(by.xpath(temp)).click();
             temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
@@ -692,16 +732,20 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         return element.all(by.xpath("//section[@ng-if='salesOrder.data.lineItems.length']//div[@layout='row']/en-label")).getText();
 
     }
-    this.addReferences = function (refNameCartId, cartIDValue) {
+    this.addReferences = function (type,refNameCartId, cartIDValue) {
+    	browser.sleep(4000);
         this.addReferenceBtn.click();
-        browser.sleep(1000);
-        this.refNameTextBox.clear();
+        browser.sleep(1000);        
+    	this.addnewreferencesbutton.click();
+    	this.cartTakeovereType.sendKeys(type);
+    	this.refNameTextBox.clear();
         this.refNameTextBox.sendKeys(refNameCartId);
         browser.sleep(1000);
         this.refValueTextBox.clear();
         this.refValueTextBox.sendKeys(cartIDValue);
         browser.sleep(1000);
         this.saveRefBtn.click();
+
     }
     this.cartTakeOver = function (cartIDValue) {
         this.cartTakeoverTextBox.clear();
@@ -749,9 +793,15 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         temp = "(//small[contains(text(),'" + amountType + "')]/following-sibling::strong)[" + lineItemAmt + "]";
         if (amountType == "Discounts") {
             return element(by.xpath(temp)).getText();
-        } else if (amountType == "Appeasements") {
+        }
+        else if (amountType == "Discount") {
             return element(by.xpath(temp)).getText();
         }
+        else if (amountType == "Appeasements") {
+            return element(by.xpath(temp)).getText();
+        }
+        else if(amountType =="Authorized: :")
+        	 return element(by.xpath(temp)).getText();
 
     }
     this.amtFromBilledDetails = function (amountType) {
@@ -761,7 +811,7 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
         } else if (amountType == "Appeasement:") {
             return element(by.xpath(temp)).getText();
         }else if (amountType == "Tax:"){
-            return element(by.xpath(temp)).getText();
+            return element(by.xpath(temp)).getText(); 
         }
     }
     this.orderAppeasementTxt = function () {
@@ -785,17 +835,20 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     this.shippedLineCount = function () {
         return this.lineShippedCount.getText();
     }
-    this.editLineGear = function (lineItemNumber) {
-        temp = "(//div[contains(@ng-if,'item.shipToAddressName')]//en-actions/button/en-icon)[" + lineItemNumber + "]";
+ /*//updated by vishak
+  *    this.editLineGear = function (lineItemNumber) {
+        temp = "(//button[@class='en-button text-right margin-left-xs button-primary trim'])[" + lineItemNumber + "]";
         return element(by.xpath(temp)).click();
 
     }
+ */   
     this.addNotes = function (textNote, textNoteType) {
+    	browser.sleep(5000)
         this.notesButton.click();
         browser.sleep(2000);
         this.noteText.sendKeys(textNote);
         this.noteType.sendKeys(textNoteType);
-        browser.sleep(2000);
+        browser.sleep(5000);
         this.notesCreateBtn.click();
     }
     this.notesView = function () {
@@ -819,12 +872,15 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     }
 
 	this.editLineGear = function (lineItemNumber) {
-        temp = "(//div[contains(@ng-if,'item.shipToAddressName')]//en-actions/button/en-icon)[" + lineItemNumber + "]";
+		browser.sleep(5000);
+        temp = "(//button/en-icon[@icon ='more-vertical'])[" + lineItemNumber + "]";
         return element(by.xpath(temp)).click();
     }											   
-																		this.lineItemselectOptions = function (editLineOptions) {
-
-        //this.editLineGearIcon.click();
+	this.lineItemselectOptions = function (editLineOptions) {
+		
+		//updated by vishak////
+	//	this.editLineGearIcon=element(by.xpath("//button[@class='en-button text-right margin-left-xs button-primary trim']"));
+     //   this.editLineGearIcon.click();//till here
         browser.sleep(3000);
         temp = "//button/span[contains(text(),'" + editLineOptions + "')]";
         if (editLineOptions == "Change Price")
@@ -835,9 +891,15 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
             return element(by.xpath(temp)).click();
         } else if (editLineOptions == "Appeasement") {
             return element(by.xpath(temp)).click();
-
         }
-	}
+        else if (editLineOptions == "VIEW") {
+    	
+        	return element(by.xpath(temp)).click();
+    	}
+        else
+        	return element(by.xpath(temp)).click();
+
+ 	}
 	
     this.clickOnPayButton = function () {
         return this.payButton.click();
@@ -1002,4 +1064,111 @@ this.changePriceButton = element(by.xpath("//span[contains(text(), 'Change Price
     {
         return this.taxamount.getText();
     }
+ 
+//Below functions are added by vishak
+    
+    this.packageTrackingNumber= function(number){
+    	this.trackingnumber.sendKeys(number);
+    }
+    
+    this.addDiscount = function (discountlinenumber){
+    	this.adddiscountBtn=element(by.xpath("(//span[contains(text(),'Add Discount')])["+discountlinenumber+"]"));
+    	this.adddiscountBtn.click();
+    	
+    }
+    
+  /*  this.changeShipmentStatus = function(){
+    	
+    	this.shipmentStatusEditButton.click();
+    }
+    */
+    this.fulfillmentOrderShipmentStatusChanage = function (selectOption) {
+    	this.shipmentStatusEditButton.click();
+        temp = "//span/li/button/span[text()='" + selectOption + "']/parent::button";
+        if(selectOption == "Mark As Shipped")
+        	return element(by.xpath(temp)).click();
+        else if(selectOption =="Create Shipment")
+        	return element(by.xpath(temp)).click();
+        else {
+            element(by.xpath(temp)).click();
+            temp = "//button/span[contains(text(),'" + selectOption + "')]/parent::button";
+            return element.all(by.xpath(temp)).get(1).click();
+        }
+    }
+    
+    this.shipmentChangeStatusConfimation = function(){
+    	
+    	this.shipmentStatusChangeConfirmation.click();
+    }
+    
+    this.shipmentStatusLabel = function(){
+    	return this.shipmentstatus.getText();
+    }
+    
+    this.shipAccountselect = function(account){
+    	
+    	this.shipaccount.sendKeys(account);
+    }
+    
+    this.selectItemFromSOScreen = function(){
+    	
+    	this.selectINVfromSOscreen.click();
+    }
+    this.shipmentLineReject = function(line) {
+	    shipmentLineRejectbutton = "(//button[@class='button-error button-xs margin-right-sm en-button'])";
+	    return element(by.xpath((shipmentLineRejectbutton)+"["+line+"]")).click();
+	   
+   }
+    this.ShipmentReject = function(qty,code,reason){
+    	
+    	this.qtytoReject.clear();
+    	browser.sleep(500)
+    	this.qtytoReject.sendKeys(qty);
+    	browser.sleep(500)
+    	this.qtyRejectReasonCode.sendKeys(code);
+    	browser.sleep(500)
+    	this.qtyRejectReason.sendKeys(reason);
+    	browser.sleep(500)
+    	this.rejectButton.click();
+    }
+    
+    this.multiplePackage = function(line,qty){
+ 	   packageqty = element(by.xpath("(//input[@ng-model='item.qtyInPackageDefault'])[" + line + "]"));
+ 	   packageqty.clear();
+        browser.sleep(1000);
+        return packageqty.sendKeys(qty);
+ 	   
+    }
+    
+ this.invSelection = function(line){
+    	
+    	temp=element(by.xpath("(//button[contains(text(),'Inventory Details')])["+line+"]"));
+    	return temp.click();
+    }
+
+ this.totalPaymentAmount = function(line){
+	 
+	 temp=element(by.xpath('(//en-item/div/div/div/div/div//strong[@class="ng-binding"])['+line+']'));
+	 return temp.getText();
+ }
+   
+ this.itemsPerPage = function(value){
+	 
+	 this.itemsPerPageDropdown.sendKeys(value);
+	 
+ }
+ this.selectAllSKU = function(){
+	 
+	 temp = element(by.xpath('//input[@ng-change="collectionCheckAll(skusCollection,0)"]'));
+	 return temp.click();
+	 
+ }
+ this.preseneceChecking = function(){
+	 
+	 temp=element(by.xpath('//div/div[@class="line-wrapper-inner"]'));
+	 var until = protractor.ExpectedConditions;
+	const prsence = until.visibilityOf(temp)
+	return browser.wait(prsence, 155000, 'SKUs are not loading as expected');
+ }
+    
 }

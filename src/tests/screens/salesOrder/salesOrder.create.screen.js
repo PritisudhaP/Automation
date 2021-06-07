@@ -7,7 +7,7 @@ module.exports =function(){
 
     this.shipCompleteEditButton = element(by.xpath('//en-icon[@en-tap="$root.editShipComplete=true"]'));
     this.shipCompleteSelectButton = element(by.xpath('//input[@name="shipComplete"]'));
-
+    this.carticonclickbutton=element(by.xpath("//en-icon[@icon='cart-plus']"));
 
     this.attachCustomerButton = element(by.xpath('//div/en-icon[@icon="customer"]'));
 	this.editLineIcon = element(by.xpath("(//div/en-actions/button/en-icon)[2]"));
@@ -39,7 +39,7 @@ module.exports =function(){
 
     this.useSuggestedAddressText = element(by.xpath('(//input[@data-ng-model="data.selectedAddress"])[1]/parent::label'));
     this.confirmCustomerAddressButton = element(by.xpath('//button/span[contains(text(),"Ok")]/parent::button'));
-
+    
     this.skuATSText = element(by.xpath('(//div[@class="en-collection-row"]/div[@ng-if="data.useInventory"])[3]'));
     this.errorTabText = element(by.xpath("//en-tab[contains(text(),'Errors')]/en-label"));
     this.selectGear =element(by.xpath("//button/en-icon[@icon='more-vertical']"));
@@ -132,7 +132,7 @@ module.exports =function(){
     this.presaleLabelAtProductSearch = element(by.xpath("//en-label[@ng-if='item.presale']/small"));
     this.presaleLabelAtskuresults = element(by.xpath("//en-label[@class='label-xs bold label-warn ng-scope']/small"));
 
-	var common = require(process.cwd() + '/screens/commons.js');
+	var common = require(process.cwd() + '/src/tests/screens/commons.js');
     // var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
     // Added by shyam
@@ -147,8 +147,34 @@ module.exports =function(){
     this.createbtn = element(by.xpath('//en-icon[@icon="doc-edit"]'));
     this.atsColumn = element(by.xpath('(//div[text()="ATS"])[1]'));
     this.searchOrder = element(by.model('apiSearchText.value'));
+       
+   //added By Vishak
+    this.salesOrderUnitPrice = element(by.xpath("//small[contains(text(),'Unit Price')]/following-sibling::small"));
     this.arrowUp = element(by.xpath('//en-icon[@icon="arrow-up"]'));
-
+    this.arrowDown = element(by.xpath('//en-icon[@icon="arrow-down"]'));
+    this.orderQtyButton  = element(by.xpath('(//div/div/div/span[@class="ng-binding"])[2]'));
+    this.incQuantity = element(by.model("product.item.itemQty"));
+    this.decQTYDisabledButton = element(by.xpath('//en-icon[@disabled="disabled"]'));
+    this.addSku = element(by.xpath("//button/span[contains(text(),'Add SKUs')]"));
+    this.useSelectedSKU = element(by.xpath("//button/span[contains(text(),'Add Skus')]"));
+    this.minimumSkuQTY = element(by.model("sku.qty"));
+    this.skuSearchButton = element(by.xpath("//button[contains(text(),'Search')]"));
+    this.entryAdjustmentButton =  element(by.xpath('//en-tab[@has-permission="InventoryPoolEntry:Update"]'));
+    this.adjustedQTY = element(by.model("entry.data.amountToAdjust"));
+    this.adjustmentReason = element(by.model("entry.data.description"));
+    this.fullfillmentTypeDropdown = element(by.model("product.item.fulfillmentType"));
+    this.availableStoreDropdown = element(by.model("product.item.fulfillmentSite"));
+    this.OrderatportalselectAllCheckbox = element(by.xpath('//div[@checkbox-value="item.id"]'));
+    this.truckIconatHeader = element(by.xpath('(//button/en-icon[@icon="truck"])[1]'));
+    this.pickupButton = element(by.xpath('(//button[@class="button-popover-dark trim en-button"])'));
+    this.pickedUpBy = element(by.model("data.pickUpDetails.pickedUpBy"));
+    this.verifiedWith = element(by.model("data.pickUpDetails.verificationProof"));
+    this.enterID = element(by.model("data.pickUpDetails.verificationID"));
+    this.pickupNote = element(by.model("data.pickUpDetails.notes"));
+    
+    
+    
+    //!*************************************************************************!// 
     this.clickonCreatebtn = function(){
         return this.createbtn.click();
     }
@@ -474,11 +500,7 @@ module.exports =function(){
     this.getBackOrderedCountOfTheLine = function(lineNumber){
         temp = "(//div/div/div[contains(@class , 'line-qty')]/div/div/small[contains(text(), 'BackOrdered')])["+lineNumber+"]";
         return element(by.xpath(temp)).getText();
-												
-												
-	   
-															   
-						   
+				   
     }
 																	   
 
@@ -803,5 +825,146 @@ module.exports =function(){
     {
      return this.addtoorderButton.click();
     }
+ //added by vishak      
+    this.cartIconClick =function(){
+    	
+    	return this.carticonclickbutton.click();
+    }
+    
+    this.getSalesOrderUnitPrice = function(){
+    	
+    	return this.salesOrderUnitPrice.getText();
+    } 
+    this.SaveAsDraft = function(){
+    	
+    	this.saveAsDraftButton.click();
+    }
+    
+    this.incrementQty = function(value){
+    	for(i=0;i<value;i++){
+    		browser.sleep(1000);
+    		this.arrowUp.click();
+       }
+    }
+    
+    this.decrementQTy = function(value){
+    	for(i=0;i<value;i++){   
+    		browser.sleep(2000);
+    	    this.arrowDown.click();
+    	}
+    }
+    this.OrderItemCount = function(){
+    	
+    	return this.orderQtyButton.getText();
+    }
+    
+    this.decrementQTYDisabled = function(){
+    	
+    	return this.decQTYDisabledButton.isPresent();
+    	
+    }
+    
+    this.ATSCountcheck = function(line){
+        temp = '(//div[@ng-if="pools.data"]/div/strong[@class="text-white ng-binding"])['+line+']';
+        return element(by.xpath(temp)).getText().then(function(count){
+            browser.driver.sleep(3000);
+            return parseInt(count);
+        });
+    }
+ 
+    this.ATSCountupdate = function(count){
+    	if(count==0)
+		{
+    		cancel= element(by.buttonText("Cancel"));
+    		return cancel.click();
+		}
+    	else{
+    		
+    		entryAdjustment = element(by.xpath('//en-tab[@has-permission="InventoryPoolEntry:Update"]')).click();
+    		qty = element(by.model("entry.data.amountToAdjust")).sendKeys(0);
+    		reason = element(by.model("entry.data.description")).sendKeys("Adjustment for partial return");
+    		cancel = element(by.buttonText("Save")).click();
+	
+    	}
+    }
+    
+    this.AddSkuOption = function(){
+    	
+    	this.addSku.click();
+    }
+  
+    this.SelectFirstSKU = function(line){
+    	
+    	element(by.xpath('(//input[@ng-model="checked"])['+line+']')).click();
+    	
+    }
+    
+    this.useSelectedSkuOption = function(){
+    	
+    	this.useSelectedSKU.click();
+    }
+   
+    this.minimumSkuQTYUpdate = function(){
+    	
+    	this.minimumSkuQTY.clear();
+    	this.minimumSkuQTY.sendKeys(0);
+    }
+   
+    this.skuSearch = function(){
+    	
+    	this.skuSearchButton.click();
+    	
+    }
+  
+    this.invCountcheck = function(){
+    	
+        InvCountLabel = '//div[@ng-if="pools.data "]/div/strong[@class="text-white ng-binding ng-scope"]';
+    	return element(by.xpath(InvCountLabel)).getText().then(function(count){
+            browser.driver.sleep(3000);
+            return parseInt(count);
+        });
+    }
+    
+    this.entryAdjustment = function(ATS,Adjustment,reason){
+    	
+    	this.entryAdjustmentButton.click();
+    	qty=Adjustment-ATS;//calculating the adjustment
+		this.adjustedQTY.sendKeys(qty);
+		this.adjustmentReason.sendKeys(reason);
+		browser.sleep(2000);
+		element(by.xpath("//button/span[contains(text(),'Save')]")).click();
+		
+    }
+    this.fullfillmentType = function(type){
+    	
+    	this.fullfillmentTypeDropdown.sendKeys(type);
+    	
+    }
+    
+    this.availableStore = function(store){
+    	
+    	 this.availableStoreDropdown.sendKeys(store);
+    }
+    this.orderSelectAllATV2Portal = function(){
+    	
+    	this.OrderatportalselectAllCheckbox.click();
+    	
+    }
+    
+    this.TruckIconHeaderClick = function(){
+    	this.truckIconatHeader.click();
+    	this.pickupButton.click();
+    	
+    }
+    
+    this.pickupDetails = function(name,id,number,note){
+    	
+    	this.pickedUpBy.sendKeys(name);
+    	this.verifiedWith.sendKeys(id);
+    	this.enterID.sendKeys(number);
+    	this.pickupNote.sendKeys(note);
+    	
+    }
+ 
 }
 

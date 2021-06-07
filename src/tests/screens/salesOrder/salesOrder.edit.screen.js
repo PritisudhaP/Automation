@@ -119,6 +119,17 @@ module.exports =function(){
     this.salesOrderGetCustomerNumber = function() {
         return this.salesOrderCustomerNumberText.getText();
     }
+    
+    this.orderQtyCheck = function(line){
+   
+    	temp = element(by.xpath('(//div[@class="line-qty is-clickable"]/div/div/small[@class="ng-binding"])['+line+']'))
+    	return temp.getText();
+    }
+ this.orderQtyCheckAfterRelease = function(line){
+    	
+    	temp = element(by.xpath('(//div[@class="line-qty"]/div/div/small[@class="ng-binding"])['+line+']'))
+    	return temp.getText();
+    }
 
 }
 
