@@ -294,7 +294,7 @@ describe("Normal Adjustment Request", function () {
 
 describe("Lot item Adjustment Request", function () {
 
-    it("Scenario 1: Validate error message for lotIdentifier:empty or null in lot item inventory adjusment request", done => {
+    xit("Scenario 1: Validate error message for lotIdentifier:empty or null in lot item inventory adjusment request", done => {
         var options = {
             method: 'POST',
             url: data.URL.InventoryAdjusment,
@@ -315,7 +315,7 @@ describe("Lot item Adjustment Request", function () {
         });
 
     });
-    it("Scenario 2:Validate error message for lotIdentifier: or test (doesn't exist) in lot item inventory adjusment request", done => {
+    xit("Scenario 2:Validate error message for lotIdentifier: or test (doesn't exist) in lot item inventory adjusment request", done => {
         var options = {
             method: 'POST',
             url: data.URL.InventoryAdjusment,
@@ -335,7 +335,7 @@ describe("Lot item Adjustment Request", function () {
             done();
         });
     });
-    it("Scenario 3:Validate error message by passing expirationDate:empty or null in lot inventory adjustment request", done => {
+    xit("Scenario 3:Validate error message by passing expirationDate:empty or null in lot inventory adjustment request", done => {
         var options = {
             method: 'POST',
             url: data.URL.InventoryAdjusment,
@@ -356,7 +356,7 @@ describe("Lot item Adjustment Request", function () {
         });
 
     });
-    it("Scenario 4:Validate error message by passing expirationDate:Invalid date in lot inventory adjustment request", done => {
+    xit("Scenario 4:Validate error message by passing expirationDate:Invalid date in lot inventory adjustment request", done => {
         var options = {
             method: 'POST',
             url: data.URL.InventoryAdjusment,
