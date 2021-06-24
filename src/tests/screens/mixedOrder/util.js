@@ -12,13 +12,13 @@ module.exports = {
 	fluentWaitForPresence : function(locValue)
 	{
 		var EC = protractor.ExpectedConditions;		// Waits for the element to be present in the dom.
-		browser.wait(EC.presenceOf(locValue),10000);
+		browser.wait(EC.presenceOf(locValue),30000);
 	},
 	
 	fluentWaitForClickable : function(locValue)
 	{
 		var EC = protractor.ExpectedConditions;		// Waits for the element to be clickable in the dom.
-		browser.wait(EC.elementToBeClickable(locValue),10000);
+		browser.wait(EC.elementToBeClickable(locValue),30000);
 	},
 	
 	handleAppAlert : function()
@@ -86,6 +86,7 @@ module.exports = {
 	    	});
 		
 	},
+	
 	
 	getRMANo : function(filename, popUpText)
 	{

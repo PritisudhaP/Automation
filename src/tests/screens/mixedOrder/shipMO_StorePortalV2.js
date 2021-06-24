@@ -79,18 +79,18 @@ module.exports = {
 		    		}
     		    	
 	   				browser.waitForAngularEnabled(true);
-	   				if(i == 0 && moScenario == 6)
-    				{
-    					element(by.xpath('(//*[@class="en-collection-row"])[1]')).click();
-    				}
-	   				else if(i == 0)
-    				{
-    					element(by.xpath('(//*[@class="en-collection-row"])[2]')).click();
-    				}
-    				else
-					{
-    					storePortalLoc.selectPendingFR.click();
-					}
+//	   				if(i == 0 && moScenario == 6)
+//    				{
+//    					element(by.xpath('(//*[@class="en-collection-row"])[1]')).click();
+//    				}
+//	   				else if(i == 0)
+//    				{
+//    					element(by.xpath('(//*[@class="en-collection-row"])[2]')).click();
+//    				}
+//    				else
+//					{
+    				storePortalLoc.selectPendingFR.click();
+//					}
     					
 					storePortalLoc.orderCheckBox.click();
 			    	storePortalLoc.acceptOrderBtn.click();
@@ -126,8 +126,8 @@ module.exports = {
 			    	if(moScenario == 2)						
 		    		{
 			    		browser.sleep(1500);
-//			    		storePortalLoc.rejectReason.sendKeys("Product Damaged");	//New Version
-//			    		storePortalLoc.rejectComment.sendKeys("QA Automation");		//New Version
+			    		storePortalLoc.rejectReason.sendKeys("Product Damaged");	//Comment for Old Version
+			    		storePortalLoc.rejectComment.sendKeys("QA Automation");		//Comment for Old Version
 		    		   	storePortalLoc.confirmCompleteFFBtn.click();
 		    		}
 			    	
