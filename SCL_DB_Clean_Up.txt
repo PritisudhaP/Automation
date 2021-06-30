@@ -4,7 +4,7 @@ use app-scl164
 db.inventoryPoolEntry.remove({"productIdentifier":{$in:["B4","BBB5","BJER3","BR","DAMAGED-BR","DAMAGED-FM","sarathSCLProduct0001","sarathSCLProduct0002","CB","DAMAGED-ER","sarathP1"]}});
 db.product.remove({"refName":{$in:["sarathproducttc0001","sarathp1"]}});
 db.sku.remove({"refName":{$in:["sarathp1","sarathp2"]}});
-
+//Karthik
 
 ==== DB Clean Up Responses =====
 
