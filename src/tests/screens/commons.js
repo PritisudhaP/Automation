@@ -198,8 +198,8 @@ module.exports =function(){
 
 
     this.search = function(){
-        // this.searchButton.click();
-        $('body').sendKeys(protractor.Key.ENTER);
+         this.searchButton.click();
+        //$('body').sendKeys(protractor.Key.ENTER);
     }
 
     this.removeSearchFilter = function(){
@@ -304,4 +304,17 @@ module.exports =function(){
    this.back = function(){
        return this.chevronBackBtn.click();
    }
+	//Added By vishak
+   
+   this.pageHeader = function(title){
+	   temp = element(by.xpath("(//en-title[contains(text(),'"+title+"')])[1]/parent::div"));
+	   temp.click();
+   }
+   
+   this.page = function(title){
+	   temp = element(by.xpath("//div/h2[contains(text(),'"+title+"')]/parent::div"));
+	   temp.click();
+
+	   
+   }			  
 }

@@ -109,8 +109,8 @@ module.exports =function(){
     this.cardExpMonth = element(by.model("payment.expMonth"));
     this.cardExpYear = element(by.model("payment.expYear"));
     this.paymentSubmitButton = element(by.xpath("//button/span[contains(text(),'Submit')]"));
-    
-    
+    this.lineselect = element(by.xpath('//div/div[@class="en-collection-row"]'));
+    this.jobDefinition = element(by.xpath('//en-tab[@data-state="definitions"]'));
     
 //////////*******************END OF LOCATORS****************************************//////
     
@@ -425,8 +425,18 @@ this.clickOnStatustext = function(){
  }
  
  this.CNFButton = function(){
-	 
-	 return this.cnfButtonClick.click();
+	// return this.cnfButtonClick.click();
+element(by.xpath("//Button/span[contains(text(),'Confirm')]")).isPresent().then(function(result) {
+		    if ( result ) {
+		        
+		   	  this.cnfButtonClick.click();
+		    	
+		    } else {
+		    	
+				 console.log("confirm button not avilable ")
+
+		    }
+	    });
  }
  
  this.OrderStatusDetails = function(line){
@@ -577,6 +587,7 @@ this.cancelAllLines= function(){
 			 this.cardExpYear.sendKeys(browser.params.expYear);
 			 browser.sleep(500);			 
 			 this.paymentSubmitButton.click();
+		     browser.sleep(8000);
 		 
 		}
 		else{
@@ -591,4 +602,127 @@ this.cancelAllLines= function(){
 		temp=element(by.xpath('//table/tbody/tr/td/span[@class="ng-binding ng-scope"]'));
 		return temp.getText();
 	}
+ this.orderRelease = function(value,line){
+		 
+		 temp ="(//button/span[contains(text(),'"+value+"')])["+line+"]";
+		 element(by.xpath(temp)).click();
+		 
+	 }
+	 this.lineamount = function (name,line) {
+		 temp=element(by.xpath("(//small[contains(text(),'"+name+"')]/following-sibling::small)["+line+"]"));
+		 return temp.getText();
+	
+	 }
+	 
+	 this.orderAmount = function (name,line) {
+		 temp=element(by.xpath("(//small[contains(text(),'"+name+"')]/following-sibling::strong)["+line+"]"));
+		 return temp.getText();
+	
+	 }
+	 
+	 this.Totalamount = function (name,line) {
+		 temp=element(by.xpath("(//strong[contains(text(),'"+name+"')]/following-sibling::strong)["+line+"]"));
+		 return temp.getText();
+	 }
+	 this.viewShipmentVisibility = function(){
+		 element(by.xpath('//button[@ng-show="finalShipment.data"]')).isPresent().then(function(result) {
+			    if ( result ) {
+			        
+			    	temp=element(by.xpath('//button[@ng-show="finalShipment.data"]'));
+					 temp.click();
+					 element(by.xpath('//button[@data-dismiss="alert"][1]')).click();
+					 element(by.xpath('//button[@data-dismiss="alert"][1]')).click();
+			    	
+			    } else {
+			    	
+					 console.log("no view shipment available")
+
+			    }
+			});
+		 
+	 }
+	this.invoiceSelect = function(){
+		
+		this.lineselect.click();
+	}
+	this.invoiceamount = function(name,line){
+		if(name=="price"){
+			temp=element(by.xpath('(//div/div[@class="ng-binding"])['+line+']'));
+			return temp.getText();
+		}
+		else if (name=="tax"){
+			temp=element(by.xpath('(//div/div[@class="ng-binding ng-scope"])['+line+']'));
+			return temp.getText();			
+		}
+		else if (name=="all"){
+			temp=element(by.xpath('(//div/div/strong[@class="ng-binding"])['+line+']'));
+			return temp.getText();
+		}	
+		else if (name=="total"){
+			temp=element(by.xpath('(//en-item/strong[@class="text-right ng-binding"])['+line+']'));
+			return temp.getText();
+		}	
+	}
+	
+	this.storeportalLineClick = function () {
+		
+		
+		temp = '//div[@class="en-collection-row"]'
+		element(by.xpath(temp)).click();
+	}
+	
+	this.salesOrderPane = function (pane) {
+		
+		
+		temp=element(by.xpath("//en-tab[contains(text(),'"+pane+"')]"));
+		temp.click();
+		
+	}
+	
+	this.logsLine = function (line) {
+		temp=element(by.xpath('(//en-title/span[@class="ng-binding"])['+line+']'));
+		temp.click();
+		
+	}
+	
+	this.logsPaneData = function (line) {
+		
+		temp=element(by.xpath('(//div/pre/small[@ng-bind-html="item1.log"])['+line+']'));
+		return temp.getText();		
+	}
+
+	this.jobExecution = function(){
+	   
+	   this.jobDefinition.click();
+	   
+	}
+   
+	this.shippingInfo = function (line) {
+    	
+    	temp=element(by.xpath('(//strong[@class="ng-binding ng-scope"])['+line+']'));
+    	return temp.getText();
+		
+     }
+	this.collapseIcon = function(line){
+		
+		temp = element(by.xpath('(//en-icon[@icon="chevron-right"]/parent::en-collapse-trigger)['+line+']'));
+		temp.click();
+	}
+	this.shipmentRequestInfo = function(line){
+		
+		temp = element(by.xpath('(//section/div[@class="ng-binding"])['+line+']'));
+		return temp.getText();
+		
+	}
+	this.trackingAndInvoice = function(line){
+		temp = element(by.xpath('(//span[@class="ng-scope"])['+line+']'));
+		return temp.getText();
+		
+	}
+	
+	this.fulFillmentNumber = function(line){
+		
+		temp = element(by.xpath('(//section/div/a[@class="ng-binding"])['+line+']'));
+		return temp.getText();
+		
 }

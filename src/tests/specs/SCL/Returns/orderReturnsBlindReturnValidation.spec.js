@@ -68,7 +68,7 @@ describe("Order returns : ", function() {
 //end                   
             returnsCreate.productLookup();
             browser.sleep(1000);
-            returnsCreate.productSearchScreen("AcuSKU11");
+            returnsCreate.productSearchScreen(browser.params.searchValueSKU1);
             browser.sleep(1000);
             returnsCreate.BlindReturnSelectProduct();
             browser.sleep(1000);
@@ -81,7 +81,7 @@ describe("Order returns : ", function() {
             browser.refresh();
             browser.sleep(3000);
             returnsCreate.productLookup();
-            returnsCreate.productSearchScreen("AcuSKU11");
+            returnsCreate.productSearchScreen(browser.params.searchValueSKU1);
             browser.sleep(1000);
             returnsCreate.BlindReturnSelectProduct();
             browser.sleep(1000);

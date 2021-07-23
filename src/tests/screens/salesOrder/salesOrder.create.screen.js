@@ -171,7 +171,8 @@ module.exports =function(){
     this.verifiedWith = element(by.model("data.pickUpDetails.verificationProof"));
     this.enterID = element(by.model("data.pickUpDetails.verificationID"));
     this.pickupNote = element(by.model("data.pickUpDetails.notes"));
-    
+    this.reasondropdown = element(by.model("modalObject.reasonCode"));
+    this.rejectComments =  element(by.model("modalObject.reason"));
     
     
     //!*************************************************************************!// 
@@ -965,6 +966,25 @@ module.exports =function(){
     	this.pickupNote.sendKeys(note);
     	
     }
- 
+	this.FRReject = function(reason,comment){
+    	element(by.model("modalObject.reasonCode")).isPresent().then(function(result) {
+	    if ( result ) {
+	        
+	    	this.reasondropdown.sendKeys(reason);
+	    	this.rejectComments.sendKeys(comment);
+	    	
+	    } else {
+	    	
+			 console.log("Reject reason pop up not avilable")
+	    	}
+    	});
+    }
+    this.incQuantity = function(value,line){
+    	temp = element(by.xpath('//en-icon[@icon="arrow-up"]['+line+']'));
+    	for(i=0;i<(value-1);i++){
+    		browser.sleep(1000);
+    		temp.click();
+       }
+    }										 
 }
 

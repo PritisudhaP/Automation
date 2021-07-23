@@ -359,29 +359,38 @@ module.exports =function(){
     	
     	this.rmaSubmitButton.click();
     }
-    
-    this.startingReturnInvoiceRoute = function() {
-    	
-    	//status=element(by.xpath('//*[@id="RouteDefCollection_collectionBody"]/div/div/div/div[5]/en-label')).getText().toString();
-    	//console.log("the status is "+status)
-    	//if(status =="STOPPED")
-    	//{
-    		this.returnsinvoiceroute.click();
-    //	}
-    	//else if(status =="STARTED")
-    	//{
-    	//	stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])[2]'));
-    //		browser.sleep(2000);
-    //		this.returnsinvoiceroute.click();
-    		
-    //	}
+	this.startingReturnInvoiceRoute = function(status,line) {
+    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
+    	if(status=="STARTED"){
+    		console.log("the Route is already started");
+							 
+		
+									   
+		 }
+		 else if(status=="STOPPED"){
+		
+																						  
+							
+	    	 temp.click();
+	    	 console.log("Starting the route");
+		 }
     }
+
     
- this.stoppingRoute = function(line) {
+	this.stoppingRoute = function(line) {
 	 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
     	stopreturnsinvoiceroute.click();
     }
-    
+ this.StopRoute = function(status,route){
+	 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+route+']'));
+		if(status=="STARTED"){
+		     stopreturnsinvoiceroute.click();
+		 }
+		 else if(status=="STOPPED"){
+			 
+			 console.log("the Route is already stopped");
+		 }
+ 	}
     this.returnedRmaQty = function(){
     	this.returnedQTY.getText();
     }
@@ -711,5 +720,16 @@ module.exports =function(){
 		  error=element(by.xpath('//en-alert[@class="alert-error ng-binding"]'));
 		  return error.isPresent();		  
 	  }
-	  
+	  this.RMAPresence = function(){
+			 
+			temp=element(by.xpath("//en-content/b[@class='ng-binding']"));
+			var until = protractor.ExpectedConditions;
+			const prsence = until.visibilityOf(temp)
+			return browser.wait(prsence, 5000, 'RMA Number not generatedSucessfully');
+		 }	  
+ this.multipleReturnItemAlert = function(){
+		  
+		  error=element(by.xpath('//div[@class="growl-item alert ng-scope alert-error alert-danger icon alert-dismissable"]'));
+		  return error.isPresent();		  
+	  }							 
 }

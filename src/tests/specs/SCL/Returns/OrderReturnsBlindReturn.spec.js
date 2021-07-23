@@ -40,7 +40,7 @@ describe("Order returns : ", function() {
             browser.sleep(1000);
             returnsCreate.productLookup();
             browser.sleep(2000);
-            returnsCreate.productSearchScreen("AcuSKU11");
+            returnsCreate.productSearchScreen(browser.params.searchValueSKU1);
             browser.sleep(1000);
             returnsCreate.BlindReturnSelectProduct();
             browser.sleep(1000);

@@ -31,7 +31,6 @@ describe("Fulfillment return : ", function() {
     	
     	 browser.get(FRReturnsUrl);
          browser.driver.manage().window().maximize();
-         browser.sleep(4000);
      //total display validation    
          returnsSummary.totalResults().then(function (total) {
          	rslt = total.substring(0, 5);
@@ -41,32 +40,25 @@ describe("Fulfillment return : ", function() {
 
 	            });
    //customer ID search      
-         browser.sleep(3000);
+         browser.sleep(1000);
          commons.searchWithCriteria('Customer ID', 'starts with',browser.params.customerId);
-         browser.sleep(3000);
          expect(returnsSummary.FRReturnsSearchFilter()).toBe(true);
          browser.refresh();
          
     //customer Name search      
-         browser.sleep(3000);
+         browser.sleep(1000);
          commons.searchWithCriteria('Customer Name', 'starts with',browser.params.custFirstName);
-         browser.sleep(3000);
          expect(returnsSummary.FRReturnsSearchFilter()).toBe(true);  
          browser.refresh();
   //customer ID search for more than one customer and advanced criteria     
-         browser.sleep(3000);
+         browser.sleep(1000);
          commons.searchWithCriteria('Customer ID', 'contains',browser.params.customerId2);
-         browser.sleep(3000);
          returnsSummary.selectAllResultFromListCheck();
-         browser.sleep(2000);
          returnsSummary.advancedsearchClick();
          browser.sleep(1000);
         // expect(returnsSummary.advancedTabDetails()).toEqual(2);
-         browser.sleep(2000);
          returnsSummary.deleteTheAdancedCriteria(2);
-         browser.sleep(2000);
          commons.search();
-         browser.sleep(000);
          expect(returnsSummary.searchValidation(browser.params.advancesearchName)).toBe(false);
  
          /*   
@@ -111,35 +103,22 @@ describe("Fulfillment return : ", function() {
     	
     	browser.get(callCenterInventoryUrl);
         browser.driver.manage().window().maximize();
-        browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
+        browser.sleep(1000);
         callCenter.attachCustomer();
-        browser.sleep(3000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);
         callCenter.editLineGear("3");
-        browser.sleep(1000);
         callCenter.lineItemselectOptions("Edit Line");
-        browser.sleep(1000);
         callCenter.editSKUQuantity("4");
-        browser.sleep(2000);
         callCenter.editLinePopUpSaveBtn();
-        browser.sleep(2000);
         callCenter.editLineGear("3");
-        browser.sleep(1000);
         callCenter.lineItemselectOptions("Change Price");
-        browser.sleep(2000);
         callCenter.changingUnitPrice("25.99");
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
         browser.sleep(3000);
@@ -148,7 +127,11 @@ describe("Fulfillment return : ", function() {
             SONumber = value;
             console.log("sales order number"+SONumber);
         });
-
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
         browser.sleep(2000);
         callCenter.editLineGear("3");
         callCenter.lineItemselectOptions("Edit Line");
@@ -179,32 +162,20 @@ describe("Fulfillment return : ", function() {
             unitprice = parseFloat(res);
             console.log(unitprice);
         });
-        
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
+        callCenter.editLineGear("1");
+        callCenter.lineItemselectOptions("Release");
+        salesOrderSummary.orderRelease("Release",2);     
+        expect(salesOrderSummary.OrderStatusDetails(1)).toEqual("RELEASED"); 
+        //!*********fulfillment request**********!//
         browser.wait(function () {
             return SONumber != '';
-        }).then(function () {
-            browser.get(callCenterSalesOrdersListUrl);
-            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            //commons.multiselect();
-            browser.sleep(2000);
-            salesOrderSummary.salesOrderSelectGear("Release");
-            browser.sleep(3000);
-            expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-            salesOrderSummary.salesOrderStatus().then(function (status) {
-                orderStatus = status;
-                console.log("the status of the order #"+SONumber+" is: "+orderStatus);
-
-
-            });
-            //!*********fulfillment request**********!//	         
-            browser.get(fulfillmentRequestsUrl);
+        }).then( function () {
+	        callCenter.fullFillmentPage();
+	        callCenter.page("Fulfillment Requests");
             console.log("the sale sorder is "+SONumber)
-            browser.sleep(2000);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            browser.sleep(3000); 
             callCenter.fulfillmentOrderSelectGear("Create Shipment");
-            browser.sleep(3000);
             callCenter.shipAccountselect(browser.params.shipaccount);
             browser.sleep(2000);
             callCenter.packageSelection(browser.params.packageValue);
@@ -212,27 +183,23 @@ describe("Fulfillment return : ", function() {
             callCenter.packageTrackingNumber(1236547890);
             browser.sleep(2000);
             callCenter.enterItemQty("4");
-            browser.sleep(2000);
-            callCenter.unselectPkg();
+          //  callCenter.unselectPkg();
             browser.sleep(2000);
             callCenter.addPackageToShipment();
             browser.sleep(2000);
             callCenter.finalizeShipment();
-            browser.sleep(2000);
-          /*  callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+            browser.sleep(5000);
+            salesOrderSummary.viewShipmentVisibility();
+            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
             browser.sleep(1500);
             callCenter.shipmentChangeStatusConfimation();
             browser.sleep(3000);
-          
-            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);	                    	
- */
+           // expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);	                    	
         })
-        
         /***Fulfillment returns****/
         browser.wait(function () {
             return SONumber != '';
         }).then( function () {
-        	
         browser.get(FRReturnsUrl);
         browser.sleep(3000);
         console.log("the sale sorder # in returns screen "+SONumber);

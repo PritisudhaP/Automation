@@ -205,7 +205,8 @@ module.exports = function () {
     this.qtyRejectReason = element(by.xpath('//textarea[@name="reason"]'));
     this.rejectButton = element(by.xpath('//button[@class="button text-center button-error en-button ng-scope"]'));
     this.itemsPerPageDropdown = element(by.model("object.limit"));
-        
+    this.fullFillmentPageHeader = element(by.xpath('//en-icon[@icon="truck"]/parent::div'));
+	this.ordersPageHeader = element(by.xpath('(//en-icon[@icon="invoice"]/parent::div)[1]'));    
     
     
 	var common = require(process.cwd() + '/src/tests/screens/commons.js');
@@ -1106,8 +1107,15 @@ module.exports = function () {
     }
     
     this.shipAccountselect = function(account){
-    	
-    	this.shipaccount.sendKeys(account);
+	//this.shipaccount.sendKeys(account);
+    	browser.sleep(1500);
+    	element(by.xpath('//select[@name="shipAccount"]')).isPresent().then(function(result) {
+		    if ( result ) {
+		    	temp=element(by.xpath('//select[@name="shipAccount"]'));
+				 temp.sendKeys(account);
+		    } else {
+				 console.log("No ship acount found")
+		    }
     }
     
     this.selectItemFromSOScreen = function(){
@@ -1157,11 +1165,9 @@ module.exports = function () {
 	 this.itemsPerPageDropdown.sendKeys(value);
 	 
  }
- this.selectAllSKU = function(){
-	 
+ this.selectAllSKU = function(){ 
 	 temp = element(by.xpath('//input[@ng-change="collectionCheckAll(skusCollection,0)"]'));
 	 return temp.click();
-	 
  }
  this.preseneceChecking = function(){
 	 
@@ -1170,5 +1176,22 @@ module.exports = function () {
 	const prsence = until.visibilityOf(temp)
 	return browser.wait(prsence, 155000, 'SKUs are not loading as expected');
  }
+ 
+  this.fullFillmentPage = function () {
+			
+		  this.fullFillmentPageHeader.click();
+	}
+    
+	 this.page = function(name){
+		 
+		 temp= element(by.xpath("//div/h2[contains(text(),'"+name+"')]/parent::div"));
+		 temp.click();
+
+	 }
+	 this.OrdersPage = function () {
+
+		 this.ordersPageHeader.click();
+		 
+	}
     
 }

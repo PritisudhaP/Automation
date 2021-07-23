@@ -31,25 +31,17 @@ describe("Order returns : ", function() {
 	    var commons = new common();
 
         it('Order returns full QTY - TC0004', function(){
-        	browser.get(callCenterInventoryUrl);
-	        browser.driver.manage().window().maximize();
-	        browser.sleep(2000);
+        	browser.get(callcenterorder);
+			browser.driver.manage().window().maximize();
 	        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
 	        callCenter.selectSKUFromSearch();
-	        browser.sleep(2000);
 	        commons.search();
-	        browser.sleep(2000);
 	        callCenter.selectSKUFromResults();
-	        callCenter.addToOrder();
-	        browser.sleep(3000);
+	        callCenter.addToOrderFromSalesOrder();
 	        callCenter.attachCustomer();
-	        browser.sleep(4000);
 	        callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-	        browser.sleep(3000);
 	        salesOrderCreate.selectCustomer();
-	        browser.sleep(2000);
 	        salesOrderCreate.useSelectedCustomer();
-	        browser.sleep(3000);	       
 	        //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 	        browser.sleep(300);
 	        salesOrderCreate.saveOption("Save");
@@ -57,55 +49,44 @@ describe("Order returns : ", function() {
 	            SONumber = value;
 	            console.log("sales order number"+SONumber);
 	        });
-
-	        browser.sleep(2000);
-	        
+	        	salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+				savedStatus = value;
+			    console.log("the orderstatus is "+savedStatus);	
+			    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+			});		
 	        //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
+	        callCenter.editLineGear("1");
+	        callCenter.lineItemselectOptions("Release");
+	        salesOrderSummary.orderRelease("Release",2);     
+	        expect(salesOrderSummary.OrderStatusDetails(1)).toEqual("RELEASED"); 
+	        //!*********fulfillment request**********!//
 	        browser.wait(function () {
 	            return SONumber != '';
-	        }).then(function () {
-	            browser.get(callCenterSalesOrdersListUrl);
-	            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-	            //commons.multiselect();
-	            browser.sleep(3000);
-	            salesOrderSummary.salesOrderSelectGear("Release");
-	            browser.sleep(3000);
-	            expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-	            salesOrderSummary.salesOrderStatus().then(function (status) {
-	                orderStatus = status;
-	                console.log("the status of the order #"+SONumber+" is: "+orderStatus);
-
-
-	            });
-
-	            //!*********fulfillment request**********!//
-	         
-	            browser.get(fulfillmentRequestsUrl);
+	        }).then( function () {
+		        callCenter.fullFillmentPage();
+		        callCenter.page("Fulfillment Requests");
 	            console.log("the sale sorder is "+SONumber)
-	            browser.sleep(2000);
 	            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-	            browser.sleep(3000);
 	            callCenter.fulfillmentOrderSelectGear("Create Shipment");
-	            browser.sleep(3000);
 	            callCenter.shipAccountselect(browser.params.shipaccount);
 	            browser.sleep(2000);
 	            callCenter.packageSelection(browser.params.packageValue);
-	            browser.sleep(5000);
+	            browser.sleep(1000);
 	            callCenter.packageTrackingNumber(1236547890);
 	            callCenter.enterItemQty("1");
 	            browser.sleep(3000);
 	            callCenter.unselectPkg();
-	            browser.sleep(3000);
+	           // browser.sleep(3000);
 	            callCenter.addPackageToShipment();
 	            browser.sleep(3000);
 	            callCenter.finalizeShipment();
 	            browser.sleep(5000);
-	           /* callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+	            salesOrderSummary.viewShipmentVisibility();
+	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
 	            browser.sleep(1500);
 	            callCenter.shipmentChangeStatusConfimation();
 	            browser.sleep(5000);  
 	            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
-	           */         	
 	        });
         	
         ///******orders Returns************///	
@@ -117,7 +98,7 @@ describe("Order returns : ", function() {
             browser.waitForAngular();
             returnsCreate.orderReturn(); 
             commons.customerLookup();
-            commons.searchWithCriteria("Customer Contact First Name","contains","Alice");
+            commons.searchWithCriteria("Customer Contact First Name","contains",browser.params.custFirstName);
             returnsCreate.selectCustomer();
             returnsCreate.useSelectedCustomer();
             browser.sleep(2000);
@@ -125,7 +106,7 @@ describe("Order returns : ", function() {
             browser.sleep(4000);
             returnsCreate.selectAllLineitem();
             browser.sleep(4000);
-            returnsCreate.returnLocationSelect("Joliet-DC");
+            returnsCreate.returnLocationSelect(browser.params.retruninglocation1);
             browser.sleep(3000);
             returnsCreate.saveReturns();             
             //returnsCreate.returnReason("1", "DAMAGED");
@@ -150,11 +131,6 @@ describe("Order returns : ", function() {
                 console.log(RMANumber); 
                 returnsSummary.returnsSearch("RMA Number", RMANumber);
                 browser.sleep(2000);
-               // returnsSummary.returnsSelectGear("Release");
-                //returnsSummary.returnsSearchRemove("1");
-                //console.log("the status of the RMA #"+ RMANumber+"is "+returnsSummary.returnsStatus());
-               // expect(returnsSummary.returnsStatus()).toEqual('RELEASED');
-                
                 returnsSummary.returnsStatus().then(function (status) {
                 	orderReturnReleaseStatus = status;
 	                console.log("the status of the RMA #"+ RMANumber+"is "+orderReturnReleaseStatus);
@@ -163,8 +139,6 @@ describe("Order returns : ", function() {
 	            });
                 
                 browser.sleep(2000);
-               // returnsEdit.selectRMALineCheckboxForReceive();
-                //browser.sleep(2000);
                 returnsEdit.selectRMALineClickForReceive();
                 browser.sleep(2000);
                 callCenter.editLineGear("1")
@@ -179,7 +153,6 @@ describe("Order returns : ", function() {
             browser.wait(function() {
                 return RMANumber != '';
             }).then(function() {
-            	
             	browser.get(returnsUrl);
                 console.log(RMANumber); 
                 returnsSummary.returnsSearch("RMA Number", RMANumber);
@@ -190,9 +163,8 @@ describe("Order returns : ", function() {
 		            expect(orderReturnStatus).toEqual('RECEIVED');
 
 	            });
-            	
-            }); 
-             
+            });            
+                        
       });
         
 })

@@ -24,35 +24,23 @@ describe("Fulfillment return : ", function() {
     it('Partially Shipped- TC0009', function(){
     	
     	browser.get(callCenterInventoryUrl);
-        browser.driver.manage().window().maximize();
-        browser.sleep(2000);
+        browser.driver.manage().window().maximize(); browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
+        browser.sleep(1000);
         callCenter.attachCustomer();
-        browser.sleep(4000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);	       
         //commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
         salesOrderSummary.salesOrderSearch("SKU", browser.params.searchValueSKU2);
-        browser.sleep(3000);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectItemFromSOScreen();
-        browser.sleep(2000);
         callCenter.addToOrderFromSalesOrder();
-        browser.sleep(2000);
       //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
         browser.sleep(300);
         salesOrderCreate.saveOption("Save");
@@ -61,52 +49,44 @@ describe("Fulfillment return : ", function() {
             console.log("sales order number"+SONumber);
         });
         browser.sleep(2000);
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
+        callCenter.editLineGear("1");
+        callCenter.lineItemselectOptions("Release");
+        salesOrderSummary.orderRelease("Release",2);     
+        expect(salesOrderSummary.OrderStatusDetails(1)).toEqual("RELEASED"); 
+        //!*********fulfillment request**********!//
         browser.wait(function () {
             return SONumber != '';
-        }).then(function () {
-            browser.get(callCenterSalesOrdersListUrl);
-            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            //commons.multiselect();
-            browser.sleep(3000);
-            salesOrderSummary.salesOrderSelectGear("Release");
-            browser.sleep(3000);
-            expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-            salesOrderSummary.salesOrderStatus().then(function (status) {
-                orderStatus = status;
-                console.log("the status of the order #"+SONumber+" is: "+orderStatus);
-            });
-            
-          //!*********fulfillment request**********!//	         
-            browser.get(fulfillmentRequestsUrl);
+        }).then( function () {
+	        callCenter.fullFillmentPage();
+	        callCenter.page("Fulfillment Requests");
             console.log("the sale sorder is "+SONumber)
-            browser.sleep(2000);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            browser.sleep(3000);
             returnsCreate.selectShipmentLine();
-            browser.sleep(3000);
             callCenter.shipmentLineReject("2");
-            browser.sleep(2000);
             callCenter.ShipmentReject(1,"Product Damaged","This is a test");
-            browser.sleep(2000);
             callCenter.fulfillmentOrderShipmentStatusChanage("Create Shipment")
-            browser.sleep(3000);
+            browser.sleep(1000);
             callCenter.shipAccountselect(browser.params.shipaccount);
-            browser.sleep(2000);
             callCenter.packageSelection(browser.params.packageValue);
-            browser.sleep(3000);
             callCenter.packageTrackingNumber(1236547890);
             callCenter.enterItemQty("1");
-            browser.sleep(3000);
-            callCenter.unselectPkg();
-            browser.sleep(3000);
+            //callCenter.unselectPkg();
             callCenter.addPackageToShipment();
-            browser.sleep(3000);
             callCenter.finalizeShipment();
-            browser.sleep(3000);       
+            browser.sleep(5000);
+            salesOrderSummary.viewShipmentVisibility();
+            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+            browser.sleep(1500);
+            callCenter.shipmentChangeStatusConfimation();
+            browser.sleep(5000);
             browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            browser.sleep(3000);
             expect(salesOrderSummary.salesOrderStatus()).toEqual('PARTIALLY SHIPPED');
             salesOrderSummary.salesOrderStatus().then(function (status) {
                 orderStatus = status;
@@ -122,29 +102,20 @@ describe("Fulfillment return : ", function() {
         browser.sleep(3000);
         console.log("the sale sorder # in returns screen "+SONumber);
         commons.searchWithCriteria('Order #', 'ends with', SONumber);
-        browser.sleep(3000);
         returnsCreate.orderSelectForReturnClick();
-        browser.sleep(4000);
         commons.search();
-        browser.sleep(3000);
         returnsCreate.orderSelectForReturnCheckBox();
-        browser.sleep(3000);
         returnsCreate.OrderSelectionButtonCartIcon();
-        browser.sleep(3000);
         returnsCreate.EditLine();
-        browser.sleep(3000);
         returnsCreate.addFRDisposition();
         browser.sleep(2000);
         returnsCreate.linedispositionDetails(1, "DAMAGED", "this is a test");
-        browser.sleep(3000);
         commons.save(); //saving the returning line
-        browser.sleep(3000);	        
+        browser.sleep(1000);	        
         returnsCreate.RMASubmit();
         browser.sleep(2000); 
         browser.get(callCenterReturnsUrl);
-        browser.sleep(3000);
         salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-        browser.sleep(3000);
         returnsCreate.RMAStatus().then(function (status) {
             RMAStatus = status;
             console.log("the status of the RMA for the order #"+SONumber+" is: "+RMAStatus);
@@ -152,9 +123,7 @@ describe("Fulfillment return : ", function() {
 
         }); 
 	        browser.get(paymentDispositionUrl);
-	        browser.sleep(2000);
 	        salesOrderSummary.salesOrderSearch("Salesorder #", SONumber);
-	        browser.sleep(2000);
 	        returnsCreate.getRMANumberCallcenter().then(function(value) {
 	        	RMANmber = value;
 	            console.log("the RMA number is "+RMANmber)
@@ -166,22 +135,15 @@ describe("Fulfillment return : ", function() {
                 return SONumber != '';
             }).then( function () { 
         	browser.get(returnsUrl);
-            browser.sleep(2000);
             salesOrderSummary.salesOrderSearch("RMA Number", RMANmber);
-            browser.sleep(3000);
             returnsEdit.selectRMALineClickForReceive();
-            browser.sleep(2000);
             callCenter.editLineGear("1")
-            browser.sleep(500);
             callCenter.lineItemselectOptions("Receive Inventory");
-            browser.sleep(1000);
             returnsEdit.selectInvPool("San Diego - DC");
             returnsEdit.itemReceive();
             browser.sleep(2000);
             browser.get(callCenterReturnsUrl);
-            browser.sleep(2000);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            browser.sleep(3000);
             returnsCreate.RMAStatus().then(function (status) {
             	RMAchangededStatus = status;
                 console.log("the status of the SO#"+ SONumber+" after changing the status is : "+RMAchangededStatus);

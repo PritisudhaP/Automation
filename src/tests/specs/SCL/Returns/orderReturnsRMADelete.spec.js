@@ -92,12 +92,13 @@ describe("Order returns : ", function() {
 	            browser.sleep(3000);
 	            callCenter.finalizeShipment();
 	            browser.sleep(5000);
-/*	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+	            salesOrderSummary.viewShipmentVisibility();
+	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
 	            browser.sleep(1500);
 	            callCenter.shipmentChangeStatusConfimation();
 	            browser.sleep(5000);
 	            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
-*/	                    	
+	                    	
 	        });
 	        
 	        ///******orders Returns************///	
