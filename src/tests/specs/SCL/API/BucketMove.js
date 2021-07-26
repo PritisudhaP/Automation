@@ -2,7 +2,9 @@ const apiResource = require("protractor-api-resource").ProtractorApiResource;
 
 var request = require('request');
 
-var data = require(process.cwd() + '/src/tests/autoFiles/BucketMove.json')
+//var data = require(process.cwd() + '/src/tests/autoFiles/BucketMove.json')
+
+var data = require(process.cwd() + '/autoFiles/BucketMove.json')
 
 describe("Bucket Move", function () {
     

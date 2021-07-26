@@ -1,7 +1,8 @@
 
 var request = require('request');
 //var data = require('../testData_json/FTVErrorReason.json');
-var data = require(process.cwd() + '/src/tests/autoFiles/FTVErrorReason.json')
+// var data = require(process.cwd() + '/src/tests/autoFiles/FTVErrorReason.json')
+var data = require(process.cwd() + '/autoFiles/FTVErrorReason.json')
 var moment = require('moment-timezone');
 const { browser } = require('protractor');
 var NowMoment = moment();

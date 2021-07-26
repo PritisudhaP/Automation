@@ -2,7 +2,9 @@ const apiResource = require("protractor-api-resource").ProtractorApiResource;
 
 var request = require('request');
 
-var data = require(process.cwd() + '/src/tests/autoFiles/ServiceListOrder.json');
+// var data = require(process.cwd() + '/src/tests/autoFiles/ServiceListOrder.json');
+
+var data = require(process.cwd() + '/autoFiles/ServiceListOrder.json');
 
 describe("Service Order list", function () {
     

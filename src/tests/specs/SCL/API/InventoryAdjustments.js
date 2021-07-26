@@ -1,7 +1,9 @@
 const apiResource = require("protractor-api-resource").ProtractorApiResource;
 var request = require('request');
 
-var data = require(process.cwd() + '/src/tests/autoFiles/InventoryAdjustments.json');
+//var data = require(process.cwd() + '/src/tests/autoFiles/InventoryAdjustments.json');
+
+var data = require(process.cwd() + '/autoFiles/InventoryAdjustments.json');
 
 describe("Normal Adjustment Request", function () {
 
