@@ -22,8 +22,6 @@ exports.config = {
 //specs:['./specs/SCL/login.spec.js','./specs/SCL/salesOrderStatusWMS.spec.js','./specs/SCL/salesOrderAddressverification.spec.js'],
 //specs:['./specs/SCL/database.spec.js'],
 
-//specs:['./specs/SCL/login.spec.js','./specs/SCL/shipmentConfirmation.spec.js'],
-
 //specs:['./specs/SCL/login.spec.js','./specs/SCL/controlCenter.spec.js'],
 
  // specs:['./specs/SCL/login.spec.js','./specs/SCL/presale.spec.js'],
@@ -33,15 +31,11 @@ exports.config = {
   // specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/getATP.js'],
   // specs:['./specs/SCL/mixedOrder/loginPage_spec.js','./specs/SCL/mixedOrder/mo_spec.js'],
 
-// specs:['./specs/SCL/login.spec.js','./specs/SCL/misc/Misc_spec.js'],
-// specs:['./specs/SCL/login.spec.js','./specs/SCL/storePortalPackageRecommendation/PackageRecommendation_spec.js'],
-// specs:['./specs/SCL/login.spec.js','./specs/SCL/transmissionTrace/TransmissionTrace_spec.js'],
-//specs:['./specs/SCL/login.spec.js','./specs/SCL/DeliveredStatus.spec.js'],
-//specs:['./specs/SCL/login.spec.js','./specs/SCL/ResolvingZipcodes_spec.js'],
-
   // specs:['./specs/SCL/login.spec.js','./specs/Generic/callCenter/invLookUpndCreateCustomer.spec.js','./specs/Generic/callCenter/promoCode.spec.js'],
   // specs:['./specs/SCL/login.spec.js','./specs/Generic/callCenter/promoCode.spec.js'],
 
+
+//////////////////// Added by Shyam////////////////
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/BucketMove.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/DateFieldValidation.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/FTVErrorReason_spec.js'],
@@ -50,6 +44,14 @@ exports.config = {
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/ServiceOrderDtl_spec.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/InventoryAdjExceptionHandling_spec.js'],
  //  specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/MultiOrderCreationV3_spec.js'],
+ //  specs:['./specs/SCL/login.spec.js','./specs/SCL/misc/Misc_spec.js'],
+//   specs:['./specs/SCL/login.spec.js','./specs/SCL/storePortalPackageRecommendation/PackageRecommendation_spec.js'],
+//   specs:['./specs/SCL/login.spec.js','./specs/SCL/transmissionTrace/TransmissionTrace_spec.js'],
+//   specs:['./specs/SCL/login.spec.js','./specs/SCL/DeliveredStatus.spec.js'],
+//   specs:['./specs/SCL/login.spec.js','./specs/SCL/ResolvingZipcodes_spec.js'],
+//   specs:['./specs/SCL/login.spec.js','./specs/SCL/shipmentConfirmation.spec.js'],
+
+
  
  //added by vishak   
    
@@ -284,6 +286,8 @@ exports.config = {
         global.storePortalV2Url = browser.baseUrl +'fulfillment/bopus-store-portal/';
         global.exchangeDocumentURL = browser.baseUrl +'data-management/communications/document/';
         global.fulfillmentRmaReturnsURL = browser.baseUrl +'fulfillment/inspect-returns/index';
+		global.ediProfileURL = browser.baseUrl + 'settings/company/edi-configurations/';
+		global.callCenterInventoryLookupURL = browser.baseUrl + 'call-center/inventory/lookup/';
     },
 
     onComplete: function() {
