@@ -1,6 +1,6 @@
-var loginPage = require(process.cwd() + '/src/tests/screens/login/login.screen.js');
+var loginPage = require(process.cwd() + '/screens/login/login.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 
 describe('Login: ', function(){

@@ -1,5 +1,5 @@
-//var pdfReader = require(process.cwd() + '/node_modules/pdfreader/PdfReader.js');
-var pdfReader = require(process.cwd() + '/src/tests/node_modules/pdfreader/PdfReader.js');
+var pdfReader = require(process.cwd() + '/node_modules/pdfreader/PdfReader.js');
+//var pdfReader = require(process.cwd() + '/src/tests/node_modules/pdfreader/PdfReader.js');
 
 
 module.exports =function(){

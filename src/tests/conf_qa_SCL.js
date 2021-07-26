@@ -6,7 +6,7 @@ var fs = require('fs-extra');
 
 exports.config = {
 
-   directConnect: false,
+   directConnect: true,
    seleniumAddress: 'http://localhost:4444/wd/hub',
    framework: 'jasmine',
    
@@ -25,7 +25,7 @@ exports.config = {
 //specs:['./specs/SCL/login.spec.js','./specs/SCL/controlCenter.spec.js'],
 
  // specs:['./specs/SCL/login.spec.js','./specs/SCL/presale.spec.js'],
-// specs:['./specs/SCL/login.spec.js'],
+ //   specs:['./specs/SCL/login.spec.js'],
 
  //specs:['./specs/SCL/login.spec.js','./specs/Store/SP00102*.js'],
   // specs:['./specs/SCL/API/tokenGeneration.js','./specs/SCL/API/getATP.js'],
