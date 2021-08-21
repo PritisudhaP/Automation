@@ -1116,7 +1116,8 @@ module.exports = function () {
 		    } else {
 				 console.log("No ship acount found")
 		    }
-    }
+    });
+}
     
     this.selectItemFromSOScreen = function(){
     	

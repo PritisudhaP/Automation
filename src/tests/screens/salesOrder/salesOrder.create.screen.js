@@ -132,8 +132,8 @@ module.exports =function(){
     this.presaleLabelAtProductSearch = element(by.xpath("//en-label[@ng-if='item.presale']/small"));
     this.presaleLabelAtskuresults = element(by.xpath("//en-label[@class='label-xs bold label-warn ng-scope']/small"));
 
-	var common = require(process.cwd() + '/src/tests/screens/commons.js');
-    // var common = require(process.cwd() + '/src/tests/screens/commons.js');
+	var common = require(process.cwd() + '/screens/commons.js');
+    // var common = require(process.cwd() + '/screens/commons.js');
 
     // Added by shyam
 

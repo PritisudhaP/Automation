@@ -12,7 +12,7 @@ module.exports =function(){
     this.resetPasswordText = element(by.xpath('//en-content/h2[@class="ng-binding"]'));
 
   //var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

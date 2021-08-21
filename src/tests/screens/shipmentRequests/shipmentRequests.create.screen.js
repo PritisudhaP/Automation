@@ -27,7 +27,7 @@ module.exports =function(){
 
     this.shipmentCreateErrorAlert = element(by.xpath('//en-content[@id="finalShipmentErrors"]//en-alert/span'));
     this.donotgenerateLabelCheckBox = element(by.xpath("(//input[@ng-model='skipLabelGeneration'])[1]"));
-   // var common = require(process.cwd() + '/src/tests/screens/commons.js');
+   // var common = require(process.cwd() + '/screens/commons.js');
     var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 

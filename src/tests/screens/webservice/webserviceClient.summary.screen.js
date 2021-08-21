@@ -12,7 +12,7 @@ module.exports =function(){
 
     this.webserviceClientSelectRow = element(by.xpath('//div[@class="en-collection-row"]/div[2]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 

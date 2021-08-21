@@ -11,7 +11,7 @@ module.exports =function(){
     this.failureresponseTextArea = element(by.xpath('(//pre/textarea[contains(@class,"ace_text-input")])[2]'));
     this.saveButton = element(by.xpath('(//button[contains(text(),"Save")])[1]'));
 
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
     this.newwebserviceServer = function() {

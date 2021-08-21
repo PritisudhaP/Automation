@@ -23,7 +23,7 @@ module.exports =function(){
     this.backButton = element(by.xpath("//span[contains(text(),'Back')]/parent::Button"));
 
     //var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/src/tests/screens/commons.js');
+    var common = require(process.cwd() + '/screens/commons.js');
     var commons = new common();
 
 
