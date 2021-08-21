@@ -1,7 +1,7 @@
-var returnsCreateScreen = require(process.cwd() + '/src/tests/screens/returns/returns.create.screen.js');
-var returnsEditScreen= require(process.cwd() + '/src/tests/screens/returns/returns.edit.screen.js');
-var returnsSummaryScreen = require(process.cwd() + '/src/tests/screens/returns/returns.summary.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var returnsCreateScreen = require(process.cwd() + '/screens/returns/returns.create.screen.js');
+var returnsEditScreen= require(process.cwd() + '/screens/returns/returns.edit.screen.js');
+var returnsSummaryScreen = require(process.cwd() + '/screens/returns/returns.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 global.RMANumber="";
 
 describe('Returns Flow  : ', function(){

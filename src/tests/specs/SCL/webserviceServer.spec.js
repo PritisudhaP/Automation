@@ -1,8 +1,8 @@
-var webserviceServerCreateScreen = require(process.cwd() + '/src/tests/screens/webservice/webserviceServer.create.screen.js');
-var webserviceServerSummaryScreen = require(process.cwd() + '/src/tests/screens/webservice/webserviceServer.summary.screen.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
+var webserviceServerCreateScreen = require(process.cwd() + '/screens/webservice/webserviceServer.create.screen.js');
+var webserviceServerSummaryScreen = require(process.cwd() + '/screens/webservice/webserviceServer.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Webservice Server CRUD   : ', function(){
     var webserviceServerCreate = new webserviceServerCreateScreen();

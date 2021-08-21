@@ -1,11 +1,11 @@
-var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
-var shipmentRequestsSummaryScreen = require(process.cwd() + '/src/tests/screens/shipmentRequests/shipmentRequests.summary.screen.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var routeScreen = require(process.cwd() + '/src/tests/screens/routes/route.summary.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
+var shipmentRequestsSummaryScreen = require(process.cwd() + '/screens/shipmentRequests/shipmentRequests.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var routeScreen = require(process.cwd() + '/screens/routes/route.summary.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 global.SONumber="";
 global.ShipmentRequestNumber="";
 
@@ -94,7 +94,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -116,7 +116,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -134,7 +134,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -152,7 +152,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -181,7 +181,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0001 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_SingleLine.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_SingleLine.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 browser.sleep(2000);
@@ -320,7 +320,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -342,7 +342,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -360,7 +360,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -378,7 +378,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLine.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLine.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -407,7 +407,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0002 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_SingleLine.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_SingleLine.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 mailbox.close();
@@ -551,7 +551,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -573,7 +573,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -591,7 +591,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -609,7 +609,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -638,7 +638,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0003 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_SingleLineZeroQty.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 mailbox.close();
@@ -787,7 +787,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_TwoLines.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -809,7 +809,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -827,7 +827,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -845,7 +845,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -874,7 +874,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0001 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_TwoLines.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_TwoLines.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 browser.sleep(2000);
@@ -1053,7 +1053,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_DiffLots.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_DiffLots.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -1075,7 +1075,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_DiffLots.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_DiffLots.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1093,7 +1093,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_DiffLots.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_DiffLots.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1111,7 +1111,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_DiffLots.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_DiffLots.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1140,7 +1140,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0005 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_DiffLots.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_DiffLots.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 mailbox.close();
@@ -1300,7 +1300,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                 var stringSearcher = require('string-search');
                 var fs1 = require('fs');
-                var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML';
+                var filename1 = process.cwd()+'/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML';
 
                 var content="";
                 fs1.readFile(filename1,"utf8", function read(err, data){
@@ -1322,7 +1322,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1340,7 +1340,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSONumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1358,7 +1358,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         replace1({
                             regex: currentSRNumber,
                             replacement: replaceString1,
-                            paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
+                            paths: [process.cwd()+'/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML'],
                             recursive: true,
                             silent: true,
                         });
@@ -1387,7 +1387,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                 mailbox.enterSubject("TC0007 Shipment confirmation upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML";
+                var fullPath = cwd + "/autoFiles/ShipConfirm_TwoLines_MultiSKU.XML";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 browser.sleep(2000);
@@ -1529,7 +1529,7 @@ describe('Shipment confirmation  Flow  : ', function(){
 
                         var stringSearcher = require('string-search');
                         var fs1 = require('fs');
-                        var filename1 = process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML';
+                        var filename1 = process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML';
 
                         var content="";
                         fs1.readFile(filename1,"utf8", function read(err, data){
@@ -1551,7 +1551,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                                 replace1({
                                     regex: currentSONumber,
                                     replacement: replaceString1,
-                                    paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                                    paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                                     recursive: true,
                                     silent: true,
                                 });
@@ -1569,7 +1569,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                                 replace1({
                                     regex: currentSONumber,
                                     replacement: replaceString1,
-                                    paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                                    paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                                     recursive: true,
                                     silent: true,
                                 });
@@ -1587,7 +1587,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                                 replace1({
                                     regex: currentSRNumber,
                                     replacement: replaceString1,
-                                    paths: [process.cwd()+'/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
+                                    paths: [process.cwd()+'/autoFiles/ShipConfirm_SingleLineZeroQty.XML'],
                                     recursive: true,
                                     silent: true,
                                 });
@@ -1616,7 +1616,7 @@ describe('Shipment confirmation  Flow  : ', function(){
                         mailbox.enterSubject("TC0003 Shipment confirmation upload");
                         mailbox.addAttachment();
                         var cwd = process.cwd();
-                        var fullPath = cwd + "/src/tests/autoFiles/ShipConfirm_SingleLineZeroQty.XML";
+                        var fullPath = cwd + "/autoFiles/ShipConfirm_SingleLineZeroQty.XML";
                         mailbox.clickSelectFile(fullPath);
                         mailbox.uploadFile();
                         mailbox.close();

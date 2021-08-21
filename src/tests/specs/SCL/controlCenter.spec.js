@@ -1,19 +1,19 @@
-var controlCenterListScreen = require(process.cwd() + '/src/tests/screens/controlcenter/controlcenterList.screen.js');
-var controlCentereditScheduleScreen = require(process.cwd() + '/src/tests/screens/controlcenter/controlcentereditSchedule.screen.js');
-var controlCenterviewitmesScreen = require(process.cwd() + '/src/tests/screens/controlcenter/controlcenterviewitems.screen.js');
-var controlCenterDeactivateScreen=require(process.cwd() + '/src/tests/screens/controlcenter/controlcenterdeactivate.screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
-var shipmentRequestsSummaryScreen = require(process.cwd() + '/src/tests/screens/shipmentRequests/shipmentRequests.summary.screen.js');
-var siteSummaryScreen= require(process.cwd() + '/src/tests/screens/sites/sites.summary.screen.js');
-var sitecreateScreen = require(process.cwd() + '/src/tests/screens/sites/sites.create.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
+var controlCenterListScreen = require(process.cwd() + '/screens/controlcenter/controlcenterList.screen.js');
+var controlCentereditScheduleScreen = require(process.cwd() + '/screens/controlcenter/controlcentereditSchedule.screen.js');
+var controlCenterviewitmesScreen = require(process.cwd() + '/screens/controlcenter/controlcenterviewitems.screen.js');
+var controlCenterDeactivateScreen=require(process.cwd() + '/screens/controlcenter/controlcenterdeactivate.screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
+var shipmentRequestsSummaryScreen = require(process.cwd() + '/screens/shipmentRequests/shipmentRequests.summary.screen.js');
+var siteSummaryScreen= require(process.cwd() + '/screens/sites/sites.summary.screen.js');
+var sitecreateScreen = require(process.cwd() + '/screens/sites/sites.create.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
 
 
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var jobsSummaryScreen = require(process.cwd() + '/src/tests/screens/jobs/jobs.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var jobsSummaryScreen = require(process.cwd() + '/screens/jobs/jobs.summary.screen.js');
 
 global.fileContent="";
 global.fileContentsOfEditSchedule="";

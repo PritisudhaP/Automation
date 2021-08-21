@@ -1,21 +1,21 @@
-var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
-var skuCreateScreen = require(process.cwd() + '/src/tests/screens/sku/sku.create.screen.js');
-var skuEditScreen = require(process.cwd() + '/src/tests/screens/sku/sku.edit.screen.js');
-var skuSummaryScreen = require(process.cwd() + '/src/tests/screens/sku/sku.summary.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
-var inventoryPoolSummaryScreen = require(process.cwd() + '/src/tests/screens/inventoryPool/inventoryPool.summary.screen.js');
-var inventoryPoolEditScreen =require(process.cwd() + '/src/tests/screens/inventoryPool/inventoryPool.edit.screen.js');
-var scriptSummaryScreen =require(process.cwd() + '/src/tests/screens/scripts/script.summary.screen.js');
-var scriptEditScreen = require(process.cwd() + '/src/tests/screens/scripts/script.edit.screen.js');
-var routeScreen = require(process.cwd() + '/src/tests/screens/routes/route.summary.screen.js');
-var shipmentRequestsCreateScreen = require(process.cwd() + '/src/tests/screens/shipmentRequests/shipmentRequests.create.screen.js');
-var shipmentRequestsSummaryScreen = require(process.cwd() + '/src/tests/screens/shipmentRequests/shipmentRequests.summary.screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
+var skuCreateScreen = require(process.cwd() + '/screens/sku/sku.create.screen.js');
+var skuEditScreen = require(process.cwd() + '/screens/sku/sku.edit.screen.js');
+var skuSummaryScreen = require(process.cwd() + '/screens/sku/sku.summary.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
+var inventoryPoolSummaryScreen = require(process.cwd() + '/screens/inventoryPool/inventoryPool.summary.screen.js');
+var inventoryPoolEditScreen =require(process.cwd() + '/screens/inventoryPool/inventoryPool.edit.screen.js');
+var scriptSummaryScreen =require(process.cwd() + '/screens/scripts/script.summary.screen.js');
+var scriptEditScreen = require(process.cwd() + '/screens/scripts/script.edit.screen.js');
+var routeScreen = require(process.cwd() + '/screens/routes/route.summary.screen.js');
+var shipmentRequestsCreateScreen = require(process.cwd() + '/screens/shipmentRequests/shipmentRequests.create.screen.js');
+var shipmentRequestsSummaryScreen = require(process.cwd() + '/screens/shipmentRequests/shipmentRequests.summary.screen.js');
 
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var jobsSummaryScreen = require(process.cwd() + '/src/tests/screens/jobs/jobs.summary.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var jobsSummaryScreen = require(process.cwd() + '/screens/jobs/jobs.summary.screen.js');
 
 
 global.SONumber="";

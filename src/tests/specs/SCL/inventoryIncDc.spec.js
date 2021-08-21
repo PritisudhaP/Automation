@@ -1,8 +1,8 @@
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var routeScreen = require(process.cwd() + '/src/tests/screens/routes/route.summary.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var routeScreen = require(process.cwd() + '/screens/routes/route.summary.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 describe('Inventory Inc/Dec  Flow  : ', function(){
     var mailbox = new mailboxScreen();
@@ -37,7 +37,7 @@ describe('Inventory Inc/Dec  Flow  : ', function(){
                 mailbox.enterSubject("TC0001 Increment/Decr upload");
                 mailbox.addAttachment();
                 var cwd = process.cwd();
-                var fullPath = cwd + "/src/tests/autoFiles/SCLInventoryIncDec.csv";
+                var fullPath = cwd + "/autoFiles/SCLInventoryIncDec.csv";
                 mailbox.clickSelectFile(fullPath);
                 mailbox.uploadFile();
                 browser.sleep(5000);

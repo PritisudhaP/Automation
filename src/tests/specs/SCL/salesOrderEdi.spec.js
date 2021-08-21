@@ -1,10 +1,10 @@
-var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var routeScreen = require(process.cwd() + '/src/tests/screens/routes/route.summary.screen.js');
-var inventorySearchScreen = require(process.cwd() + '/src/tests/screens/inventorySearch/inventorySearch.summary.screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var routeScreen = require(process.cwd() + '/screens/routes/route.summary.screen.js');
+var inventorySearchScreen = require(process.cwd() + '/screens/inventorySearch/inventorySearch.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 global.currentSONumber="";
 global.newSONumber="";
 
@@ -21,7 +21,7 @@ describe('Sales Order Flow  : ', function(){
 
             var stringSearcher1 = require('string-search');
             var fs1 = require('fs');
-            var filename1 = process.cwd()+'/src/tests/autoFiles/SCL_ForcedAllocation.xml';
+            var filename1 = process.cwd()+'/autoFiles/SCL_ForcedAllocation.xml';
 
             var content1="";
 
@@ -49,7 +49,7 @@ describe('Sales Order Flow  : ', function(){
                     replace1({
                         regex: currentSONumber,
                         replacement: replaceString1,
-                        paths: [process.cwd()+'/src/tests/autoFiles/SCL_ForcedAllocation.xml'],
+                        paths: [process.cwd()+'/autoFiles/SCL_ForcedAllocation.xml'],
                         recursive: true,
                         silent: true,
 
@@ -78,7 +78,7 @@ describe('Sales Order Flow  : ', function(){
             mailbox.enterSubject("TC0001 EDI order upload");
             mailbox.addAttachment();
             var cwd = process.cwd();
-            var fullPath = cwd + "/src/tests/autoFiles/SCL_ForcedAllocation.xml";
+            var fullPath = cwd + "/autoFiles/SCL_ForcedAllocation.xml";
             mailbox.clickSelectFile(fullPath);
             mailbox.uploadFile();
             browser.sleep(2000);

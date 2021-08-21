@@ -1,7 +1,7 @@
-var mailboxScreen = require(process.cwd() + '/src/tests/screens/mailboxes/mailbox.screen.js');
-var skuSummaryScreen = require(process.cwd() + '/src/tests/screens/sku/sku.summary.screen.js');
-var skuEditScreen = require(process.cwd() + '/src/tests/screens/sku/sku.edit.screen.js');
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var mailboxScreen = require(process.cwd() + '/screens/mailboxes/mailbox.screen.js');
+var skuSummaryScreen = require(process.cwd() + '/screens/sku/sku.summary.screen.js');
+var skuEditScreen = require(process.cwd() + '/screens/sku/sku.edit.screen.js');
+var common = require(process.cwd() + '/screens/commons.js');
 global.currentSONumber="";
 global.newSONumber="";
 

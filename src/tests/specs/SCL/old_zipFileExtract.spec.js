@@ -1,7 +1,7 @@
-var filesScreen = require(process.cwd() + '/src/tests/screens/files/files.screen.js');
-var routeScreen = require(process.cwd() + '/src/tests/screens/routes/route.summary.screen.js');
+var filesScreen = require(process.cwd() + '/screens/files/files.screen.js');
+var routeScreen = require(process.cwd() + '/screens/routes/route.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 global.count="";
 
 
@@ -19,7 +19,7 @@ describe('Zipfile Extraction flow  : ', function(){
        files.addFile();
        browser.sleep(4000);
        var cwd = process.cwd();
-       var fullPath = cwd + "/src/tests/autoFiles/test.zip";
+       var fullPath = cwd + "/autoFiles/test.zip";
        files.clickSelectFile(fullPath);
        files.uploadFile();
        files.close();

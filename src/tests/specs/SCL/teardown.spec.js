@@ -1,9 +1,9 @@
-var loginPage = require(process.cwd() + '/src/tests/screens/login/login.screen.js');
+var loginPage = require(process.cwd() + '/screens/login/login.screen.js');
 
-var customersCreateScreen = require(process.cwd() + '/src/tests/screens/customers/customers.create.screen.js');
-var customersSummaryScreen = require(process.cwd() + '/src/tests/screens/customers/customers.summary.screen.js');
+var customersCreateScreen = require(process.cwd() + '/screens/customers/customers.create.screen.js');
+var customersSummaryScreen = require(process.cwd() + '/screens/customers/customers.summary.screen.js');
 
-var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var common = require(process.cwd() + '/screens/commons.js');
 
 
 describe('Tear Down : ', function(){
