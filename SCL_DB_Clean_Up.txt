@@ -16,7 +16,7 @@ MongoDB Enterprise QA36-shard-0:PRIMARY> db.sku.remove({"refName":{$in:["sarathp
 WriteResult({ "nRemoved" : 2 })
 MongoDB Enterprise QA36-shard-0:PRIMARY>
  
-
+//checking
 
 ==============================================
 enable releaseSalesOrderNew script on P4
