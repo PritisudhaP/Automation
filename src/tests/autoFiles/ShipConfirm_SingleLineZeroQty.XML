@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shipment xmlns:ns1="MapAdapter" xmlns:tns="http://www.eis.com/b2bmb/api/v1/model" xmlns:ns10="http://www.eis.com/core/api/v1/model" xsi:noNamespaceSchemaLocation="file:///C:/Users/GIsley/Documents/flowforce-maps/MapArtifacts/schema2.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<shipmentStatus>SHIPPED</shipmentStatus>
-	<orderNumber>000000010284</orderNumber>
+	<orderNumber>000000020054</orderNumber>
 	<senderContactInfo>
 		<companyName>The Honest Kitchen</companyName>
 		<address>
@@ -74,7 +74,7 @@
 		<packageCount>1</packageCount>
 	</trackingDetails>
 	<salesChannel>B2C</salesChannel>
-	<shipmentNumber>000000010239</shipmentNumber>
-	<originalOrderNumber>000000010284</originalOrderNumber>
+	<shipmentNumber>000000020054</shipmentNumber>
+	<originalOrderNumber>000000020054</originalOrderNumber>
 	<lockVersion>4</lockVersion>
 </shipment>
