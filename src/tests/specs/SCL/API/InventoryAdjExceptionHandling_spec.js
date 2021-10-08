@@ -547,7 +547,7 @@ describe("Combination of Success and Failure", function () {
                 var row2error = responseSort[1].errorMessage;
                 expect(row2error).toBe("Sku can not be empty or null");
                 var row3error = responseSort[2].errorMessage;
-                expect(row3error).toBe("Invalid Expected Arrival Date passed - 2020-09-19T14-:30:00.");
+                expect(row3error).toBe("Invalid Expected Arrival Date passed - 2022-09-19T14-:30:00.");
                 var row4availableqty = responseSort[3].availableQty;
                 expect(row4availableqty).toBe(20);
                 // reset qty
