@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -28,19 +28,17 @@ describe('Call Center Flow', function () {
 
         browser.get(callCenterInventoryUrl);
         browser.driver.manage().window().maximize();
-        browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.plusIconClick();
         browser.sleep(1000);
-        callCenter.getChannelText().then(function (channel) {
-            expect(channel).toBe(browser.params.channelName1);
-            console.log(channel);
+      /*  callCenter.getChannelText().then(function (channel) {
+        	channel1=channel;
+            expect(channel1).toBe(browser.params.channelName1);
+            console.log("the channel is "+channel1);
         })
-
+*/
         callCenter.getAvailableQty().then(function (availableQty) {
             currentInventoryCount = availableQty;
             postInventoryCount = parseInt(currentInventoryCount) - 1;
@@ -62,6 +60,7 @@ describe('Call Center Flow', function () {
             totalAvailableQTYCount = totalAvailable;
             console.log(totalAvailableQTYCount);
         });
+     
         browser.sleep(1000);
         callCenter.searchWithCriteria('Site # ', 'is', browser.params.siteNumber);
         browser.sleep(5000);
@@ -73,37 +72,22 @@ describe('Call Center Flow', function () {
             callCenter.cancelFilter();
             browser.sleep(2000);
         })
-        browser.sleep(2000);
         callCenter.searchWithCriteria('Within 50 miles of Zip Code ', 'is', browser.params.zipcode);
-        browser.sleep(2000);
         callCenter.cancelFilter();
-        browser.sleep(1000);
         callCenter.cancelInvDetailsPopUp();
-        browser.sleep(1000);
         callCenter.reservationDetails();
-        browser.sleep(1000);
-        callCenter.searchWithCriteria('Status', 'is', browser.params.reservationStatus);
-        browser.sleep(2000);
+        callCenter.searchWithCriteria('Reservation Status', 'is', browser.params.reservationStatus);
         callCenter.cancelFilter();
-        browser.sleep(1000);
         callCenter.reservationDetailsPopupClose();
-        browser.sleep(1000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);
-        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
+        commons.searchWithCriteria('Name', 'contains', browser.params.SkuName2);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrderFromSalesOrder();
         browser.sleep(3000);
@@ -111,13 +95,17 @@ describe('Call Center Flow', function () {
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
         browser.sleep(2000);
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
+		browser.sleep(5000);
 
 //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -148,29 +136,28 @@ describe('Call Center Flow', function () {
     //Apply discount, edit the discount and delete discounts to the order
     it('Call center Flow TC0002', function () {
         browser.get(callCenterSkusUrl);
-        browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-        browser.sleep(2000);
         callCenter.callCenterSKUsGearIcon('Edit');
-        browser.sleep(1000);
         callCenter.addToOrder();
-        browser.sleep(3000);
         callCenter.salesChannel("1");
         callCenter.promisedDate(browser.params.promisedDate);
         callCenter.attachCustomer();
         browser.sleep(2000);
         callCenter.createCustomer(browser.params.custDisplayName, browser.params.custFirstName, browser.params.custLastName,
-            browser.params.custAddress1, browser.params.custCity, browser.params.custAddressState, browser.params.custZipcode5);
-        browser.sleep(2000);
+        browser.params.custAddress1, browser.params.custCity, browser.params.custAddressState, browser.params.custZipcode5,browser.params.email);
         callCenter.customerAdvancedSettings("ACTIVE", "2");
-        browser.sleep(5000);
+        browser.sleep(7000);
+        
+        ///////Updated by Vishak /////
+/*
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.custLastName);
         browser.sleep(3000);
         salesOrderCreate.selectCustomer();
         browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
         browser.sleep(3000);
-        callCenter.editLineGear("1");
+**/
+        callCenter.editLineGear("3");
         browser.sleep(1000);
         callCenter.lineItemselectOptions("Change Price");
         browser.sleep(2000);
@@ -178,13 +165,16 @@ describe('Call Center Flow', function () {
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
-
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
+		browser.sleep(5000);
 
 //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -219,7 +209,7 @@ describe('Call Center Flow', function () {
 
 
     })
-
+    
 })
 
 

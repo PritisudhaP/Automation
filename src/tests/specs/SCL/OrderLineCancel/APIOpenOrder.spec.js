@@ -43,7 +43,7 @@ describe( "Order Line Cancel", function () {
     					{
     					   "lineNumber":1,
     					   "status":"OPEN",
-    					   "lineItemId": "AcuSKU11",
+    					   "lineItemId": browser.params.searchValueSKU1,
     					   "lineItemQty":5,
     					   "originalOrderedQty":5,
     					   "shipToContact":{
@@ -68,7 +68,7 @@ describe( "Order Line Cancel", function () {
     					{
      					   "lineNumber":2,
      					   "status":"OPEN",
-     					   "lineItemId": "0000000028",
+     					   "lineItemId": browser.params.searchValueSKU2,
      					   "lineItemQty":5,
      					   "originalOrderedQty":5,
      					   "shipToContact":{
@@ -186,7 +186,7 @@ describe( "Order Line Cancel", function () {
     					{
     					   "lineNumber":1,
     					   "status":"OPEN",
-    					   "lineItemId": "AcuSKU11",
+    					   "lineItemId": browser.params.searchValueSKU1,
     					   "lineItemQty":5,
     					   "originalOrderedQty":5,
     					   "shipToContact":{
@@ -211,7 +211,7 @@ describe( "Order Line Cancel", function () {
     					{
      					   "lineNumber":2,
      					   "status":"OPEN",
-     					   "lineItemId": "0000000028",
+     					   "lineItemId": browser.params.searchValueSKU2,
      					   "lineItemQty":5,
      					   "originalOrderedQty":5,
      					   "shipToContact":{

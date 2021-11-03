@@ -24,7 +24,7 @@ module.exports =function(){
     this.alert = element(by.xpath('//div/div/div[@class="growl-item alert ng-scope alert-error alert-danger icon alert-dismissable"]'));
     
 //    var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/screens/commons.js');
+    var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     this.returnExpectedReceiptSelectOption = function(selectOption,pool) {

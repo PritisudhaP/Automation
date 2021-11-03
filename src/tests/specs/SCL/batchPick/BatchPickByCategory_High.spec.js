@@ -1,4 +1,4 @@
-	var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
 var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
 var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
 var batchPickCreate = require(process.cwd() + '/src/tests/screens/batchPick/batchpick.create.screen.js');
@@ -240,9 +240,9 @@ describe("Category_Based_Batch Pick: ", function() {
 				console.log("content is "+details);
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain((browser.params.custDisplayName));//customer name checking
+				//expect((details)).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-				expect(details).toContain(browser.params.custAddress1);
+				expect(details).toContain(browser.params.shippingAddress);
 				expect(details).toContain(browser.params.custCity);
 				expect(details).toContain(browser.params.custAddressState);					
 			});
@@ -273,7 +273,7 @@ describe("Category_Based_Batch Pick: ", function() {
 		browser.sleep(2000);
 		browser.get(fulfillmentRequestsUrl);
 		console.log("the sale sorder is "+SONumber);
-		salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+		commons.searchWithCriteria('Order #', 'ends with', SONumber);	
 		browser.sleep(2000);
 		batchCreate.shipmentstatus(4,1).then(function (status) {
 		    orderStatus = status;
@@ -488,9 +488,9 @@ describe("Category_Based_Batch Pick: ", function() {
 			console.log("content is "+details);
 			var line = [];
 			line=details.split("\n");
-			expect(details).toContain((browser.params.custDisplayName));//customer name checking
+			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-			expect(details).toContain(browser.params.custAddress1);
+			expect(details).toContain(browser.params.shippingAddress);
 			expect(details).toContain(browser.params.custCity);
 			expect(details).toContain(browser.params.custAddressState);					
           });
@@ -746,9 +746,9 @@ describe("Category_Based_Batch Pick: ", function() {
 			//console.log("content is "+details);
 			var line = [];
 			line=details.split("\n");
-			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-			expect(details).toContain(browser.params.custAddress1);
+			expect(details).toContain(browser.params.shippingAddress);
 			expect(details).toContain(browser.params.custCity);
 			expect(details).toContain(browser.params.custAddressState);					
           });
@@ -1064,6 +1064,7 @@ describe("Category_Based_Batch Pick: ", function() {
 		    	browser.sleep(2000);
 		    	batchCreate.batchPickRefresh(orderStatus);
 		});
+		batchCreate.refreshBatch();
 		commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		batchCreate.shipmentstatus(9,1).then(function (units) {
 			qty = units;
@@ -1142,9 +1143,9 @@ describe("Category_Based_Batch Pick: ", function() {
 				//console.log("content is "+details);
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain(browser.params.custDisplayName);//customer name checking
+				//expect(details).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-				expect(details).toContain(browser.params.custAddress1);
+				expect(details).toContain(browser.params.shippingAddress);
 				expect(details).toContain(browser.params.custCity);
 				expect(details).toContain(browser.params.custAddressState);					
 		      });
@@ -1325,6 +1326,7 @@ describe("Category_Based_Batch Pick: ", function() {
 			browser.sleep(2000);
 			batchCreate.batchPickRefresh(orderStatus);
 		});
+		batchCreate.refreshBatch();
 		commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		batchCreate.printIconClick(2);
 		batchCreate.printDocument("Packing Slips");
@@ -1400,9 +1402,9 @@ describe("Category_Based_Batch Pick: ", function() {
 				//console.log("content is "+details);
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain(browser.params.custDisplayName);//customer name checking
+				//expect(details).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-    			expect(details).toContain(browser.params.custAddress1);
+    			expect(details).toContain(browser.params.shippingAddress);
     			expect(details).toContain(browser.params.custCity);
     			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -1446,7 +1448,7 @@ describe("Category_Based_Batch Pick: ", function() {
 		        
 		   });
 		});	
-		
+	
 	it("PickList_By_Category_Past_Promise_Date TC0019", function() {
 		
 		browser.get(callcenterorder);
@@ -1647,9 +1649,9 @@ describe("Category_Based_Batch Pick: ", function() {
 					//console.log("content is "+details);
 					var line = [];
 					line=details.split("\n");
-					expect(details).toContain(browser.params.custDisplayName);//customer name checking
+					//expect(details).toContain((browser.params.custLabelName));//customer name checking
 					expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });
@@ -1820,6 +1822,7 @@ describe("Category_Based_Batch Pick: ", function() {
 		batchCreate.batchPickRefresh(orderStatus);
 		});
 		commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+		batchCreate.refreshBatch();
 		batchCreate.shipmentstatus(9,1).then(function (units) {
 	        qty = units;
 	        console.log("total qty in Batch "+qty);
@@ -1905,9 +1908,9 @@ describe("Category_Based_Batch Pick: ", function() {
 				//console.log("content is "+details);
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain(browser.params.custDisplayName);//customer name checking
+				//expect(details).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    		expect(details).toContain(browser.params.custAddress1);
+	    		expect(details).toContain(browser.params.shippingAddress);
 				expect(details).toContain(browser.params.custCity);
 				expect(details).toContain(browser.params.custAddressState);					
               });
@@ -2045,8 +2048,9 @@ describe("Category_Based_Batch Pick: ", function() {
 		commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
         batchCreate.selectFromTheSearch(2);
         batchCreate.printPickList();     
-        browser.sleep(3000);
-		
+        browser.sleep(5000);
+		browser.refresh();
+		commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		batchCreate.shipmentstatus(5,1).then(function (status) {
 		    orderStatus = status;
 		    console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -2138,7 +2142,7 @@ describe("Category_Based_Batch Pick: ", function() {
 		        });	            
 		    });
 		});
-	 	
+		
 		it("Ship_Alone_FR_Category_Based TC0042", function() {
 		
 		var FRnumbers = [];
@@ -2359,9 +2363,9 @@ describe("Category_Based_Batch Pick: ", function() {
 					//console.log("content is "+details);
 					var line = [];
 					line=details.split("\n");
-					expect(details).toContain(browser.params.custDisplayName);//customer name checking
+					//expect(details).toContain((browser.params.custLabelName));//customer name checking
 					expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });

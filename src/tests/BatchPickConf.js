@@ -12,20 +12,20 @@ exports.config = {
 
   /********************Batch Pick***************************************/ 
    
- //specs:['./specs/SCL/batchPick/roughwork.spec.js'], 
-  // specs:['./specs/SCL/batchPick/BatchPickByCategory_High.spec.js','./specs/SCL/batchPick/BatchPickByItem_High.spec.js',
-//	  	  './specs/SCL/batchPick/BatchPickByOrder_High.spec.js','./specs/SCL/batchPick/BatchPick_high.spec.js'],
-	  	//'./specs/SCL/batchPick/BatchPick_High_Reject.spec.js'],
+// specs:['./specs/SCL/batchPick/roughwork.spec.js'], 
+    //specs:[//'./specs/SCL/batchPick/BatchPickByCategory_High.spec.js'],
+   // 	'./specs/SCL/batchPick/BatchPickByItem_High.spec.js','./specs/SCL/batchPick/BatchPickByOrder_High.spec.js',
+    //	'./specs/SCL/batchPick/BatchPick_high.spec.js'] ,
    // specs:['./specs/SCL/batchPick/BatchPickByOrder_High.spec.js','./specs/SCL/batchPick/BatchPickByItem_High.spec.js'],
-  // specs:['./specs/SCL/batchPick/BatchPickByOrder_High.spec.js'],
-  // specs:['./specs/SCL/batchPick/BatchPickByItem_High.spec.js'],
-  // specs:['./specs/SCL/batchPick/BatchPickByCategory_High.spec.js'],
+ // specs:['./specs/SCL/batchPick/BatchPickByOrder_High.spec.js'],
+   //specs:['./specs/SCL/batchPick/BatchPickByItem_High.spec.js'],
+   //specs:['./specs/SCL/batchPick/BatchPickByCategory_High.spec.js'],
    // specs:['./specs/SCL/batchPick/BatchPickByCategory_High.spec.js','./specs/SCL/batchPick/BatchPick_high.spec.js'],
-   //specs:['./specs/SCL/batchPick/BatchPick_high.spec.js'],
-   //specs:['./specs/SCL/batchPick/BatchPick_High_Reject.spec.js'],
-//  specs:['./specs/SCL/batchPick/BatchPick_Medium.spec.js'],
-  // specs:['./specs/SCL/batchPick/BatchPick_Low.spec.js'],
-     specs:['./specs/SCL/batchPick/tokenGeneration.js','./specs/SCL/batchPick/batchCorrelationChecking.spec.js'],
+  // specs:['./specs/SCL/batchPick/BatchPick_high.spec.js'],
+  // specs:['./specs/SCL/batchPick/BatchPick_High_Reject.spec.js'],
+  specs:['./specs/SCL/batchPick/BatchPick_Medium.spec.js'],
+ //  specs:['./specs/SCL/batchPick/BatchPick_Low.spec.js'],
+    // specs:['./specs/SCL/batchPick/tokenGeneration.js','./specs/SCL/batchPick/batchCorrelationChecking.spec.js'],
 
 
   
@@ -52,13 +52,15 @@ exports.config = {
         siteName:'sandiego-dc',
         zipcode:'92120',
         reservationStatus:'UNCONSUMED',
-        custDisplayName:'Steve Smith',
+        custDisplayName:'STEVE SMITH',
+        custLabelName:'Steve Smith',
         custFirstName:'Steve',
         custLastName:'Smith',
-        custAddress1:'62 East St Louis Rd.',
+        custAddress1:"62 LOUIS RD.",
+        shippingAddress:"62 LOUIS RD.",
         custCity:'San Jose',
         custAddressState:'CA',
-        custZipcode5:'90005',     
+        custZipcode5:'92120',     
         shipmentstatus: 'SHIPPED',
 		packageValue:'8x6x8 Small Box',
 		orders: 2,
@@ -142,9 +144,8 @@ exports.config = {
 		orderpickSKUName6 :'BatchpickOrder5',
 		orderPickSite:'OrderPickSite',
 		orderpickStore:'orderpicksite , Avl Qty :',
-		
 		labelPath : 'C:\\Users\\vvijayan\\Downloads\\test',	
-		promiseddate:'07/31/2021',
+		promiseddate:'11/31/2021',
 		pastPromisedate: '05/30/2021',
 		storeNumber : "1",
 		Category : "TOYS",
@@ -155,7 +156,7 @@ exports.config = {
 		customShippingProfile:"defaultshippingprofile12",
 		userID : "Vishak Vijayan",
 		scriptName:"combinedPackingSlipAndShippingLabel",
-		listoforders:7,
+		listoforders:159,
 		
 		
     },
@@ -316,10 +317,11 @@ exports.config = {
 
     capabilities: {
         'browserName': 'chrome',
-  	  //	'shardTestFiles': true,
-  	  //	'maxInstances': 1,
+  	  	'shardTestFiles': true,
+  	  	'maxInstances': 4,
         'chromeOptions': {
             args:['--window-size=1920,1080'],
+           // args: ["--incognito"],
             prefs: {
                 'download': {
                     'prompt_for_download': false,

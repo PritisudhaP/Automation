@@ -83,10 +83,12 @@ module.exports =function(){
     this.saveandrelease = element(by.xpath('//en-icon[@icon="check-circle"]/parent::button'));
     this.saveBlindReturnsButton = element(by.xpath('//button[@class="button-primary en-button button-primary ng-binding"]'))
     this.blindreturnpdctsearch = element(by.xpath('//button[@class="en-button en-api-search-search-button"]'));	
-//////////**********END OF LOCATORS**********//////
+
+    
+    //////////**********END OF LOCATORS**********//////
     
 //    var common = require(process.cwd() + '/screens/commons.js');
-    var common = require(process.cwd() + '/screens/commons.js');
+    var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
 
@@ -359,28 +361,29 @@ module.exports =function(){
     	
     	this.rmaSubmitButton.click();
     }
-	this.startingReturnInvoiceRoute = function(status,line) {
-    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
-    	if(status=="STARTED"){
-    		console.log("the Route is already started");
-							 
-		
-									   
-		 }
-		 else if(status=="STOPPED"){
-		
-																						  
-							
-	    	 temp.click();
-	    	 console.log("Starting the route");
-		 }
-    }
-
     
-	this.stoppingRoute = function(line) {
-	 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
-    	stopreturnsinvoiceroute.click();
+    this.startingReturnInvoiceRoute = function(status,line) {
+    	 var stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
+	    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
+	    	if(status=="STARTED"){
+	    		console.log("the Route is already started");
+			     stopreturnsinvoiceroute.click();
+			     browser.sleep(1500);
+			     temp.click();
+
+			 }
+			 else if(status=="STOPPED"){
+		    	 temp.click();
+		    	 console.log("Starting the route");
+			 }
     }
+    
+ this.stoppingRoute = function(line) {
+		 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
+		 temp= element(by.xpath('(//div[@class="en-collection-row"]/div['+line1+'])['+line2+']'));
+	     stopreturnsinvoiceroute.click();
+    }
+ 
  this.StopRoute = function(status,route){
 	 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+route+']'));
 		if(status=="STARTED"){
@@ -391,6 +394,7 @@ module.exports =function(){
 			 console.log("the Route is already stopped");
 		 }
  	}
+    
     this.returnedRmaQty = function(){
     	this.returnedQTY.getText();
     }
@@ -731,5 +735,5 @@ module.exports =function(){
 		  
 		  error=element(by.xpath('//div[@class="growl-item alert ng-scope alert-error alert-danger icon alert-dismissable"]'));
 		  return error.isPresent();		  
-	  }							 
+	  }
 }

@@ -42,7 +42,7 @@ describe('Order Line Cancel ', function () {
       browser.sleep(500);
       callCenter.editLineGear("1"); 
       callCenter.lineItemselectOptions("Details");
-      salesOrderCreate.invCountcheck().then(function (totalAvailableValue) {
+      salesOrderCreate.ATSCountcheck(1).then(function (totalAvailableValue) {
     	  ATS1 = parseInt(totalAvailableValue);
           browser.sleep(1000);
           console.log("pre-release available count"+ATS1);  
@@ -94,16 +94,15 @@ describe('Order Line Cancel ', function () {
             });
             
             salesOrderSummary.salesOrderSelectGear("View");//editing the Order        
- 	       browser.sleep(2000);	 
- 	       
- 	      salesOrderEdit.orderQtyCheck(1).then(function (value) {    
+ 	        browser.sleep(2000);	 
+ 	       salesOrderEdit.orderQtyCheck(1).then(function (value) {    
  	            alted = value;
  	            allocated = alted.substring(10)
  	            console.log("Total allocated QTY "+allocated);
  	            expect(allocated).toEqual('7');
  	        });
  	      
- 	     salesOrderEdit.orderQtyCheck(2).then(function (value) {    
+ 	      salesOrderEdit.orderQtyCheck(2).then(function (value) {    
 	            boq = value;
 	            backOrdered = boq.substring(12)
 	            console.log("Total backordered QTY "+backOrdered);

@@ -294,6 +294,8 @@ this.FRShipmentstatus = function(line1,line2){
 	
 	this.PickConfirm = function(picktype){
 		
+		browser.executeScript('window.scrollTo(0,-250);');
+		browser.sleep(5000);
 		temp=element(by.xpath("//span[contains(text(),'"+picktype+"')]/parent::button"))
 		 temp.click();
 	}
@@ -510,6 +512,8 @@ this.pickedQty = function(line1,data){
 	}
 	
 	this.salesOrderCarrierUpdate = function(carrier,type) {
+		browser.executeScript('window.scrollTo(0,-250);');
+		browser.sleep(5000);
         this.salesOrderCarrierPencilIcon.click();
         this.salesOrderCarrierDropdown.sendKeys(carrier);
         this.salesOrderCarrierServiceDropdown.sendKeys(type);
@@ -538,10 +542,11 @@ this.pickedQty = function(line1,data){
 	}
 	
 	this.ScriptActiveButton = function () {
-		
+		browser.executeScript('window.scrollTo(0,-1500);');
+		browser.sleep(5000);
 		temp = element(by.xpath('//input[@ng-model="script.data.active"]'));
 		temp.click();
-		element(by.xpath("(//button/span[contains(text(),'Save')])[1]")).click();
+		element(by.xpath("(//button/span[contains(text(),'Save')])[4]")).click();
 		console.log("the Script updated successfully")
 	}	
 	
@@ -566,10 +571,10 @@ this.pickedQty = function(line1,data){
 	
 	this.batchSerivces = function(service){
 		
-		 temp='(//li[@class="multiselect-item-checkbox ng-scope"])['+service+']';
+		// temp='(//li[@class="multiselect-item-checkbox ng-scope"])['+service+']';
    		 this.serviceDropdownmultiselect.click();
    		 browser.sleep(1000);
-   		 element(by.xpath(temp)).click();
+   		 element(by.xpath('(//li[@class="multiselect-item-checkbox ng-scope"])['+service+']')).click();
    		 browser.sleep(500);
    		 this.serviceDropdownmultiselect.click();
    		 browser.sleep(1000);

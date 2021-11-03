@@ -1,3 +1,6 @@
+const apiResource = require("protractor-api-resource").ProtractorApiResource;
+var moment = require('moment');
+var request = require('request');
 var returnsCreateScreen = require(process.cwd() + '/src/tests/screens/returns/returns.create.screen.js');
 var returnsEditScreen= require(process.cwd() + '/src/tests/screens/returns/returns.edit.screen.js');
 var returnsSummaryScreen = require(process.cwd() + '/src/tests/screens/returns/returns.summary.screen.js');
@@ -5,7 +8,8 @@ var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/ca
 var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
 var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
-
+var utils = require(process.cwd() + '/src/tests/screens/batchPick/Utilities.js');
+var util = require(process.cwd() + '/src/tests/screens/Utilities/util.js');
 global.RMANumber = "";
 global.orderStatus = "";
 global.SONumber = "";
@@ -20,6 +24,13 @@ global.totalShQTY = "";
 global.totalRMQTy = "";
 global.totalRecQty = "";
 global.InspectedQTY = "";
+global.SOId="";
+global.FRNumber1="";
+global.INVNumber="";
+global.RMAId="";
+var response=[]
+let jsondata="";
+global.invoiceId="";
 
 describe("Call center return : ", function() {
 	  	var returnsCreate = new returnsCreateScreen();
@@ -88,9 +99,46 @@ describe("Call center return : ", function() {
 	            salesOrderSummary.viewShipmentVisibility();
 	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
 	            callCenter.shipmentChangeStatusConfimation();
-	            browser.sleep(3000);
+	            browser.get(routeUrl);
+		        commons.searchWithCriteria('Name', 'starts with', 'invoiceForShipments');		        
+		        utils.status(5,2).then(function (value) {
+					savedStatus = value;
+				    console.log("the route status is "+savedStatus);	
+				    utils.startingReturnInvoiceRoute(savedStatus,3);
+				});	
+		       	expect(utils.status(5,2)).toEqual("STARTED");	            
 	        })
-	        
+	      /*    browser.wait(function () {
+		        return SONumber != '';
+		   		}).then(function () {
+		   		browser.get(callCenterSalesOrdersListUrl);
+		   		salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+		   		salesOrderSummary.salesOrderStatus().then(function (status) {
+		           orderStatus = status;
+		           console.log("the status of the order #"+SONumber+" is: "+orderStatus);
+		           expect(salesOrderSummary.salesOrderStatus()).toEqual('INVOICED');
+		           salesOrderSummary.salesOrderSelectGear("View");
+		           util.currentURL().then(function(value){
+		            	url=value;
+		            	SOId=url.substring(65,101);
+		    	        console.log("the Sales Order Id is "+SOId);
+		           
+		           });
+		           salesOrderSummary.salesOrderPane("Shipping Requests");
+		           salesOrderSummary.collapseIcon(1);
+		           
+		           salesOrderSummary.shipmentRequestNo(1).then(function(value){
+			        	FRNumber1=value;
+			        	console.log("the  FR Number is  "+FRNumber1);
+			        	
+			        });	
+		           salesOrderSummary.trackingAndInvoice(4).then(function(value){
+		           	INVNumber=value;
+		           	console.log("the invoice number is  "+INVNumber);
+		           });  
+				  });
+				});
+	        */
 	      ///***call center returns****////
 	        browser.wait(function () {
 	            return SONumber != '';
@@ -176,6 +224,11 @@ describe("Call center return : ", function() {
 	          //  browser.sleep(3000);
 	           // commons.save();
 	            returnsCreate.refundtype(browser.params.refundMethod);
+	            util.currentURL().then(function(value){
+	            	url=value;
+	    	        RMAId=url.substring(83,119);
+	    	        console.log("the RMA Id is "+RMAId);
+	    	       });
 	            commons.save();
 	            returnsCreate.paymentDispositionSubmit();
 	            browser.sleep(3000);    
@@ -186,39 +239,85 @@ describe("Call center return : ", function() {
 		                console.log("the payment status of the RMA #"+ RMANumber+" after payment Disposition is : "+paymentDispositionStatus);
 		                expect(paymentDispositionStatus).toEqual("PENDING PAYMENT");
 
-		            })
-
-	            ///******Changing the inspected status*********////      
-	            
-	            browser.get(returnsUrl);
-	            salesOrderSummary.salesOrderSearch("Original Order #", RMANumber);
-	            returnsCreate.inspectedRMASelect();
-	            callCenter.editLineGear("2");
-	            returnsCreate.changeStatusclick();
-	            returnsCreate.newstatusupdate("RECEIVED");
-	            browser.sleep(1000);
-	            returnsCreate.receivedDate();
-	            browser.sleep(1000);
-	            browser.get(callCenterReturnsUrl);
-	            salesOrderSummary.salesOrderSearch("Original Order #", RMANumber);
-	            returnsCreate.RMAStatus().then(function (status) {
-	            	RMAchangededStatus = status;
-	                console.log("the status of the RMA #"+ RMANumber+" after changing the status is : "+RMAchangededStatus);
-	                expect(RMAchangededStatus).toEqual("RECEIVED");
-
-	            })
-	            
-	             ///******CREATING THE RETURN INVOICE*********////
-	            
+		            });
+	        	});
+			});
+			 it("Getting the RMA response", done =>{
+				 
+			        var options = {
+		                 method: 'GET',
+		                 url: 'https://project4-qa.enspirecommerce.com/api/v1/rma/id/'+RMAId+'',
+		                 headers: {
+		                     'Content-Type': 'application/json',
+		                     'Authorization': 'Bearer '+token
+		                 },
+		         	};
+		         options.json = true;
+		         console.log("token from token generation is "+options.headers.Authorization);
+		         request(options, function (error, response, body) {
+		     		var errors = error;
+		     		console.log('error:', + error);
+		     		console.log('statusCode:', response && response.statusCode);
+		     		response1 = JSON.stringify(body);
+		     		response2= response1.split(",")
+		     		console.log("the length of body array is : ", response2.length);
+		     		for(i=0;i<response2.length;i++){         			
+		     			if(response2[i]=='"returnMerchandiseAuthorizationStatus":"PENDING_PAYMENT"'){
+		     				console.log("the value before updting array is "+response2[i])
+		     				response2[i]='"returnMerchandiseAuthorizationStatus":"RECEIVED"';
+		     				console.log("the value updted is "+response2[i])
+		     			}         			
+		     		}
+		     		jsondata=JSON.parse(response2)
+		     		expect(response.statusCode).toBe(200);
+		     		done();
+		       });
+		});
+		//sending the PUT Request
+		 it("updating the RMA status ", done =>{
+		     var options = {
+		             method: 'PUT',
+		             url: 'https://project4-qa.enspirecommerce.com/api/v1/rma/id/'+RMAId+'',
+		             headers: {
+		                 'Content-Type': 'application/json',
+		                 'Authorization': 'Bearer '+token
+		             },	                        
+		           body: jsondata,
+		      }	  		 
+				 	options.json = true;
+		     console.log("token from token generation is "+options.headers.Authorization);
+		     request(options, function (error, response, body) {
+		 		var errors = error;
+		 		console.log('error:', + error);
+		 		console.log('statusCode:', response && response.statusCode);
+		 		console.log('body:', body);
+		 		expect(response.statusCode).toBe(200);
+		 		done();
+		         });
+		 });
+		
+		it("creating the return invoice", function() {
+		 browser.wait(function () {
+		     return RMANumber != '';
+		 }).then(function () {
+		     browser.get(callCenterReturnsUrl);
+		 	salesOrderSummary.salesOrderSearch("Original Order #", RMANumber);
+		 	returnsCreate.RMAStatus().then(function (status) {
+		 	RMAStatus = status;
+		         console.log("the  status of the RMA #"+ RMANumber+" after RECEIVE  is : "+RMAStatus);
+		         expect(RMAStatus).toEqual("RECEIVED");
+		 	});	            
+	 
+		//!******CREATING THE RETURN INVOICE*********!//
 	            browser.get(routeUrl);
 	            commons.searchWithCriteria('Name', 'starts with', 'invoiceForReturns');
-	            utils.status(5,1).then(function (value) {
+	            utils.status(5,2).then(function (value) {
 					savedStatus = value;
 				    console.log("the route status is "+savedStatus);	
-				    returnsCreate.startingReturnInvoiceRoute(savedStatus,2);
+				    returnsCreate.startingReturnInvoiceRoute(savedStatus,3);
 				});	
 	            browser.sleep(2000);
-				expect(utils.status(5,1)).toEqual("STARTED");	          
+				expect(utils.status(5,2)).toEqual("STARTED");	          
 				browser.get(callCenterReturnsUrl);
 	            salesOrderSummary.salesOrderSearch("Original Order #", RMANumber);
 	            returnsCreate.RMAStatus().then(function (status) {
@@ -228,7 +327,7 @@ describe("Call center return : ", function() {
 
 	            	})
 	            	
-	           //******Partial Quantity verification***********///
+	           //!******Partial Quantity verification***********!//
 
 	            browser.get(callCenterReturnsUrl);
 	            salesOrderSummary.salesOrderSearch("Original Order #", RMANumber);
@@ -242,37 +341,32 @@ describe("Call center return : ", function() {
 	                expect(totalShQTY).toEqual("2");
 
 	            	})
-	            	
 	   //checking total RMA QTY       	
-	            
 	            	returnsCreate.totalRmaQty().then(function (rmaqty) {
 	            	totalRMQTy = rmaqty;
 	                console.log("Total RMA QTY : "+totalRMQTy);
 	                expect(totalRMQTy).toEqual("2");
 
 	            	})
-	            	
 	  //checking total received QTY       	
-	            
 	            	returnsCreate.totalReceivedQty().then(function (received) {
 	            	totalRecQty = received;
 	                console.log("Total Received QTY : "+totalRecQty);
 	                expect(totalRecQty).toEqual("2");
 
 	            	})
-	            	
 	            browser.get(routeUrl);
 	            commons.searchWithCriteria('Name', 'starts with', 'invoiceForReturns');
-	            utils.status(5,1).then(function (value) {
+	            utils.status(5,2).then(function (value) {
 					savedStatus = value;
 				    console.log("the route status is "+savedStatus);	
-				    returnsCreate.StopRoute(savedStatus,2);
+				    returnsCreate.StopRoute(savedStatus,3);
 				});	
-	            expect(utils.status(5,1)).toEqual("STOPPED");
+	            expect(utils.status(5,2)).toEqual("STOPPED");
 	            browser.sleep(3000);
 	            	
-	        })	        
+	        });    
 		 
-	})
+	});
 
 })

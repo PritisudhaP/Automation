@@ -6,6 +6,7 @@ var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOr
 var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
 var utils = require(process.cwd() + '/src/tests/screens/batchPick/Utilities.js');
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
+var invoiceSummaryScreen = require(process.cwd() + '/src/tests/screens/invoice/invoice.summary.screen.js');
 
 global.RMANumber = "";
 global.orderStatus = "";
@@ -35,9 +36,18 @@ describe("Order returns : ", function() {
 	    var salesOrderCreate = new salesOrderCreateScreen();
 	    var salesOrderSummary = new salesOrderSummaryScreen();
 	    var commons = new common();
+		var invoiceSummary=new invoiceSummaryScreen();
 		utils.Login(browser.params.login.user,browser.params.login.password);
 
         it('Order returns full QTY - TC0004', function(){
+        	browser.get(correlations);
+		 	commons.searchWithCriteria('Name', 'ends with', 'returnsVersion');
+		 	invoiceSummary.lineSelctor(1);
+		 	invoiceSummary.keyValues().then(function (value) {
+			    data = value;
+			    console.log("the data are"+data);
+			    invoiceSummary.invoiceCorrelation(data,"V1");
+			});
         	browser.get(callcenterorder);
 			browser.driver.manage().window().maximize();
 	        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
@@ -96,7 +106,7 @@ describe("Order returns : ", function() {
 	            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
 	        });
         	
-        ///******orders Returns************///	
+        //!******orders Returns************!//	
 	        
             browser.get(returnsUrl);
             console.log("navigating to Returns  new screen"); 
@@ -182,7 +192,7 @@ describe("Order returns : ", function() {
             }); 
              
       });
-        
+      
         it('Order returns Partial QTY - TC0005', function(){
         	browser.get(callcenterorder);
 			browser.driver.manage().window().maximize();
@@ -251,7 +261,7 @@ describe("Order returns : ", function() {
 	                    	
 	        })
         	
-        ///******orders Returns************///	
+        //!******orders Returns************!//	
 	        
             browser.get(returnsUrl);
             console.log("navigating to Returns  new screen"); 
@@ -413,7 +423,7 @@ describe("Order returns : ", function() {
 	                    	
 	        });
 	        
-	        ///******orders Returns************///	
+	        //!******orders Returns************!//	
 	        browser.wait(function () {
 	            return SONumber != '';
 	        }).then(function () {
@@ -424,7 +434,7 @@ describe("Order returns : ", function() {
 	            browser.waitForAngular();
 	            returnsCreate.orderReturn(); 
 	            commons.customerLookup();
-	            commons.searchWithCriteria("Customer Contact First Name","contains","Alice");
+	            commons.searchWithCriteria("Name","starts with",browser.params.customerSearchValue);
 	            returnsCreate.selectCustomer();
 	            returnsCreate.useSelectedCustomer();
 	            browser.sleep(2000);
@@ -455,7 +465,7 @@ describe("Order returns : ", function() {
 	            expect(browser.getCurrentUrl()).toEqual(returnsUrl);
 	            
 	        });
-	     //*********checking whether the RMA is deleted or not********//
+	     //!*********checking whether the RMA is deleted or not********!//
 	        
             browser.wait(function() {
                 return RMANumber != '';
@@ -471,8 +481,8 @@ describe("Order returns : ", function() {
 
 	            });
             });    
-      })
-  it('Returnig same Order Mulitple time - TC0018', function(){
+      });
+     it('Returnig same Order Mulitple time - TC0018', function(){
 	    	  	browser.get(callcenterorder);
 				browser.driver.manage().window().maximize();
 		        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);

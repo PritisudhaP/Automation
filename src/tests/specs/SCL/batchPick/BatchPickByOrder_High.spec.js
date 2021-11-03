@@ -7,7 +7,6 @@ var batchPickSummary = require(process.cwd() + '/src/tests/screens/batchPick/bat
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
 var returnsCreateScreen = require(process.cwd() + '/src/tests/screens/returns/returns.create.screen.js');
 var utils = require(process.cwd() + '/src/tests/screens/batchPick/Utilities.js');
-
 var loginPage = require(process.cwd() + '/src/tests/screens/login/login.screen.js');
 
 
@@ -50,7 +49,6 @@ describe("Order_Based_Batch Pick: ", function() {
 	 it("Ship_Single_line_Single_QTY_PickList_By_Order_TC0031", function() {
 		 
 			browser.get(callcenterorder);
-	        browser.driver.manage().window().maximize();
 			utils.pdfFolderCleanUp(browser.params.labelPath);//cleaning up the pdf downlod folder
 			console.log("Folder cleared successfully");
 	        callCenter.attachCustomer();
@@ -169,6 +167,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            batchCreate.batchPickRefresh(orderStatus);
 	            });			        
 		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(3000);
@@ -257,9 +256,9 @@ describe("Order_Based_Batch Pick: ", function() {
 		                console.log("content is "+details);
 		                var line = [];
 		    			line=details.split("\n");
-		    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+		    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 		    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-		    			expect(details).toContain(browser.params.custAddress1);
+		    			expect(details).toContain(browser.params.shippingAddress);
 		    			expect(details).toContain(browser.params.custCity);
 		    			expect(details).toContain(browser.params.custAddressState);					
 		              });
@@ -312,7 +311,6 @@ describe("Order_Based_Batch Pick: ", function() {
 	                });
 	            });
 	  });
-	 
   it("Ship_Multiple_line_multiple_QTY_PickList_By_Order_TC0032", function() {
 			
 			browser.get(callcenterorder);
@@ -446,6 +444,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            batchCreate.batchPickRefresh(orderStatus);
 	    	        });
 		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(3000);
@@ -526,9 +525,9 @@ describe("Order_Based_Batch Pick: ", function() {
 		                //console.log("content is "+details);
 		                var line = [];
 		    			line=details.split("\n");
-		    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+		    		//	expect(details).toContain((browser.params.custLabelName));//customer name checking
 		    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-		    			expect(details).toContain(browser.params.custAddress1);
+		    			expect(details).toContain(browser.params.shippingAddress);
 		    			expect(details).toContain(browser.params.custCity);
 		    			expect(details).toContain(browser.params.custAddressState);					
 		              });
@@ -705,6 +704,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            batchCreate.batchPickRefresh(orderStatus);
 	            });			        
 		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(2000);				
@@ -795,9 +795,9 @@ describe("Order_Based_Batch Pick: ", function() {
 		                //console.log("content is "+details);
 		                var line = [];
 		    			line=details.split("\n");
-		    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+		    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 		    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-		    			expect(details).toContain(browser.params.custAddress1);
+		    			expect(details).toContain(browser.params.shippingAddress);
 		    			expect(details).toContain(browser.params.custCity);
 		    			expect(details).toContain(browser.params.custAddressState);					
 		              });
@@ -986,6 +986,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            batchCreate.batchPickRefresh(orderStatus);
 	    	        });
 		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(2000);
@@ -1063,9 +1064,9 @@ describe("Order_Based_Batch Pick: ", function() {
 		                //console.log("content is "+details);
 		                var line = [];
 		    			line=details.split("\n");
-		    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+		    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 		    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-		    			expect(details).toContain(browser.params.custAddress1);
+		    			expect(details).toContain(browser.params.shippingAddress);
 		    			expect(details).toContain(browser.params.custCity);
 		    			expect(details).toContain(browser.params.custAddressState);					
 		              });
@@ -1433,6 +1434,7 @@ describe("Order_Based_Batch Pick: ", function() {
 	 	            batchCreate.batchPickRefresh(orderStatus);
              	});		        
 	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            browser.sleep(3000);   
@@ -1514,9 +1516,9 @@ describe("Order_Based_Batch Pick: ", function() {
 	                //console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+	    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 	    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });
@@ -1700,6 +1702,7 @@ describe("Order_Based_Batch Pick: ", function() {
  	        }).then(function () {
  	        	browser.get(batchPickUrl);
 	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            browser.sleep(2000);
@@ -1777,10 +1780,10 @@ describe("Order_Based_Batch Pick: ", function() {
 	                //console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(line[2]).toContain(browser.params.custDisplayName);//customer name checking
+	    			expect(line[2]).toContain((browser.params.custDisplayName));//customer name checking
 	    			expect(line[3]).toContain(SONumber);
 	    			expect(details).not.toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).not.toContain(browser.params.custAddress1);
+	    			expect(details).not.toContain(browser.params.shippingAddress);
 	    			expect(details).not.toContain(browser.params.custCity);
 	    			expect(details).not.toContain(browser.params.custAddressState);					
 	              });
@@ -1829,7 +1832,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            browser.sleep(2000);
 	            });
 	            browser.get(batchPickUrl);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -1870,7 +1873,7 @@ describe("Order_Based_Batch Pick: ", function() {
 			            browser.sleep(2000);
 		            });
 		            browser.get(batchPickUrl);
-		            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 		            browser.sleep(2000);
 		            batchCreate.shipmentstatus(5,1).then(function (status) {
 		                orderStatus = status;
@@ -2032,6 +2035,7 @@ describe("Order_Based_Batch Pick: ", function() {
  	        }).then(function () {
     	        browser.get(batchPickUrl);
 	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            browser.sleep(2000);
@@ -2111,10 +2115,10 @@ describe("Order_Based_Batch Pick: ", function() {
 	                //console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(line[2]).toContain(browser.params.custDisplayName);//customer name checking
+	    			expect(line[2]).toContain((browser.params.custLabelName));//customer name checking
 	    			expect(line[3]).toContain(SONumber);
 	    			expect(details).not.toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).not.toContain(browser.params.custAddress1);
+	    			expect(details).not.toContain(browser.params.shippingAddress);
 	    			expect(details).not.toContain(browser.params.custCity);
 	    			expect(details).not.toContain(browser.params.custAddressState);					
 	              });
@@ -2165,7 +2169,7 @@ describe("Order_Based_Batch Pick: ", function() {
 	            });
 	            
 	            browser.get(batchPickUrl);
-		        salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -2207,7 +2211,7 @@ describe("Order_Based_Batch Pick: ", function() {
 			            browser.sleep(2000);
 		            });
 		            browser.get(batchPickUrl);
-		            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 		            browser.sleep(2000);
 		            batchCreate.shipmentstatus(5,1).then(function (status) {
 		                orderStatus = status;
@@ -2218,7 +2222,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            
 		  });
 	  });
-	  
+	 
 	  	it("Reject Ship Alone Partial FR TC0039", function() {
 	    	
 	    	browser.get(callcenterorder);
@@ -2615,6 +2619,7 @@ describe("Order_Based_Batch Pick: ", function() {
 		            browser.sleep(2000);
 		            batchCreate.batchPickRefresh(orderStatus);
 	    	        });
+					batchCreate.refreshBatch();
 		            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");		
@@ -2647,8 +2652,8 @@ describe("Order_Based_Batch Pick: ", function() {
 				expect(details).toContain("Order Based Picklist");//picklist type checking
 				expect(details).toContain(browser.params.storeNumber);//Store number checking
 				expect(line[4]).toEqual(BatchId);//
-				expect(line[5]).toContain(FRNumber);//FR Request checking
-				expect(line[18]).toContain(FRNumber2);//FRRequest  checking
+				expect(details).toContain(FRNumber);//FR Request checking
+				expect(details).toContain(FRNumber2);//FRRequest  checking
 				expect(line[8]).toContain(browser.params.orderpickSKU4);//checking
 				expect(details).toContain(browser.params.orderpickSKU45);//checking
 				expect(details).toContain(browser.params.storeNumber);//qty and price need to split again for pick list reading.
@@ -2701,9 +2706,9 @@ describe("Order_Based_Batch Pick: ", function() {
                 //console.log("content is "+details);
                 var line = [];
     			line=details.split("\n");
-    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
     			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });

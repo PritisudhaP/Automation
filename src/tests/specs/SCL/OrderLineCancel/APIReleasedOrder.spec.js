@@ -28,12 +28,10 @@ describe( "Order Line Cancel", function () {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer '+token
         },
-        
-
        body:  {
     		"orders":[
     			  {
-    				 "orderDate":"2018-03-05T11:24:15-08:00",
+    				 "orderDate":"2021-07-16T11:24:15-08:00",
     				 "orderNumber":order+1,
     				 "status":"OPEN",
     				 "channel":"B2B",
@@ -43,7 +41,7 @@ describe( "Order Line Cancel", function () {
     					{
     					   "lineNumber":1,
     					   "status":"OPEN",
-    					   "lineItemId": "AcuSKU11",
+    					   "lineItemId": browser.params.searchValueSKU1,
     					   "lineItemQty":5,
     					   "originalOrderedQty":5,
     					   "shipToContact":{
@@ -68,7 +66,7 @@ describe( "Order Line Cancel", function () {
     					{
      					   "lineNumber":2,
      					   "status":"OPEN",
-     					   "lineItemId": "0000000028",
+     					   "lineItemId": browser.params.searchValueSKU2,
      					   "lineItemQty":5,
      					   "originalOrderedQty":5,
      					   "shipToContact":{
@@ -122,7 +120,6 @@ describe( "Order Line Cancel", function () {
     		   ]
     		}
     };
-    
     options.json = true;
     console.log("token from token generation is "+options.headers.Authorization);
     request(options, function (error, response, body) {
@@ -188,7 +185,7 @@ describe( "Order Line Cancel", function () {
     					{
     					   "lineNumber":1,
     					   "status":"OPEN",
-    					   "lineItemId": "AcuSKU11",
+    					   "lineItemId": browser.params.searchValueSKU1,
     					   "lineItemQty":5,
     					   "originalOrderedQty":5,
     					   "shipToContact":{
@@ -213,7 +210,7 @@ describe( "Order Line Cancel", function () {
     					{
      					   "lineNumber":2,
      					   "status":"OPEN",
-     					   "lineItemId": "0000000028",
+     					   "lineItemId": browser.params.searchValueSKU2,
      					   "lineItemQty":5,
      					   "originalOrderedQty":5,
      					   "shipToContact":{

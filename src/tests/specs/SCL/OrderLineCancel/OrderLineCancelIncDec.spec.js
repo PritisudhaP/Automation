@@ -29,24 +29,17 @@ describe('Order Line Cancel ', function () {
       browser.sleep(2000);
       commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
       callCenter.selectSKUFromSearch();
-      browser.sleep(2000);
       commons.search();
-      browser.sleep(2000);
       callCenter.selectSKUFromResults();
       callCenter.addToOrder();
-      browser.sleep(3000);
       callCenter.attachCustomer();
-      browser.sleep(2000);
       callCenter.searchCustomer(browser.params.customerCriteria, browser.params.custDisplayName);
-      browser.sleep(3000);
       salesOrderCreate.selectCustomer();
-      browser.sleep(2000);
       salesOrderCreate.useSelectedCustomer();
-      browser.sleep(2000);	      
       salesOrderCreate.SaveAsDraft();
       browser.sleep(2000);
     //checking the Inc QTY in Draft      	
-      salesOrderCreate.incrementQty(5);
+      salesOrderCreate.incrementQty(5);//total qty will be 6
 	  browser.sleep(2000);
   	  salesOrderCreate.OrderItemCount().then(function (value) {    
 		  qty = value;
@@ -59,7 +52,7 @@ describe('Order Line Cancel ', function () {
 //checking the Dec QTY in Draft
 
 	  browser.sleep(1000);
-	  salesOrderCreate.decrementQTy(3);
+	  salesOrderCreate.decrementQTy(3); //total qty will be 3 
       browser.sleep(3000);
 	  salesOrderCreate.OrderItemCount().then(function (value) {    
 		  qty = value;
@@ -79,13 +72,14 @@ describe('Order Line Cancel ', function () {
 		});
 		browser.sleep(2000);
 		//checking the Inc QTY after  Save     
-		salesOrderCreate.incrementQty(2);
+		salesOrderCreate.incrementQty(2);//total qty will be 5
+		salesOrderEdit.reSave();
 		browser.sleep(2000);
 		salesOrderCreate.OrderItemCount().then(function (value) {    
 			qty = value;
 		    res = qty.substring(0, 2);
 		    incQtyDraft = parseInt(res);
-		    console.log("Icremented Quantity in draft "+incQtyDraft);
+		    console.log("Icremented Quantity after Save "+incQtyDraft);
 		    expect(incQtyDraft).toEqual((browser.params.Incqty));
 		});
 		//checking the Dec QTY after Save is 
@@ -109,13 +103,14 @@ describe('Order Line Cancel ', function () {
             salesOrderSummary.salesOrderSelectGear("View");//editing the Order        
 	       browser.sleep(2000);
 //checking the Inc QTY after Release     
-			salesOrderCreate.incrementQty(2);
+			salesOrderCreate.incrementQty(2);//total qty will be 7
 			browser.sleep(2000);
+			salesOrderEdit.reSave();
 			salesOrderCreate.OrderItemCount().then(function (value) {    
 				qty = value;
 			    res = qty.substring(0, 2);
 			    incQtyDraft = parseInt(res);
-			    console.log("Icremented Quantity in draft "+incQtyDraft);
+			    console.log("Icremented Quantity after Release "+incQtyDraft);
 			    expect(incQtyDraft).toEqual((browser.params.Incqty)+2);
 			});
 			

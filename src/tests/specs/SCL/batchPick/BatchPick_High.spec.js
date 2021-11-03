@@ -7,6 +7,8 @@ var batchPickSummary = require(process.cwd() + '/src/tests/screens/batchPick/bat
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
 var returnsCreateScreen = require(process.cwd() + '/src/tests/screens/returns/returns.create.screen.js');
 var utils = require(process.cwd() + '/src/tests/screens/batchPick/Utilities.js');
+var salesOrderEditScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.edit.screen.js');
+
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -45,9 +47,10 @@ describe("Batch Pick: ", function() {
 	    var salesOrderCreate = new salesOrderCreateScreen();
 	    var salesOrderSummary = new salesOrderSummaryScreen();
 	  	var returnsCreate = new returnsCreateScreen();
+	    var salesOrderEdit = new salesOrderEditScreen();
 		utils.Login(browser.params.login.user,browser.params.login.password);
 
-	  	it("Ship_Single_line_Single_QTY TC0001", function() {
+	 	it("Ship_Single_line_Single_QTY TC0001", function() {
 			
 			browser.get(callcenterorder);
 	        browser.driver.manage().window().maximize();
@@ -126,13 +129,15 @@ describe("Batch Pick: ", function() {
        		browser.wait(function () {
             return BatchId != '';
 	        }).then(function () {
-	            browser.get(batchPickUrl);
-	            browser.sleep(2000);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId.toString());
-	            batchCreate.shipmentstatus(5,1).then(function (status) {
+	           browser.get(batchPickUrl);
+	           browser.sleep(2000);
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+	           batchCreate.refreshBatch();
+	           batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
 		            browser.sleep(2000);
+		            
 		            batchCreate.truckIcon(orderStatus);
 	            });
 	            
@@ -177,7 +182,7 @@ describe("Batch Pick: ", function() {
 	            });
 	            browser.get(batchPickUrl);
 	            console.log("the sale sorder is "+SONumber);
-	            salesOrderSummary.salesOrderSearch("Batch Id #", BatchId);
+	            commons.searchWithCriteria('Batch Id #', 'ends with', BatchId);
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -288,7 +293,8 @@ describe("Batch Pick: ", function() {
 	        	
 	            browser.get(batchPickUrl);
 	            browser.sleep(2000);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId.toString());
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+	           batchCreate.refreshBatch();
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -335,7 +341,7 @@ describe("Batch Pick: ", function() {
 		            browser.sleep(2000);
 	            });
 	            browser.get(batchPickUrl);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -346,7 +352,7 @@ describe("Batch Pick: ", function() {
 	        });
 	});
 	
-	it("Ship_Single_And_Multiple_line_TC0003", function() {
+		it("Ship_Single_And_Multiple_line_TC0003", function() {
 		
 		browser.get(callcenterorder);
         browser.driver.manage().window().maximize();
@@ -501,14 +507,13 @@ describe("Batch Pick: ", function() {
         	
             browser.get(batchPickUrl);
             browser.sleep(2000);
-            salesOrderSummary.salesOrderSearch("Batch Id", BatchId.toString());
+           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
+           batchCreate.refreshBatch();
             batchCreate.shipmentstatus(5,1).then(function (status) {
                 orderStatus = status;
                 console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
-	            browser.sleep(2000);
 	            batchCreate.truckIcon(orderStatus);
             });
-            browser.sleep(2000);
             batchCreate.yesButton();
             browser.sleep(2000);
         });
@@ -572,7 +577,7 @@ describe("Batch Pick: ", function() {
              });             
              browser.get(batchPickUrl);
              console.log("the sale sorder is "+SONumber2);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
              browser.sleep(2000);
              batchCreate.shipmentstatus(5,1).then(function (status) {
                  orderStatus = status;
@@ -582,7 +587,7 @@ describe("Batch Pick: ", function() {
              });             
          });       
 	});
-	  		   
+	 		   
 	    it("BOPIS_Single_line_Single_QTY TC0004", function() {
 		
 			browser.get(callcenterorder);
@@ -689,7 +694,7 @@ describe("Batch Pick: ", function() {
 	                console.log("the total signle line quantity after batch creation "+aftertotalline);
 	            });
 	            
-	            
+		        batchCreate.refreshBatch();
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -752,7 +757,7 @@ describe("Batch Pick: ", function() {
 	            });
 	            browser.get(batchPickUrl);
 	            console.log("the sale sorder is "+SONumber);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -793,7 +798,7 @@ describe("Batch Pick: ", function() {
 			            browser.sleep(2000);
 		            });
 		            browser.get(batchPickUrl);
-		            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+		           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		            browser.sleep(2000);
 		            batchCreate.shipmentstatus(5,1).then(function (status) {
 		                orderStatus = status;
@@ -916,7 +921,7 @@ describe("Batch Pick: ", function() {
 	                console.log("the total signle line quantity after batch creation "+aftertotalline);
 	            });
 //refreshing the page
-	            
+		        batchCreate.refreshBatch();
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -1015,7 +1020,7 @@ describe("Batch Pick: ", function() {
 		            });
 		            browser.get(batchPickUrl);
 		            console.log("the sale sorder is "+SONumber);
-		            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+		           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 		            browser.sleep(2000);
 		            batchCreate.shipmentstatus(5,1).then(function (status) {
 		                orderStatus = status;
@@ -1047,7 +1052,7 @@ describe("Batch Pick: ", function() {
         callCenter.editLinePopUpSaveBtn(); 
         
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
-        browser.sleep(1000);
+        browser.sleep(2000);
         salesOrderCreate.saveOption("Save");
         salesOrderCreate.salesOrderNumber().then(function (value) {
         	SONumber1 = value;
@@ -1186,7 +1191,7 @@ describe("Batch Pick: ", function() {
                 console.log("the total signle and multi line quantity after batch creation "+aftertotalline);
             });
 //refreshing the page
-            
+	        batchCreate.refreshBatch();
             batchCreate.shipmentstatus(5,1).then(function (status) {
                 orderStatus = status;
                 console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -1261,7 +1266,7 @@ describe("Batch Pick: ", function() {
 	            });
 	            browser.get(batchPickUrl);
 	            console.log("the sale sorder is "+SONumber1);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 	            browser.sleep(2000);
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
@@ -1400,6 +1405,7 @@ describe("Batch Pick: ", function() {
             browser.sleep(2000);
             commons.searchWithCriteria('Batch Id', 'ends with', BatchId.toString());
 //refreshing the page
+	        batchCreate.refreshBatch();
             batchCreate.shipmentstatus(5,1).then(function (status) {
                 orderStatus = status;
                 console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -1468,7 +1474,7 @@ describe("Batch Pick: ", function() {
                     
                     browser.get(batchPickUrl);
                     console.log("the sale sorder is "+salesorders[i]);
-                    salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+                   commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
                     browser.sleep(2000);
                     batchCreate.shipmentstatus(5,1).then(function (status) {
                         orderStatus = status;
@@ -1529,7 +1535,7 @@ describe("Batch Pick: ", function() {
 	                 });
 	                 
 	                 browser.get(batchPickUrl);
-	 	             salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	 	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 	                 browser.sleep(2000);
 	                 batchCreate.shipmentstatus(5,1).then(function (status) {
 	                     orderStatus = status;
@@ -1655,6 +1661,7 @@ describe("Batch Pick: ", function() {
           browser.sleep(2000);
           commons.searchWithCriteria('Batch Id', 'ends with', BatchId.toString());
 //refreshing the page
+	      batchCreate.refreshBatch();
           batchCreate.shipmentstatus(5,1).then(function (status) {
               orderStatus = status;
               console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -1748,7 +1755,7 @@ describe("Batch Pick: ", function() {
      		            browser.sleep(2000);
      	            });
      	            browser.get(batchPickUrl);
-    	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+    	           commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
      	            browser.sleep(2000);
      	            batchCreate.shipmentstatus(5,1).then(function (status) {
      	                orderStatus = status;
@@ -1784,7 +1791,7 @@ describe("Batch Pick: ", function() {
 	                 });
 	                 
 	                 browser.get(batchPickUrl);
-	 	             salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	 	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);
 	                 browser.sleep(2000);
 	                 batchCreate.shipmentstatus(5,1).then(function (status) {
 	                     orderStatus = status;
@@ -2016,7 +2023,7 @@ describe("Batch Pick: ", function() {
 	            });
 	        });
 	});
-    
+  
  it("Reject multiple line Single QTY Partially TC0011", function() {
 	    	
 	    	browser.get(callcenterorder);
@@ -2045,7 +2052,9 @@ describe("Batch Pick: ", function() {
 	        callCenter.editLineGear("4");
 	        callCenter.lineItemselectOptions("Edit Line");
 	        callCenter.editSKUQuantity("5");
+	        browser.sleep(5000);
 	        callCenter.editLinePopUpSaveBtn();
+	        browser.sleep(500);
 	        //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 	        browser.sleep(1000);
 	        salesOrderCreate.saveOption("Save");
@@ -2053,9 +2062,8 @@ describe("Batch Pick: ", function() {
 	            SONumber = value;
 	            console.log("sales order number"+SONumber);
 	        });
-
-	        browser.sleep(2000);
-	        
+	        //salesOrderEdit.reSave();
+	        //browser.sleep(2000);
 	        //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
 	        browser.wait(function () {
 	            return SONumber != '';
@@ -2153,7 +2161,7 @@ describe("Batch Pick: ", function() {
 	            });
 	        });
 	});    
-	    
+	    /*
  it("Reject multiple line multiple QTY Partially TC0012", function() {
  	
  	browser.get(callcenterorder);
@@ -2291,7 +2299,8 @@ describe("Batch Pick: ", function() {
 	            	browser.sleep(2000);
 	         });
 	    });
- 	});    	 	
+ 	});   */
+		
  	it("Reject_Partial_QTY_BOPIS_TC0044", function() {
  	
  	 browser.get(callcenterorder);

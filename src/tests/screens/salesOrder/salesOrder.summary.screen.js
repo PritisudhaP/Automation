@@ -111,6 +111,8 @@ module.exports =function(){
     this.paymentSubmitButton = element(by.xpath("//button/span[contains(text(),'Submit')]"));
     this.lineselect = element(by.xpath('//div/div[@class="en-collection-row"]'));
     this.jobDefinition = element(by.xpath('//en-tab[@data-state="definitions"]'));
+	this.jobExecutionPane = element(by.xpath("//en-tabs/en-tab[contains(text(),'Executions')]"))
+    this.itemsInPage = element(by.model("limit"));											  
     
 //////////*******************END OF LOCATORS****************************************//////
     
@@ -426,11 +428,12 @@ this.clickOnStatustext = function(){
  
  this.CNFButton = function(){
 	// return this.cnfButtonClick.click();
-element(by.xpath("//Button/span[contains(text(),'Confirm')]")).isPresent().then(function(result) {
+		element(by.xpath("//Button/span[contains(text(),'Confirm')]")).isPresent().then(function(result) {
 		    if ( result ) {
 		        
-		   	  this.cnfButtonClick.click();
-		    	
+		   	 // this.cnfButtonClick.click();
+				element(by.xpath("//Button/span[contains(text(),'Confirm')]")).click();
+	
 		    } else {
 		    	
 				 console.log("confirm button not avilable ")
@@ -696,6 +699,11 @@ this.cancelAllLines= function(){
 	   this.jobDefinition.click();
 	   
 	}
+ this.jobStatus = function(){
+		   
+		this.jobExecutionPane.click();
+		   
+	}
    
 	this.shippingInfo = function (line) {
     	
@@ -724,6 +732,61 @@ this.cancelAllLines= function(){
 		
 		temp = element(by.xpath('(//section/div/a[@class="ng-binding"])['+line+']'));
 		return temp.getText();
-		
 }
+ this.shipmentRequestNo = function(line){
+		temp = element(by.xpath('(//div/a[@class="ng-binding"])['+line+']'));
+		return temp.getText();
+	}
+	this.packageSelectionV2 = function(line,packageValue){
+		
+	   element(by.xpath('(//select[@name="carrier"])['+line+']')).sendKeys(packageValue);;
+	}
+	this.storePortalV2Reject = function(reason,comment){
+		
+		   element(by.model("modalObject.reasonCode")).sendKeys(reason);
+		   element(by.model("modalObject.reason")).sendKeys(comment);
+		   
+		}
+	this.FRNumbers = function(){
+		temp = '//en-title[@class="title-sm ng-binding"]';
+		return element.all(by.xpath(temp));
+	}
+	
+	this.subscriptionOrderNumber = function(line){
+		
+		temp='(//div/div[@class="en-collection-row"]/div/div[@class="ellipsis"])['+line+']';
+		return element(by.xpath(temp)).getText();		
+	}
+	
+	this.itemsPerPage = function(items,arrow){
+		this.itemsInPage.clear();
+		this.itemsInPage.sendKeys(items);
+		element(by.xpath('(//en-icon[@icon="arrow-right-circle"])['+arrow+']')).click();
+	
+	}
+	
+	this.frRequestLink = function(line){
+		
+		temp = element(by.xpath('(//en-body/section/div/a[@class="ng-binding"])['+line+']'));
+		return temp.click();
+	}
+	
+	this.orderPaymentAuth = function(line){
+		
+		temp = element(by.xpath('(//en-title/span[@class="ng-binding"])['+line+']'));
+		return temp.getText();
+		
+	}
+	this.orderCapturedAmount = function(){
+		temp = element(by.xpath('(//en-title/span[@class="ng-binding ng-scope"])'));
+		return temp.getText();
+	}
+	
+	this.authorizationDetails = function(line){
+		
+		temp = element(by.xpath('(//en-body/en-section/p[@class="ng-binding"])['+line+']'));
+		return temp.getText();
+		
+	}
+	
 }

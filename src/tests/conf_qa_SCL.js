@@ -6,7 +6,9 @@ var fs = require('fs-extra');
 
 exports.config = {
 
-   directConnect: true,
+   //directConnect: true,
+      directConnect: false,
+
    seleniumAddress: 'http://localhost:4444/wd/hub',
    framework: 'jasmine',
    
@@ -59,45 +61,64 @@ exports.config = {
    //specs:['./specs/SCL/login.spec.js','./specs/SCL/Returns/callcenterReturn_FullQTY.spec.js',
 	 //  './specs/SCL/Returns/callcenterReturn_PartialQTY.spec.js','./specs/SCL/Returns/callcenterReturn_Multiline_MultipleQty.spec.js',
    //'./specs/SCL/Returns/RMAReturnsValidation.spec.js'],   
-	
+	  // specs:['./specs/SCL/login.spec.js', './specs/SCL/Returns/callcenterReturn_Multiline_MultipleQty.spec.js'],
+
 ///////////////////FR Returns///////////////
    
-  // specs:['./specs/SCL/login.spec.js','./specs/SCL/Returns/FullfillmentReturns.spec.js','./specs/SCL/Returns/FFulfillmentReturns_partialQTY.spec.js',
-	//	   './specs/SCL/Returns/FulfillmentReturnsPartiallyShipped.spec.js','./specs/SCL/Returns/FulfillmentReturnsValidation.spec.js',
-	 //  './specs/SCL/Returns/FulfillmentReturnsMultipleOrders.spec.js','./specs/SCL/Returns/FullfillmentReturns_ MultiLineRMA.spec.js'],
-
+// specs:['./specs/SCL/login.spec.js','./specs/SCL/Returns/FulfillmentReturnsMultipleOrders.spec.js'],
+  /* specs:['./specs/SCL/login.spec.js','./specs/SCL/Returns/FullfillmentReturns.spec.js','./specs/SCL/Returns/FFulfillmentReturns_partialQTY.spec.js',
+	   './specs/SCL/Returns/FulfillmentReturnsPartiallyShipped.spec.js','./specs/SCL/Returns/FulfillmentReturnsValidation.spec.js',
+	   './specs/SCL/Returns/FulfillmentReturnsMultipleOrders.spec.js','./specs/SCL/Returns/FullfillmentReturns_ MultiLineRMA.spec.js'],
+*/
   ////////////////Order Returns////////////// 
    
 	//specs:['./specs/SCL/login.spec.js','./specs/SCL/Returns/ordersReturns.spec.js','./specs/SCL/Returns/ordersReturns_Partial.spec.js',
-//	  './specs/SCL/Returns/orderReturnsRMADelete.spec.js','./specs/SCL/Returns/ordersReturnsMulitpleReturn.spec.js','./specs/SCL/Returns/ordersReturnsValidation.spec.js',
-  // 	'./specs/SCL/Returns/OrderReturnsBlindReturn.spec.js','./specs/SCL/Returns/orderReturnsBlindReturnValidation.spec.js'],
+	  //'./specs/SCL/Returns/orderReturnsRMADelete.spec.js','./specs/SCL/Returns/ordersReturnsMulitpleReturn.spec.js','./specs/SCL/Returns/ordersReturnsValidation.spec.js'],
+	  
+  //'./specs/SCL/Returns/OrderReturnsBlindReturn.spec.js','./specs/SCL/Returns/orderReturnsBlindReturnValidation.spec.js'
+   //!***********************Order Line Cancel************************************!//
+      
+																				 
+  /* specs:['./specs/SCL/login.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelIncDec.spec.js','./specs/SCL/OrderLineCancel/LineLevelVerifyQTY.spec.js','./specs/SCL/OrderLineCancel/HeaderLevelVerifyQTY.spec.js',
+	   './specs/SCL/OrderLineCancel/PartiallyReleasedOrderCancel.spec.js','./specs/SCL/OrderLineCancel/PartialCancelAndShip.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelTwoDigit.spec.js',
+	   './specs/SCL/OrderLineCancel/OrderLineCancelThreeDigit.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelFiveDigit.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelBOPIS.spec.js',
+	   './specs/SCL/OrderLineCancel/cancelValidation.spec.js'],
+   */
 
-  
-   /***********************Order Line Cancel************************************/
-  // specs:['./specs/SCL/login.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelIncDec.spec.js','./specs/SCL/OrderLineCancel/LineLevelVerifyQTY.spec.js','./specs/SCL/OrderLineCancel/HeaderLevelVerifyQTY.spec.js',
-//	   './specs/SCL/OrderLineCancel/PartiallyReleasedOrderCancel.spec.js','./specs/SCL/OrderLineCancel/PartialCancelAndShip.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelTwoDigit.spec.js',
-//	   './specs/SCL/OrderLineCancel/OrderLineCancelThreeDigit.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelFiveDigit.spec.js','./specs/SCL/OrderLineCancel/OrderLineCancelBOPIS.spec.js',
-//	   './specs/SCL/OrderLineCancel/cancelValidation.spec.js'],
+  	/**************************FR Screen****************************/
+  //!the enviorment for FR screen should be P4*!// 
+  //  specs:['./specs/SCL/FRScreen/FRScreen_High.spec.js'],
+  //   specs:['./specs/SCL/FRScreen/FRScreen_Second_High.spec.js'],
+    //specs:['./specs/SCL/FRScreen/FRScreen_Low.spec.js'],
+ // specs:['./specs/SCL/FRScreen/FRScreen_Medium.spec.js'],
 
-   //specs:['./specs/SCL/login.spec.js','./specs/SCL/API/tokenGeneration.js','./specs/SCL/OrderLineCancel/APIOpenOrder.spec.js'],
-   //specs:['./specs/SCL/login.spec.js','./specs/SCL/API/tokenGeneration.js','./specs/SCL/OrderLineCancel/APIReleasedOrder.spec.js'],
- //specs:['./specs/SCL/login.spec.js','./specs/SCL/API/tokenGeneration.js','./specs/SCL/OrderLineCancel/APIReleasedOrder.spec.js'],
-   
-   
-  /********************Batch Pick***************************************/ 
-   
-   
+  // specs:['./specs/SCL/batchPick/roughwork.spec.js'],    
+ 
+   /**************************BOPIS****************************/
 
-   
+ // specs:['./specs/SCL/BOPIS/BOPIS_High.spec.js'],
+ // specs:['./specs/SCL/BOPIS/BOPIS_Medium.spec.js'],
+   specs:['./specs/SCL/BOPIS/BOPIS_Low.spec.js'],
+ 																		
+	
+																								 
+																														   
+								 
+ 
+
+	 
    baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
-  //baseUrl: 'https://project4-qa.enspirecommerce.com/oms/dist/#/',
+  //baseUrl: 'https://project4-qa.enspirecommerce.com/oms/dist/#/',																  
+// baseUrl: 'https://project2-qa.enspirecommerce.com/oms/dist/#/',
     getPageTimeout: 1280000,
 
     //--
     params: {
         login: {
-          user: 'admin@thk.com',
-          password: 'mypassword',
+         user: 'admin@thk.com',
+		password: '95^zCXw7Z7Dwu=TM',
+						   
+         // password: 'mypassword',
         },
 
         catalog: 'THKCatalog',
@@ -108,20 +129,26 @@ exports.config = {
         dataDomain: 'com.thk',
         customerNumber : '000000000166',
         client : 'SCL_',
-		searchValueSKU1:'testPriti',
+		//searchValueSKU1:'testPriti',
         SkuName4:'VENACUSKU',
 		searchValueSKU4:'VENACUSKU',
         SkuName3:'AcuTest1',
-		searchValueSKU3:'AcuTest1',
-		SkuName2:'AcuSKU2',
-		searchValueSKU2:'0000000028',
+		//searchValueSKU3:'AcuTest1',
+		//SkuName2:'AcuSKU2',
+		//searchValueSKU2:'0000000028',
 		//searchValueSKU2:'testPriti2',
-        searchValueSKU1:'AcuSKU11',
-        SkuName1 :'AcuSKU11',
+        //searchValueSKU1:'AcuSKU11',
+        //SkuName1 :'AcuSKU11',
         //SkuName2 :'testPriti2',
      //  SkuName1 :'testPriti',
         //searchValueSKU3:'LAASX2',
         //searchValueSKU4:'M-PT',
+		SkuName2:'CivicSku2',
+		searchValueSKU2:'CivicSku2',								 
+        searchValueSKU1:'CivicSku1',
+        SkuName1 :'CivicSku1',								 							   
+        searchValueSKU3:'CivicSku3',
+        SkuName3 :'CivicSku3',
         customerCriteria:'Name',
         //customerSearchValue:'MUSICA',
         //customerSearchValue:'WENDY ZIESEMANN',
@@ -138,24 +165,28 @@ exports.config = {
         custDisplayName:'Steve Smith',
         custFirstName:'Steve',
         custLastName:'Smith',
-        custAddress1:'24 Green St',
+        custAddress1:'62 East St Louis Rd.',
         custCity:'San Jose',
         custAddressState:'CA',
-        custZipcode5:'95129',
+        custZipcode5:'90005',
         refNameCartId:'cartId',
         cartIdValue:'C@rT123',
         incorrectCartId:'Car/T1 23',
         promoCodeValue:'TEST01',
         textNote:'Testing Note',
+		skuCriteria:'Name',
+		noteType:'Informational',				   						   
         shipmentstatus: 'SHIPPED',
 		packageValue:'8x6x8 Small Box',
 		returninglocation:'San Diego - DC',
+		retruninglocation1:'Joliet-DC',						 
 		DispositionNote : 'this is a payment disposition test note',
 		refundMethod : 'REFUND',
 		orders: 2,
 		shipaccount: 'test',
 		InvPool : 'Joliet-DC',
-		customerId : '0000000581',
+		//customerId : '0000000581',//for P0 Env
+		customerId : '0000000657',//for P4 Env										
 		customerId2 : '0000000580',
 		searchCustomer: 'STEVE SMITH',
 		advancesearchName: 'Sarath',
@@ -164,6 +195,7 @@ exports.config = {
 		Decqty : 3,
 		fullFillmentType : 'Pick Up At Store',
 		availableStore : 'sandiego-dc , Avl Qty :',
+		availableStore1 : 'joliet-dc , Avl Qty :',											
 		paymentMethod : 'Credit Card',
 		cardNumber : '5425230000004415',
 		cvv : '123',
@@ -173,9 +205,76 @@ exports.config = {
 		batcpickSKUName1 :'batchpdct2',
 		batcpickSKU2 :'batchpdct1',
 		batcpickSKUName2 :'batchpdct1',
+		batcpickSKU3 :'batchpdct3',
+		batcpickSKUName3 :'batchpdct3',
+		batcpickSKU4 :'batchpdct44',//ship alone SKU
+		batcpickSKUName4 :'batchpdc44',//Ship alone SKU
+		batcpickSKU45 :'batchpdct45',//ship alone SKU
+		batcpickSKUName45 :'batchpdct45',//Ship alone SKU
+		batcpickSKU5 :'batchpdct5',//Category is SHOES
+		batcpickSKUName5 :'batchpdct5',//Category is SHOES
+		batcpickSKU6 :'batchpdct6',
+		batcpickSKUName6 :'batchpdct6',				 		 
 		batchpickSite:'BatchPickSite',
 		batchpickStore:'batchpicksite , Avl Qty :',
-		
+		labelPath : 'C:\\Users\\vvijayan\\Downloads\\test',//replace with your current directory
+		promiseddate:'07/31/2021',
+		pastPromisedate: '05/30/2021',
+		storeNumber : "1",
+		Category : "TOYS",
+		Category2 :"SHOES",
+		Category3 :"CARPARTS",
+		UPCcode : "1236547890",
+		defaultShippingProfile : "defaultshippingprofile",
+		customShippingProfile:"defaultshippingprofile12",
+		userID : "Vishak Vijayan",
+		scriptName:"combinedPackingSlipAndShippingLabel",
+        customerName2:'Alice',
+        rejectReason: "Product Damaged",
+		rejectComments:"This is a test",
+		scriptVersion: 2,
+		frScreenScript1:'rejectShipmentRequestCompleteLine',
+		frScreenScript2:'rejectShipmentRequestHeader',
+		frScreenScript3:'rejectShipmentRequestLine',
+		frScreenScript4:'rejectLine',
+		dataDomain : "com.thk",
+		BOPISStartDate:"10/28/2021",
+		BOPISEndDate:"10/29/2021",
+		BOPISstartTime:"1000AM",
+		BOPISEndTime:"1100PM",
+		BOPISEndTimeLess:"0100AM",
+		BOPISPastStartDate:"10/01/2021",
+		BOPISPastEndDate:"10/02/2021",
+		BOPISStartDateExpired:"10/15/2021",
+		fulfillmentvalidation1:'PICKUP IN STORE',
+		fulfillmentvalidation2:'SHIP TO CUSTOMER',
+		BOPISCorrelationKey:'cancelRejectedQty',
+		rejectReason1:'Found other item',
+		pickupWindowStartTimeAPI:"2021-10-28T15:30:15-05:00[America/Chicago]",
+		pickupWindowEndTimeAPI:"2021-10-29T19:30:15-05:00[America/Chicago]",
+		pickupWindowStartTimeLineAPI:'2021-10-29T14:30:15-05:00[America/Chicago]',
+		pickupWindowEndTimeLineAPI:'2021-10-30T18:30:15-05:00[America/Chicago]',
+		BOPISSIteName: "BOPISTest",
+		BOPISSku1:'BOPISSku1',
+		BOPISSku2:'BOPISSku2',
+		storeStartTime : '8:00 am',
+		storeCloseTime : '11:00 pm',
+		storeStartTime24hours : '8:00',
+		storeCloseTime24hours : '23:00',
+		siteCalenderJob: 'SiteCalendarUpdates',
+		BOPIScorrelation : 'LagTimeAndMaxDuration',
+		BOPIScorrelationKey1:'LagTime',
+		BOPISCorrelationValue1: '3h',
+		BOPIScorrelationKey2:'MaxDuration',
+		BOPISCorrelationValue2:'5h',
+		maximumDuration:'5:00',
+		lagTime:'3:00',
+		PickupDateBOPIScorrelation: 'PickupDateRoundOffAndExtend',
+		PickupDateBOPIScorrelationKey: "RoundPWStartToNext",
+		PickupDateBOPIScorrelationvalue: 'Quarter Hour',
+		eventSubscriptonKey : 'Order Cancelled',
+		eventSubscriptonValue : 'eventcancelled',
+		expiredOrder:"000000031613",//for P2		
     },
     onPrepare: function(){
         browser.driver.manage().window().setPosition(0,0);
@@ -210,6 +309,7 @@ exports.config = {
         
 
         //added by vishak
+		global.orderApi = 'https://project0-qa.enspirecommerce.com/api/v1/order'																		  
         global.callCenterInventoryUrl = browser.baseUrl + 'call-center/inventory/lookup/';
         global.callCenterSkusUrl = browser.baseUrl + 'call-center/inventory/skus/'; 
         global.callCenterSalesOrdersListUrl = browser.baseUrl + 'call-center/sales/list';
@@ -221,8 +321,10 @@ exports.config = {
         global.InventoryUrl = browser.baseUrl + 'inventory/lookup/';
         global.batchPickUrl = browser.baseUrl + 'fulfillment/batches/';
         global.callcenterorder = browser.baseUrl + 'call-center/sales/new-1';
-        
-        
+        global.shippingProfile = browser.baseUrl +'settings/company/shipping-profiles/';
+        global.correlations = browser.baseUrl + 'settings/data-management/correlations/';
+        global.controlCenter = browser.baseUrl + 'sites/control-center/';
+        global.eventSubscription = browser.baseUrl +'settings/company/events-subscription/'        																						  
         
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
         
@@ -237,7 +339,7 @@ exports.config = {
         global.siteUrl = browser.baseUrl + 'sites/';
         global.sitesUrl=browser.baseUrl+'sites/sites/';
         global.sitegroupUrl = browser.baseUrl + 'sites/groups/';
-        //global.shipmentRequestsUrl = browser.baseUrl + 'fulfillment/requests/';
+        global.shipmentRequestsUrl = browser.baseUrl + 'fulfillment/requests/';
         global.shipmentsUrl = browser.baseUrl + 'fulfillment/shipments/';
         global.filesUrl = browser.baseUrl + 'data-management/communications/files/';
         global.functionaldomainsUrl = browser.baseUrl + 'settings/accounts/functional-domains/';
@@ -355,8 +457,10 @@ exports.config = {
             prefs: {
                 'download': {
                     'prompt_for_download': false,
-                     directory_upgrade: true,
-                    'default_directory': __dirname + '/tempFiles/',
+                    // directory_upgrade: true,
+                    //'default_directory': __dirname + '/tempFiles/',
+		            'default_directory': 'C:\\Users\\vvijayan\\Downloads\\test',//make it as your own temp folder
+
                 },
             },
         },

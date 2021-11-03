@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -54,59 +54,64 @@ describe('Call Center Flow', function () {
         callCenter.inventoryDetailsPopUp();
         browser.sleep(2000);
         //>>>>>>>>>>>Before release Inventory levels>>>>>>>>>>
-        callCenter.inventoryDetailsCount("7").then(function (totalAvailableValue) {
+        callCenter.inventoryDetailsCount("9").then(function (totalAvailableValue) {
             totalAvailableQty = totalAvailableValue;
             postInventoryCount = totalAvailableQty - 1;
 
-            browser.sleep(2000);
-            console.log(totalAvailableQty);
+            browser.sleep(3000);
+            console.log("pre-release available count"+totalAvailableQty);
+            browser.sleep(1000);
+
         });
         browser.sleep(1000);
-        callCenter.inventoryDetailsCount("8").then(function (reservedValue) {
+        callCenter.inventoryDetailsCount("10").then(function (reservedValue) {
             reservedInventoryQty = reservedValue;
             postResCount = reservedInventoryQty + 1;
 
-            browser.sleep(2000);
-            console.log(reservedInventoryQty);
+            browser.sleep(3000);
+            console.log("pre-release reserved count"+reservedInventoryQty);
+            
+            browser.sleep(1000);
+
         });
         browser.sleep(1000);
         callCenter.searchWithCriteria('Site # ', 'is', browser.params.siteNumber);
         browser.sleep(5000);
-        callCenter.inventoryDetailsCount("7").then(function (totalAvailableValue) {
+        callCenter.inventoryDetailsCount("9").then(function (totalAvailableValue) {
             totalAvailableQty = totalAvailableValue;
-            console.log(totalAvailableQty);
+            console.log("available QTY for Site with number "+browser.params.siteNumber +" :" +totalAvailableQty);
         });
-        callCenter.inventoryDetailsCount("8").then(function (reservedValue) {
+        callCenter.inventoryDetailsCount("10").then(function (reservedValue) {
             reservedInventoryQty = reservedValue;
-            console.log(reservedInventoryQty);
+            console.log("Reserved QTY for Site with number "+browser.params.siteNumber +" :" +reservedInventoryQty);
         });
         callCenter.cancelFilter();
         browser.sleep(1000);
         callCenter.cancelInvDetailsPopUp();
         callCenter.addToOrder();
-        browser.sleep(3000);
+        browser.sleep(1000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);
-        callCenter.editLineGear("1");
+        callCenter.editLineGear("3");
         browser.sleep(1000);
         callCenter.lineItemselectOptions("Change Price");
-        browser.sleep(2000);
         callCenter.changingUnitPrice("25.99");
         browser.sleep(3000);
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
+		browser.sleep(2000);
 
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -139,21 +144,21 @@ describe('Call Center Flow', function () {
             callCenter.selectSKUFromResults();
             browser.sleep(1000);
             callCenter.inventoryDetailsPopUp();
-            browser.sleep(2000);
+            browser.sleep(4000);
 
             //>>>>>>>>After release Inventory levels>>>>>>>>>>>>>
-            callCenter.inventoryDetailsCount("7").then(function (totalAvailableQty) {
+            callCenter.inventoryDetailsCount("9").then(function (totalAvailableQty) {
                 console.log(totalAvailableQty);
                 expect(totalAvailableQty).toEqual(postInventoryCount);
                 browser.sleep(2000);
                 console.log("*********** Final: Available Inventory Level   >>>>>>>>>>>> " + postInventoryCount);
             });
             browser.sleep(1000);
-            callCenter.inventoryDetailsCount("8").then(function (reservedInventoryQty) {
+            callCenter.inventoryDetailsCount("10").then(function (reservedInventoryQty) {
                 console.log(reservedInventoryQty);
                 expect(reservedInventoryQty).toEqual(postResCount);
                 browser.sleep(2000);
-                console.log("*********** Final: Reserved Inv Level   >>>>>>>>>>>> " + updatedResCount);
+                console.log("*********** Final: Reserved Inv Level   >>>>>>>>>>>> " + postResCount);
             });
             browser.sleep(1000);
             callCenter.cancelInvDetailsPopUp();

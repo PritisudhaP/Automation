@@ -33,19 +33,33 @@ describe('Order Line Cancel ', function () {
     //Verify ATS and reserved qty while cancelling few line items at header level.
   it('Verifying ATS and reserved qty while cancelling an order at header level ', function () {     
 
-
-	  browser.get(callCenterInventoryUrl);
+	  browser.get(callcenterorder);
       browser.driver.manage().window().maximize();
-      browser.sleep(1000);
-      commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
+      callCenter.attachCustomer();
+      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
+      salesOrderCreate.selectCustomer();
+      salesOrderCreate.useSelectedCustomer();
+      browser.sleep(500);
+      //commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
       callCenter.selectSKUFromSearch();
-      browser.sleep(1000);
       commons.search();
-      browser.sleep(1000);    
-      callCenter.invSelection(1);
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      browser.sleep(1000);
+     // commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU2);
+      callCenter.selectSKUFromSearch();
+      commons.search();
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      browser.sleep(1000);
+      salesOrderSummary.lineDetails(1);
+      browser.sleep(500);
+      salesOrderSummary.inventoryOptionPane();
       browser.sleep(1000);
       //>>>>>>>>>>>Before release Inventory levels>>>>>>>>>>
-      callCenter.inventoryDetailsCount("9").then(function (totalAvailableValue) {
+      salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
     	  ATS1 = totalAvailableValue;
          // postInventoryCount = totalAvailableQty - 1;
           browser.sleep(1000);
@@ -53,52 +67,32 @@ describe('Order Line Cancel ', function () {
          // browser.sleep(1000);
       });
       browser.sleep(1000);
-      callCenter.inventoryDetailsCount("10").then(function (reservedValue) {
+      salesOrderSummary.inventoryDetailsCountInSO("2").then(function (reservedValue) {
     	  Res1 = reservedValue;
           //postResCount = reservedInventoryQty + 1;
           browser.sleep(1000);
           console.log("pre-release reserved count"+Res1);        
           //browser.sleep(1000);
       });
-      commons.cancel();
-      browser.sleep(1000);
-      returnsCreate.clearSearch();
-      commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
-      browser.sleep(1000);
-      callCenter.selectSKUFromSearch();
-      browser.sleep(1000);
-      commons.search();
-      browser.sleep(1000);
-      callCenter.invSelection(2);
-      browser.sleep(1000);
+      salesOrderSummary.Done();
+      browser.sleep(500);
+      salesOrderSummary.lineDetails(2);
+      browser.sleep(500);
+      salesOrderSummary.inventoryOptionPane();
       //>>>>>>>>>>>Before release Inventory levels>>>>>>>>>>
-      callCenter.inventoryDetailsCount("9").then(function (totalAvailableValue) {
+      salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
     	  ATS2 = totalAvailableValue;
          // postInventoryCount = totalAvailableQty - 1;
-          browser.sleep(1000);
           console.log("pre-release available count"+ATS2);
-          browser.sleep(1000);
       });
       browser.sleep(1000);
-      callCenter.inventoryDetailsCount("10").then(function (reservedValue) {
+      salesOrderSummary.inventoryDetailsCountInSO("2").then(function (reservedValue) {
     	  Res2 = reservedValue;
           //postResCount = reservedInventoryQty + 1;
-          browser.sleep(1000);
           console.log("pre-release reserved count"+Res2);        
-          browser.sleep(1000);
-      });  
-      commons.cancel();
-      callCenter.selectSKUFromResults();
-      callCenter.addToOrder();
-      browser.sleep(2000);
-      callCenter.attachCustomer();
-      browser.sleep(2000);
-      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.custDisplayName);
-      browser.sleep(3000);
-      salesOrderCreate.selectCustomer();
-      browser.sleep(2000);
-      salesOrderCreate.useSelectedCustomer();
-      browser.sleep(1000);
+      });
+      salesOrderSummary.Done();
+      browser.sleep(500);
       callCenter.editLineGear("3");
       callCenter.lineItemselectOptions("Edit Line");
       browser.sleep(1000);
@@ -119,7 +113,6 @@ describe('Order Line Cancel ', function () {
 		    SONumber = value;
 		    console.log("sales order number"+SONumber);
 		});
-		
 		browser.wait(function () {
             return SONumber != '';
         }).then(function () {
@@ -140,15 +133,10 @@ describe('Order Line Cancel ', function () {
 	       
 	       callCenter.editLineGear(1);
 	       callCenter.lineItemselectOptions("Cancel");
-	       browser.sleep(1000);
 	       salesOrderSummary.CanclQTYHeaderLevel(1, 1);
-	       browser.sleep(1000);
 	       salesOrderSummary.CanclQTYHeaderLevel(2, 1);
-	       browser.sleep(1000);
 	       salesOrderSummary.CanclReasonHeaderLevel(1, "NotNeeded");
-	       browser.sleep(1000);
 	       salesOrderSummary.CanclReasonHeaderLevel(2, "NotNeeded");
-	       browser.sleep(1000);
 	       salesOrderSummary.CNFButton();
 	       browser.sleep(2000);
 	       salesOrderSummary.lineDetails(1);
@@ -159,9 +147,7 @@ describe('Order Line Cancel ', function () {
 	        salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
 	        	ATSafterCancel1 = totalAvailableValue;
 	           // postInventoryCount = totalAvailableQty - 1;
-	            browser.sleep(1000);
 	            console.log("available count after partially cancellig the line1: "+ATSafterCancel1);
-	            browser.sleep(1000);
 	            diff1=ATS1-ATSafterCancel1;
 	            expect(diff1).toEqual((browser.params.Incqty)-1)
 	        });
@@ -169,9 +155,7 @@ describe('Order Line Cancel ', function () {
 	        salesOrderSummary.inventoryDetailsCountInSO("2").then(function (reservedValue) {
 	      	  ResafterCancel1 = reservedValue;
 	            //postResCount = reservedInventoryQty + 1;
-	            browser.sleep(1000);
 	            console.log("available reserved count after partially cancellig the line1: "+ResafterCancel1);        
-	            browser.sleep(1000);
 	            diff2=ResafterCancel1-Res1;
 	            expect(diff1).toEqual((browser.params.Incqty)-1)
 	       });  
@@ -185,9 +169,7 @@ describe('Order Line Cancel ', function () {
 	        salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
 	        	ATSafterCancel2 = totalAvailableValue;
 	           // postInventoryCount = totalAvailableQty - 1;
-	            browser.sleep(1000);
 	            console.log("available count after partially cancellig the line 2: "+ATSafterCancel2);
-	            browser.sleep(1000);
 	            diff2=ATS2-ATSafterCancel2;
 	            expect(diff2).toEqual((browser.params.Incqty)-1)
 	        });
@@ -195,9 +177,7 @@ describe('Order Line Cancel ', function () {
 	        salesOrderSummary.inventoryDetailsCountInSO("2").then(function (reservedValue) {
 	      	  ResafterCancel2 = reservedValue;
 	            //postResCount = reservedInventoryQty + 1;
-	            browser.sleep(1000);
 	            console.log("available reserved count after partially cancellig the line2: "+ResafterCancel2);        
-	            browser.sleep(1000);
 	            diff2=ResafterCancel2-Res2;
 	            expect(diff2).toEqual((browser.params.Incqty)-1)
 	        });  
@@ -219,7 +199,6 @@ describe('Order Line Cancel ', function () {
 //Complete Header level cancel	       
 	       salesOrderSummary.CancellAllLine();
 	       salesOrderSummary.CancelAllLineReason("NotNeeded");
-	       browser.sleep(1000);
 	       salesOrderSummary.CNFButton();
 	       browser.sleep(2000);
 	       salesOrderSummary.lineDetails(1);
@@ -229,17 +208,13 @@ describe('Order Line Cancel ', function () {
 	     //>>>>>>>>>>>After complete header cancel Inventory levels>>>>>>>>>>
 	        salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
 	        	ATSAfterHeaderCancel1 = totalAvailableValue;
-	            browser.sleep(1000);
 	            console.log("available count after complete  cancellation of line1: "+ATSAfterHeaderCancel1);
-	            browser.sleep(1000);
 	            expect(ATS1).toEqual(ATSAfterHeaderCancel1)
 	        });
 	        browser.sleep(1000);
 	        salesOrderSummary.inventoryDetailsCountInSO("2").then(function (reservedValue) {
 	        	ResAfterHeaderCancel1 = reservedValue;
-	            browser.sleep(1000);
 	            console.log("available reserved count after complete  cancellation of line1: "+ResAfterHeaderCancel1);        
-	            browser.sleep(1000);
 	            expect(Res1).toEqual(ResAfterHeaderCancel1)
 	       });  
 	       salesOrderSummary.Done();
@@ -251,9 +226,7 @@ describe('Order Line Cancel ', function () {
 	      //>>>>>>>>>>>After complete line cancel Inventory levels>>>>>>>>>>
 	        salesOrderSummary.inventoryDetailsCountInSO("1").then(function (totalAvailableValue) {
 	        	ATSAfterHeaderCancel2 = totalAvailableValue;
-	            browser.sleep(1000);
 	            console.log("available count after complete  cancellation of line 2: "+ATSAfterHeaderCancel2);
-	            browser.sleep(1000);
 	            expect(ATS2).toEqual(ATSAfterHeaderCancel2)
 	        });
 	        browser.sleep(1000);

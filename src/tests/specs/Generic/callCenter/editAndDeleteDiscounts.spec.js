@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -37,40 +37,35 @@ describe('Call Center Flow', function () {
             browser.sleep(2000);
             callCenter.selectSKUFromResults();
             callCenter.addToOrder();
-            browser.sleep(3000);
             /*callCenter.salesChannel("1");
             callCenter.promisedDate(browser.params.promisedDate);*/
             callCenter.attachCustomer();
-            browser.sleep(2000);
             callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-            browser.sleep(3000);
             salesOrderCreate.selectCustomer();
-            browser.sleep(2000);
             salesOrderCreate.useSelectedCustomer();
-            browser.sleep(3000);
-            callCenter.editLineGear("1");
-            browser.sleep(1000);
+            callCenter.editLineGear("3"); //updated by vishak
             callCenter.lineItemselectOptions("Change Price");
-            browser.sleep(2000);
             callCenter.changingUnitPrice("25.99");
+            callCenter.editLineGear("3");
+            callCenter.lineItemselectOptions("Edit Line");
+            callCenter.discountButtonEditLine();
+            callCenter.applyDiscount("Percentage", "25", "EmployeeDiscount", "desc1", "notes1");
+            callCenter.applyButton();
+            callCenter.editLinePopUpSaveBtn(); 
             //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
             salesOrderCreate.saveOption("Save");
-
             salesOrderCreate.salesOrderNumber().then(function (value) {
                 SONumber = value;
                 console.log(SONumber);
             });
+            salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+				savedStatus = value;
+			    console.log("the orderstatus is "+savedStatus);	
+			    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+			});		
             browser.sleep(2000);
-            callCenter.editLine();
-            browser.sleep(2000);
-            callCenter.applyDiscount("Percentage", "25", "EmployeeDiscount", "desc1", "notes1");
-            browser.sleep(1000);
-            callCenter.applyButton();
-            browser.sleep(2000);
-            callCenter.editLinePopUpSaveBtn();
-            browser.sleep(7000);
-
+            
             /*callCenter.ViewNotesButton();
             browser.sleep(2000);
             callCenter.discountAmountValue().then(function(amtValue){
@@ -78,7 +73,6 @@ describe('Call Center Flow', function () {
                 console.log(discountAmtValue);
 
             });*/
-            browser.sleep(2000);
             //!**********editing disocunt*********
             callCenter.viewPlusIcon("Discounts");
             browser.sleep(2000);

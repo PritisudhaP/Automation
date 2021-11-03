@@ -243,7 +243,7 @@ describe("Batch Pick Medium Priority: ", function() {
 				details = status;
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain((browser.params.custDisplayName));//customer name checking	
+				expect(details).toContain((browser.params.custDisplayName).toUpperCase());//customer name checking	
 		    	expect(utils.getNumberOfPages(pdfpath)).toEqual(ordernumbers.length);
 			});
         });

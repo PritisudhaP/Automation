@@ -6,6 +6,7 @@ var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOr
 var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
 var utils = require(process.cwd() + '/src/tests/screens/batchPick/Utilities.js');
+var invoiceSummaryScreen = require(process.cwd() + '/src/tests/screens/invoice/invoice.summary.screen.js');
 
 global.RMANumber = "";
 global.orderStatus = "";
@@ -36,8 +37,10 @@ describe("Fulfillment return: ", function() {
     var salesOrderCreate = new salesOrderCreateScreen();
     var salesOrderSummary = new salesOrderSummaryScreen();
     var commons = new common();
+	var invoiceSummary=new invoiceSummaryScreen();
+
 	utils.Login(browser.params.login.user,browser.params.login.password);
-    it('Fulfillment return full QTY - TC0007', function(){
+   it('Fulfillment return full QTY - TC0007', function(){
         	browser.get(callcenterorder);
 			browser.driver.manage().window().maximize();
 	        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
@@ -201,7 +204,7 @@ describe("Fulfillment return: ", function() {
 
 	        });  
      })
-/*     
+     
    
      it('Fulfillment return Partial QTY - TC0008', function(){
         	browser.get(callcenterorder);
@@ -468,38 +471,42 @@ describe("Fulfillment return: ", function() {
             })
         	
         });	
-    })
-     
+    })     
      it("Multiple_Quantity_Same_Customer TC0012", function() {
 	
         browser.wait(function () {
             return browser.params.orders != '';
         }).then(function () {
-        	
 	    	for(i=0;i<browser.params.orders;i++)
 	    	{
-				browser.get(callCenterInventoryUrl);
-		        browser.driver.manage().window().maximize();
-		        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-		        callCenter.selectSKUFromSearch();
-		        commons.search();
-		        returnsCreate.clearSearch();
-		        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
-		        callCenter.selectSKUFromSearch();
-		        commons.search();
-		        callCenter.selectSKUFromResults();
-		        callCenter.addToOrder();
+	    		browser.get(callcenterorder);
+	    		salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
+	    		callCenter.selectSKUFromSearch();
+	    		commons.search();
+	    		callCenter.selectSKUFromResults();
+	    		callCenter.addToOrderFromSalesOrder();
+	    		browser.sleep(1000);
+	    		salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU2);
+	    		callCenter.selectSKUFromSearch();
+	    		commons.search();
+	    		callCenter.selectSKUFromResults();
+	    		callCenter.addToOrderFromSalesOrder();
 		        browser.sleep(1000);
 		        callCenter.attachCustomer();
 		        callCenter.searchCustomer("Name", browser.params.custDisplayName);
 		        salesOrderCreate.selectCustomer();
 		        salesOrderCreate.useSelectedCustomer();
 		        browser.sleep(500);
+		        callCenter.editLineGear("4");
+		        callCenter.lineItemselectOptions("Edit Line");
+		        callCenter.editSKUQuantity(2);
+		        callCenter.editLinePopUpSaveBtn(); 
 		      //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 		        salesOrderCreate.saveOption("Save");
 		        salesOrderCreate.salesOrderNumber().then(function (value) {		          
 		            console.log("sales order number at the "+i+" position is" +salesorders.push(value));
 		            console.log("array length" +salesorders.length);
+		            SONumber=value;
 		        });
 		        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
 					savedStatus = value;
@@ -510,37 +517,31 @@ describe("Fulfillment return: ", function() {
 		        callCenter.lineItemselectOptions("Release");
 		        salesOrderSummary.orderRelease("Release",2);     
 		        expect(salesOrderSummary.OrderStatusDetails(1)).toEqual("RELEASED");
+		        browser.wait(function () {
+		        	return SONumber != '';
+		        	}).then( function () {
+				        callCenter.fullFillmentPage();
+					    callCenter.page("Fulfillment Requests");
+					    salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+			            callCenter.fulfillmentOrderSelectGear("Create Shipment");
+			            browser.sleep(1000);
+			            callCenter.shipAccountselect(browser.params.shipaccount);
+			            callCenter.packageSelection(browser.params.packageValue);
+			            callCenter.packageTrackingNumber(1236547890);
+			            returnsCreate.multiplePackages("1","1");
+			            returnsCreate.multiplePackages("3","2");
+			            //callCenter.unselectPkg();
+			            callCenter.addPackageToShipment();
+			            browser.sleep(1000);
+			            callCenter.finalizeShipment();
+			            browser.sleep(7000);          
+			            salesOrderSummary.viewShipmentVisibility();
+			            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+			            callCenter.shipmentChangeStatusConfimation();
+		        	});
 	    	}//for loop
 	     })//first function block
-        browser.wait(function () {
-            return salesorders!= '';
-        }).then(function () {
-        	for(i=0;i<salesorders.length;i++){	            
-            //!*********fulfillment request**********!//
-	            browser.get(fulfillmentRequestsUrl);
-	            console.log("the sale sorder in FR is "+salesorders[i])
-	            salesOrderSummary.salesOrderSearch("Original Order #", salesorders[i]);
-	            callCenter.fulfillmentOrderSelectGear("Create Shipment");
-	            browser.sleep(1000);
-	            callCenter.shipAccountselect(browser.params.shipaccount);
-	            callCenter.packageSelection(browser.params.packageValue);
-	            callCenter.packageTrackingNumber(1236547890);
-	            returnsCreate.multiplePackages("1","1");
-	            returnsCreate.multiplePackages("3","2");
-	            //callCenter.unselectPkg();
-	            callCenter.addPackageToShipment();
-	            browser.sleep(1000);
-	            callCenter.finalizeShipment();
-	            browser.sleep(7000);          
-	            salesOrderSummary.viewShipmentVisibility();
-	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
-	            browser.sleep(1500);
-	            callCenter.shipmentChangeStatusConfimation();
-	            browser.sleep(5000);
-	           // expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
-        	}  //for loop
-        });
-      
+	     
         //!***Fulfillment returns****!//
         browser.wait(function () {
             return salesorders != '';
@@ -587,30 +588,30 @@ describe("Fulfillment return: ", function() {
         	
 	    	for(i=0;i<browser.params.orders;i++)
 	    	{
-				browser.get(callCenterInventoryUrl);
-		        browser.driver.manage().window().maximize();
-		        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-		        callCenter.selectSKUFromSearch();
-		        commons.search();
-		        returnsCreate.clearSearch();
-		        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
-		        callCenter.selectSKUFromSearch();
-		        commons.search();
-		        callCenter.selectSKUFromResults();
-		        callCenter.addToOrder();
+	    		browser.get(callcenterorder);
+	    		salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
+	    		callCenter.selectSKUFromSearch();
+	    		commons.search();
+	    		callCenter.selectSKUFromResults();
+	    		callCenter.addToOrderFromSalesOrder();
+	    		browser.sleep(1000);
+	    		salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU2);
+	    		callCenter.selectSKUFromSearch();
+	    		commons.search();
+	    		callCenter.selectSKUFromResults();
+	    		callCenter.addToOrderFromSalesOrder();
 		        browser.sleep(1000);
 		        callCenter.attachCustomer();
 		        callCenter.searchCustomer(browser.params.customerCriteria,customers[i]);
 		        salesOrderCreate.selectCustomer();
 		        salesOrderCreate.useSelectedCustomer();
 		        browser.sleep(1000);	
-		       
-		        
 		      //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 		        salesOrderCreate.saveOption("Save");
 		        salesOrderCreate.salesOrderNumber().then(function (value) {		          
 		            console.log("sales order number at the "+i+" position is" +salesorders1.push(value));
 		            console.log("array length" +salesorders1.length);
+		            SONumber=value;
 		        });
 		        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
 					savedStatus = value;
@@ -618,43 +619,36 @@ describe("Fulfillment return: ", function() {
 				    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
 				});		
 				browser.sleep(2000);
+				callCenter.editLineGear("1");
+		        callCenter.lineItemselectOptions("Release");
+		        salesOrderSummary.orderRelease("Release",2);     
+		        expect(salesOrderSummary.OrderStatusDetails(1)).toEqual("RELEASED"); 
+		        browser.wait(function () {
+		        	return SONumber != '';
+		        	}).then( function () {
+				        callCenter.fullFillmentPage();
+					    callCenter.page("Fulfillment Requests");
+					    console.log("the sale sorder in FR is "+salesorders1[i])
+			            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+			            callCenter.fulfillmentOrderSelectGear("Create Shipment");
+			            browser.sleep(1000);
+			            callCenter.shipAccountselect(browser.params.shipaccount);	            
+			            callCenter.packageSelection(browser.params.packageValue);
+			            callCenter.packageTrackingNumber(1236547890);
+			            returnsCreate.multiplePackages("1","1");
+			            returnsCreate.multiplePackages("3","1");	           
+			            callCenter.unselectPkg();
+			            callCenter.addPackageToShipment();
+			            callCenter.finalizeShipment();
+			            browser.sleep(3000);	           
+			            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
+			            browser.sleep(7000);
+			            callCenter.shipmentChangeStatusConfimation();
+			            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
+		        	});
 	    	}//for loop
 	    	
 	     })//first function block
-	     browser.wait(function () {
-	            return salesorders1!= '';
-	        }).then(function () {
-	        	for(i=0;i<salesorders.length;i++){
-		            browser.get(callCenterSalesOrdersListUrl);	            
-		        	console.log("sales order number of "+i+"  is" +salesorders1[i]);
-		            salesOrderSummary.salesOrderSearch("Original Order #", salesorders1[i]);
-		            salesOrderSummary.salesOrderSelectGear("Release");
-		            expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-		            
-	            //!*********fulfillment request**********!//
-	            browser.get(fulfillmentRequestsUrl);
-	            console.log("the sale sorder in FR is "+salesorders1[i])
-	            salesOrderSummary.salesOrderSearch("Original Order #", salesorders1[i]);
-	            callCenter.fulfillmentOrderSelectGear("Create Shipment");
-	            browser.sleep(1000);
-	            callCenter.shipAccountselect(browser.params.shipaccount);	            
-	            callCenter.packageSelection(browser.params.packageValue);
-	            callCenter.packageTrackingNumber(1236547890);
-	            returnsCreate.multiplePackages("1","1");
-	            returnsCreate.multiplePackages("3","1");	           
-	            //callCenter.unselectPkg();
-	            callCenter.addPackageToShipment();
-	            callCenter.finalizeShipment();
-	            browser.sleep(3000);	           
-	            callCenter.fulfillmentOrderShipmentStatusChanage("Mark As Shipped");
-	            browser.sleep(7000);
-	            callCenter.shipmentChangeStatusConfimation();
-	            browser.sleep(3000);
-	            expect(callCenter.shipmentStatusLabel()).toEqual(browser.params.shipmentstatus);
-	        	
-	            }  //for loop
-	        });
-		
 		 //!***Fulfillment returns****!//
         browser.wait(function () {
             return salesorders1 != '';
@@ -696,18 +690,18 @@ describe("Fulfillment return: ", function() {
 	})
 	
 	it("Multiple Line RMA Creation TC0014", function() {
-			browser.get(callCenterInventoryUrl);
-	        browser.driver.manage().window().maximize();
-	        browser.sleep(2000);
-	        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-	        callCenter.selectSKUFromSearch();
-	        commons.search();
-	        returnsCreate.clearSearch();
-	        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU2);
-	        callCenter.selectSKUFromSearch();
-	        commons.search();
-	        callCenter.selectSKUFromResults();
-	        callCenter.addToOrder();
+			browser.get(callcenterorder);
+			salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
+			callCenter.selectSKUFromSearch();
+			commons.search();
+			callCenter.selectSKUFromResults();
+			callCenter.addToOrderFromSalesOrder();
+			browser.sleep(1000);
+			salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU2);
+			callCenter.selectSKUFromSearch();
+			commons.search();
+			callCenter.selectSKUFromResults();
+			callCenter.addToOrderFromSalesOrder();
 	        callCenter.attachCustomer();
 	        callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
 	        salesOrderCreate.selectCustomer();
@@ -851,6 +845,6 @@ describe("Fulfillment return: ", function() {
 
 	     });    
                 
-	});*/
+	});
 });        
 	        

@@ -120,6 +120,12 @@ module.exports = {
 		     });
 			
 		},
+		
+		genRand : function() {
+			
+  	      return Math.floor(Math.random()*89999+10000);
+		 
+		},	
 		StopRoute : function(status,route){
 			 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+route+']'));
 				if(status=="STARTED"){
@@ -130,18 +136,20 @@ module.exports = {
 					 console.log("the Route is already stopped");
 				 }
 		 	},
-		 	
 		 startingReturnInvoiceRoute : function(status,line) {
+			    stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
 		    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
 		    	if(status=="STARTED"){
 		    		console.log("the Route is already started");
+				     stopreturnsinvoiceroute.click();
+				     browser.sleep(1500);
+				     temp.click();
 				 }
 				 else if(status=="STOPPED"){
 			    	 temp.click();
 			    	 console.log("Starting the route");
 				 }
 		 },
-
 		 startJob : function(line) {
 		    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
 		    	

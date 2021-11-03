@@ -40,6 +40,7 @@ module.exports =function(){
     this.saveButton = element.all(by.xpath('//button/en-icon[@icon="check-circle"]'));
 
     this.salesOrderCustomerNumberText = element(by.xpath('//a[contains(@en-tap, "customer: salesOrder.data.customer")]'));
+    this.resaveButton = element(by.xpath('//en-icon[@icon="check-circle"]/parent::button'));
 
     this.salesOrderEditReferences = function() {
         return this.salesOrderReferencesEditButton.click();
@@ -130,6 +131,17 @@ module.exports =function(){
     	temp = element(by.xpath('(//div[@class="line-qty"]/div/div/small[@class="ng-binding"])['+line+']'))
     	return temp.getText();
     }
+	this.QTYCheck = function(line){
+	 
+	 temp =  element(by.xpath('(//div[@class="line-qty is-clickable"]/div/div/small[@class="ng-binding"])['+line+']'));
+	 return temp.getText(); 
+    }
+    
+    this.reSave = function(){
+    	
+    	this.resaveButton.click();
+    }
+
 
 }
 

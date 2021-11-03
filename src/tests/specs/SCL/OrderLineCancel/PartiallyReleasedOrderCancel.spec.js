@@ -29,41 +29,43 @@ describe('Order Line Cancel ', function () {
   //partialy released status cancel line item.
   it('Cancelig the Partially shipped Order-Line Level', function () {
   
-	  browser.get(callCenterInventoryUrl);
+	  
+	  browser.get(InventoryUrl);
       browser.driver.manage().window().maximize();
       browser.sleep(1000);
+      salesOrderCreate.AddSkuOption();
       commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU3);
-      callCenter.selectSKUFromSearch();
+      salesOrderCreate.SelectFirstSKU(1)
       browser.sleep(1000);
-      commons.search();
-      browser.sleep(1000);
-      callCenter.invSelection(1);
-      browser.sleep(3000);
-      salesOrderCreate.ATSCountcheck(2).then(function (totalAvailableValue) {
+      salesOrderCreate.useSelectedSkuOption();
+      salesOrderCreate.minimumSkuQTYUpdate();
+      salesOrderCreate.skuSearch();
+      browser.sleep(500);
+      salesOrderCreate.ATSCountcheck(1).then(function (totalAvailableValue) {
     	  ATS1 = parseInt(totalAvailableValue);
           browser.sleep(1000);
           console.log("pre-release available count"+ATS1);  
           salesOrderCreate.ATSCountupdate(ATS1);
-      });      
-      browser.sleep(3000);
-      returnsCreate.clearSearch();
-      commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-      browser.sleep(1000);
-      callCenter.selectSKUFromSearch();
-      browser.sleep(1000);
-      commons.search();
-      browser.sleep(1000);
-      callCenter.selectSKUFromResults();
-      callCenter.addToOrder();
-      browser.sleep(2000);
+      });   
+      browser.sleep(1500);
+      browser.get(callcenterorder);
+      browser.driver.manage().window().maximize();
       callCenter.attachCustomer();
-      browser.sleep(2000);
-      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.custDisplayName);
-      browser.sleep(3000);
+      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
       salesOrderCreate.selectCustomer();
-      browser.sleep(2000);
       salesOrderCreate.useSelectedCustomer();
-     
+      browser.sleep(1000)
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU3);
+      callCenter.selectSKUFromSearch();
+      commons.search();
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
+      callCenter.selectSKUFromSearch();
+      commons.search();
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      browser.sleep(500);       
       //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
       browser.sleep(2000);
 		salesOrderCreate.saveOption("Save");
@@ -111,39 +113,42 @@ describe('Order Line Cancel ', function () {
  //partially released status cancel whole order.
   it('Cancellig the Partially shipped Order - Header Level', function () {
 	  
-	  browser.get(callCenterInventoryUrl);
+	  browser.get(InventoryUrl);
       browser.driver.manage().window().maximize();
       browser.sleep(1000);
+      salesOrderCreate.AddSkuOption();
       commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU3);
-      callCenter.selectSKUFromSearch();
+      salesOrderCreate.SelectFirstSKU(1)
       browser.sleep(1000);
-      commons.search();
-      browser.sleep(1000);
-      callCenter.invSelection(1);
-      salesOrderCreate.ATSCountcheck(2).then(function (totalAvailableValue) {
+      salesOrderCreate.useSelectedSkuOption();
+      salesOrderCreate.minimumSkuQTYUpdate();
+      salesOrderCreate.skuSearch();
+      browser.sleep(500);
+      salesOrderCreate.ATSCountcheck(1).then(function (totalAvailableValue) {
     	  ATS1 = parseInt(totalAvailableValue);
           browser.sleep(1000);
-          //console.log("pre-release available count"+ATS1);  
-      });      
-      salesOrderCreate.ATSCountupdate(ATS1);
-      browser.sleep(1000);
-      returnsCreate.clearSearch();
-      commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
-      browser.sleep(1000);
-      callCenter.selectSKUFromSearch();
-      browser.sleep(1000);
-      commons.search();
-      browser.sleep(1000);
-      callCenter.selectSKUFromResults();
-      callCenter.addToOrder();
-      browser.sleep(2000);
+          console.log("pre-release available count"+ATS1);  
+          salesOrderCreate.ATSCountupdate(ATS1);
+      });   
+      browser.sleep(1500);
+      browser.get(callcenterorder);
+      browser.driver.manage().window().maximize();
       callCenter.attachCustomer();
-      browser.sleep(2000);
-      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.custDisplayName);
-      browser.sleep(3000);
+      callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
       salesOrderCreate.selectCustomer();
-      browser.sleep(2000);
       salesOrderCreate.useSelectedCustomer();
+      browser.sleep(1000)
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU3);
+      callCenter.selectSKUFromSearch();
+      commons.search();
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      salesOrderSummary.salesOrderSearch('SKU', browser.params.searchValueSKU1);
+      callCenter.selectSKUFromSearch();
+      commons.search();
+      callCenter.selectSKUFromResults();
+      callCenter.addToOrderFromSalesOrder();
+      browser.sleep(500);       
      
       //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
       browser.sleep(300);

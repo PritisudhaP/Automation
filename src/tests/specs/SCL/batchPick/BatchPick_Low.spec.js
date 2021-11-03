@@ -34,7 +34,7 @@ describe("Batch Pick: ", function() {
 	  	utils.Login(browser.params.login.user,browser.params.login.password);
 		utils.pdfFolderCleanUp(browser.params.labelPath);//cleaning up the pdf downlod folder
 		console.log("Folder cleaned successfully");
-	  	it("Ship_Multiple_line_Multiple_Catgory_PickList_Category TC0056", function() {
+	  /*	it("Ship_Multiple_line_Multiple_Catgory_PickList_Category TC0056", function() {
 	  		var orders=[];
 	  		browser.wait(function () {
 		            return browser.params.orders != '';
@@ -164,7 +164,7 @@ describe("Batch Pick: ", function() {
 							expect(details).toContain(browser.params.batcpickSKU6);//SKU checking
 							expect(details).toContain(browser.params.batcpickSKU1);//SKU checking
 							expect(line[7]).toContain(browser.params.storeNumber);//qty and price need to split again for pick list reading.
-			    			expect(details).toEqual(browser.params.UPCcode);
+			    			expect(details).toContain(browser.params.UPCcode);
 							batchCreate.shipmentstatus(8,1).then(function (units) {
 								items = units;
 								console.log("number of items in the batch "+items);
@@ -240,7 +240,7 @@ describe("Batch Pick: ", function() {
 	            }
 	        });
 		});
-		
+		*/
 		it("CombinedPackingSlipAndShippingLabel_DISABLED TC0057", function() {
 			browser.get(callcenterorder);
 	        browser.driver.manage().window().maximize();

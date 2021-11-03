@@ -41,7 +41,7 @@ describe("Item_Based_Batch Pick: ", function() {
 	var salesOrderSummary = new salesOrderSummaryScreen();
 	var returnsCreate = new returnsCreateScreen();
 	utils.Login(browser.params.login.user,browser.params.login.password);
-	
+	/*
 	it("Ship_Single_line_Single_QTY_PickList_By_ITEM_ TC0021", function() {
 
 		browser.get(callcenterorder);
@@ -220,9 +220,9 @@ describe("Item_Based_Batch Pick: ", function() {
                 console.log("content is "+details);
                 var line = [];
     			line=details.split("\n");
-    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
     			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-    			expect(details).toContain(browser.params.custAddress1);
+    			expect(details).toContain(browser.params.shippingAddress);
     			expect(details).toContain(browser.params.custCity);
     			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -462,9 +462,9 @@ describe("Item_Based_Batch Pick: ", function() {
                 //console.log("content is "+details);
                 var line = [];
     			line=details.split("\n");
-    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
     			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-    			expect(details).toContain(browser.params.custAddress1);
+    			expect(details).toContain(browser.params.shippingAddress);
     			expect(details).toContain(browser.params.custCity);
     			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -709,9 +709,9 @@ describe("Item_Based_Batch Pick: ", function() {
 		   		//console.log("content is "+details);
 		   		var line = [];
 				line=details.split("\n");
-				expect(details).toContain(browser.params.custDisplayName);//customer name checking
+				//expect(details).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-				expect(details).toContain(browser.params.custAddress1);
+				expect(details).toContain(browser.params.shippingAddress);
 				expect(details).toContain(browser.params.custCity);
 				expect(details).toContain(browser.params.custAddressState);					
 		     });
@@ -954,9 +954,9 @@ describe("Item_Based_Batch Pick: ", function() {
                 //console.log("content is "+details);
                 var line = [];
     			line=details.split("\n");
-    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
     			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-    			expect(details).toContain(browser.params.custAddress1);
+    			expect(details).toContain(browser.params.shippingAddress);
     			expect(details).toContain(browser.params.custCity);
     			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -1007,7 +1007,7 @@ describe("Item_Based_Batch Pick: ", function() {
                 });
             });
 		});
-	    
+	   
 		it("PickList_By_ITEM_CurrentDateAsPromise_Date TC0025", function() {
 		
 		browser.get(callcenterorder);
@@ -1207,9 +1207,9 @@ describe("Item_Based_Batch Pick: ", function() {
                 //console.log("content is "+details);
                 var line = [];
     			line=details.split("\n");
-    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
     			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-    			expect(details).toContain(browser.params.custAddress1);
+    			expect(details).toContain(browser.params.shippingAddress);
     			expect(details).toContain(browser.params.custCity);
     			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -1416,7 +1416,7 @@ describe("Item_Based_Batch Pick: ", function() {
 	            });
 	        });
 	});
- 	 	  
+ 	 	  */
  	it("Ship_Single_line_Multiple_QTY_PickList_By_Item_Reject TC0027", function() {
 		
 		browser.get(callcenterorder);
@@ -1534,6 +1534,7 @@ describe("Item_Based_Batch Pick: ", function() {
 	                qty = units;
 	                console.log("total qty in Batch "+qty);
 	            });
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            browser.sleep(3000); 
@@ -1610,9 +1611,9 @@ describe("Item_Based_Batch Pick: ", function() {
 	                //console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+	    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 	    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
               });
@@ -1782,6 +1783,7 @@ describe("Item_Based_Batch Pick: ", function() {
 						orders = units;
 						console.log("total orders in Batch "+orders);
 					});
+					batchCreate.refreshBatch();
 					batchCreate.printIconClick(2);
 					batchCreate.printDocument("Packing Slips");
 					browser.sleep(3000);
@@ -1864,9 +1866,9 @@ describe("Item_Based_Batch Pick: ", function() {
 				//console.log("content is "+details);
 				var line = [];
 				line=details.split("\n");
-				expect(details).toContain(browser.params.custDisplayName);//customer name checking
+				//expect(details).toContain((browser.params.custLabelName));//customer name checking
 				expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-					expect(details).toContain(browser.params.custAddress1);
+					expect(details).toContain(browser.params.shippingAddress);
 					expect(details).toContain(browser.params.custCity);
 					expect(details).toContain(browser.params.custAddressState);					
 				  });
@@ -1909,7 +1911,7 @@ describe("Item_Based_Batch Pick: ", function() {
             
        });
 	});					
-
+/*
 	it("BOPIS_Single_line_PickList_By_Item TC0029", function() {
 	
 		browser.get(callcenterorder);
@@ -2117,10 +2119,10 @@ describe("Item_Based_Batch Pick: ", function() {
    	                //console.log("content is "+details);
    	                var line = [];
    	    			line=details.split("\n");
-   	    			expect(line[2]).toContain(browser.params.custDisplayName);//customer name checking
+   	    			expect(line[2]).toContain((browser.params.custDisplayName));//customer name checking
    	    			expect(line[3]).toContain(SONumber);
    	    			expect(details).not.toContain(browser.params.custZipcode5);//customer zip code checking
-   	    			expect(details).not.toContain(browser.params.custAddress1);
+   	    			expect(details).not.toContain(browser.params.shippingAddress);
    	    			expect(details).not.toContain(browser.params.custCity);
    	    			expect(details).not.toContain(browser.params.custAddressState);					
    	              });
@@ -2169,7 +2171,7 @@ describe("Item_Based_Batch Pick: ", function() {
 	            browser.sleep(2000);
             });
             browser.get(batchPickUrl);
-            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
             batchCreate.shipmentstatus(5,1).then(function (status) {
                 orderStatus = status;
                 console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -2208,7 +2210,7 @@ describe("Item_Based_Batch Pick: ", function() {
 		            browser.sleep(2000);
 	            });
 	            browser.get(batchPickUrl);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -2434,10 +2436,10 @@ describe("Item_Based_Batch Pick: ", function() {
  		                //console.log("content is "+details);
  		                var line = [];
  		    			line=details.split("\n");
- 		    			expect(line[2]).toContain(browser.params.custDisplayName);//customer name checking
+ 		    			expect(line[2]).toContain((browser.params.custDisplayName).toUpperCase());//customer name checking
  		    			expect(line[3]).toContain(SONumber);
  		    			expect(details).not.toContain(browser.params.custZipcode5);//customer zip code checking
- 		    			expect(details).not.toContain(browser.params.custAddress1);
+ 		    			expect(details).not.toContain(browser.params.shippingAddress);
  		    			expect(details).not.toContain(browser.params.custCity);
  		    			expect(details).not.toContain(browser.params.custAddressState);					
  		              });
@@ -2487,7 +2489,7 @@ describe("Item_Based_Batch Pick: ", function() {
             });
             
             browser.get(batchPickUrl);
-            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
             browser.sleep(2000);
             batchCreate.shipmentstatus(5,1).then(function (status) {
                 orderStatus = status;
@@ -2529,7 +2531,7 @@ describe("Item_Based_Batch Pick: ", function() {
 		            browser.sleep(2000);
 	            });
 	            browser.get(batchPickUrl);
-	            salesOrderSummary.salesOrderSearch("Batch Id", BatchId);
+	            commons.searchWithCriteria('Batch Id', 'ends with', BatchId);		        
 	            batchCreate.shipmentstatus(5,1).then(function (status) {
 	                orderStatus = status;
 	                console.log("the status of the Batch #"+BatchId+" is: "+orderStatus);
@@ -2756,9 +2758,9 @@ describe("Item_Based_Batch Pick: ", function() {
 	                console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+	    			//expect(details).toContain((browser.params.custLabelName));//customer name checking
 	    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });
@@ -2815,6 +2817,6 @@ describe("Item_Based_Batch Pick: ", function() {
 	            browser.sleep(2000);
 	        	});
 	    	});
-	 }); 	  
+	 }); 	  */
 });
 	

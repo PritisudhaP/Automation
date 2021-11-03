@@ -106,7 +106,9 @@ module.exports = function () {
     this.packageSelectionDropdown = element(by.xpath('(//select[@name="carrier"])[2]'));
     this.itemQtyInPackageEntryTextBox = element(by.xpath('//input[@ng-model="item.qtyInPackageDefault"]'));
     this.addPackageToShipmentButton = element(by.xpath('//button/span[contains(text(), "Add Package to Shipment")]/parent::button'));
-    this.finalizeShipmentButton = element(by.xpath('(//button/span[contains(text(), "Finalize Shipment")]/parent::button)[2]'));
+    //this.finalizeShipmentButton = element(by.xpath('(//button/span[contains(text(), "Finalize Shipment")]/parent::button)[2]'));
+	this.finalizeShipmentButton = element(by.xpath('(//span[contains(text(), "Finalize Shipment")])[2]'));
+																									  
     this.shipmentRequestSelectGearIcon = element(by.xpath('(//div[@class="en-collection-row"]/div[2])[1]/en-actions/button'));
     //this.lineItemStatus = element(by.xpath("//section[@ng-if='salesOrder.data.lineItems.length']//div[@layout='row']/en-label"));
     //this.lineAppeasement = element(by.xpath("//li[@icon='discount']/button//span[contains(text(),'Appeasement')]"));//updated by vishak
@@ -207,13 +209,26 @@ module.exports = function () {
     this.itemsPerPageDropdown = element(by.model("object.limit"));
     this.fullFillmentPageHeader = element(by.xpath('//en-icon[@icon="truck"]/parent::div'));
 	this.ordersPageHeader = element(by.xpath('(//en-icon[@icon="invoice"]/parent::div)[1]'));    
+	this.callCenterPageHeader = element(by.xpath('(//en-icon[@icon="cloud-upload"]/parent::div)[1]'));
+	this.primaryemailTextBox = element(by.model("customer.data.primaryEmail.address"));																				
     
     
 	var common = require(process.cwd() + '/src/tests/screens/commons.js');
     var commons = new common();
 
     this.unselectPkg = function(){
-       this.packageUnselect.click();
+      // this.packageUnselect.click();
+    	
+        element(by.model("skipLabelGeneration")).isSelected().then(function(result) {
+		    if ( result ) {
+		        
+				 console.log("already disabled the label generation")
+		    	
+		    } else {
+		    	console.log("disabling the label generation")
+		        element(by.model("skipLabelGeneration")).click();
+		    }
+		});												   
     }
 	this.clickOnManualAllocationButton = function () {
 
@@ -310,7 +325,9 @@ module.exports = function () {
     this.addToOrder = function () {
         this.addToOrderButton.click();
     }
-    this.attachCustomer = function () {
+    this.attachCustomer = function () {						  
+		browser.executeScript('window.scrollTo(0,-250);');
+		browser.sleep(500);
         this.attachCustomerButton.click();
     }
     this.filterText = function () {
@@ -485,7 +502,7 @@ module.exports = function () {
         browser.sleep(2000);
         this.promisedDateTextBox.sendKeys(Date);
     }
-    this.createCustomer = function (displayName, firstName, lastName, address1, city, state, zipcode5) {
+    this.createCustomer = function (displayName, firstName, lastName, address1, city, state, zipcode5,email) {
         this.createCustomerBtn.click();
         browser.sleep(1000);
         this.customerDisplayName.sendKeys(displayName);
@@ -493,6 +510,7 @@ module.exports = function () {
         browser.sleep(1000);
         this.customerFirstName.sendKeys(firstName);
         this.customerLastName.sendKeys(lastName);
+        this.primaryemailTextBox.sendKeys(email)
         this.addAddressIcon.click();
 
         browser.sleep(1000);
@@ -1171,7 +1189,7 @@ module.exports = function () {
 	 return temp.click();
  }
  this.preseneceChecking = function(){
-	 
+	
 	 temp=element(by.xpath('//div/div[@class="line-wrapper-inner"]'));
 	 var until = protractor.ExpectedConditions;
 	const prsence = until.visibilityOf(temp)
@@ -1194,5 +1212,16 @@ module.exports = function () {
 		 this.ordersPageHeader.click();
 		 
 	}
-    
+    this.CallCenterPage = function () {
+
+		 this.callCenterPageHeader.click();
+		 
+	 }	 
+	 
+	 this.rejectLines = function(line,reason){
+		 
+		 temp='(//select[@ng-model="item.rejectionCode"])['+line+']'
+		 element(by.xpath(temp)).click();
+		 return element(by.xpath(temp)).sendKeys(reason);
+	 }
 }

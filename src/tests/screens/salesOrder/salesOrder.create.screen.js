@@ -173,7 +173,9 @@ module.exports =function(){
     this.pickupNote = element(by.model("data.pickUpDetails.notes"));
     this.reasondropdown = element(by.model("modalObject.reasonCode"));
     this.rejectComments =  element(by.model("modalObject.reason"));
-    
+	this.orderSelectionDropdown = element(by.model("salesOrder.data.header.orderType"));
+    this.SubscriptionFrequencySelect = element(by.model("subscriptionInfo.frequency"));
+    this.SubscriptionEndDateButton= element(by.model("subscriptionInfo.endDate"));
     
     //!*************************************************************************!// 
     this.clickonCreatebtn = function(){
@@ -679,7 +681,14 @@ module.exports =function(){
     }
 
     this.useSelectedCustomer = function() {
-        return this.useSelectedCustomerButton.click();
+        this.useSelectedCustomerButton.click();
+        element(by.xpath("//span[contains(text(),'Ok')]/parent::button")).isPresent().then(function(result) {
+		    if ( result ) {
+		    	temp=element(by.xpath("//span[contains(text(),'Ok')]/parent::button"));
+				 temp.click();
+		    } else {
+				 console.log("No OK Button found")
+		    }
     }
 
 
@@ -866,7 +875,7 @@ module.exports =function(){
     }
     
     this.ATSCountcheck = function(line){
-        temp = '(//div[@ng-if="pools.data"]/div/strong[@class="text-white ng-binding"])['+line+']';
+        temp = '(//div[@class="ng-binding ng-scope"])['+line+']';
         return element(by.xpath(temp)).getText().then(function(count){
             browser.driver.sleep(3000);
             return parseInt(count);
@@ -876,13 +885,16 @@ module.exports =function(){
     this.ATSCountupdate = function(count){
     	if(count==0)
 		{
-    		cancel= element(by.buttonText("Cancel"));
-    		return cancel.click();
+    		//cancel= element(by.buttonText("Cancel"));
+    		//return cancel.click();
+    		console.log("the count is 0")
 		}
     	else{
     		
-    		entryAdjustment = element(by.xpath('//en-tab[@has-permission="InventoryPoolEntry:Update"]')).click();
-    		qty = element(by.model("entry.data.amountToAdjust")).sendKeys(0);
+    		temp = element(by.xpath('(//div/div[@class="en-collection-row"])[1]')).click();
+       		entryAdjustment = element(by.xpath('//en-tab[@has-permission="InventoryPoolEntry:Update"]')).click();
+    		qty = element(by.model("entry.data.amountToAdjust")).sendKeys("-"+count);
+    		browser.sleep(10000);
     		reason = element(by.model("entry.data.description")).sendKeys("Adjustment for partial return");
     		cancel = element(by.buttonText("Save")).click();
 	
@@ -986,5 +998,70 @@ module.exports =function(){
     		temp.click();
        }
     }										 
+	this.orderTypeSelection = function(orderType){
+    	
+    	this.orderSelectionDropdown.sendKeys(orderType);
+    }
+    
+    this.SubscriptionFrequency = function(frequency){
+    	
+    	this.SubscriptionFrequencySelect.sendKeys(frequency);
+    	
+    }
+    this.subscriptionEndDate = function(){
+    	
+    	element(by.xpath('//input[@name="subscriptionEndDateEditable"]')).click();
+    	element(by.xpath('//div/a[@en-tap="nextMonth()"]')).click();
+    	element(by.xpath('(//div/a[@class="cal-day ng-binding ng-scope"])[27]')).click();
+    }
+    this.day =function() {
+		 var date = new Date();
+		 var today = date.getDay()
+		 console.log("the current day is "+today)
+		 switch(today){
+		 
+		 case 0:
+			 element(by.xpath('//select/option[@label="SUNDAY"]')).click();
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+
+			 break;
+		 case 1:
+			 element(by.xpath('//select/option[@label="MONDAY"]')).click();			
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+		 
+		 case 2:
+			 element(by.xpath('//select/option[@label="TUESDAY"]')).click();	
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+		 
+		 case 3:
+			 element(by.xpath('//select/option[@label="WEDNESDAY"]')).click();
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+			 
+		 case 4:
+			 element(by.xpath('//select/option[@label="THURSDAY"]')).click();
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+			 
+		 case 5:
+			 element(by.xpath('//select/option[@label="FRIDAY"]')).click();
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+			 
+		 case 6:
+			 element(by.xpath('//select/option[@label="SATURDAY"]')).click();
+			 element(by.xpath('(//en-icon[@icon="chevron-right-double"])[2]')).click();
+			 break;
+		 
+		 }
+	 }
+    
+    this.editPencilButton = function(line){
+    	
+    	temp = '(//en-icon[@icon="edit"])['+line+']';
+    	return element(by.xpath(temp)).click();
+    }
 }
 

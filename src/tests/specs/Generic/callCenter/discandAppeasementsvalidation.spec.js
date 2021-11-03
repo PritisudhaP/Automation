@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -40,60 +40,54 @@ describe('Call Center Flow', function () {
 
         browser.get(callCenterInventoryUrl);
         browser.driver.manage().window().maximize();
-        browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
+        browser.sleep(1000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(2000);
-        callCenter.editLineGear("1");
-        browser.sleep(3000);
+     //updated by vishak 
+       	browser.sleep(1000);
+        callCenter.editLineGear("3");       
         callCenter.lineItemselectOptions("Change Price");
-        browser.sleep(2000);
         callCenter.changingUnitPrice("25.99");
+        browser.sleep(3000);
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
-
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
         browser.sleep(2000);
-        callCenter.editLine();
-        browser.sleep(2000);
+        callCenter.editLineGear("3");
+        callCenter.lineItemselectOptions("Edit Line");
+        callCenter.discountButtonEditLine();
         callCenter.applyDiscount("Percentage", "101", "EmployeeDiscount", "desc1", "notes1");
         callCenter.errorMessages("discountError").then(function (errorTextMsg) {
             errorMessage = errorTextMsg;
             console.log(errorMessage);
             expect(errorTextMsg).toBe("Total discount cannot exceed total line price.");
         });
-        browser.sleep(2000);
+        browser.sleep(1000);
         callCenter.applyDiscount("Percentage", "-10", "EmployeeDiscount", "desc1", "notes1");
         callCenter.errorMessages("discountError").then(function (errorTextMsg) {
             errorMessage = errorTextMsg;
             console.log(errorMessage);
             expect(errorTextMsg).toBe("Discount cannot be negative.");
         });
-        browser.sleep(2000);
         callCenter.applyDiscount("Percentage", "6", "EmployeeDiscount", "desc1", "notes1");
-        browser.sleep(1000);
         callCenter.applyButton();
-        browser.sleep(2000);
         callCenter.editLinePopUpSaveBtn();
-        browser.sleep(7000);
+        
         callCenter.viewPlusIcon("Discounts");
         browser.sleep(2000);
         callCenter.discountViewNotes();
@@ -118,7 +112,6 @@ describe('Call Center Flow', function () {
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
             browser.sleep(3000);
-
             salesOrderSummary.salesOrderSelectGear("Release");
             browser.sleep(3000);
             expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
@@ -136,25 +129,24 @@ describe('Call Center Flow', function () {
             callCenter.OrderNumberSearch("Original Order #", SONumber);
             browser.sleep(3000);
             callCenter.fulfillmentOrderSelectGear("Create Shipment");
-            browser.sleep(3000);
+            callCenter.shipAccountselect(browser.params.shipaccount);
             callCenter.packageSelection(browser.params.packageValue);
-            browser.sleep("500");
+            callCenter.packageTrackingNumber(1236547890);
             callCenter.enterItemQty("1");
-            callCenter.unselectPkg();
+            //callCenter.unselectPkg();
             browser.sleep(1000);
             callCenter.addPackageToShipment();
-            browser.sleep(2000);
             callCenter.finalizeShipment();
             browser.sleep(3000);
-            callCenter.ViewNotesClose();
+            //callCenter.ViewNotesClose();
             browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
             browser.sleep(3000);
             callCenter.callCenterSalesOrderSelectGear("View");
             browser.sleep(5000);
-            callCenter.editLineGear("1");
-            browser.sleep(3000);
+           /* callCenter.editLineGear("1");
+            browser.sleep(3000);*/
             callCenter.lineLevelAppeasement();
             browser.sleep(2000);
             callCenter.applyAppeasement("Percentage", "101", "EmployeeAppeasement", "desc1", "notes1");
@@ -192,7 +184,7 @@ describe('Call Center Flow', function () {
                 console.log(descTextVal);
             });
             callCenter.ViewNotesClose();
-            browser.sleep(2000);
+            browser.sleep(10000);
             callCenter.orderLevelAppeasement();
             browser.sleep(2000);
             callCenter.applyAppeasement("Amount", "27", "EmployeeAppeasement", "desc1", "notes1");
@@ -202,7 +194,7 @@ describe('Call Center Flow', function () {
                 console.log(errorMessage);
                 expect(errorTextMsg).toBe("Total appeasement cannot exceed total of fulfilled line items.");
             });*/
-            browser.sleep(2000);
+            browser.sleep(10000);
             callCenter.orderLevelAppeasement();
             browser.sleep(2000);
             callCenter.applyAppeasement("Amount", "-5", "EmployeeAppeasement", "desc1", "notes1");

@@ -909,11 +909,9 @@ describe("Batch Pick Medium Priority: ", function() {
 	        batchCreate.minFRRequest(1);
 	        batchCreate.maxFRRequest(100);
 	        batchCreate.requestDeliveryDate(browser.params.promiseddate);
-	        batchCreate.categoryDropdown(3);
+	        batchCreate.categoryDropdown(1);
 	        browser.sleep(500);
-	        batchCreate.categoryDropdown(2);
- 			batchCreate.batchSerivces(16);
-	        batchCreate.batchSerivces(20);
+ 			batchCreate.batchSerivces(12);
 	        batchCreate.documents(2);
 	        batchCreate.pickListType(1);
 	        batchCreate.packageType(browser.params.packageValue);
@@ -1000,6 +998,7 @@ describe("Batch Pick Medium Priority: ", function() {
 	    	                qty = units;
 	    	                console.log("total qty in Batch "+qty);
 	    	        });	    	            
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(3000);
@@ -1088,9 +1087,9 @@ describe("Batch Pick Medium Priority: ", function() {
 			                console.log("content is "+details);
 			                var line = [];
 			    			line=details.split("\n");
-			    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+			    		//	expect(details).toContain(browser.params.custDisplayName);//customer name checking
 			    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-			    			expect(details).toContain(browser.params.custAddress1);
+			    			expect(details).toContain(browser.params.shippingAddress);
 			    			expect(details).toContain(browser.params.custCity);
 			    			expect(details).toContain(browser.params.custAddressState);					
 			              });
@@ -1289,7 +1288,8 @@ describe("Batch Pick Medium Priority: ", function() {
     			batchCreate.shipmentstatus(9,1).then(function (units) { //SKU quantity check
     	                qty = units;
     	                console.log("total qty in Batch "+qty);
-    	        });	    	    
+    	        });	
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            browser.sleep(3000);
@@ -1368,9 +1368,9 @@ describe("Batch Pick Medium Priority: ", function() {
 	                console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+	    		//	expect(details).toContain(browser.params.custDisplayName);//customer name checking
 	    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
 	              });
@@ -1571,6 +1571,7 @@ describe("Batch Pick Medium Priority: ", function() {
 	    	                qty = units;
 	    	                console.log("total qty in Batch "+qty);
 	    	        });	
+					batchCreate.refreshBatch();
 		            batchCreate.printIconClick(2);
 		            batchCreate.printDocument("Packing Slips");
 		            browser.sleep(3000);
@@ -1648,9 +1649,9 @@ describe("Batch Pick Medium Priority: ", function() {
 			                console.log("content is "+details);
 			                var line = [];
 			    			line=details.split("\n");
-			    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+			    			//expect(details).toContain(browser.params.custDisplayName);//customer name checking
 			    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-			    			expect(details).toContain(browser.params.custAddress1);
+			    			expect(details).toContain(browser.params.shippingAddress);
 			    			expect(details).toContain(browser.params.custCity);
 			    			expect(details).toContain(browser.params.custAddressState);					
 			              });
@@ -2027,8 +2028,8 @@ describe("Batch Pick Medium Priority: ", function() {
 	    });
 	});
 	
-	
-/*	it("Order_with_other_than_default_shipping_Profile_TC0045", function() {
+	/*
+	it("Order_with_other_than_default_shipping_Profile_TC0045", function() {
 		
 		browser.get(shippingProfile);
         browser.driver.manage().window().maximize();
@@ -2176,6 +2177,7 @@ describe("Batch Pick Medium Priority: ", function() {
     	                qty = units;
     	                console.log("total qty in Batch "+qty);
     	        });
+				batchCreate.refreshBatch();
 	            batchCreate.printIconClick(2);
 	            batchCreate.printDocument("Packing Slips");
 	            batchCreate.printIconClick(2);
@@ -2250,9 +2252,9 @@ describe("Batch Pick Medium Priority: ", function() {
 	                console.log("content is "+details);
 	                var line = [];
 	    			line=details.split("\n");
-	    			expect(details).toContain(browser.params.custDisplayName);//customer name checking
+	    			//expect(details).toContain(browser.params.custDisplayName);//customer name checking
 	    			expect(details).toContain(browser.params.custZipcode5);//customer zip code checking
-	    			expect(details).toContain(browser.params.custAddress1);
+	    			expect(details).toContain(browser.params.shippingAddress);
 	    			expect(details).toContain(browser.params.custCity);
 	    			expect(details).toContain(browser.params.custAddressState);					
               });

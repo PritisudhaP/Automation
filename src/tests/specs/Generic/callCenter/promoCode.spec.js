@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -33,43 +33,33 @@ describe('Call Center Flow', function () {
 
         browser.get(callCenterInventoryUrl);
         browser.driver.manage().window().maximize();
-        browser.sleep(2000);
-        commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
+        commons.searchWithCriteria('SKU', 'contains', browser.params.promosku);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);
-        callCenter.editLineGear("1");
-        browser.sleep(1000);
-        callCenter.lineItemselectOptions("Change Price");
-        browser.sleep(2000);
+        callCenter.editLineGear("3");      
+       callCenter.lineItemselectOptions("Change Price");
         callCenter.changingUnitPrice("25");
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
-
+        browser.sleep(2000);
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
-
+        		
+		browser.sleep(2000);
         //Apply promo code
-         callCenter.promoCode(browser.params.promoCodeValue);
-         browser.sleep(3000);
+        callCenter.promoCode(browser.params.promoCodeValue);
+        browser.sleep(3000);
         callCenter.viewPlusIcon("Discounts");
         browser.sleep(2000);
+   
         callCenter.checkPromoCode().then(function (promoText) {
             promoTextValue = promoText;
             console.log(promoTextValue);
@@ -89,6 +79,14 @@ describe('Call Center Flow', function () {
             console.log(descTextVal);
         });
         callCenter.ViewNotesClose();
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});
+        callCenter.editLineGear("1");
+        callCenter.lineItemselectOptions("Release");
+        salesOrderSummary.orderRelease("Release",2);
 
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -97,23 +95,14 @@ describe('Call Center Flow', function () {
             browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
-            browser.sleep(3000);
-
-            salesOrderSummary.salesOrderSelectGear("Release");
-            browser.sleep(3000);
             expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-
             //!*******!!@@@@@@@@@@@@@@
-            salesOrderSummary.salesOrderStatus().then(function (status) {
-                orderStatus = status;
-                console.log(orderStatus);
 
-            });
-        })
+        });
 
-        })
+    });
 
-    })
+});
 
 
 

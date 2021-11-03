@@ -4,6 +4,7 @@ var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesO
 var common = require(process.cwd() + '/src/tests/screens/commons.js');
 var returnsCreateScreen = require(process.cwd() + '/src/tests/screens/returns/returns.create.screen.js');
 var salesOrderEditScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.edit.screen.js');
+var batchPickCreate = require(process.cwd() + '/src/tests/screens/batchPick/batchpick.create.screen.js');
 
 
 global.orderStatus = "";
@@ -19,6 +20,7 @@ global.ResafterCancel2 = "";
 global.incQtySave = "";
 global.incQtySave = "";
 global.availabletoCancel = "";
+
 describe('Order Line Cancel ', function () {
 
     var callCenter = new callCenterScreen();
@@ -27,7 +29,8 @@ describe('Order Line Cancel ', function () {
     var salesOrderEdit = new salesOrderEditScreen();
     var salesOrderSummary = new salesOrderSummaryScreen();
   	var returnsCreate = new returnsCreateScreen();
-  	
+  	var batchCreate = new batchPickCreate();
+
   //partialy released status cancel line item.
   it('Partial Cancel and BOPIS', function () {
 	  
@@ -79,7 +82,7 @@ describe('Order Line Cancel ', function () {
       browser.sleep(500);
       callCenter.editLinePopUpSaveBtn(); 
       browser.sleep(1000);
-      salesOrderCreate.incrementQty(9);
+      salesOrderCreate.incrementQty(9);//total qty is 10 
       browser.sleep(1000);
 
     //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
@@ -95,7 +98,6 @@ describe('Order Line Cancel ', function () {
         }).then(function () {
            browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            //commons.multiselect();
             browser.sleep(3000);
             salesOrderSummary.salesOrderSelectGear("Release");
             browser.sleep(3000);
@@ -144,7 +146,7 @@ describe('Order Line Cancel ', function () {
 	 	 callCenter.editLineGear("3");
 	     callCenter.lineItemselectOptions("Cancel Line");//Cancel button click 
 	     browser.sleep(1000);
-	     salesOrderSummary.CanclQTY(5)
+	     salesOrderSummary.CanclQTY(5) // canceling 5 qty
 	     salesOrderSummary.CanclReason("NotNeeded");
 	     browser.sleep(1000);
 	     salesOrderSummary.CNFButton();
@@ -156,7 +158,6 @@ describe('Order Line Cancel ', function () {
         }).then(function () {
            browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            //commons.multiselect();
             browser.sleep(3000);
             salesOrderSummary.salesOrderStatus().then(function (status) {
                 orderStatus = status;
@@ -204,7 +205,7 @@ describe('Order Line Cancel ', function () {
 	     });	
  	  
  	//!*********fulfillment request**********!//	         
-	      browser.get(fulfillmentRequestsUrl);
+	      /*browser.get(fulfillmentRequestsUrl);
 	      console.log("the sale sorder is "+SONumber)
 	      browser.sleep(2000);
 	      salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
@@ -224,22 +225,53 @@ describe('Order Line Cancel ', function () {
 	      browser.sleep(2000);
 	      salesOrderSummary.shipmentRejectPopup("Product Damaged", "this is a Test")
 	      salesOrderSummary.CNFButton();
-	      browser.sleep(3000);
+	      browser.sleep(3000);*/
 	      browser.get(storePortalV2Url);
-	      salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+          commons.searchWithCriteria("Original Order #","ends with", SONumber);
+	      //salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
 	      browser.sleep(1000);
-	      salesOrderCreate.orderSelectAllATV2Portal();
-	      salesOrderCreate.TruckIconHeaderClick();
+	      salesOrderSummary.storeportalLineClick();
+	      batchCreate.selectFromTheSearch(1);
+	      batchCreate.PickConfirm("Accept Order");
+	      batchCreate.submitPack("Confirm");
+	      batchCreate.submitPack("Pick & Pack");
+	      batchCreate.selectFromTheSearch(2);
+	      batchCreate.qtyInc(1,1);
+	      batchCreate.submitPack("Include in Package");
 	      browser.sleep(500);
-	      salesOrderCreate.pickupDetails(browser.params.custDisplayName,"Driving License","1236541","test");
+	      batchCreate.PackingtypeSelect(browser.params.packageValue);
+	      batchCreate.submitPack("Add Package");
 	      browser.sleep(500);
+	      batchCreate.submitPack("Complete Fulfillment");
+	      browser.sleep(1500);
+	      salesOrderSummary.shipmentRejectPopup(browser.params.rejectReason, browser.params.rejectComments)
 	      salesOrderSummary.CNFButton();
-	      browser.sleep(2000);
+	      browser.sleep(3000);
 	      
         });
+		
 		browser.wait(function () {
             return SONumber != '';
         }).then(function () {
+        	
+          browser.get(storePortalV2Url);
+          commons.searchWithCriteria("Original Order #","ends with", SONumber);
+   	     // salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
+          batchCreate.selectFromTheSearch(2);
+  	      //salesOrderCreate.orderSelectAllATV2Portal();
+  	      salesOrderCreate.TruckIconHeaderClick();
+  	      browser.sleep(500);
+  	      salesOrderCreate.pickupDetails(browser.params.custDisplayName,"Driving License","1236541","test");
+  	      browser.sleep(500);
+  	      salesOrderSummary.CNFButton();
+  	      browser.sleep(5000);
+        	
+        });
+		
+		browser.wait(function () {
+            return SONumber != '';
+        }).then(function () {
+        	
            browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
@@ -247,7 +279,7 @@ describe('Order Line Cancel ', function () {
             salesOrderSummary.salesOrderStatus().then(function (status) {
                 orderStatus = status;
                 console.log("the status of the order #"+SONumber+" is: "+orderStatus);
-	            expect(salesOrderSummary.salesOrderStatus()).toEqual('PARTIALLY SHIPPED');
+	           // expect(salesOrderSummary.salesOrderStatus()).toEqual('PARTIALLY AWAITING CUSTOMER PICKUP');
             });
             
             salesOrderSummary.salesOrderSelectGear("View");//editing the Order        
@@ -264,7 +296,7 @@ describe('Order Line Cancel ', function () {
 	            boq = value;
 	            backOrdered = boq.substring(12)
 	            console.log("Total backordered QTY "+backOrdered);
- 	            expect(backOrdered).toEqual('4');
+ 	            expect(backOrdered).toEqual('0');
 
 	        });
  	     
@@ -287,7 +319,7 @@ describe('Order Line Cancel ', function () {
             cncl = value;
             cancelled = cncl.substring(10)
             console.log("Total Cancelled QTY "+cancelled);
-            expect(cancelled).toEqual("5");
+            expect(cancelled).toEqual("9");
 
         });
  	  salesOrderEdit.orderQtyCheck(6).then(function (value) {    

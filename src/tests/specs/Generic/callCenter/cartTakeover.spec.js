@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -34,28 +34,28 @@ describe('Call Center Flow', function () {
         callCenter.selectSKUFromSearch();
         browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
         callCenter.addToOrder();
-        browser.sleep(3000);
+        browser.sleep(1000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
         browser.sleep(3000);
 
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		
+		browser.sleep(2000);
 
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -77,13 +77,16 @@ describe('Call Center Flow', function () {
 
             });
 
-
         })
-        browser.get(salesOrderUrl);
+          browser.wait(function () {
+            return SONumber != '';
+        }).then(function () {
+        browser.get(callCenterSalesOrdersListUrl);        
         salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
         browser.sleep(3000);
         salesOrderSummary.salesOrderSelectGear("View");
-        callCenter.addReferences(browser.params.refNameCartId,browser.params.cartIdValue);
+        browser.sleep(4000);
+        callCenter.addReferences(browser.params.type,browser.params.refNameCartId,browser.params.cartIdValue);
         browser.sleep(2000);
         browser.get(callCenterCartTakeoverUrl);
         browser.sleep(2000);
@@ -95,7 +98,7 @@ describe('Call Center Flow', function () {
         browser.sleep(4000);
         callCenter.cartTakeOver(browser.params.cartIdValue);
 
-
+        });
 
     })
 })

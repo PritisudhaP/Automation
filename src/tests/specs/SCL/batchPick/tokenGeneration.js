@@ -11,7 +11,7 @@ describe( "Token", function () {
 			url: 'https://project4-qa.enspirecommerce.com/api/v1/security/access/token?grant_type=client_credentials&scope=refreshToken',
 			headers: {
 				  'refreshToken':'application/x-www-form-urlencoded',
-				  'Authorization':'Basic YWRtaW5AdGhrLmNvbTpteXBhc3N3b3Jk',
+				  'Authorization':'Basic YWRtaW5AdGhrLmNvbTo5NV56Q1h3N1o3RHd1PVRN',
 				  'Content-Type':'application/x-www-form-urlencoded'
 			},
 		};

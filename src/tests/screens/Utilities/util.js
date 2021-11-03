@@ -157,11 +157,12 @@ module.exports = {
 	    });		  		   
 		  
 	  },
-	 getFileName : function(folderpath,name,BatchId){ 
+	 getFileName : function(folderpath,name,BatchId){ 	
 	    	const fs = require('fs')
 	    	const files = fs.readdirSync(folderpath)
 	    	for (let file of files) {
 	    		var fn=name+BatchId;
+	    		console.log("the combined file name is "+fn);
 	    		
 	    		if (file.startsWith(fn)) {
 	    			console.log('File already exists')
@@ -192,15 +193,22 @@ module.exports = {
 	    	}
 		 
 	 },
+	 
+	 getNumberOfPages : function(file){
+		const fs = require('fs');
+	    const pdf = require('pdf-page-counter');
+	    let dataBuffer = fs.readFileSync(file);
+	    return pdf(dataBuffer).then(function(data) {
+	    	 // number of pages
+	    	 console.log("number of pages"+data.numpages);	    
+	    	 return data.numpages;
+	    }); 
+		 
+		 
+	 },
 	 searchResult : function(){	
-		 temp = element(by.xpath('(//div[@class="en-collection-row"])'));
-		 var totalline = "";
-		 var totallines = element.all(by.xpath(temp));
-		 return totallines.count().then(function (total){
-				var totalline = total;
-				console.log("total lines in the order confirm screen is "+totalline)
-				return totalline;
-		});
+		 temp = '//div[@class="en-collection-row"]';
+		 return element.all(by.xpath(temp));
 		  
 	  },
 	  
@@ -219,6 +227,286 @@ module.exports = {
 			return temp.getText();
 			
 		},
+		errorAlert : function(){
+			
+			 temp = '//button[@data-dismiss="alert"]';	  
+			   var totallines = element.all(by.xpath(temp));
+			   totallines.count().then(function (total){
+				   var totalcount = total;
+				    console.log("the total number of alerts are: "+totalcount);
+				     for(var i=1;i<=totalcount;i++){
+						   browser.sleep(1000);					 
+							element(by.xpath('//button[@data-dismiss="alert"]')).click();
+					   }
+		     });
+			
+		},
+		
+		genRand : function(max) {
+			
+  	      return Math.floor(Math.random()*89999+10000);
+		 //return Math.floor(Math.random() * max);
+
+			
+		},	
+		
+		StopRoute : function(status,route){
+			 stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+route+']'));
+				if(status=="STARTED"){
+				     stopreturnsinvoiceroute.click();
+				 }
+				 else if(status=="STOPPED"){
+					 
+					 console.log("the Route is already stopped");
+				 }
+		 	},
+		 	
+		 startingReturnInvoiceRoute : function(status,line) {
+			    var stopreturnsinvoiceroute = element(by.xpath('(//en-icon[@icon="media-stop"])['+line+']'));
+		    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
+		    	if(status=="STARTED"){
+		    		console.log("the Route is already started");
+				     stopreturnsinvoiceroute.click();
+				     browser.sleep(1500);
+				     temp.click();
+
+				 }
+				 else if(status=="STOPPED"){
+			    	 temp.click();
+			    	 console.log("Starting the route");
+				 }
+		 },
+
+		 startJob : function(line) {
+		    	temp =  element(by.xpath('(//button/en-icon[@icon="media-play" and @class="text-secondary ng-scope text-accent"])['+line+']'));
+		    	
+			    	 temp.click();
+			    
+		 },
+		 closeIcon : function(line) {
+		    	element(by.xpath('//en-icon[@icon="x-circle"]')).isPresent().then(function(result) {
+				    if ( result ) {
+				    	temp=element(by.xpath('(//en-icon[@icon="x-circle"])['+line+']'));
+						 temp.click();
+				    } else {
+						 console.log("No close button found")
+				    }
+				});
+		 },
+		 ScriptUpdate : function(status) {
+			 if(status=="No"){
+				element(by.xpath('(//div/div[@class="en-collection-row"])[1]')).click();
+				element(by.xpath('//input[@ng-model="script.data.active"]')).click();
+				element(by.xpath("(//button/span[contains(text(),'Save')])[1]")).click();
+				browser.sleep(1500);
+				element(by.xpath("(//button/span[contains(text(),'Cancel')])[1]")).click();
+				console.log("the Script updated successfully");
+				
+			 }	
+			 else{
+					console.log("the Script is already active");				 
+			 }
+			 
+		 },
+		 ScriptCancelButton : function(status) {
+			 if(status=="Yes"){
+				element(by.xpath('(//div/div[@class="en-collection-row"])[1]')).click();
+				browser.sleep(4500);
+				element(by.xpath('//input[@ng-model="script.data.active"]')).click();
+				browser.sleep(4500);
+				element(by.xpath("(//button/span[contains(text(),'Save')])[1]")).click();
+				browser.sleep(1500);
+				element(by.xpath("(//button/span[contains(text(),'Cancel')])[1]")).click();
+				console.log("the Script updated successfully");
+			 }	
+			 else{
+					console.log("the Script is already disabled");				 
+			 }
+			 
+		 },
+		 
+		 
+		 pencilButtonEdit : function(line) {
+				element(by.xpath('(//en-icon[@icon="edit"])['+line+']')).click();	 
+		 },
+		 
+		currentURL : function(){
+			
+			return browser.getCurrentUrl();
+		},
+		convertDate : function(date,format){
+			
+			var dates=date.split("/");	//date format received will be MM/DD/YYYY	
+			var finaldate="";
+			
+			switch(format){
+			
+			 case "dd/mm/yyyy":
+				 finaldate=dates[1]+"/"+dates[0]+"/"+dates[2];
+				 break;
+			 case "yyyy-mm-dd":
+				 finaldate=dates[2]+"-"+dates[0]+"-"+dates[1];
+				 break;
+			 case "MMM/dd/YYYY": //input will be Oct 22 2021 and output date will be in month/Day/Year
+				 var d = new Date(date),
+			        month = '' + (d.getMonth() + 1),
+			        day = '' + d.getDate(),
+			        year = d.getFullYear();
+			    if (month.length < 2) 
+			        month = '0' + month;
+			    if (day.length < 2) 
+			        day = '0' + day;
+			    return [month, day, year].join('/');
+			    break;
+			 case "YYYY-MM-DD": //input will be Oct 22 2021 and output date will be in Year-month-Day
+				 var d = new Date(date),
+			        month = '' + (d.getMonth() + 1),
+			        day = '' + d.getDate(),
+			        year = d.getFullYear();
+			    if (month.length < 2) 
+			        month = '0' + month;
+			    if (day.length < 2) 
+			        day = '0' + day;
+			    return [year, month, day].join('-');	 
+			    break;
+			 case "MM/DD/YYYY": //input will be 03/24/2021 and output date will be in 2021-03-24
+				 
+				finaldate= dates[2]+"-"+dates[0]+"-"+dates[1];
+			    return finaldate;
+			    break;
+			 default:
+				 finaldate=date;
+			
+			}
+			return finaldate;
+			
+		},
+		convertTime : function(time,format){
+			
+			
+			var finaltime="";
+			
+			switch(format){
+			
+			 case "HHMMZO":
+				 var hour=data.substring(0,2);
+				 var minute = data.substring(4,6);
+				 var zone = data.substring(7);
+				 return hour+minute+zone;
+				 break;
+			 case "24hrs":
+				 
+				 var hour = parseInt(time.substring(0,2));
+				 var minute = time.substring(4,6).trim();
+				 var zone = time.substring(7);
+				 if(zone=="PM" && hour!=12){
+					 
+					 hour=hour+12;
+					 finaltime=hour+":"+minute;
+					 return finaltime;
+				 }
+				 else {
+					 
+					 finaltime= hour+":"+minute;
+					 return finaltime;
+					 
+				 }
+				 
+			 default:
+				 finaltime=time;
+			
+			}
+			return finaltime;
+			
+		},
+		
+		ScriptUpdateWithVersion : function(status) {
+			 if(status=="No"){
+				element(by.xpath('(//div/div[@class="en-collection-row"])[1]')).click();
+				browser.sleep(4500);
+				element(by.model("script.data.scriptVersion")).sendKeys(browser.params.scriptVersion);
+				element(by.xpath('//input[@ng-model="script.data.active"]')).click();
+				browser.sleep(4500);
+				element(by.xpath("(//button/span[contains(text(),'Save')])[1]")).click();
+				browser.sleep(1500);
+				element(by.xpath("(//button/span[contains(text(),'Cancel')])[1]")).click();
+				console.log("the Script updated successfully");
+				
+			 }	
+			 else{
+					console.log("the Script is already active");				 
+			 }
+			 
+		 },
+		 currentDay: function()
+		{
+			var today = new Date();
+			var day = String(today.getDate()).padStart(2, '0');
+			console.log("the current DoM is "+day);
+			return day
+		},
+		currentMonthAndYear : function()
+		{
+			var today = new Date();
+			var dd = String(today.getDate()).padStart(2, '0');
+			var mm = String(today.getMonth() + 1).padStart(2, '0'); 
+			var yyyy = today.getFullYear();
+			return today = mm + '/' + dd + '/' + yyyy;		
+			return today
+		},
+		 
+		foundFile: function(folderpath){ //checking the existance of a file in a directory
+			
+			const fs = require('fs')
+	    	const files = fs.readdirSync(folderpath)
+	    	var path="";
+	    	for (let file of files) {
+	    		path=folderpath+"//"+file;
+	    		if(fs.existsSync(path)){
+	    			console.log("the file name is "+file)	    		
+	    			return true
+	    			continue
+	    		}
+	    		else
+	    		{
+	    			console.log("file not found!!download fail!!")
+	    			return false;
+	    			continue
+	    			
+	    		}
+	    	}
+			
+		},
+		currentTime: function(type){
+			var Time ="";
+			var d = new Date();
+			var hour = d.getHours(); 
+			var minute = d.getMinutes(); 
+			var second = d.getSeconds();
+			switch(type){
+			
+			case "HM":
+				
+				Time = hour+":"+minute
+				return Time;
+			
+			default:
+				return time;
+			}
+		},
+		
+		convertFile: function(){
+
+			
+		},
+		
+		convertColor: function(r, g, b){
+		
+			  return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+		
+		},
+		
+		
 	
 	getText : function()
 	{

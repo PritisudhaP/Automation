@@ -219,8 +219,7 @@ describe("Batch Pick: ", function() {
 	            });	            
 	            batchCreate.close();
 	        	});
-	        
-	       
+	        	       
 	        browser.wait(function () {
 	            return BatchId != '';
 	        }).then(function () {

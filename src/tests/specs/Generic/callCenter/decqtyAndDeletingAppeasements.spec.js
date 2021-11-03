@@ -1,7 +1,7 @@
-var callCenterScreen = require(process.cwd() + '/screens/callCenter/callCenter.Screen.js');
-var salesOrderCreateScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.create.screen.js');
-var salesOrderSummaryScreen = require(process.cwd() + '/screens/salesOrder/salesOrder.summary.screen.js');
-var common = require(process.cwd() + '/screens/commons.js');
+var callCenterScreen = require(process.cwd() + '/src/tests/screens/callCenter/callCenter.Screen.js');
+var salesOrderCreateScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.create.screen.js');
+var salesOrderSummaryScreen = require(process.cwd() + '/src/tests/screens/salesOrder/salesOrder.summary.screen.js');
+var common = require(process.cwd() + '/src/tests/screens/commons.js');
 
 global.orderStatus = "";
 global.SONumber = "";
@@ -34,59 +34,47 @@ describe('Call Center Flow', function () {
 
         browser.get(callCenterInventoryUrl);
         browser.driver.manage().window().maximize();
-        browser.sleep(2000);
         commons.searchWithCriteria('SKU', 'contains', browser.params.searchValueSKU1);
         callCenter.selectSKUFromSearch();
-        browser.sleep(2000);
         commons.search();
-        browser.sleep(2000);
         callCenter.selectSKUFromResults();
-        browser.sleep(1000);
         callCenter.skuLinkAtInventory();
-        browser.sleep(2000);
         callCenter.addToOrder();
-        browser.sleep(3000);
         callCenter.attachCustomer();
-        browser.sleep(2000);
         callCenter.searchCustomer(browser.params.customerCriteria, browser.params.customerSearchValue);
-        browser.sleep(3000);
         salesOrderCreate.selectCustomer();
-        browser.sleep(2000);
         salesOrderCreate.useSelectedCustomer();
-        browser.sleep(3000);
-        callCenter.editLineGear("1");
-        browser.sleep(1000);
+        callCenter.editLineGear("3");
         callCenter.lineItemselectOptions("Edit Line");
-        browser.sleep(1000);
         callCenter.editSKUQuantity("2");
-        browser.sleep(2000);
         callCenter.editLinePopUpSaveBtn();
         browser.sleep(2000);
-        callCenter.editLineGear("1");
-        browser.sleep(1000);
+        callCenter.decrementQty();
+        callCenter.editLineGear("3");
         callCenter.lineItemselectOptions("Change Price");
-        browser.sleep(2000);
         callCenter.changingUnitPrice("25.99");
+        callCenter.editLineGear("3");
+        callCenter.lineItemselectOptions("Edit Line");
+        callCenter.discountButtonEditLine();
+        callCenter.applyDiscount("Percentage", "7", "EmployeeDiscount", "desc1","notes1");
+        callCenter.applyButton();
+        callCenter.editLinePopUpSaveBtn();
+        browser.sleep(3000);
         //!***************<<<< Below line is to SAVE the sales order >>>>>>********************
 
         salesOrderCreate.saveOption("Save");
-
         salesOrderCreate.salesOrderNumber().then(function (value) {
             SONumber = value;
             console.log(SONumber);
         });
-
-        browser.sleep(2000);
-        callCenter.decrementQty();
-        browser.sleep(500);
-        callCenter.editLine();
-        browser.sleep(2000);
-        callCenter.applyDiscount("Percentage", "7", "EmployeeDiscount", "desc1","notes1");
-        browser.sleep(1000);
-        callCenter.applyButton();
-        browser.sleep(2000);
-        callCenter.editLinePopUpSaveBtn();
-        browser.sleep(7000);
+        salesOrderSummary.OrderStatusDetails(1).then(function (value) {
+			savedStatus = value;
+		    console.log("the orderstatus is "+savedStatus);	
+		    salesOrderSummary.SavedOrderStatusForPayment(savedStatus);
+		});		        
+        callCenter.editLineGear("1");
+        callCenter.lineItemselectOptions("Release");
+        salesOrderSummary.orderRelease("Release",2);   
 
         //!***************<<<< Below lines : to RELEASE the sales order >>>>>>********************
         browser.wait(function () {
@@ -95,81 +83,52 @@ describe('Call Center Flow', function () {
             browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
-            browser.sleep(3000);
-
-            salesOrderSummary.salesOrderSelectGear("Release");
-            browser.sleep(3000);
-            expect(salesOrderSummary.salesOrderStatus()).toEqual('RELEASED');
-
             //!*******!!@@@@@@@@@@@@@@
             salesOrderSummary.salesOrderStatus().then(function (status) {
                 orderStatus = status;
                 console.log(orderStatus);
-
-            });
-            browser.get(callCenterSalesOrdersListUrl);
-            salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
-            //commons.multiselect();
-            browser.sleep(3000);
+            });            
             callCenter.callCenterSalesOrderSelectGear("View");
-            browser.sleep(2000);
             callCenter.allocatedLineCount().then(function(allocatedCount){
                 allocatedLineCount = allocatedCount;
                 console.log(allocatedLineCount);
                 expect(allocatedLineCount).toBe("Allocated:1");
             });
-
-
             //!*********fulfillment request**********!//
             browser.get(fulfillmentRequestsUrl);
-            browser.sleep(2000);
             callCenter.OrderNumberSearch("Original Order #", SONumber);
-            browser.sleep(3000);
             callCenter.fulfillmentOrderSelectGear("Create Shipment");
             browser.sleep(3000);
+            callCenter.shipAccountselect(browser.params.shipaccount);
             callCenter.packageSelection(browser.params.packageValue);
-            browser.sleep("500");
             callCenter.enterItemQty("1");
-            callCenter.unselectPkg();
-            browser.sleep(1000);
+            callCenter.unselectPkg();//updated by vishak
+            callCenter.packageTrackingNumber("1236547890")
             callCenter.addPackageToShipment();
-            browser.sleep(2000);
             callCenter.finalizeShipment();
             browser.sleep(3000);
-            callCenter.ViewNotesClose();
+            //callCenter.ViewNotesClose();//updated by vishak, not printing the shipping labels. 
             browser.get(callCenterSalesOrdersListUrl);
             salesOrderSummary.salesOrderSearch("Original Order #", SONumber);
             //commons.multiselect();
-            browser.sleep(3000);
             callCenter.callCenterSalesOrderSelectGear("View");
             callCenter.shippedLineCount().then(function(shippedCount){
                 shippedLineCount = shippedCount;
                 console.log(shippedLineCount);
                 expect(shippedLineCount).toBe("Shipped:1");
             });
-            browser.sleep(5000);
-            callCenter.editLineGear("1");
-            browser.sleep(1000);
+           // browser.sleep(5000);
+           // callCenter.editLineGear("1");
             callCenter.lineLevelAppeasement();
-            browser.sleep(2000);
             callCenter.applyAppeasement("Percentage", "5", "EmployeeAppeasement", "desc1","notes1");
-            browser.sleep(1000);
             callCenter.applyButton();
-            browser.sleep(2000);
             callCenter.orderLevelAppeasement();
-            browser.sleep(1000);
             callCenter.applyAppeasement("Amount", "6","EmployeeAppeasement","desc1","notes1");
-            browser.sleep(1000);
             callCenter.applyButton();
-            browser.sleep(2000);
             callCenter.appeasementsHeader();
-            browser.sleep(2000);
             callCenter.appeasementOptions("Delete");
-            browser.sleep(2000);
             callCenter.delete();
-            browser.sleep(5000);
             callCenter.appeasementOptions("Delete");
-            browser.sleep(2000);
             callCenter.delete();
         })
 
