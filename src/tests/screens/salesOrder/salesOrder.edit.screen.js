@@ -42,6 +42,27 @@ module.exports =function(){
     this.salesOrderCustomerNumberText = element(by.xpath('//a[contains(@en-tap, "customer: salesOrder.data.customer")]'));
     this.resaveButton = element(by.xpath('//en-icon[@icon="check-circle"]/parent::button'));
 
+// Added by Shyam
+
+    var unitPrice = element(by.model('item.itemUnitPrice'));
+    var savePrice = element(by.xpath('//span[text()="Save"]'));
+
+    var itemQty = element(by.model('product.item.itemQty'));
+
+    var payButton = element(by.xpath('//span[text()="Pay"]'));
+    var paymentMethod = element(by.model('payment.method'));
+    var cardNbr = element(by.model('payment.cardNumber'));
+    var cvv = element(by.model('payment.cvv'));
+    var nameOnCard = element(by.model('payment.nameOnCard'));
+    var expiryMonth = element(by.model('payment.expMonth'));
+    var expiryYr = element(by.model('payment.expYear'));
+    var submitButton = element(by.xpath('//span[text()="Submit"]'));
+    var cancelQty = element(by.xpath('//input[@name="cancelledQty"]'));
+    var cancelReasoncode = element(by.xpath('//select[@name="reasonCode"]'));
+    var confirm = element(by.xpath('//span[text()="Confirm"]'));
+
+    //
+	
     this.salesOrderEditReferences = function() {
         return this.salesOrderReferencesEditButton.click();
     }
@@ -142,6 +163,46 @@ module.exports =function(){
     	this.resaveButton.click();
     }
 
+
+     // Added by Shyam R
+     this.ClickonEditoption = function(value){
+        temp = "//span[text()='" +value+ "']";
+        element(by.xpath(temp)).click();
+    }
+
+    this.selectfromEditOption = function(value){
+        element(by.cssContainingText('option', value)).click();
+    }
+
+    this.AdjustPriceForSku = function(price){
+        unitPrice.clear();
+        unitPrice.sendKeys(price);
+        savePrice.click();
+    }
+
+    this.ItemQtyForSku = function(qty){
+        itemQty.clear();
+        itemQty.sendKeys(qty);
+    }
+
+    this.cancelLineQty = function(qty,reason){
+        cancelQty.clear();
+        cancelQty.sendKeys(qty);
+        cancelReasoncode.sendKeys(reason);
+        confirm.click();
+    } 
+
+    this.makePayment = function(method,cardNumber,CVV,name,month,year){
+        payButton.click();
+        paymentMethod.sendKeys(method);
+        cardNbr.sendKeys(cardNumber);
+        cvv.sendKeys(CVV);
+        nameOnCard.sendKeys(name);
+        expiryMonth.sendKeys(month);
+        expiryYr.sendKeys(year);
+        submitButton.click();
+     }
+    //
 
 }
 
