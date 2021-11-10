@@ -147,6 +147,13 @@ module.exports =function(){
     this.createbtn = element(by.xpath('//en-icon[@icon="doc-edit"]'));
     this.atsColumn = element(by.xpath('(//div[text()="ATS"])[1]'));
     this.searchOrder = element(by.model('apiSearchText.value'));
+	this.arrowUp = element(by.xpath('//en-icon[@icon="arrow-up"]'));
+
+     var productFilterbtn = element(by.xpath('//span[text()="Filters"]'));
+     var productCriteria = element(by.xpath('//select[@ng-model="apiSearchFilter.filter"]'));
+     var productContent = element(by.xpath('//select[@ng-model="apiSearchFilter.arg"]'));
+     var productValue = element(by.xpath('//input[@ng-model="apiSearchFilter.value"]'));
+     var clearAllFilter = element(by.xpath('//span[text()="Clear All"]'));
        
    //added By Vishak
     this.salesOrderUnitPrice = element(by.xpath("//small[contains(text(),'Unit Price')]/following-sibling::small"));
@@ -1063,5 +1070,76 @@ module.exports =function(){
     	temp = '(//en-icon[@icon="edit"])['+line+']';
     	return element(by.xpath(temp)).click();
     }
+	
+	// Added by Shyam R
+	this.findProductFilter = function (criteria,content,value){
+        this.callcenterfindProductTextBox.clear();
+        productFilterbtn.click();
+        productCriteria.sendKeys(criteria);
+        productContent.sendKeys(content);
+        productValue.sendKeys(value,protractor.Key.ENTER);
+        browser.sleep(5000)
+     }
+
+     this.clickonCreatebtn = function(){
+         return this.createbtn.click();
+     }
+
+     this.clickonAdvancesettings = function(){
+         return this.advanceSettings.click();
+     }
+
+     this.customerSearch = function(value){
+        return this.customerSearchTextbox.sendKeys(value);
+
+     }
+
+     this.ClickonSKUcheckbox = function(){
+        this.selectItemCheckbox.click();
+        clearAllFilter.click() // added by shyam R
+
+     }
+
+     this.clickonShipfullOrder = function(){
+        this.shipFullOrderEdit.click();
+        this.shipfullOrderCheckbox.click();
+        this.chk.click();
+     }
+        
+     this.clickonCreateCustomer = function(){
+      return this.createCustomer.click();
+     }
+
+     this.clickonaddAddressplus = function(){
+         return this.addaddressIcon.click();
+     }
+
+     this.verifyATScolumn = function(){
+         this.atsColumn.isPresent().then(function(value){
+             console.log("ATS column:",value);
+            })
+     }
+
+     this.orderSearch = function(value){
+        this.searchOrder.sendKeys(value);
+     }
+
+     this.increaseQty = function(){
+        this.arrowUp.click();
+     }
+     
+     this.qtyIncrease = function(index,qty){
+
+        temp = "(//en-icon[@icon='arrow-up'])["+index+"]";
+
+        for(var i=1;i<qty;i++){
+           // console.log("index qty",temp);
+            element(by.xpath(temp)).click();
+            browser.sleep(1000);
+        }
+            
+    }
+	
+	
 }
 
