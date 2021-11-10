@@ -1,0 +1,40 @@
+{
+    "TD":{
+        "Customer":"0166",
+        "SalesChannel":"SR",
+        "tie":"10",
+        "Rule":"cyberSourcePayment",
+        "SKU1":"",
+        "SKU2":"WPHSKU2",
+        "SKU3":"37932SKU",
+        "SKU1Price":"12.6",
+        "SKU2Price":"10.6",
+        "FulfillmentType[1]":"Ship To Customer",
+        "FulfillmentType[2]":"Pick Up At Store",
+        "pool[1]":"joliet-dc",
+        "pool[2]":"sandiego-dc"
+    },
+    "PaymentEntry":{
+        "SKU1":"PESKU01",
+        "SKU2":"PESKU02",
+        "CaptureSKU1":"Captured: $12.60", 
+        "CaptureSKU2":"Captured: $10.00",
+        "CaptureMultiQtySKU1":"Captured: $25.20",
+        "CaptureMultiQty":"Captured: $45.20",
+        "Capture":"Captured: $22.60"
+    },
+    "FullAuth":{
+        "SKU1":"FASKU01",
+        "SKU2":"FASKU02",
+        "Auth":"Authorized: $50.00"
+    },
+    "FullCapture":{
+        "Amount":"Captured: $50.00" 
+    },
+    "PartialCapture":{
+        "SKU1":"RMASKU02",
+        "SKU2":"BC_TESTQA001",
+        "Amount1":"Captured: $12.60",
+        "Amount2":"Captured: $23.20"
+    }
+}
