@@ -87,6 +87,15 @@ module.exports =function(){
     this.cancelbtn = element(by.xpath('//span[text()="Cancel"]'));
     this.ShipmentTab = element(by.xpath('//en-tab[text()="Shipping Requests"]'));
     this.clickonFR = element(by.xpath('//section/div/a'));
+	
+	// Payment Related locaters Added by Shyam
+    var paymentTab = element(by.xpath("//en-tab[text()='Payments']"));
+    var captureAmt = element(by.xpath("//en-title//span[contains(text(),'Captured: $')]"));
+    var authorizedAmt = element(by.xpath("//en-title//span[contains(text(),'Authorized: $')]"));
+    var reservationTab = element(by.xpath("//en-tab[text()='Reservations']"));
+	
+	
+	
 //Added By Vishak
     
     this.canclQTYBox = element(by.model("$parent.cancelledQty"));
@@ -788,5 +797,36 @@ this.cancelAllLines= function(){
 		return temp.getText();
 		
 	}
+	
+	
+	// Added by Shyam R
+
+      this.validateAuthorizedAmount = function(ExpectedAmount){
+        paymentTab.click();
+        authorizedAmt.getText().then(actualAmount =>{
+        console.info("Acutal Amount",actualAmount);
+        console.info("Expected Amount",ExpectedAmount);
+        expect(actualAmount).toEqual(ExpectedAmount)    
+        })
+    }
+
+    this.validatePaymentEntry = function(ExpectedCapture){
+        paymentTab.click();
+        captureAmt.getText().then(actualAmount =>{
+        console.info("Acutal Amount",actualAmount);
+        console.info("Expected Amount",ExpectedCapture);
+        expect(actualAmount).toEqual(ExpectedCapture)
+        })
+    }
+
+    this.validateMultiPaymentEntry = function(ExpectedCapture,index){
+        paymentTab.click();
+        temp =  element(by.xpath("(//en-title//span[contains(text(),'Captured: $')])["+index+"]"));
+        temp.getText().then(actualAmount =>{
+            console.info("Acutal Amount",actualAmount);
+            console.info("Expected Amount",ExpectedCapture);
+            expect(actualAmount).toEqual(ExpectedCapture)
+            })
+    }
 	
 }
