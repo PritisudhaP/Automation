@@ -26,7 +26,11 @@
     "FullAuth":{
         "SKU1":"FASKU01",
         "SKU2":"FASKU02",
-        "Auth":"Authorized: $50.00"
+		"AuthSKU1":"Authorized: $30.00",
+        "AuthSKU2":"Authorized: $20.00",																
+        "Auth":"Authorized: $50.00",
+		"AuthMultiQtySKU1":"Authorized: $60.00",
+        "AuthMultiQty":"Authorized: $100.00"											
     },
     "FullCapture":{
         "Amount":"Captured: $50.00" 
@@ -35,6 +39,11 @@
         "SKU1":"RMASKU02",
         "SKU2":"BC_TESTQA001",
         "Amount1":"Captured: $12.60",
-        "Amount2":"Captured: $23.20"
+        "Amount2":"Captured: $23.20"												 
+    },
+	"Reversal":{
+        "SKU1":"FASKU01",
+        "SKU2":"FASKU02",
+        "AuthAftercompleteCancel":"Authorized: $0.00"
     }
 }
