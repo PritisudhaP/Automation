@@ -106,6 +106,7 @@ specs:['./specs/SCL/login.spec.js','./specs/SCL/API/AurusAPI/tokenGeneration.js'
   // CyberSource - Added By shyam R //
         //specs:['./specs/SCL/login.spec.js','./specs/Payments/CyberSource/CaptureAtPaymentEntry.spec.js'],
         //specs:['./specs/SCL/login.spec.js','./specs/Payments/CyberSource/Reversal.spec.js'],
+		//specs:['./specs/SCL/login.spec.js','./specs/Payments/CyberSource/Auth.spec.js'],
   
   
   
