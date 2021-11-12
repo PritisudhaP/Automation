@@ -829,4 +829,30 @@ this.cancelAllLines= function(){
             })
     }
 	
+	this.validateMultiAuthEntry = function(ExpectedCapture,index){
+        paymentTab.click();
+        temp =  element(by.xpath("(//en-title//span[contains(text(),'Authorized: $')])["+index+"]"));
+        temp.getText().then(actualAmount =>{
+            console.info("Acutal Amount",actualAmount);
+            console.info("Expected Amount",ExpectedCapture);
+            expect(actualAmount).toEqual(ExpectedCapture)
+            })
+    }
+
+    this.clickOnconfirmRelease = function(){
+        this.confirmRelease.click()
+    }
+
+
+    this.clickOnAction = function(action){
+         this.EditGear()
+         temp = "//span[(text()='"+action+"')]"
+         element(by.xpath(temp)).click();
+    }
+
+    this.confirmAction = function(action){
+        temp = "//span[(text()='"+action+"')]"
+        element(by.xpath(temp)).click();
+    }
+	
 }
