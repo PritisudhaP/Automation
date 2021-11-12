@@ -102,6 +102,13 @@ specs:['./specs/SCL/login.spec.js','./specs/SCL/API/AurusAPI/tokenGeneration.js'
 	'./specs/SCL/API/AurusAPI/CancelOrder/cancelOrder.js','./specs/SCL/API/AurusAPI/General/orderPaymentlog.js'],
  
   */ 
+  
+  // CyberSource - Added By shyam R //
+        //specs:['./specs/SCL/login.spec.js','./specs/Payments/CyberSource/CaptureAtPaymentEntry.spec.js'],
+        //specs:['./specs/SCL/login.spec.js','./specs/Payments/CyberSource/Reversal.spec.js'],
+  
+  
+  
   baseUrl: 'https://project0-qa.enspirecommerce.com/oms/dist/#/',
 
     //getPageTimeout: 1280000,
